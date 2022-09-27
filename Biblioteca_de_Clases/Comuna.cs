@@ -4,20 +4,27 @@ namespace Biblioteca_clases
 {
     public class Comuna
     {
-        public String cod_comuna { get; set; } 
-        public String nombre { get; set; }
-        public String region { get; set; }
+        #region PROPIEDADES 
+        public String Cod_comuna { get; set; } 
+        public String Nombre { get; set; }
+        public String Region { get; set; }
+        #endregion
 
-        public Comuna()
+        #region CONSTRUCTOR
+        public Comuna() //Inicializar el constructor
         {
-            this.Init();
+            this.Init(); 
         }
+         
+        private void Init() //Constructor
+        {
+            Cod_comuna = String.Empty;
+            Nombre = String.Empty;
+            Region = String.Empty;
+        }
+        #endregion
 
-        private void Init()
-        {
-            cod_comuna = String.Empty;
-            nombre = String.Empty;
-            region = String.Empty;
-        }
+        #region Metodos
+        #endregion
     }
 }

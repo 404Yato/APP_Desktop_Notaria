@@ -4,18 +4,25 @@ namespace Biblioteca_clases
 {
     public class Region
     {
-        public String cod_region { get; set; }  
-        public String nombre { get; set; }
+        #region PROPIEDADES
+        public String Cod_region { get; set; }  
+        public String Nombre { get; set; }
+        #endregion
 
-        public Region()
+        #region CONSTRUCTOR
+        public Region() //Inicializar el constructor
         {
             this.Init();
         }
 
-        private void Init()
+        private void Init() //Constructor
         {
-            cod_region = String.Empty;
-            nombre = String.Empty;
+            Cod_region = String.Empty;
+            Nombre = String.Empty;
         }
+        #endregion
+
+        #region Metodos
+        #endregion
     }
 }

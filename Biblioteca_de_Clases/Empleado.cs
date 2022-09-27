@@ -1,7 +1,12 @@
 ﻿using System;
-namespace Biblioteca_clases
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Biblioteca_de_Clases
 {
-    public class Usuario
+    public class Empleado
     {
         #region PROPIEDADES
         public String Rut { get; set; }
@@ -9,13 +14,14 @@ namespace Biblioteca_clases
         public String Apellido_paterno { get; set; }
         public String Apellido_materno { get; set; }
         public int Fono { get; set; }
-        public String Contrasena {get; set; }
+        public String Direccion { get; set; }
+        public String Cod_comuna { get; set; }
+        public String Cod_perfil { get; set; }
         public String Email { get; set; }
-        public String Comuna {get; set; }
         #endregion
 
         #region CONSTRUCTOR
-        public Usuario() //Inicializar el constructor
+        public Empleado() //Inicializar el constructor
         {
             this.Init();
         }
@@ -27,16 +33,14 @@ namespace Biblioteca_clases
             Apellido_paterno = String.Empty;
             Apellido_materno = String.Empty;
             Fono = 0;
-            Contrasena = String.Empty;
+            Direccion = String.Empty;
+            Cod_comuna = String.Empty;
+            Cod_perfil = String.Empty;
             Email = String.Empty;
-            Comuna = String.Empty;
         }
         #endregion
 
         #region Metodos
         #endregion
     }
-
-
 }
-
