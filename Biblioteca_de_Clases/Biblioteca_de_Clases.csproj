@@ -45,13 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comuna.cs" />
->>>>>>> HEAD
-=======
     <Compile Include="Doc_Emitido.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Notaria.cs" />
     <Compile Include="Perfil.cs" />
->>>>>>> Cristian
     <Compile Include="Region.cs" />
     <Compile Include="Reserva.cs" />
     <Compile Include="Tipo_tramite.cs" />
