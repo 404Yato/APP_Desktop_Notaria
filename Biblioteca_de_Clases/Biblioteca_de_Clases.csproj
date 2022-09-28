@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comuna.cs" />
-<<<<<<< HEAD
+>>>>>>> HEAD
 =======
     <Compile Include="Doc_Emitido.cs" />
     <Compile Include="Empleado.cs" />
