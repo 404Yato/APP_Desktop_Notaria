@@ -31,12 +31,12 @@ namespace Notaria_WPF
             int output;
             return int.TryParse(Text, out output);
         }
-        private void txtRut_TextChanged(object sender, TextChangedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (IsNumber(e.Text) == false)
-            {
-                e.Handled = true;
-            }
+            Administracion admin = new Administracion();         
+            admin.Show();
+            Close();
 
         }
     }

@@ -63,9 +63,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Administracion.xaml.cs">
+      <DependentUpon>Administracion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistroUsuario.xaml.cs">
       <DependentUpon>RegistroUsuario.xaml</DependentUpon>
     </Compile>
+    <Page Include="Administracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,6 +125,24 @@
       <Project>{e3387781-8667-4ad9-becf-8c5f9b331754}</Project>
       <Name>Biblioteca_de_Clases</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

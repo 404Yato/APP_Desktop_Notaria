@@ -50,7 +50,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="Rut:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" FontWeight="Bold" Width="35" Grid.Row="1" Grid.Column="1"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ej: 12345678" Margin="0,0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="140" MaxLength="8" Grid.Row="2" Grid.Column="1" PreviewTextInput="SoloNumeros" TextChanged="txtRut_TextChanged" />
         <TextBox x:Name="txtdig" HorizontalAlignment="Left" Margin="0,0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="32" MaxLength="1" TextAlignment="Center" Grid.Row="2" Grid.Column="2" CharacterCasing="Upper"/>
         <Controls:Tile x:Name="BtmBuscar" Margin="43,22,17,22" Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#CCAA00FF"  TitleFontSize="20"  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3">
             <Image Source="Imagenes/help.png" Height="22" Width="40"/>
@@ -94,5 +93,6 @@
         </Controls:Tile>
 
         <Label Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="147,0,0,0" Grid.Row="2" VerticalAlignment="Stretch" FontWeight="Bold"/>
+        <Button Grid.Column="8" Content="Button" HorizontalAlignment="Left" Grid.Row="17" VerticalAlignment="Center" Click="Button_Click"/>
     </Grid>
 </Controls:MetroWindow>

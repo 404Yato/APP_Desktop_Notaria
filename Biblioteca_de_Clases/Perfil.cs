@@ -14,9 +14,11 @@ namespace Biblioteca_de_Clases
         #endregion
 
         #region CONSTRUCTOR
+
         public Perfil() //Inicializar constructor
         {
             this.Init();
+
         }
 
         private void Init() //Constructor
