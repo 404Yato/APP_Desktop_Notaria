@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.TextFormatting;
 using System.Windows.Shapes;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Notaria_WPF
 {
@@ -24,27 +27,23 @@ namespace Notaria_WPF
         public Administracion()
         {
             InitializeComponent();
-            BD();
-         
+ 
         }
+        //Conexion a base de datos      
         
-        
-        private void BD() {
+        //cargar data grid con datos de perfil
+        /*
+        void CargarDatos_Perfil() {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("listar_perfil", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dg_rols.ItemsSource = dt.DefaultView;
+            con.Close();
+        } */
 
-            var lista_perfiles = new List<Perfil>();
-
-            var perf = new Perfil() { Cod_perfil = "PF_01", Rol = "Notario" };
-            var perf2 = new Perfil() { Cod_perfil = "PF_02", Rol = "Administrador" };
-            var perf3 = new Perfil() { Cod_perfil = "PF_03", Rol = "Recepcionista" };
-
-            //Agregar 
-            lista_perfiles.Add(perf);
-            lista_perfiles.Add(perf2);
-            lista_perfiles.Add(perf3);
-
-            //Asignar los elementos a la tabla
-            dg_rols.ItemsSource = lista_perfiles;
-        }
+        //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conexionBD"].ConnectionString);
 
         //Mostrar Todo de Perfil
         private void MostrarPerfil() {
@@ -59,6 +58,7 @@ namespace Notaria_WPF
             lb_titulo2.Visibility = Visibility.Visible;
             lb_titulo_perfil.Visibility = Visibility.Visible;
         }
+
 
         //Ocultar Todo de Perfil
         private void SacarPerfil() {
@@ -93,16 +93,31 @@ namespace Notaria_WPF
         private void MostrarEmpleados() { 
             btn_list_empleados.Visibility = Visibility.Visible;
             btn_agregar_empleados.Visibility = Visibility.Visible;
+            lb_titulo_personal.Visibility = Visibility.Visible;
+            img_agregar_empleado.Visibility = Visibility.Visible;
+            img_list_empleado.Visibility = Visibility.Visible;
+            rec_empleados.Visibility=Visibility.Visible;
+            rec_empleados2.Visibility=Visibility.Visible;
+
         }
         private void SacarEmpleados() {
             btn_list_empleados.Visibility = Visibility.Hidden;
             btn_agregar_empleados.Visibility = Visibility.Hidden;
+            lb_titulo_personal.Visibility = Visibility.Hidden;
+            img_agregar_empleado.Visibility = Visibility.Hidden;
+            img_list_empleado.Visibility = Visibility.Hidden;
+            rec_empleados.Visibility = Visibility.Hidden;
+            rec_empleados2.Visibility = Visibility.Hidden;
         }
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
             MostrarPerfil();
             SacarEmpleados();
-
+            /*
+            Perfil pf = new Perfil();
+            dg_rols.ItemsSource =  pf.CargarDatos_Perfil().DefaultView;
+            */
+            
         }
 
         private void Button_Click_Personal(object sender, RoutedEventArgs e)
@@ -120,18 +135,14 @@ namespace Notaria_WPF
         private void btn_agregarrol_Click(object sender, RoutedEventArgs e)
         {
             //lista de perfil
-            List<Perfil> List_Perfil = new List<Perfil>();
+            
             if (ValidarTextbox_Perfil())
             {
-                Perfil perfil = new Perfil
-                {
-                    Cod_perfil = tb_introid.Text,
-                    Rol = tb_asignarrol.Text
-                };
-                limpiar_campos_perfil();
-
-                List_Perfil.Add(perfil);
-                dg_rols.ItemsSource = List_Perfil;
+                /*
+                agregar_perfil();
+                Perfil pf = new Perfil();
+                dg_rols.ItemsSource = pf.CargarDatos_Perfil().DefaultView;*/
+                
             }
             else {
                 MessageBox.Show("Ups los campos estan vacíos", "Campos Vacíos",
@@ -139,9 +150,11 @@ namespace Notaria_WPF
             }
         }
 
+
         private void btn_eliminarrol_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
     }
 }

@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="Oracle.DataAccess, Version=2.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -66,9 +67,6 @@
     <Compile Include="Administracion.xaml.cs">
       <DependentUpon>Administracion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistroUsuario.xaml.cs">
-      <DependentUpon>RegistroUsuario.xaml</DependentUpon>
-    </Compile>
     <Page Include="Administracion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,10 +83,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegistroUsuario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -130,19 +124,16 @@
     <Resource Include="Img\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="perfil.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Img\perfil.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\logout.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logout.png" />
+    <Resource Include="Img\AgregarEmpleadoBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ListaEmpleadoBlanco.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

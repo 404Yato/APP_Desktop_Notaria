@@ -27,5 +27,12 @@ namespace Notaria_WPF
             InitializeComponent();
             
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Administracion admin = new Administracion();
+            admin.Show();
+            this.Close();
+        }
     }
 }
