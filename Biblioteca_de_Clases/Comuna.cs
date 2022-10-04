@@ -24,7 +24,7 @@ namespace Biblioteca_clases
         }
         #endregion
 
-        #region Metodos
+        #region METODOS
         #endregion
     }
 }
