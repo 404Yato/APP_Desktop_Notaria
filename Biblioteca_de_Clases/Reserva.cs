@@ -10,12 +10,12 @@ namespace Biblioteca_de_Clases
     public class Reserva
     {
         #region PROPIEDADES
-        public String Cod_reserva { get; set; }
-        public DateTime Fecha_hora { get; set; }
-        public String Motivo { get; set; }
-        public String Estado { get; set; }
-        public String Usuario_rut { get; set; }
-        public String Cod_tramite { get; set; }
+        public string cod_reserva { get; set; }
+        public System.DateTime fecha_hora { get; set; }
+        public string motivo { get; set; }
+        public string estado { get; set; }
+        public string usuario_rut { get; set; }
+        public string cod_tramite { get; set; }
         #endregion
 
         #region CONSTRUCTOR
@@ -26,12 +26,71 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            Cod_reserva = String.Empty;
-            Fecha_hora = DateTime.Now;
-            Motivo = String.Empty;
-            Estado = String.Empty;
-            Usuario_rut = String.Empty;
-            Cod_reserva = String.Empty;
+            cod_reserva = String.Empty;
+            fecha_hora = DateTime.Now;
+            motivo = String.Empty;
+            estado = String.Empty;
+            usuario_rut = String.Empty;
+            cod_reserva = String.Empty;
+        }
+        #endregion
+
+        #region METODOS
+        public List<Reserva> ReadAll()
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+
+            try
+            {
+                /* Se obtiene todos los registro desde la tabla */
+                List<Notaria.Datos.reserva> listadoDatos = bbdd.reserva.ToList<Notaria.Datos.reserva>();
+
+                /* Se convierte el listado de datos en un listado de negocio */
+                List<Reserva> listadoClientes = GenerarListado(listadoDatos);
+
+                /* Se retorna la lista */
+                return listadoClientes;
+            }
+            catch (Exception)
+            {
+                return new List<Reserva>();
+            }
+        }
+
+        private List<Reserva> GenerarListado(List<Notaria.Datos.reserva> listadoDatos)
+        {
+            List<Reserva> listaClient = new List<Reserva>();
+
+            foreach (Notaria.Datos.reserva dato in listadoDatos)
+            {
+
+                Reserva reservas = new Reserva();
+                CommonBC.Syncronize(dato, reservas);
+
+                listaClient.Add(reservas);
+            }
+
+            return listaClient;
+        }
+
+        public bool Read()
+        {
+            // Creo una instancia de conexión a Datos
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+
+            try
+            {
+                //Obtener el primer registro que coincida con el Rut usando LinQ
+                Notaria.Datos.reserva cliente = bbdd.reserva.First(e => e.usuario_rut == usuario_rut);
+                //Pasar los valores Datos(bd) a negocio 
+                CommonBC.Syncronize(cliente, this);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
         #endregion
     }
