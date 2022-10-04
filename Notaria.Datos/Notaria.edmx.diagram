@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="PortafolioModel.perfil" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.region" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.reserva" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortafolioModel.sysdiagrams" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.template_documento" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.tipo_tramite" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.usuario" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
