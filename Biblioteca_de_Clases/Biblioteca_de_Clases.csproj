@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comuna.cs" />
-    <Compile Include="ConexionBD.cs" />
     <Compile Include="Doc_Emitido.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Model\comuna.cs">
