@@ -12,8 +12,8 @@ namespace Biblioteca_de_Clases
     public class Perfil
     {
         #region PROPIEDADES
-        public String Cod_perfil { get; set; }
-        public String Rol { get; set; }
+        public string cod_perfil { get; set; }
+        public string rol { get; set; }
         #endregion
 
         #region CONSTRUCTOR
@@ -26,8 +26,8 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            Cod_perfil = String.Empty;
-            Rol = String.Empty;
+            cod_perfil = string.Empty;
+            rol = string.Empty;
         }
         #endregion
 

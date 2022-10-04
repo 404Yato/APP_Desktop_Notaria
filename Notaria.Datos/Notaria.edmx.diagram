@@ -4,34 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="39adb2cd76d746098587fb3131283ab9" Name="Diagram1">
-        <EntityTypeShape EntityType="PortafolioModel.comuna" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.doc_emitido" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.empleado" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.info_notaria" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.kpi_atencion_clientes" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.kpi_tramites_realizados" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.perfil" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.region" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.reserva" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.template_documento" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.tipo_tramite" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.usuario" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.ventas_online" Width="1.5" PointX="9.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.ventas_presencial" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
-        <AssociationConnector Association="PortafolioModel.comuna_region_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.empleado_comuna_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.usuario_comuna_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.doc_emitido_empleado_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.doc_emitido_tipo_tramite_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.doc_emitido_usuario_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.ventas_online_doc_emitido_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.ventas_pres_doc_emit_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.empleado_perfil_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.reserva_tipo_tramite_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.reserva_usuario_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="PortafolioModel.tipo_tram_template_doc_fk" ManuallyRouted="false" />
+      <Diagram DiagramId="bfe4480217e84e9988f55f7d123fd399" Name="Diagram1">
+        <EntityTypeShape EntityType="GestionNotariaModel.comuna" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.doc_emitido" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.empleado" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.info_notaria" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.kpi_atencion_clientes" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.kpi_tramites_realizados" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.perfil" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.region" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.reserva" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.sysdiagrams" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.template_documento" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.tipo_tramite" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.usuario" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.ventas_online" Width="1.5" PointX="9.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionNotariaModel.ventas_presencial" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="GestionNotariaModel.comuna_region_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.empleado_comuna_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.usuario_comuna_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.doc_emitido_empleado_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.doc_emitido_tipo_tramite_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.doc_emitido_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.ventas_online_doc_emitido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.ventas_pres_doc_emit_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.empleado_perfil_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.reserva_tipo_tramite_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.reserva_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionNotariaModel.tipo_tram_template_doc_fk" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
