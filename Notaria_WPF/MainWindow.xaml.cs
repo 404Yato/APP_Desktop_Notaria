@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Biblioteca_de_Clases;
 using MahApps.Metro.Controls;
+using System.Configuration;
 
 namespace Notaria_WPF
 {
@@ -33,6 +34,11 @@ namespace Notaria_WPF
             Administracion admin = new Administracion();
             admin.Show();
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
