@@ -23,33 +23,48 @@ namespace Notaria_WPF
         public HistorialReservas()
         {
             InitializeComponent();
+            dgReservas.Visibility = Visibility.Collapsed;
+            txtRutBuscado.Visibility = Visibility.Collapsed;
+            btnBuscar.Visibility = Visibility.Collapsed;
             LlenaDataGrid();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void LlenaDataGrid()
         {
+            Reserva reserva = new Reserva();
             
-            dgReservas.Visibility = Visibility.Collapsed;
-            txtRutBuscado.Visibility = Visibility.Collapsed;
-            btnBuscar.Visibility = Visibility.Collapsed;
-            
-            
-
+            dgReservas.ItemsSource = reserva.ReadAll();
+            dgReservas.Items.Refresh();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Reserva reserva = new Reserva();
+        { 
             dgReservas.Visibility = Visibility.Visible;
             txtRutBuscado.Visibility = Visibility.Visible;
             btnBuscar.Visibility = Visibility.Visible;
-            dgReservas.ItemsSource = reserva.ReadAll();
-            dgReservas.Items.Refresh();
+        }
+
+        private void BuscarReserva()
+        {
+            Reserva reserva = new Reserva();
+            if(txtRutBuscado.Text != string.Empty)
+            {
+                if (txtRutBuscado.IsFocused)
+                {
+                    dgReservas.ItemsSource = from x in reserva.ReadAll() where (x.usuario_rut.StartsWith(txtRutBuscado.Text)) select new { x.cod_reserva, x.fecha_hora, x.motivo, x.estado, x.usuario_rut, x.cod_tramite };
+                    dgReservas.Items.Refresh();
+                }
+            }
+            else
+            {
+                LlenaDataGrid();
+            }
+            
+        }
+
+        private void txtRutBuscado_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BuscarReserva();
         }
     }
 }

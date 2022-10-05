@@ -15,6 +15,9 @@
         mc:Ignorable="d"
         Title="HistorialReservas" Height="450" Width="800">
     <Grid Background="#FFA1D6E2" >
+        <Rectangle HorizontalAlignment="Left" Margin="452,45,0,0" Width="5" Fill="#FF00CCFF" Height="27" VerticalAlignment="Top"/>
+        <Rectangle Margin="457,45,0,0" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>
+        <Rectangle HorizontalAlignment="Left" Margin="97,72,0,0" Width="360" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
         <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="100"/>
         <Rectangle Height="27" VerticalAlignment="Top" Fill="#FF283655" Margin="100,45,0,0" HorizontalAlignment="Left" Width="352"/>
@@ -22,7 +25,7 @@
         <Label Content="NOTARÍA" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="24"/>
         <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="202,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="24" Height="40" Width="133"/>
         <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
-        <Button Content="Reservas" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click"/>
+        <Button Content="Reservas" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Cursor="Hand"/>
         <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
         <Label Content="Recepcionista" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
         <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
@@ -36,7 +39,8 @@
                 <DataGridTextColumn Header="Código Trámite" Binding="{Binding cod_tramite}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Name="txtRutBuscado" Height="33" Margin="0,103,138,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" SelectionBrush="#FFB4EFFE" HorizontalAlignment="Right" Width="197"/>
+        <TextBox Name="txtRutBuscado" Height="33" Margin="0,103,138,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" HorizontalAlignment="Right" Width="197" SelectionBrush="#FFB4EFFE" TextChanged="txtRutBuscado_TextChanged" Foreground="White"/>
         <Button Name="btnBuscar" Content="Buscar" Height="33" Margin="0,103,38,0" VerticalAlignment="Top" Cursor="Hand" Background="#FF04CBFB" BorderBrush="#FF04CBFB" HorizontalAlignment="Right" Width="82"/>
+        <Rectangle HorizontalAlignment="Left" Margin="96,0,0,0" Width="5" Fill="#FF00CCFF"/>
     </Grid>
 </Window>
