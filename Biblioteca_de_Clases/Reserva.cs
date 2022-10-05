@@ -31,7 +31,7 @@ namespace Biblioteca_de_Clases
             motivo = string.Empty;
             estado = string.Empty;
             usuario_rut = string.Empty;
-            cod_reserva = string.Empty;
+            cod_tramite = string.Empty;
         }
         #endregion
 

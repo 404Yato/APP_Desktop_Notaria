@@ -33,7 +33,21 @@ namespace Notaria_WPF
 
         private void LlenaDataGrid()
         {
+            
+            dgReservas.Visibility = Visibility.Collapsed;
+            txtRutBuscado.Visibility = Visibility.Collapsed;
+            btnBuscar.Visibility = Visibility.Collapsed;
+            
+            
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
             Reserva reserva = new Reserva();
+            dgReservas.Visibility = Visibility.Visible;
+            txtRutBuscado.Visibility = Visibility.Visible;
+            btnBuscar.Visibility = Visibility.Visible;
             dgReservas.ItemsSource = reserva.ReadAll();
             dgReservas.Items.Refresh();
         }

@@ -1,4 +1,12 @@
 ﻿<Window x:Class="Notaria_WPF.HistorialReservas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -14,15 +22,21 @@
         <Label Content="NOTARÍA" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="24"/>
         <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="202,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="24" Height="40" Width="133"/>
         <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
-        <Button Content="Gestión&#xA;de Usuario" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}"/>
-        <Button Content="Gestión de&#xA;Documentos" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Height="55" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Documentos"/>
-        <Button x:Name="btn_gestionpersonal" Content="Gestión&#xA;de Personal" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Personal"/>
-        <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020"/>
+        <Button Content="Reservas" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click"/>
         <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
         <Label Content="Recepcionista" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
         <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
-        <DataGrid Name="dgReservas" HorizontalAlignment="Left" Height="254" Margin="142,150,0,0" VerticalAlignment="Top" Width="620" IsReadOnly="True"/>
-        <TextBox Name="txtRutBuscado" HorizontalAlignment="Left" Height="20" Margin="445,116,0,0" TextWrapping="Wrap" Text="Ingrese el RUT" VerticalAlignment="Top" Width="197"/>
-        <Button Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="690,116,0,0" VerticalAlignment="Top" Width="72"/>
+        <DataGrid Name="dgReservas" HorizontalAlignment="Left" Height="219" Margin="142,150,0,0" VerticalAlignment="Top" Width="620" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Binding="{Binding cod_reserva}" />
+                <DataGridTextColumn Header="Fecha y Hora" Binding="{Binding fecha_hora}" />
+                <DataGridTextColumn Header="Motivo" Binding="{Binding motivo}" />
+                <DataGridTextColumn Header="Estado" Binding="{Binding estado}" />
+                <DataGridTextColumn Header="RUT" Binding="{Binding usuario_rut}" />
+                <DataGridTextColumn Header="Código Trámite" Binding="{Binding cod_tramite}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="txtRutBuscado" HorizontalAlignment="Left" Height="33" Margin="465,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" CaretBrush="#FF04CBFB" SelectionBrush="#FFB4EFFE"/>
+        <Button Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="33" Margin="680,103,0,0" VerticalAlignment="Top" Width="82" Cursor="Hand" Background="#FF04CBFB" BorderBrush="#FF04CBFB"/>
     </Grid>
 </Window>
