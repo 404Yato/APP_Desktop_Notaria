@@ -6,10 +6,24 @@
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
         Title="HistorialReservas" Height="450" Width="800">
-    <Grid>
-        <DataGrid Name="dgReservas" HorizontalAlignment="Center" Height="253" Margin="0,132,0,0" VerticalAlignment="Top" Width="620" IsReadOnly="True"/>
-        <TextBox Name="txtRutBuscado" HorizontalAlignment="Left" Height="20" Margin="425,95,0,0" TextWrapping="Wrap" Text="Ingrese el RUT" VerticalAlignment="Top" Width="197"/>
-        <Button Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="638,95,0,0" VerticalAlignment="Top" Width="72"/>
+    <Grid Background="#FFA1D6E2" >
+        <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="100"/>
+        <Rectangle Height="27" VerticalAlignment="Top" Fill="#FF283655" Margin="100,45,0,0" HorizontalAlignment="Left" Width="352"/>
+        <Image Margin="19,10,0,0" Source="/Img/logo.png" Stretch="Fill" Height="62" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+        <Label Content="NOTARÍA" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="24"/>
+        <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="202,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="24" Height="40" Width="133"/>
+        <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
+        <Button Content="Gestión&#xA;de Usuario" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button Content="Gestión de&#xA;Documentos" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Height="55" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Documentos"/>
+        <Button x:Name="btn_gestionpersonal" Content="Gestión&#xA;de Personal" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Personal"/>
+        <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020"/>
+        <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
+        <Label Content="Administrador" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
+        <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
+        <DataGrid Name="dgReservas" HorizontalAlignment="Left" Height="254" Margin="142,150,0,0" VerticalAlignment="Top" Width="620" IsReadOnly="True"/>
+        <TextBox Name="txtRutBuscado" HorizontalAlignment="Left" Height="20" Margin="445,116,0,0" TextWrapping="Wrap" Text="Ingrese el RUT" VerticalAlignment="Top" Width="197"/>
+        <Button Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="690,116,0,0" VerticalAlignment="Top" Width="72"/>
 
     </Grid>
 </Window>
