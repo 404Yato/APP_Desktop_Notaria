@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca_de_Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,19 @@ namespace Notaria_WPF
         public HistorialReservas()
         {
             InitializeComponent();
+            LlenaDataGrid();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void LlenaDataGrid()
+        {
+            Reserva reserva = new Reserva();
+            dgReservas.ItemsSource = reserva.ReadAll();
+            dgReservas.Items.Refresh();
         }
     }
 }

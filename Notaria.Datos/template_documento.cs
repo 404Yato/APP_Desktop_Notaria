@@ -21,6 +21,7 @@ namespace Notaria.Datos
         }
     
         public string cod_template { get; set; }
+        public string nombre { get; set; }
         public byte[] template { get; set; }
         public System.DateTime fecha_subida { get; set; }
     

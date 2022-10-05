@@ -34,7 +34,6 @@ namespace Notaria.Datos
         public virtual DbSet<perfil> perfil { get; set; }
         public virtual DbSet<region> region { get; set; }
         public virtual DbSet<reserva> reserva { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<template_documento> template_documento { get; set; }
         public virtual DbSet<tipo_tramite> tipo_tramite { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }

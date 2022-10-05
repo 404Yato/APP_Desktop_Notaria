@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="HistorialReservas" Height="450" Width="800">
     <Grid>
-        <DataGrid HorizontalAlignment="Center" Height="253" Margin="0,132,0,0" VerticalAlignment="Top" Width="620"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="425,95,0,0" TextWrapping="Wrap" Text="Ingrese el RUT" VerticalAlignment="Top" Width="197"/>
-        <Button Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="638,95,0,0" VerticalAlignment="Top" Width="72"/>
+        <DataGrid Name="dgReservas" HorizontalAlignment="Center" Height="253" Margin="0,132,0,0" VerticalAlignment="Top" Width="620" IsReadOnly="True"/>
+        <TextBox Name="txtRutBuscado" HorizontalAlignment="Left" Height="20" Margin="425,95,0,0" TextWrapping="Wrap" Text="Ingrese el RUT" VerticalAlignment="Top" Width="197"/>
+        <Button Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="638,95,0,0" VerticalAlignment="Top" Width="72"/>
 
     </Grid>
 </Window>

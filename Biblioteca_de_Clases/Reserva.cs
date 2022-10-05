@@ -26,12 +26,12 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            cod_reserva = String.Empty;
+            cod_reserva = string.Empty;
             fecha_hora = DateTime.Now;
-            motivo = String.Empty;
-            estado = String.Empty;
-            usuario_rut = String.Empty;
-            cod_reserva = String.Empty;
+            motivo = string.Empty;
+            estado = string.Empty;
+            usuario_rut = string.Empty;
+            cod_reserva = string.Empty;
         }
         #endregion
 

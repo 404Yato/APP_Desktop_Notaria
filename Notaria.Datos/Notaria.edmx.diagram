@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="39adb2cd76d746098587fb3131283ab9" Name="Diagram1">
+      <Diagram DiagramId="92875f305d1e4cbb93b5f6d1b897fba1" Name="Diagram1">
         <EntityTypeShape EntityType="PortafolioModel.comuna" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.doc_emitido" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.empleado" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
@@ -14,8 +14,7 @@
         <EntityTypeShape EntityType="PortafolioModel.perfil" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.region" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.reserva" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PortafolioModel.template_documento" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortafolioModel.template_documento" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.tipo_tramite" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.usuario" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PortafolioModel.ventas_online" Width="1.5" PointX="9.75" PointY="3.25" IsExpanded="true" />
