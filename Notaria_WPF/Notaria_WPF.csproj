@@ -197,6 +197,13 @@
       <Name>Biblioteca_de_Clases</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\AgregarEmpleadoBlanco.png" />
+    <Resource Include="Img\ListaEmpleadoBlanco.png" />
+    <Resource Include="Img\logo.png" />
+    <Resource Include="Img\logout.png" />
+    <Resource Include="Img\perfil.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
