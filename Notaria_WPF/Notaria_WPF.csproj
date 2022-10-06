@@ -156,6 +156,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActualizarArchivo.xaml.cs">
+      <DependentUpon>ActualizarArchivo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatesCRUD.xaml.cs">
+      <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ActualizarArchivo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuardarArchivo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HistorialReservas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +182,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GuardarArchivo.xaml.cs">
+      <DependentUpon>GuardarArchivo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HistorialReservas.xaml.cs">
       <DependentUpon>HistorialReservas.xaml</DependentUpon>
     </Compile>
@@ -175,13 +192,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TemplatesCRUD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NotariaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NotariaDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="pdf.xaml.cs">
       <DependentUpon>pdf.xaml</DependentUpon>
     </Compile>
@@ -202,17 +218,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="NotariaDataSet.xsc">
-      <DependentUpon>NotariaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="NotariaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NotariaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="NotariaDataSet.xss">
-      <DependentUpon>NotariaDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

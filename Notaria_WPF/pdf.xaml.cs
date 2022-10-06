@@ -23,9 +23,8 @@ namespace Notaria_WPF
     {
         public pdf()
         {
-            InitializeComponent();
-            PdfViewerControl pdfViewer = new PdfViewerControl();
-            HomeGrid.Children.Add(pdfViewer);
+            
+        
         }
     }
 }

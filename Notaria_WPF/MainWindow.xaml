@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button>
-            <Button Content="Button" Height="70" Width="123" Click="Button_Click"/>
-        </Button>
+    <StackPanel>
+        
 
-    </Grid>
+    </StackPanel>
 </Window>

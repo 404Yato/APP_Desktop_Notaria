@@ -1,0 +1,30 @@
+﻿<Window x:Class="Notaria_WPF.TemplatesCRUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notaria_WPF"
+        mc:Ignorable="d"
+        Title="TemplatesCRUD" Height="450" Width="800">
+    <Grid>
+
+
+        <DataGrid x:Name="gridDocumento" AutoGenerateColumns="False" Margin="283,134,32,134"  SelectionChanged="gridDocumento_SelectionChanged_1">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="id" Binding="{Binding cod_template}" Width="50"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"  Width="100"/>
+                <DataGridTextColumn Header="Archivo" Binding="{Binding template}" Width="100"/>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding fecha_subida}" Width="100"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="+" HorizontalAlignment="Left" Margin="737,88,0,0" VerticalAlignment="Top" Height="26" Width="31" Click="ventanaGuardarArchivo_Click"/>
+        <Button x:Name="eliminarBtn" Content="Eliminar" HorizontalAlignment="Left" Margin="662,88,0,0" VerticalAlignment="Top" Height="26" Width="68" Click="eliminarBtn_Click"/>
+        <Button Content="O" HorizontalAlignment="Left" Margin="597,88,0,0" VerticalAlignment="Top" Height="26" Width="51" Click="Button_Click"/>
+        <Button Content="Actualizar" HorizontalAlignment="Left" Margin="526,88,0,0" VerticalAlignment="Top" Height="26" Width="57" Click="actualizar_Click"/>
+
+
+    </Grid>
+</Window>
