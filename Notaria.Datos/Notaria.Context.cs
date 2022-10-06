@@ -12,6 +12,8 @@ namespace Notaria.Datos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class PortafolioEntities : DbContext
     {
@@ -40,5 +42,14 @@ namespace Notaria.Datos
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<ventas_online> ventas_online { get; set; }
         public virtual DbSet<ventas_presencial> ventas_presencial { get; set; }
+    
+        public virtual ObjectResult<llenarComboComuna_Result> llenarComboComuna(string region)
+        {
+            var regionParameter = region != null ?
+                new ObjectParameter("region", region) :
+                new ObjectParameter("region", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<llenarComboComuna_Result>("llenarComboComuna", regionParameter);
+        }
     }
 }

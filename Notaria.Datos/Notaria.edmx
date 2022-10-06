@@ -306,6 +306,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="llenarComboComuna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="region" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="GestionNotariaModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_emitido" EntityType="Self.doc_emitido" Schema="dbo" store:Type="Tables" />
@@ -765,7 +768,14 @@
             <End Role="template_documento" EntitySet="template_documento" />
             <End Role="tipo_tramite" EntitySet="tipo_tramite" />
           </AssociationSet>
+          <FunctionImport Name="llenarComboComuna" ReturnType="Collection(GestionNotariaModel.llenarComboComuna_Result)">
+            <Parameter Name="region" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="llenarComboComuna_Result">
+          <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -940,6 +950,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="llenarComboComuna" FunctionName="GestionNotariaModel.Store.llenarComboComuna">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GestionNotariaModel.llenarComboComuna_Result">
+                <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

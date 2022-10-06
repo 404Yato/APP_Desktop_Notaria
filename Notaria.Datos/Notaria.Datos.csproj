@@ -74,6 +74,9 @@
     <Compile Include="kpi_tramites_realizados.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="llenarComboComuna_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Notaria.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
