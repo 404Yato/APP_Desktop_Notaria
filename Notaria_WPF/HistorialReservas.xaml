@@ -39,8 +39,10 @@
                 <DataGridTextColumn Header="Código Trámite" Binding="{Binding cod_tramite}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Name="txtRutBuscado" Height="33" Margin="0,103,138,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" HorizontalAlignment="Right" Width="197" SelectionBrush="#FFB4EFFE" TextChanged="txtRutBuscado_TextChanged" Foreground="White"/>
-        <Button Name="btnBuscar" Content="Buscar" Height="33" Margin="0,103,38,0" VerticalAlignment="Top" Cursor="Hand" Background="#FF04CBFB" BorderBrush="#FF04CBFB" HorizontalAlignment="Right" Width="82"/>
+        <TextBox Name="txtRutBuscado" Height="33" Margin="0,99,358,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" HorizontalAlignment="Right" Width="197" SelectionBrush="#FFB4EFFE" TextChanged="txtRutBuscado_TextChanged" Foreground="White" />
+        <Button Name="btnModificar" Content="Modificar" Height="33" Margin="0,102,38,0" VerticalAlignment="Top" Cursor="Hand" Background="#FF04CBFB" BorderBrush="#FF04CBFB" HorizontalAlignment="Right" Width="94" Click="btnModificar_Click" RenderTransformOrigin="0.149,0.52"/>
         <Rectangle HorizontalAlignment="Left" Margin="96,0,0,0" Width="5" Fill="#FF00CCFF"/>
+        <ComboBox x:Name="cbEstadoReserva" HorizontalAlignment="Left" Margin="522,108,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" Foreground="White"/>
+        <Label Content="Buscar RUT :" HorizontalAlignment="Left" Height="27" Margin="153,114,0,0" VerticalAlignment="Top" Width="84 Foreground="#DDFFFFFF""/>
     </Grid>
 </Window>

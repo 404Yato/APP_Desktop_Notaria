@@ -27,7 +27,7 @@
         <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
         <Button x:Name="btnDocumentos" Content="Documentos" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="96" FontSize="14" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Cursor="Hand" Padding="8,4,16,4" Click="btnDocumentos_Click"/>
         <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
-        <Label Content="Recepcionista" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
+        <Label Content="Administrador" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
         <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
         <DataGrid Name="dgDocumentos" Margin="142,150,38,52" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
