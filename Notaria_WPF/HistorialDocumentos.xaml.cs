@@ -51,9 +51,13 @@ namespace Notaria_WPF
             {
                 if (txtRutBuscado.IsFocused)
                 {
-                    dgDocumentos.ItemsSource = from x in documento.ReadAll() where (x.usuario_rut.StartsWith(txtRutBuscado.Text) || x.rut_cliente_pres.StartsWith(txtRutBuscado.Text) || x.empleado_rut.StartsWith(txtRutBuscado.Text)) select new { x.cod_documento, x.fecha_emision, x.precio, x.valido, x.presencialidad, x.rut_cliente_pres, x.usuario_rut, x.empleado_rut };
+                    dgDocumentos.ItemsSource = documento.Buscar_Documento(txtRutBuscado.Text);
                     dgDocumentos.Items.Refresh();
                 }
+            }
+            else
+            {
+                LlenaDataGrid();
             }
         }
     }

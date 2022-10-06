@@ -98,6 +98,13 @@ namespace Biblioteca_de_Clases
             }
 
         }
+
+        public IList<Notaria.Datos.buscar_documento_Result> Buscar_Documento(string variable)
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            var resultado = bbdd.buscar_documento(variable);
+            return resultado.ToList();
+        }
         #endregion
     }
 }

@@ -12,6 +12,8 @@ namespace Notaria.Datos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class PortafolioEntities : DbContext
     {
@@ -34,10 +36,20 @@ namespace Notaria.Datos
         public virtual DbSet<perfil> perfil { get; set; }
         public virtual DbSet<region> region { get; set; }
         public virtual DbSet<reserva> reserva { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<template_documento> template_documento { get; set; }
         public virtual DbSet<tipo_tramite> tipo_tramite { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<ventas_online> ventas_online { get; set; }
         public virtual DbSet<ventas_presencial> ventas_presencial { get; set; }
+    
+        public virtual ObjectResult<buscar_documento_Result> buscar_documento(string rut)
+        {
+            var rutParameter = rut != null ?
+                new ObjectParameter("rut", rut) :
+                new ObjectParameter("rut", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_documento_Result>("buscar_documento", rutParameter);
+        }
     }
 }

@@ -209,6 +209,10 @@
       <Project>{e3387781-8667-4ad9-becf-8c5f9b331754}</Project>
       <Name>Biblioteca_de_Clases</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Notaria.Datos\Notaria.Datos.csproj">
+      <Project>{4564da55-ae25-48f5-ac8d-812498e1d869}</Project>
+      <Name>Notaria.Datos</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\AgregarEmpleadoBlanco.png" />
