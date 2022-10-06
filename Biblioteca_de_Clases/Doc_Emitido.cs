@@ -10,6 +10,7 @@ namespace Biblioteca_de_Clases
     {
         #region PROPIEDADES
         public string cod_documento { get; set; }
+        public byte[] copia_documento { get; set; }
         public System.DateTime fecha_emision { get; set; }
         public int precio { get; set; }
         public bool valido { get; set; }

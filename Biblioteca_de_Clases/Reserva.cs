@@ -46,10 +46,10 @@ namespace Biblioteca_de_Clases
                 List<Notaria.Datos.reserva> listadoDatos = bbdd.reserva.ToList<Notaria.Datos.reserva>();
 
                 /* Se convierte el listado de datos en un listado de negocio */
-                List<Reserva> listadoClientes = GenerarListado(listadoDatos);
+                List<Reserva> listadoReservas = GenerarListado(listadoDatos);
 
                 /* Se retorna la lista */
-                return listadoClientes;
+                return listadoReservas;
             }
             catch (Exception)
             {
@@ -59,7 +59,7 @@ namespace Biblioteca_de_Clases
 
         private List<Reserva> GenerarListado(List<Notaria.Datos.reserva> listadoDatos)
         {
-            List<Reserva> listaClient = new List<Reserva>();
+            List<Reserva> listaReserva = new List<Reserva>();
 
             foreach (Notaria.Datos.reserva dato in listadoDatos)
             {
@@ -67,10 +67,10 @@ namespace Biblioteca_de_Clases
                 Reserva reservas = new Reserva();
                 CommonBC.Syncronize(dato, reservas);
 
-                listaClient.Add(reservas);
+                listaReserva.Add(reservas);
             }
 
-            return listaClient;
+            return listaReserva;
         }
 
         public bool Read()

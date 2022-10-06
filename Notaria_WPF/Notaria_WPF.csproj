@@ -147,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="HistorialDocumentos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HistorialReservas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +162,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HistorialDocumentos.xaml.cs">
+      <DependentUpon>HistorialDocumentos.xaml</DependentUpon>
     </Compile>
     <Compile Include="HistorialReservas.xaml.cs">
       <DependentUpon>HistorialReservas.xaml</DependentUpon>
