@@ -16,7 +16,7 @@
         <Button Content="Examinar" HorizontalAlignment="Left" Margin="444,131,0,0" VerticalAlignment="Top" Height="23" Width="52" Click="examinar_Click"/>
         <Button Content="Subir" HorizontalAlignment="Left" Margin="370,168,0,0" VerticalAlignment="Top" Height="30" Width="126" Click="subirArchivo_Click"/>
         <Button Content="Cerrar" HorizontalAlignment="Left" Margin="220,168,0,0" VerticalAlignment="Top" Height="30" Width="126" Click="cancelar_Click"/>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="143,35,89,35" CornerRadius="4"/>
+        <Border x:Name="BordeBd" BorderBrush="Black" BorderThickness="1" Margin="143,35,89,35" CornerRadius="4"/>
         
 
 

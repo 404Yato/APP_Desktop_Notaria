@@ -82,9 +82,7 @@ namespace Notaria_WPF
 
         public void cancelar_Click(object sender, RoutedEventArgs e)
         {
-            TemplatesCRUD templatesCRUD = new TemplatesCRUD();
-            templatesCRUD.stopTimer();
-            this.Close();
+            
             
         }
 

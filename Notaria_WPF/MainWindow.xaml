@@ -6,8 +6,41 @@
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        
+    <Grid>
 
-    </StackPanel>
+        <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="100"/>
+        <Rectangle Height="27" VerticalAlignment="Top" Fill="#FF283655" Margin="100,45,0,0" HorizontalAlignment="Left" Width="352"/>
+        <Image Margin="19,10,0,0" Source="/Imagenes/logo.png" Stretch="Fill" Height="62" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+        <Label Content="NOTARÍA" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="24"/>
+        <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="202,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="24" Height="40" Width="133"/>
+        <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
+        <Button Content="Gestión&#xA;de Usuario" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button Content="Gestión de&#xA;Documentos" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Height="55" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Documentos"/>
+        <Button x:Name="btn_gestionpersonal" Content="Gestión&#xA;de Personal" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Personal"/>
+        <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020"/>
+        <Image Margin="0,7,158,0" Source="/Imagenes/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
+        <Label Content="Administrador" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
+        <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
+
+        <!-- Gestión de Documentos-->
+        <DataGrid x:Name="gridDocumento" AutoGenerateColumns="False" Margin="400,194,33,74"  >
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="id" Binding="{Binding cod_template}" Width="auto"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"  Width="auto"/>
+                <DataGridTextColumn Header="Archivo" Binding="{Binding template}" Width="auto"/>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding fecha_subida}" Width="auto"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="crearBtn" Content="+" HorizontalAlignment="Left" Margin="730,148,0,0" VerticalAlignment="Top" Height="26" Width="31" Click="ventanaGuardarArchivo_Click"/>
+        <Button x:Name="eliminarBtn" Content="Eliminar" HorizontalAlignment="Left" Margin="650,148,0,0" VerticalAlignment="Top" Height="26" Width="68" Click="eliminarBtn_Click"/>
+        <Button Content="O" HorizontalAlignment="Left" Margin="585,148,0,0" VerticalAlignment="Top" Height="26" Width="51" Click="Button_Click"/>
+        <Button x:Name="actualizarBtn" Content="Actualizar" HorizontalAlignment="Left" Margin="511,148,0,0" VerticalAlignment="Top" Height="26" Width="57" Click="actualizar_Click"/>
+
+    </Grid>
+
 </Window>
