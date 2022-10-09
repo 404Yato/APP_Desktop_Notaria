@@ -73,8 +73,8 @@ namespace Notaria_WPF
         #endregion
 
         #region Cargar Combo Box
-        // CARGAR COMBOBOX PERFIL
-        private void CargarComboBoxPerfil()
+        
+        private void CargarComboBoxPerfil()                                                             // CARGAR COMBOBOX PERFIL
         {
             /* Carga todas los combobox con las actividad de empresa*/
             Perfil pf = new Perfil();
@@ -137,6 +137,7 @@ namespace Notaria_WPF
             btn_ing_AgrEmpl.Visibility = Visibility.Collapsed;
             btn_volver_AgregarEmpleado.Visibility = Visibility.Collapsed;
             lb_titulo_personal.Visibility = Visibility.Collapsed;
+            btn_limpiar.Visibility = Visibility.Collapsed;
             
         }
         private void MostrarEmpleadoAgregar()
@@ -164,6 +165,7 @@ namespace Notaria_WPF
             txb_rut_empleado.Visibility = Visibility.Visible;
             btn_ing_AgrEmpl.Visibility = Visibility.Visible;
             btn_volver_AgregarEmpleado.Visibility = Visibility.Visible;
+            btn_limpiar.Visibility = Visibility.Visible;
         }
         private void MostrarEmpleados()
         {
@@ -186,9 +188,86 @@ namespace Notaria_WPF
             rec_empleados2.Visibility = Visibility.Hidden;
             
         }
+
+        private void MostrarListaEmpleados()
+        {
+            lb_titulo_lista.Visibility = Visibility.Visible;
+            dg_empleados.Visibility = Visibility.Visible;
+            btn_eliminar_Emp.Visibility = Visibility.Visible;
+            btn_volver_Emp.Visibility = Visibility.Visible;
+            btn_modificar_Emp.Visibility = Visibility.Visible;
+        }
+        private void SacarListaEmpleados()
+        {
+            lb_titulo_lista.Visibility = Visibility.Collapsed;
+            dg_empleados.Visibility = Visibility.Collapsed;
+            btn_eliminar_Emp.Visibility = Visibility.Collapsed;
+            btn_volver_Emp.Visibility = Visibility.Collapsed;
+            btn_modificar_Emp.Visibility = Visibility.Collapsed;
+        }
+
+        private void SacarEmpleadoModificar()
+        {
+
+            lb_titulo_modificar.Visibility = Visibility.Collapsed;
+            lb_ing_apmE.Visibility = Visibility.Collapsed;
+            lb_ing_appE.Visibility = Visibility.Collapsed;
+            lb_ing_rutE.Visibility = Visibility.Collapsed;
+            lb_ing_dirE.Visibility = Visibility.Collapsed;
+            lb_ing_emaE.Visibility = Visibility.Collapsed;
+            lb_ing_nomE.Visibility = Visibility.Collapsed;
+            lb_ing_numE.Visibility = Visibility.Collapsed;           
+            lb_ing_comE.Visibility = Visibility.Collapsed;
+            lb_ing_regE.Visibility = Visibility.Collapsed;
+            lb_ing_perfilE.Visibility = Visibility.Collapsed;
+            cbx_Comuna_empleado.Visibility = Visibility.Collapsed;
+            cbx_region_empleado.Visibility = Visibility.Collapsed;
+            cbx_selc_empleado.Visibility = Visibility.Collapsed;
+            txb_apellM_empleado.Visibility = Visibility.Collapsed;
+            txb_apllP_empleado.Visibility = Visibility.Collapsed;
+            txb_dirc_empleado.Visibility = Visibility.Collapsed;
+            txb_email_empleado.Visibility = Visibility.Collapsed;
+            txb_fono_empleado.Visibility = Visibility.Collapsed;
+            txb_nom_empleado.Visibility = Visibility.Collapsed;
+            txb_rut_empleado.Visibility = Visibility.Collapsed;            
+            btn_volver_AgregarEmpleado.Visibility = Visibility.Collapsed;
+            lb_titulo_personal.Visibility = Visibility.Collapsed;
+            btn_limpiar.Visibility = Visibility.Collapsed;
+            btn_modificar_Emp.Visibility = Visibility.Collapsed;
+            btn_Modificar_Emp.Visibility = Visibility.Collapsed;
+
+        }
+        private void MostrarEmpleadoModificar()
+        {
+            lb_titulo_modificar.Visibility = Visibility.Visible;
+            lb_ing_apmE.Visibility = Visibility.Visible;
+            lb_ing_appE.Visibility = Visibility.Visible;
+            lb_ing_rutE.Visibility = Visibility.Visible;
+            lb_ing_dirE.Visibility = Visibility.Visible;
+            lb_ing_emaE.Visibility = Visibility.Visible;
+            lb_ing_nomE.Visibility = Visibility.Visible;
+            lb_ing_numE.Visibility = Visibility.Visible;           
+            lb_ing_comE.Visibility = Visibility.Visible;
+            lb_ing_regE.Visibility = Visibility.Visible;
+            lb_ing_perfilE.Visibility = Visibility.Visible;
+            cbx_selc_empleado.Visibility = Visibility.Visible;
+            cbx_Comuna_empleado.Visibility = Visibility.Visible;
+            cbx_region_empleado.Visibility = Visibility.Visible;
+            txb_apellM_empleado.Visibility = Visibility.Visible;
+            txb_apllP_empleado.Visibility = Visibility.Visible;
+            txb_dirc_empleado.Visibility = Visibility.Visible;
+            txb_email_empleado.Visibility = Visibility.Visible;
+            txb_fono_empleado.Visibility = Visibility.Visible;
+            txb_nom_empleado.Visibility = Visibility.Visible;
+            txb_rut_empleado.Visibility = Visibility.Visible;
+            btn_volver_AgregarEmpleado.Visibility = Visibility.Visible;
+            btn_modificar_Emp.Visibility = Visibility.Visible;
+            btn_Modificar_Emp.Visibility = Visibility.Visible;
+
+        }
         #endregion
 
-        #region Validacion Empleado
+        #region Validacion Campos vacios
         //Validar los campos de Perfil que no esten vacíos
         private bool ValidarTextbox_Perfil()
         {
@@ -273,7 +352,8 @@ namespace Notaria_WPF
             txb_rut_empleado.Text = string.Empty;
         }
         #endregion
-      
+
+
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
             MostrarPerfil();
@@ -290,14 +370,14 @@ namespace Notaria_WPF
             
         }
 
-        private void Button_Click_Documentos(object sender, RoutedEventArgs e)
+        private void Button_Click_Documentos(object sender, RoutedEventArgs e)  
         {
             SacarPerfil();
             SacarEmpleados();
             SacarEmpleadoAgregar();
         }
-
-        private void btn_agregarrol_Click(object sender, RoutedEventArgs e)
+        
+        private void btn_agregarrol_Click(object sender, RoutedEventArgs e)                             // BOTON PERFIL AGREGAR ROL
         {
             //lista de perfil         
             if (ValidarTextbox_Perfil())
@@ -326,15 +406,44 @@ namespace Notaria_WPF
             }
         }
 
-        private void btn_eliminarrol_Click(object sender, RoutedEventArgs e)
+        private void btn_eliminarrol_Click(object sender, RoutedEventArgs e)                            // BOTON PERFIL ELIMINAR ROL
         {
-            Perfil pf = (Perfil)dg_rols.SelectedItem;
-            pf.Delete();
-            llenardatagridPerfil();
+            // Validacion de seleccion
+            if (dg_rols.SelectedIndex != -1)
+            {
+                Perfil pf = (Perfil)dg_rols.SelectedItem;
+                Empleado Em = new Empleado();
 
+                //Cosulta si estas seguro
+                if (MessageBox.Show("Seguro que desea eliminar "+ pf.rol, "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)                
+                {
+                    // validacion rol en uso por empleado
+                    if (Em.Read(pf.cod_perfil))
+                    {
+                        MessageBox.Show("El rol [ " + pf.rol + " " + pf.cod_perfil + " ] se esta usando en un empleado. No se puede eliminar", "Rol en Uso !!!",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("El rol fue eliminado correctamente", "Rol Eliminado",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                        pf.Delete();
+                        llenardatagridPerfil();
+                    }
+                }
+                else { 
+                    dg_rols.SelectedIndex = -1;
+                }                 
+            }
+            else {
+                MessageBox.Show("Ups se debe seleccionar un rol en la tabla para ser eliminada", "¿Eliminar?",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
-        private void btn_agregar_empleados_Click(object sender, RoutedEventArgs e)
+        private void btn_agregar_empleados_Click(object sender, RoutedEventArgs e)                      //BOTON EMPLEADO MOSTRAR AGREGAR 
         {
             limpiarEmpleado();
             SacarEmpleados();
@@ -343,21 +452,26 @@ namespace Notaria_WPF
             CargarComboBoxRegion();
         }
 
-        private void cbx_region_empleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbx_region_empleado_SelectionChanged(object sender, SelectionChangedEventArgs e)   // COMBOBOX EMPLEADO CARGAR COMBOBOX COMUNA 
         {  
             Combo();
         }
-        private void BotonVolverGestionPersonal(object sender, RoutedEventArgs e)
+
+        private void BotonVolverGestionPersonal(object sender, RoutedEventArgs e)                       // BOTON EMPLEADO VOLVER ATRAS
         {
             SacarEmpleadoAgregar();
+            SacarListaEmpleados();
             MostrarEmpleados();
+            SacarEmpleadoModificar();
+
+
         }
 
-        private void btn_ing_AgrEmpl_Click(object sender, RoutedEventArgs e)
+        private void btn_ing_AgrEmpl_Click(object sender, RoutedEventArgs e)                            // BOTON EMPLEADO AGREGAR EMPLEADO
         {
             if (ValidarTextbox_Empleado())
             {
-                Empleado pf = new Empleado()
+                Empleado Em = new Empleado()
                 { 
                     rut = txb_rut_empleado.Text,
                     nombre = txb_nom_empleado.Text,
@@ -369,8 +483,8 @@ namespace Notaria_WPF
                     cod_perfil = (string)cbx_selc_empleado.SelectedValue,
                     email = txb_email_empleado.Text
                 };
-          
-                if (pf.Create())
+
+                if (Em.Create())
                 {
                     MessageBox.Show("Nuevo Empleado agregado correctamente al sistema", "Nuevo Empleado Creado!!!",
                     MessageBoxButton.OK, MessageBoxImage.Information);
@@ -379,9 +493,11 @@ namespace Notaria_WPF
                 }
                 else
                 {
-                    MessageBox.Show("Error al agregar Nuevo Empleado", "Error !!!",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("El rut del empleado ya existe " + Em.rut + "Ingreselo nuevamente", "Empleado existente",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                    txb_rut_empleado.Text = string.Empty;
                 }
+                
             }
             else
             {
@@ -389,5 +505,117 @@ namespace Notaria_WPF
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btn_limpiar_Click(object sender, RoutedEventArgs e)                                // BOTON EMPLEADO LIMPIAR CAMPOS
+        {
+            limpiarEmpleado();
+        }
+
+        private void btn_list_empleados_Click(object sender, RoutedEventArgs e)                         // BOTON EMPLEADO LISTA 
+        {
+            SacarEmpleados();
+            MostrarListaEmpleados();
+            Empleado Em = new Empleado();
+            dg_empleados.ItemsSource = Em.ReadAll();
+            dg_empleados.Items.Refresh();
+
+        }
+
+        private void btn_eliminar_Emp_Click(object sender, RoutedEventArgs e)                           // BOTON EMPLEADO ELIMINAR
+        {
+            if (dg_empleados.SelectedIndex != -1)
+            {
+                Empleado Em = (Empleado)dg_empleados.SelectedItem;
+                Em.Delete();
+
+                if (MessageBox.Show("Seguro que desea eliminar al empleado " + Em.nombre, "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    dg_empleados.ItemsSource = Em.ReadAll();
+                    dg_empleados.Items.Refresh();
+                }
+                else
+                {
+                    dg_empleados.SelectedIndex = -1;
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Ups se debe seleccionar un empleado en la tabla para ser eliminada", "¿Eliminar?",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void btn_modificar_Emp_Click(object sender, RoutedEventArgs e)                          // BOTON EMPLEADO MODIFICAR
+        {           
+            if (dg_empleados.SelectedIndex != -1)
+            {
+                SacarListaEmpleados();
+                MostrarEmpleadoModificar();
+                CargarComboBoxPerfil();
+                CargarComboBoxRegion();
+
+                Empleado Em = (Empleado)dg_empleados.SelectedItem;
+                txb_rut_empleado.Text = Em.rut.ToString();
+                txb_nom_empleado.Text = Em.nombre.ToString();
+                txb_apllP_empleado.Text = Em.apellido_paterno.ToString();
+                txb_apellM_empleado.Text = Em.apellido_materno.ToString();
+                txb_fono_empleado.Text = Em.fono.ToString();
+                txb_dirc_empleado.Text = Em.direccion.ToString();             
+                cbx_selc_empleado.SelectedValue = Em.cod_perfil;
+                txb_email_empleado.Text = Em.email;
+
+                btn_modificar_Emp.Visibility = Visibility.Collapsed;
+
+            }
+            else 
+            {
+                MessageBox.Show("Ups se debe seleccionar un empleado en la tabla para ser modificar", "¿modificar?",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+          
+        }
+
+        private void btn_Modificar_Emp_Click_1(object sender, RoutedEventArgs e)                        // BOTON EMPLEADO REALIZAR MODIFICACION
+        {
+            Empleado template = new Empleado
+            {
+                rut = txb_rut_empleado.Text,
+                nombre = txb_nom_empleado.Text,
+                apellido_paterno = txb_apllP_empleado.Text,
+                apellido_materno = txb_apellM_empleado.Text,
+                fono = int.Parse(txb_fono_empleado.Text),
+                direccion = txb_dirc_empleado.Text,
+                cod_comuna = (string)cbx_Comuna_empleado.SelectedValue,
+                cod_perfil = (string)cbx_selc_empleado.SelectedValue,
+                email = txb_email_empleado.Text
+            };
+            if (ValidarTextbox_Empleado())
+            {
+                if (template.Update())
+                {
+                    MessageBox.Show("Se han actualizado los datos correctamente", "Datos Actualizados",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    SacarEmpleadoModificar();
+                    MostrarListaEmpleados();
+                    Empleado Em = new Empleado();
+                    dg_empleados.ItemsSource = Em.ReadAll();
+                    dg_empleados.Items.Refresh();
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar los datos", "Error al Actualizar",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Ups los campos estan vacíos", "Campos Vacíos",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }

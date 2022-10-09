@@ -40,13 +40,10 @@
         <Rectangle HorizontalAlignment="Left" Margin="101,0,0,0" Width="5" Fill="#FF00CCFF"/>
         <Rectangle HorizontalAlignment="Left" Margin="452,45,0,0" Width="5" Fill="#FF00CCFF" Height="24" VerticalAlignment="Top"/>
         <Rectangle Margin="457,45,0,0" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>
-
         <DataGrid x:Name="dg_rols" AutoGenerateColumns="False" Margin="498,125,30,111" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC" Visibility="Collapsed">
             <DataGrid.Columns>
-
                 <DataGridTextColumn Header="Codigo de Perfil" Binding="{Binding cod_perfil}" />
                 <DataGridTextColumn Header="Rol" Binding="{Binding rol}" />
-
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Cerrar sesión" Margin="0,9,37,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontSize="16" FontFamily="Calibri" HorizontalAlignment="Right" Width="105"/>
@@ -62,10 +59,10 @@
         <!-- Gestión de personal-->
         <Rectangle x:Name="rec_empleados2" HorizontalAlignment="Left" Height="268" Margin="540,136,0,0" VerticalAlignment="Top" Width="253" Fill="#FF283655" RadiusX="25" RadiusY="25" Visibility="Hidden"/>
         <Rectangle x:Name="rec_empleados" HorizontalAlignment="Left" Height="268" Margin="230,136,0,0" VerticalAlignment="Top" Width="252" Fill="#FF283655" RadiusX="25" RadiusY="25" Visibility="Hidden"/>
-        <Button x:Name="btn_agregar_empleados" Content="Agregar Nuevo&#xA;Empleado" HorizontalAlignment="Left" Margin="268,324,0,0" VerticalAlignment="Top" Height="59" Width="176" FontFamily="Calibri" FontSize="18"   Background="#FF00CCFF" BorderBrush="{x:Null}" Click="btn_agregar_empleados_Click" Visibility="Hidden" />
-        <Button x:Name="btn_list_empleados" Content="Listado de &#xD;&#xA;Empleados" HorizontalAlignment="Left" Margin="579,324,0,0" VerticalAlignment="Top" Height="59" Width="175" FontFamily="Calibri" FontSize="18"   Background="#FF00CCFF" BorderBrush="{x:Null}" Visibility="Hidden" />
+        <Button x:Name="btn_agregar_empleados" Content="Agregar Nuevo&#xA;Empleado" HorizontalAlignment="Left" Margin="268,324,0,0" VerticalAlignment="Top" Height="59" Width="176" FontFamily="Calibri" FontSize="18"   Background="#FF00CCFF" BorderBrush="#FF283655" Click="btn_agregar_empleados_Click" Visibility="Hidden" />
+        <Button x:Name="btn_list_empleados" Content="Listado de &#xD;&#xA;Empleados" HorizontalAlignment="Left" Margin="579,324,0,0" VerticalAlignment="Top" Height="59" Width="175" FontFamily="Calibri" FontSize="18"   Background="#FF00CCFF" BorderBrush="#FF283655" Click="btn_list_empleados_Click" Visibility="Collapsed" />
         <Image x:Name="img_agregar_empleado" Margin="282,156,0,0" Source="/Img/AgregarEmpleadoBlanco.png" Stretch="Fill" Height="149" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148" Visibility="Hidden"/>
-        <Image x:Name="img_list_empleado" Margin="583,156,0,0" Source="/Img/ListaEmpleadoBlanco.png" Stretch="Fill" Height="155" VerticalAlignment="Top" HorizontalAlignment="Left" Width="167" Visibility="Hidden"/>
+        <Image x:Name="img_list_empleado" Margin="583,156,0,0" Source="/Img/ListaEmpleadoBlanco.png" Stretch="Fill" Height="155" VerticalAlignment="Top" HorizontalAlignment="Left" Width="167" Visibility="Collapsed"/>
         <!-- Titulo Gestion de Persona-->
         <Label x:Name="lb_titulo_personal" Content="Gestión de Personal" HorizontalAlignment="Left" Margin="199,41,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="18" Height="31" Visibility="Collapsed"/>
         <!-- GESTIÓN DE PERSONAL AGREGAR-->
@@ -82,7 +79,7 @@
         <Label x:Name="lb_ing_appE" Content="Ingrese Apellido Paterno" HorizontalAlignment="Left" Margin="156,262,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="241" Foreground="White" Visibility="Collapsed" Height="29"/>
         <Label x:Name="lb_ing_apmE" Content="Ingrese Apellido Materno" HorizontalAlignment="Left" Margin="156,321,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="241" Foreground="White" Visibility="Collapsed" Height="29"/>
         <Label x:Name="lb_ing_numE" Content="Ingrese Numero de Contacto" HorizontalAlignment="Left" Margin="157,379,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Foreground="White" Visibility="Collapsed" Width="240" Height="31"/>
-        <Label x:Name="lb_ing_dirE" Content="Ingrese Dirección" HorizontalAlignment="Left" Margin="503,143,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="243" Foreground="White" Visibility="Collapsed" Height="30"/>
+        <Label x:Name="lb_ing_dirE" Content="Ingrese Dirección" HorizontalAlignment="Left" Margin="503,143,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="243" Foreground="White" Height="30" Visibility="Collapsed"/>
         <Label x:Name="lb_ing_emaE" Content="Ingrese Email" HorizontalAlignment="Left" Margin="503,379,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="240" Foreground="White" Visibility="Collapsed"/>
         <Button x:Name="btn_ing_AgrEmpl" Content="Agregar Empleado" HorizontalAlignment="Left" Margin="334,0,0,52" Width="241" Background="#FF00CCFF" BorderBrush="#FF283655" FontSize="18" FontFamily="Calibri" Height="40" VerticalAlignment="Bottom" Click="btn_ing_AgrEmpl_Click" Visibility="Collapsed"/>
         <Label x:Name="lb_ing_comE" Content="Seleccione la Comuna" HorizontalAlignment="Left" Margin="504,261,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="242" Foreground="White" Visibility="Collapsed"/>
@@ -91,8 +88,31 @@
         <ComboBox x:Name="cbx_Comuna_empleado" HorizontalAlignment="Left" Margin="503,290,0,0" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" VerticalAlignment="Top" Padding="5,4,0,4" Visibility="Collapsed"/>
         <Label x:Name="lb_ing_regE" Content="Seleccione la Región" HorizontalAlignment="Left" Margin="503,204,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="242" Foreground="White" Visibility="Collapsed"/>
         <Label x:Name="lb_ing_perfilE" Content="Seleccione el Perfil" HorizontalAlignment="Left" Margin="503,321,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="243" Foreground="White" Height="28" Visibility="Collapsed"/>
-        <Button x:Name="btn_volver_AgregarEmpleado" Margin="0,92,30,0" VerticalAlignment="Top" Height="37" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="44" Click="BotonVolverGestionPersonal">
+        <Button x:Name="btn_volver_AgregarEmpleado" Margin="0,92,30,0" VerticalAlignment="Top" Height="37" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="44" Click="BotonVolverGestionPersonal" Visibility="Collapsed">
+            <Image  Source="/Img/volver.png" Width="38" Height="32"/>
+        </Button>
+        <Button x:Name="btn_limpiar" Content="Limpiar" Margin="0,92,94,0" VerticalAlignment="Top" Background="#FF00CCFF" FontFamily="Calibri" FontSize="16" BorderBrush="#FF283655" Height="37" Click="btn_limpiar_Click" HorizontalAlignment="Right" Width="96" Visibility="Collapsed"/>
+        <!-- BOTON DE LISTAR -->
+        <DataGrid x:Name="dg_empleados" AutoGenerateColumns="False" Margin="127,230,26,25" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC" Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding="{Binding rut}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
+                <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Fono" Binding="{Binding fono}" />
+                <DataGridTextColumn Header="Dirección" Binding="{Binding direccion}" />
+                <DataGridTextColumn Header="Comuna" Binding="{Binding cod_comuna}" />
+                <DataGridTextColumn Header="Rol" Binding="{Binding cod_perfil}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding email}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btn_eliminar_Emp" Content="Eliminar&#xD;&#xA;Empleado" Margin="0,145,140,0" VerticalAlignment="Top" Height="51" FontFamily="Calibri" FontSize="16" Background="#FF00CCFF" BorderBrush="#FF283655" Padding="16,2,16,2" Click="btn_eliminar_Emp_Click" HorizontalAlignment="Right" Width="121" Visibility="Collapsed"/>
+        <Button x:Name="btn_volver_Emp" Margin="0,92,30,0" VerticalAlignment="Top" Height="37" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="44" Click="BotonVolverGestionPersonal">
             <Image  Source="/Img/volver.png" Width="38" Height="32" Visibility="Collapsed"/>
         </Button>
+        <Button x:Name="btn_modificar_Emp" Content="Modificar&#xD;&#xA;Empleado" Margin="0,145,304,0" VerticalAlignment="Top" Height="51" FontFamily="Calibri" FontSize="16" Background="#FF00CCFF" BorderBrush="#FF283655" Padding="16,2,16,2" HorizontalAlignment="Right" Width="121" Click="btn_modificar_Emp_Click" Visibility="Collapsed"/>
+        <Label x:Name="lb_titulo_modificar" Content="Modificar Empleado" HorizontalAlignment="Left" Margin="159,93,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="22" Foreground="White" Width="242" Height="36" Visibility="Collapsed"/>
+        <Button x:Name="btn_Modificar_Emp" Content="Modificar Empleado" HorizontalAlignment="Left" Margin="326,474,0,0" VerticalAlignment="Top" Width="240" Height="40" Background="#FF00CCFF" BorderBrush="#FF283655" FontFamily="Calibri" FontSize="18" Click="btn_Modificar_Emp_Click_1" Visibility="Collapsed"/>
+        <Label x:Name="lb_titulo_lista" Content="Lista de Empleado" HorizontalAlignment="Left" Margin="159,93,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="22" Foreground="White" Width="242" Height="36" Visibility="Collapsed"/>
+
     </Grid>
 </Window>
