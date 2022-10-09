@@ -25,7 +25,7 @@ namespace Notaria_WPF
             InitializeComponent();
             dgDocumentos.Visibility = Visibility.Collapsed;
             txtRutBuscado.Visibility = Visibility.Collapsed;
-            btnBuscar.Visibility = Visibility.Collapsed;
+            lbRut.Visibility = Visibility.Collapsed;
             LlenaDataGrid();
         }
 
@@ -33,7 +33,7 @@ namespace Notaria_WPF
         {
             dgDocumentos.Visibility = Visibility.Visible;
             txtRutBuscado.Visibility = Visibility.Visible;
-            btnBuscar.Visibility = Visibility.Visible;
+            lbRut.Visibility = Visibility.Visible;
         }
 
         private void LlenaDataGrid()

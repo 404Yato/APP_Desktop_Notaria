@@ -42,8 +42,8 @@
                 <DataGridTextColumn Header="Rut Empleado" Binding="{Binding empleado_rut}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Name="txtRutBuscado" Height="33" Margin="0,103,138,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" HorizontalAlignment="Right" Width="197" SelectionBrush="#FFB4EFFE" Foreground="White" Padding="5,4,0,4" TextChanged="txtRutBuscado_TextChanged"/>
-        <Button Name="btnBuscar" Content="Buscar" Height="33" Margin="0,103,38,0" VerticalAlignment="Top" Cursor="Hand" Background="#FF04CBFB" BorderBrush="#FF04CBFB" HorizontalAlignment="Right" Width="82"/>
+        <TextBox Name="txtRutBuscado" Height="34" Margin="0,102,326,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" SelectionBrush="#FFB4EFFE" Foreground="White" Padding="5,4,0,4" TextChanged="txtRutBuscado_TextChanged" HorizontalAlignment="Right" Width="197"/>
+        <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="22" Margin="153,114,0,0" VerticalAlignment="Top" Width="84" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544"/>
         <Rectangle HorizontalAlignment="Left" Margin="96,0,0,0" Width="5" Fill="#FF00CCFF"/>
     </Grid>
 </Window>

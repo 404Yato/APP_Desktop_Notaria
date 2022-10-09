@@ -24,10 +24,12 @@ namespace Notaria_WPF
         public HistorialReservas()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             dgReservas.Visibility = Visibility.Collapsed;
             txtRutBuscado.Visibility = Visibility.Collapsed;
             btnModificar.Visibility = Visibility.Collapsed;
             cbEstadoReserva.Visibility = Visibility.Collapsed;
+            lbRut.Visibility = Visibility.Collapsed;
             LlenaDataGrid();
             CargarComboBox();
         }
@@ -46,7 +48,7 @@ namespace Notaria_WPF
             txtRutBuscado.Visibility = Visibility.Visible;
             btnModificar.Visibility = Visibility.Visible;
             cbEstadoReserva.Visibility = Visibility.Visible;
-            
+            lbRut.Visibility = Visibility.Visible;
         }
 
         private void BuscarReserva()
@@ -74,25 +76,39 @@ namespace Notaria_WPF
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            Reserva seleccionado = (Reserva)dgReservas.SelectedItem;
-            Reserva reserva = new Reserva()
+            if(dgReservas.SelectedItem != null)
             {
-                cod_reserva = seleccionado.cod_reserva,
-                fecha_hora = seleccionado.fecha_hora,
-                motivo = seleccionado.motivo,
-                estado = (string)cbEstadoReserva.SelectedValue,
-                usuario_rut = seleccionado.usuario_rut,
-                cod_tramite = seleccionado.cod_tramite
-            };
-            if (reserva.Update())
-            {
-                MessageBox.Show("Se actualizó el estado de la reserva");
-                LlenaDataGrid();
+                if(cbEstadoReserva.SelectedValue != null)
+                {
+                    Reserva seleccionado = (Reserva)dgReservas.SelectedItem;
+                    Reserva reserva = new Reserva()
+                    {
+                        cod_reserva = seleccionado.cod_reserva,
+                        fecha_hora = seleccionado.fecha_hora,
+                        motivo = seleccionado.motivo,
+                        estado = (string)cbEstadoReserva.SelectedValue,
+                        usuario_rut = seleccionado.usuario_rut,
+                        cod_tramite = seleccionado.cod_tramite
+                    };
+                    if (reserva.Update())
+                    {
+                        MessageBox.Show("Se actualizó el estado de la reserva", "Éxito", MessageBoxButton.OK);
+                        LlenaDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se actualizo el estado de la reserva", "Error", MessageBoxButton.OK);
+                    };
+                }
+                else
+                {
+                    MessageBox.Show("¡Debe seleccionar a que estado desea actualizar la reserva!", "Error", MessageBoxButton.OK);
+                }
             }
             else
             {
-                MessageBox.Show("No se actualizo el estado de la reserva");
-            };
+                MessageBox.Show("¡Debe seleccionar la reserva que desea modificar!", "Error", MessageBoxButton.OK);
+            }
         }
 
         private void CargarComboBox()
