@@ -51,5 +51,32 @@ namespace Notaria.Datos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_documento_Result>("buscar_documento", rutParameter);
         }
+    
+        public virtual ObjectResult<buscar_reservas_Result> buscar_reservas(string rut)
+        {
+            var rutParameter = rut != null ?
+                new ObjectParameter("rut", rut) :
+                new ObjectParameter("rut", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_reservas_Result>("buscar_reservas", rutParameter);
+        }
+    
+        public virtual ObjectResult<buscar_ventas_pendientes_Result> buscar_ventas_pendientes(string estado)
+        {
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_ventas_pendientes_Result>("buscar_ventas_pendientes", estadoParameter);
+        }
+    
+        public virtual ObjectResult<buscar_ventas_pres_Result> buscar_ventas_pres(string rut)
+        {
+            var rutParameter = rut != null ?
+                new ObjectParameter("rut", rut) :
+                new ObjectParameter("rut", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_ventas_pres_Result>("buscar_ventas_pres", rutParameter);
+        }
     }
 }

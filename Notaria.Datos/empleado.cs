@@ -24,15 +24,14 @@ namespace Notaria.Datos
         public string nombre { get; set; }
         public string apellido_paterno { get; set; }
         public string apellido_materno { get; set; }
+        public string contrasena { get; set; }
         public int fono { get; set; }
         public string direccion { get; set; }
         public string cod_comuna { get; set; }
         public string cod_perfil { get; set; }
         public string email { get; set; }
     
-        public virtual comuna comuna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_emitido> doc_emitido { get; set; }
-        public virtual perfil perfil { get; set; }
     }
 }

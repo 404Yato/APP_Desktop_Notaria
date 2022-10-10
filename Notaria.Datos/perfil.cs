@@ -14,16 +14,7 @@ namespace Notaria.Datos
     
     public partial class perfil
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public perfil()
-        {
-            this.empleado = new HashSet<empleado>();
-        }
-    
-        public string cod_perfil { get; set; }
+        public int cod_perfil { get; set; }
         public string rol { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<empleado> empleado { get; set; }
     }
 }

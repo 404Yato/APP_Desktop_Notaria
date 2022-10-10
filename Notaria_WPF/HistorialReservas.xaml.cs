@@ -1,4 +1,5 @@
 ﻿using Biblioteca_de_Clases;
+using Notaria.Datos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,11 +57,8 @@ namespace Notaria_WPF
             Reserva reserva = new Reserva();
             if(txtRutBuscado.Text != string.Empty)
             {
-                if (txtRutBuscado.IsFocused)
-                {
-                    dgReservas.ItemsSource = from x in reserva.ReadAll() where (x.usuario_rut.StartsWith(txtRutBuscado.Text)) select new { x.cod_reserva, x.fecha_hora, x.motivo, x.estado, x.usuario_rut, x.cod_tramite };
+                    dgReservas.ItemsSource = reserva.BuscarReserva(txtRutBuscado.Text);
                     dgReservas.Items.Refresh();
-                }
             }
             else
             {
@@ -80,25 +78,50 @@ namespace Notaria_WPF
             {
                 if(cbEstadoReserva.SelectedValue != null)
                 {
-                    Reserva seleccionado = (Reserva)dgReservas.SelectedItem;
-                    Reserva reserva = new Reserva()
+                    if(txtRutBuscado.Text != "")
                     {
-                        cod_reserva = seleccionado.cod_reserva,
-                        fecha_hora = seleccionado.fecha_hora,
-                        motivo = seleccionado.motivo,
-                        estado = (string)cbEstadoReserva.SelectedValue,
-                        usuario_rut = seleccionado.usuario_rut,
-                        cod_tramite = seleccionado.cod_tramite
-                    };
-                    if (reserva.Update())
-                    {
-                        MessageBox.Show("Se actualizó el estado de la reserva", "Éxito", MessageBoxButton.OK);
-                        LlenaDataGrid();
+                        Notaria.Datos.buscar_reservas_Result seleccionado = (buscar_reservas_Result)dgReservas.SelectedItem;
+                        Reserva reserva = new Reserva()
+                        {
+                            cod_reserva = seleccionado.cod_reserva,
+                            fecha_hora = seleccionado.fecha_hora,
+                            motivo = seleccionado.motivo,
+                            estado = (string)cbEstadoReserva.SelectedValue,
+                            usuario_rut = seleccionado.usuario_rut,
+                            cod_tramite = seleccionado.cod_tramite
+                        };
+                        if (reserva.Update())
+                        {
+                            MessageBox.Show("Se actualizó el estado de la reserva", "Éxito", MessageBoxButton.OK);
+                            BuscarReserva();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se actualizo el estado de la reserva", "Error", MessageBoxButton.OK);
+                        };
                     }
                     else
                     {
-                        MessageBox.Show("No se actualizo el estado de la reserva", "Error", MessageBoxButton.OK);
-                    };
+                        Reserva seleccionado = (Reserva)dgReservas.SelectedItem;
+                        Reserva reserva = new Reserva()
+                        {
+                            cod_reserva = seleccionado.cod_reserva,
+                            fecha_hora = seleccionado.fecha_hora,
+                            motivo = seleccionado.motivo,
+                            estado = (string)cbEstadoReserva.SelectedValue,
+                            usuario_rut = seleccionado.usuario_rut,
+                            cod_tramite = seleccionado.cod_tramite
+                        };
+                        if (reserva.Update())
+                        {
+                            MessageBox.Show("Se actualizó el estado de la reserva", "Éxito", MessageBoxButton.OK);
+                            LlenaDataGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se actualizo el estado de la reserva", "Error", MessageBoxButton.OK);
+                        };
+                    }
                 }
                 else
                 {
@@ -129,6 +152,12 @@ namespace Notaria_WPF
 
 
             /* Configura los datos en el ComboBOx */
+
+        }
+
+        private void dgReservas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Reserva seleccion = dgReservas.SelectedItem as Reserva;
 
         }
     }

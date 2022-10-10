@@ -10,14 +10,14 @@
 namespace Notaria.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class comuna
+    public partial class buscar_ventas_pendientes_Result
     {
-        public string cod_comuna { get; set; }
-        public string nombre { get; set; }
-        public string cod_region { get; set; }
-    
-        public virtual region region { get; set; }
+        public int cod_venta { get; set; }
+        public int amount { get; set; }
+        public System.DateTime transaction_date { get; set; }
+        public string rut_persona { get; set; }
+        public string estado { get; set; }
+        public string doc_emitido_cod_documento { get; set; }
     }
 }

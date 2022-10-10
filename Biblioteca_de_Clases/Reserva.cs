@@ -10,7 +10,7 @@ namespace Biblioteca_de_Clases
     public class Reserva
     {
         #region PROPIEDADES
-        public string cod_reserva { get; set; }
+        public int cod_reserva { get; set; }
         public System.DateTime fecha_hora { get; set; }
         public string motivo { get; set; }
         public string estado { get; set; }
@@ -26,7 +26,6 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            cod_reserva = string.Empty;
             fecha_hora = DateTime.Now;
             motivo = string.Empty;
             estado = string.Empty;
@@ -113,6 +112,13 @@ namespace Biblioteca_de_Clases
                 return false;
             }
 
+        }
+
+        public IList<Notaria.Datos.buscar_reservas_Result> BuscarReserva(string variable)
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            var resultado = bbdd.buscar_reservas(variable);
+            return resultado.ToList();
         }
         #endregion
     }

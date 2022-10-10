@@ -14,17 +14,11 @@ namespace Notaria.Datos
     
     public partial class doc_emitido
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public doc_emitido()
-        {
-            this.ventas_online = new HashSet<ventas_online>();
-            this.ventas_presencial = new HashSet<ventas_presencial>();
-        }
-    
-        public string cod_documento { get; set; }
+        public int cod_documento { get; set; }
         public byte[] copia_documento { get; set; }
         public System.DateTime fecha_emision { get; set; }
         public int precio { get; set; }
+        public string estado { get; set; }
         public bool valido { get; set; }
         public bool presencialidad { get; set; }
         public string rut_cliente_pres { get; set; }
@@ -33,11 +27,5 @@ namespace Notaria.Datos
         public string empleado_rut { get; set; }
     
         public virtual empleado empleado { get; set; }
-        public virtual tipo_tramite tipo_tramite { get; set; }
-        public virtual usuario usuario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ventas_online> ventas_online { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ventas_presencial> ventas_presencial { get; set; }
     }
 }

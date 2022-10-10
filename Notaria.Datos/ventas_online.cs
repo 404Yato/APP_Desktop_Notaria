@@ -14,11 +14,9 @@ namespace Notaria.Datos
     
     public partial class ventas_online
     {
-        public string cod_venta { get; set; }
+        public int cod_venta { get; set; }
         public int amount { get; set; }
         public System.DateTime transaction_date { get; set; }
         public string cod_documento { get; set; }
-    
-        public virtual doc_emitido doc_emitido { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Notaria.Datos
     
     public partial class kpi_tramites_realizados
     {
-        public string cod_medicion { get; set; }
+        public int cod_medicion { get; set; }
         public int cant_tramites { get; set; }
         public System.DateTime fecha_inicio_medicion { get; set; }
         public System.DateTime fecha_term_medicion { get; set; }

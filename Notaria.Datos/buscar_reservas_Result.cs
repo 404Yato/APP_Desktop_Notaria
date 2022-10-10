@@ -10,14 +10,14 @@
 namespace Notaria.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class comuna
+    public partial class buscar_reservas_Result
     {
-        public string cod_comuna { get; set; }
-        public string nombre { get; set; }
-        public string cod_region { get; set; }
-    
-        public virtual region region { get; set; }
+        public int cod_reserva { get; set; }
+        public System.DateTime fecha_hora { get; set; }
+        public string motivo { get; set; }
+        public string estado { get; set; }
+        public string usuario_rut { get; set; }
+        public string cod_tramite { get; set; }
     }
 }

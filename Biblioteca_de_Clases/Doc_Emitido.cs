@@ -9,10 +9,11 @@ namespace Biblioteca_de_Clases
     public class Doc_Emitido
     {
         #region PROPIEDADES
-        public string cod_documento { get; set; }
+        public int cod_documento { get; set; }
         public byte[] copia_documento { get; set; }
         public System.DateTime fecha_emision { get; set; }
         public int precio { get; set; }
+        public string estado { get; set; }
         public bool valido { get; set; }
         public bool presencialidad { get; set; }
         public string rut_cliente_pres { get; set; }
@@ -29,7 +30,6 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            cod_documento = String.Empty;
             fecha_emision = DateTime.Now;
             precio = 0;
             valido = false;
@@ -98,7 +98,7 @@ namespace Biblioteca_de_Clases
             }
 
         }
-
+        //Método para utilizar el procedimiento almacenado 'buscar_documento'
         public IList<Notaria.Datos.buscar_documento_Result> Buscar_Documento(string variable)
         {
             Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();

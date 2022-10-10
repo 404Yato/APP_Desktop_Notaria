@@ -13,10 +13,11 @@ namespace Notaria.Datos
     
     public partial class buscar_documento_Result
     {
-        public string cod_documento { get; set; }
+        public int cod_documento { get; set; }
         public byte[] copia_documento { get; set; }
         public System.DateTime fecha_emision { get; set; }
         public int precio { get; set; }
+        public string estado { get; set; }
         public bool valido { get; set; }
         public bool presencialidad { get; set; }
         public string rut_cliente_pres { get; set; }

@@ -14,14 +14,11 @@ namespace Notaria.Datos
     
     public partial class reserva
     {
-        public string cod_reserva { get; set; }
+        public int cod_reserva { get; set; }
         public System.DateTime fecha_hora { get; set; }
         public string motivo { get; set; }
         public string estado { get; set; }
         public string usuario_rut { get; set; }
         public string cod_tramite { get; set; }
-    
-        public virtual tipo_tramite tipo_tramite { get; set; }
-        public virtual usuario usuario { get; set; }
     }
 }
