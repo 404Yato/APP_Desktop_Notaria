@@ -21,14 +21,15 @@ namespace Notaria.Datos
             this.ventas_presencial = new HashSet<ventas_presencial>();
         }
     
-        public string cod_documento { get; set; }
+        public int cod_documento { get; set; }
         public byte[] copia_documento { get; set; }
         public System.DateTime fecha_emision { get; set; }
         public int precio { get; set; }
+        public string estado { get; set; }
         public bool valido { get; set; }
         public bool presencialidad { get; set; }
         public string rut_cliente_pres { get; set; }
-        public string cod_tramite { get; set; }
+        public int cod_tramite { get; set; }
         public string usuario_rut { get; set; }
         public string empleado_rut { get; set; }
     

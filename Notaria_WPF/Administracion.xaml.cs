@@ -44,8 +44,8 @@ namespace Notaria_WPF
         #region Visibilidad Perfil
         //Mostrar Todo de Perfil
         private void MostrarPerfil() {
-            tb_introid.Visibility = Visibility.Visible;
-            lb_introid.Visibility = Visibility.Visible;
+            //tb_introid.Visibility = Visibility.Visible;
+            //lb_introid.Visibility = Visibility.Visible;
             lb_asignarrol.Visibility = Visibility.Visible;
             tb_asignarrol.Visibility = Visibility.Visible;
             btn_agregarrol.Visibility = Visibility.Visible;
@@ -59,8 +59,8 @@ namespace Notaria_WPF
         }
         //Ocultar Todo de Perfil
         private void SacarPerfil() {
-            tb_introid.Visibility = Visibility.Collapsed;
-            lb_introid.Visibility = Visibility.Collapsed;
+            //tb_introid.Visibility = Visibility.Collapsed;
+            //lb_introid.Visibility = Visibility.Collapsed;
             lb_asignarrol.Visibility = Visibility.Collapsed;
             tb_asignarrol.Visibility = Visibility.Collapsed;
             btn_agregarrol.Visibility = Visibility.Collapsed;
@@ -74,7 +74,7 @@ namespace Notaria_WPF
 
         #region Cargar Combo Box
         
-        private void CargarComboBoxPerfil()                                                             // CARGAR COMBOBOX PERFIL
+        private void CargarComboBoxPerfil()                                                                 // CARGAR COMBOBOX PERFIL
         {
             /* Carga todas los combobox con las actividad de empresa*/
             Perfil pf = new Perfil();
@@ -85,8 +85,8 @@ namespace Notaria_WPF
             cbx_selc_empleado.SelectedValuePath = "cod_perfil"; //Propiedad con el valor a rescatar
             cbx_selc_empleado.SelectedIndex = -1; //Posiciona en el primer registro
         }
-        //CARGAR COMBOBOX REGION
-        private void CargarComboBoxRegion()
+        
+        private void CargarComboBoxRegion()                                                                 //CARGAR COMBOBOX REGION
         {
             /* Carga todas los combobox con las actividad de empresa*/
             Region pf = new Region();
@@ -97,8 +97,8 @@ namespace Notaria_WPF
             cbx_region_empleado.SelectedIndex = -1; //Posiciona en el primer registro
 
         }
-        // CARGAR COMBOBOX COMUNA CON PROCESO ALMACENADO
-        private void Combo()
+        
+        private void Combo()                                                                                // CARGAR COMBOBOX COMUNA CON PROCESO ALMACENADO EMPLEADO
         {       
             LlenarCombo cm = new LlenarCombo();
             string varible = (string)cbx_region_empleado.SelectedValue;
@@ -107,6 +107,28 @@ namespace Notaria_WPF
             cbx_Comuna_empleado.SelectedValuePath = "cod_comuna";
             cbx_Comuna_empleado.SelectedIndex = -1;
         }
+        private void CargarComboRegionUsuario()                                                             //CARGAR COMBOBOX COMUNA
+        {
+            /* Carga todas los combobox con las actividad de empresa*/
+            Region pf = new Region();
+            cbx_region_usuario.ItemsSource = pf.ReadAll();
+            /* Configura los datos en el ComboBOx */
+            cbx_region_usuario.DisplayMemberPath = "nombre"; //Propiedad para mostrar
+            cbx_region_usuario.SelectedValuePath = "cod_region"; //Propiedad con el valor a rescatar
+            cbx_region_usuario.SelectedIndex = -1; //Posiciona en el primer registro
+
+        }
+        private void ComboUsuario()                                                                        // CARGAR COMBOBOX COMUNA CON PROCESO ALMACENADO USUARIO
+        {
+            LlenarCombo cm = new LlenarCombo();
+            string varible = (string)cbx_region_usuario.SelectedValue;
+
+            cbx_comuna_usuario.ItemsSource = cm.Llenar(varible);
+            cbx_comuna_usuario.DisplayMemberPath = "nombre";
+            cbx_comuna_usuario.SelectedValuePath = "cod_comuna";
+            cbx_comuna_usuario.SelectedIndex = -1;
+        }
+
 
         #endregion
 
@@ -138,7 +160,10 @@ namespace Notaria_WPF
             btn_volver_AgregarEmpleado.Visibility = Visibility.Collapsed;
             lb_titulo_personal.Visibility = Visibility.Collapsed;
             btn_limpiar.Visibility = Visibility.Collapsed;
-            
+            txb_contra_empleado.Visibility = Visibility.Collapsed;
+            lb_ing_contra.Visibility = Visibility.Collapsed;
+
+
         }
         private void MostrarEmpleadoAgregar()
         {
@@ -166,6 +191,8 @@ namespace Notaria_WPF
             btn_ing_AgrEmpl.Visibility = Visibility.Visible;
             btn_volver_AgregarEmpleado.Visibility = Visibility.Visible;
             btn_limpiar.Visibility = Visibility.Visible;
+            txb_contra_empleado.Visibility = Visibility.Visible;
+            lb_ing_contra.Visibility = Visibility.Visible;
         }
         private void MostrarEmpleados()
         {
@@ -235,6 +262,8 @@ namespace Notaria_WPF
             btn_limpiar.Visibility = Visibility.Collapsed;
             btn_modificar_Emp.Visibility = Visibility.Collapsed;
             btn_Modificar_Emp.Visibility = Visibility.Collapsed;
+            txb_contra_empleado.Visibility = Visibility.Collapsed;
+            lb_ing_contra.Visibility = Visibility.Collapsed;
 
         }
         private void MostrarEmpleadoModificar()
@@ -263,6 +292,8 @@ namespace Notaria_WPF
             btn_volver_AgregarEmpleado.Visibility = Visibility.Visible;
             btn_modificar_Emp.Visibility = Visibility.Visible;
             btn_Modificar_Emp.Visibility = Visibility.Visible;
+            txb_contra_empleado.Visibility = Visibility.Visible;
+            lb_ing_contra.Visibility = Visibility.Visible;
 
         }
         #endregion
@@ -272,10 +303,10 @@ namespace Notaria_WPF
         private bool ValidarTextbox_Perfil()
         {
             bool validar = true;
-            if (tb_introid.Text == string.Empty)
+           /* if (tb_introid.Text == string.Empty)
             {
                 validar = false;
-            }
+            }*/
             if (tb_asignarrol.Text == string.Empty)
             {
                 validar = false;
@@ -285,7 +316,7 @@ namespace Notaria_WPF
         //Limpiar los campos de Perfil 
         private void limpiar_campos_perfil()
         {
-            tb_introid.Text = string.Empty;
+            //tb_introid.Text = string.Empty;
             tb_asignarrol.Text = string.Empty;
         }
 
@@ -335,7 +366,10 @@ namespace Notaria_WPF
             {
                 validar = false;
             }
-
+            if(txb_contra_empleado.Text == string.Empty)
+            {
+                validar = false;
+            }
             return validar;
         }
         private void limpiarEmpleado()
@@ -350,41 +384,169 @@ namespace Notaria_WPF
             txb_fono_empleado.Text = string.Empty;
             txb_nom_empleado.Text = string.Empty;
             txb_rut_empleado.Text = string.Empty;
+            txb_contra_empleado.Text = string.Empty;
         }
         #endregion
 
+        #region Visibilidad Usuario
+        private void MostrarUsuario() 
+        {
+            rec_usuario_1.Visibility = Visibility.Visible;
+            rec_usuario_2.Visibility = Visibility.Visible;
+            btn_agre_usuario.Visibility = Visibility.Visible;
+            btn_lista_usuario.Visibility = Visibility.Visible;
+            img_agregar_usuario.Visibility = Visibility.Visible;
+            img_listar_usuario.Visibility = Visibility.Visible;
+        }
+        private void SacarUsuario()
+        {
+            rec_usuario_1.Visibility = Visibility.Collapsed;
+            rec_usuario_2.Visibility = Visibility.Collapsed;
+            btn_agre_usuario.Visibility = Visibility.Collapsed;
+            btn_lista_usuario.Visibility = Visibility.Collapsed;
+            img_agregar_usuario.Visibility = Visibility.Collapsed;
+            img_listar_usuario.Visibility = Visibility.Collapsed;
+        }
+        private void MostrarUsuarioAgregar()
+        {
+            btn_aregar_usuario.Visibility = Visibility.Visible;
+            lb_rut_usuario.Visibility = Visibility.Visible;
+            lb_contrasena_usuario.Visibility = Visibility.Visible;
+            lb_apellidoM_usuario.Visibility = Visibility.Visible;
+            lb_apellidoP_usuario.Visibility = Visibility.Visible;
+            lb_nombre_usuario.Visibility = Visibility.Visible;
+            lb_fono_usuario.Visibility = Visibility.Visible;
+            lb_email_usuario.Visibility = Visibility.Visible;
+            lb_comuna_usuario.Visibility = Visibility.Visible;
+            lb_region_usuario.Visibility = Visibility.Visible;
+            txb_rut_usuario.Visibility = Visibility.Visible;
+            txb_contrasena_usuario.Visibility = Visibility.Visible;
+            txb_apellidoM_usuario.Visibility = Visibility.Visible;
+            txb_apellidoP_usuario.Visibility = Visibility.Visible;
+            txb_nombre_usuario.Visibility = Visibility.Visible;
+            txb_fono_usuario.Visibility = Visibility.Visible;
+            txb_email_usuario.Visibility = Visibility.Visible;
+            cbx_comuna_usuario.Visibility = Visibility.Visible;
+            cbx_region_usuario.Visibility = Visibility.Visible;
+        }
+        private void SacarUsuarioAgregar()
+        {
+            btn_aregar_usuario.Visibility = Visibility.Collapsed;
+            lb_rut_usuario.Visibility = Visibility.Collapsed;
+            lb_contrasena_usuario.Visibility = Visibility.Collapsed;
+            lb_apellidoM_usuario.Visibility = Visibility.Collapsed;
+            lb_apellidoP_usuario.Visibility = Visibility.Collapsed;
+            lb_nombre_usuario.Visibility = Visibility.Collapsed;
+            lb_fono_usuario.Visibility = Visibility.Collapsed;
+            lb_email_usuario.Visibility = Visibility.Collapsed;
+            lb_comuna_usuario.Visibility = Visibility.Collapsed;
+            lb_region_usuario.Visibility = Visibility.Collapsed;
+            txb_rut_usuario.Visibility = Visibility.Collapsed;
+            txb_contrasena_usuario.Visibility = Visibility.Collapsed;
+            txb_apellidoM_usuario.Visibility = Visibility.Collapsed;
+            txb_apellidoP_usuario.Visibility = Visibility.Collapsed;
+            txb_nombre_usuario.Visibility = Visibility.Collapsed;
+            txb_fono_usuario.Visibility = Visibility.Collapsed;
+            txb_email_usuario.Visibility = Visibility.Collapsed;
+            cbx_comuna_usuario.Visibility = Visibility.Collapsed;
+            cbx_region_usuario.Visibility = Visibility.Collapsed;
+        }
+        private bool ValidarAgregarUsuario()
+        {
+            bool validar = true;
+            if (txb_rut_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_contrasena_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_apellidoM_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_apellidoP_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_nombre_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_fono_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_email_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (cbx_comuna_usuario.SelectedIndex == -1)
+            {
+                validar = false;
+            }
+            if (cbx_region_usuario.SelectedIndex == -1)
+            {
+                validar = false;
+            }
+            return validar;
+        }
 
-        private void Button_Click_Perfil(object sender, RoutedEventArgs e)
+        #endregion
+
+        private void Button_Click_Perfil(object sender, RoutedEventArgs e)                              // BOTON MENU GESTION DE PERFIL
         {
             MostrarPerfil();
             SacarEmpleados();
             SacarEmpleadoAgregar();
+            SacarListaEmpleados();
+            SacarEmpleadoModificar();
+            SacarUsuario();
             llenardatagridPerfil();
         }
 
-        private void Button_Click_Personal(object sender, RoutedEventArgs e)
+        private void Button_Click_Personal(object sender, RoutedEventArgs e)                            // BOTON MENU GESTION DE PERSONAL
         {
             SacarPerfil();
             SacarEmpleadoAgregar();
+            SacarListaEmpleados();
+            SacarEmpleadoModificar();
+            SacarUsuario();
             MostrarEmpleados();
+            
             
         }
 
-        private void Button_Click_Documentos(object sender, RoutedEventArgs e)  
+        private void Button_Click_Documentos(object sender, RoutedEventArgs e)                          // BOTON MENU GESTION DE DOCUMENTOS
         {
             SacarPerfil();
             SacarEmpleados();
             SacarEmpleadoAgregar();
+            SacarListaEmpleados();
+            SacarEmpleadoModificar();
+            SacarUsuario();
+            
         }
-        
+
+        private void Button_Click(object sender, RoutedEventArgs e)                                     // BOTON MENU GESTION DE USAURIO
+        {
+            SacarPerfil();
+            SacarEmpleados();
+            SacarEmpleadoAgregar();
+            SacarListaEmpleados();
+            SacarEmpleadoModificar();
+            MostrarUsuario();
+        }
+
+
         private void btn_agregarrol_Click(object sender, RoutedEventArgs e)                             // BOTON PERFIL AGREGAR ROL
         {
             //lista de perfil         
             if (ValidarTextbox_Perfil())
             {
                 Perfil pf = new Perfil() 
-                {
-                    cod_perfil = tb_introid.Text,
+                {                    
                     rol = tb_asignarrol.Text
                 };
                 if (pf.Create())
@@ -415,35 +577,40 @@ namespace Notaria_WPF
                 Empleado Em = new Empleado();
 
                 //Cosulta si estas seguro
-                if (MessageBox.Show("Seguro que desea eliminar "+ pf.rol, "¿Está seguro?",
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)                
+                if (MessageBox.Show("Seguro que desea eliminar " + pf.rol, "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
+
                     // validacion rol en uso por empleado
-                    if (Em.Read(pf.cod_perfil))
+                    
+                    if (Em.Readid(pf.cod_perfil))
                     {
                         MessageBox.Show("El rol [ " + pf.rol + " " + pf.cod_perfil + " ] se esta usando en un empleado. No se puede eliminar", "Rol en Uso !!!",
                         MessageBoxButton.OK, MessageBoxImage.Warning);
+                        
                     }
-                    else
+                    else 
                     {
-
                         MessageBox.Show("El rol fue eliminado correctamente", "Rol Eliminado",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                         pf.Delete();
                         llenardatagridPerfil();
                     }
                 }
-                else { 
+                else 
+                { 
                     dg_rols.SelectedIndex = -1;
                 }                 
             }
-            else {
+            else 
+            {
                 MessageBox.Show("Ups se debe seleccionar un rol en la tabla para ser eliminada", "¿Eliminar?",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
-        private void btn_agregar_empleados_Click(object sender, RoutedEventArgs e)                      //BOTON EMPLEADO MOSTRAR AGREGAR 
+
+        private void btn_agregar_empleados_Click(object sender, RoutedEventArgs e)                      // BOTON EMPLEADO MOSTRAR AGREGAR 
         {
             limpiarEmpleado();
             SacarEmpleados();
@@ -461,8 +628,9 @@ namespace Notaria_WPF
         {
             SacarEmpleadoAgregar();
             SacarListaEmpleados();
-            MostrarEmpleados();
             SacarEmpleadoModificar();
+            MostrarEmpleados();
+            
 
 
         }
@@ -477,10 +645,11 @@ namespace Notaria_WPF
                     nombre = txb_nom_empleado.Text,
                     apellido_paterno = txb_apllP_empleado.Text,
                     apellido_materno = txb_apellM_empleado.Text,
+                    contrasena = txb_contra_empleado.Text,
                     fono = int.Parse(txb_fono_empleado.Text),
                     direccion = txb_dirc_empleado.Text,
                     cod_comuna = (string)cbx_Comuna_empleado.SelectedValue,
-                    cod_perfil = (string)cbx_selc_empleado.SelectedValue,
+                    cod_perfil = (int)cbx_selc_empleado.SelectedValue,
                     email = txb_email_empleado.Text
                 };
 
@@ -560,6 +729,7 @@ namespace Notaria_WPF
                 txb_nom_empleado.Text = Em.nombre.ToString();
                 txb_apllP_empleado.Text = Em.apellido_paterno.ToString();
                 txb_apellM_empleado.Text = Em.apellido_materno.ToString();
+                txb_contra_empleado.Text = Em.contrasena.ToString();
                 txb_fono_empleado.Text = Em.fono.ToString();
                 txb_dirc_empleado.Text = Em.direccion.ToString();             
                 cbx_selc_empleado.SelectedValue = Em.cod_perfil;
@@ -584,10 +754,11 @@ namespace Notaria_WPF
                 nombre = txb_nom_empleado.Text,
                 apellido_paterno = txb_apllP_empleado.Text,
                 apellido_materno = txb_apellM_empleado.Text,
+                contrasena = txb_contra_empleado.Text,
                 fono = int.Parse(txb_fono_empleado.Text),
                 direccion = txb_dirc_empleado.Text,
                 cod_comuna = (string)cbx_Comuna_empleado.SelectedValue,
-                cod_perfil = (string)cbx_selc_empleado.SelectedValue,
+                cod_perfil = (int)cbx_selc_empleado.SelectedValue,
                 email = txb_email_empleado.Text
             };
             if (ValidarTextbox_Empleado())
@@ -617,5 +788,59 @@ namespace Notaria_WPF
             }
         }
 
+
+        private void btn_agre_usuario_Click(object sender, RoutedEventArgs e)                           // BOTON USUARIO MOSTRAR AGREGAR
+        {
+            SacarUsuario();
+            MostrarUsuarioAgregar();
+            CargarComboRegionUsuario();
+            
+        }
+        private void cbx_region_usuario_SelectionChanged(object sender, SelectionChangedEventArgs e)    // COMBOBOX USUARIO CARGA COMBOBOX COMUNA
+        {
+            ComboUsuario();
+        }
+
+        private void btn_lista_usuario_Click(object sender, RoutedEventArgs e)                          // BOTON USUARIO MOSTRAR LISTAR
+        {
+            SacarUsuario();
+
+        }
+
+        private void btn_aregar_usuario_Click(object sender, RoutedEventArgs e)                         // BOTON USUARIO AGREGAR NUEVO USUARIO
+        {
+            if (ValidarAgregarUsuario())
+            {
+                Usuario Us = new Usuario()
+                {
+                    rut = txb_rut_usuario.Text,
+                    nombre = txb_nombre_usuario.Text,
+                    apellido_paterno = txb_apellidoP_usuario.Text,
+                    apellido_materno = txb_apellidoM_usuario.Text,                   
+                    fono = int.Parse(txb_fono_usuario.Text),
+                    contraseña = txb_contrasena_usuario.Text,
+                    email = txb_email_usuario.Text,
+                    cod_comuna = (string)cbx_comuna_usuario.SelectedValue,                                        
+                };
+                if (Us.Create())
+                {
+                    MessageBox.Show("Nuevo Usuario agregado correctamente al sistema", "Nuevo Usuario Creado!!!",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                    limpiarEmpleado();
+
+                }
+                else
+                {
+                    MessageBox.Show("El rut del usuario ya existe " + Us.rut + "Ingreselo nuevamente", "Usuario existente",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                    txb_rut_usuario.Text = string.Empty;
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Ups los campos estan vacíos", "Campos Vacíos",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

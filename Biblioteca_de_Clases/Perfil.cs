@@ -12,7 +12,7 @@ namespace Biblioteca_de_Clases
     public class Perfil
     {
         #region PROPIEDADES
-        public string cod_perfil { get; set; }
+        public int cod_perfil { get; set; }
         public string rol { get; set; }
 
         #endregion
@@ -27,7 +27,7 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            cod_perfil = string.Empty;
+            cod_perfil = 0;
             rol = string.Empty;
         }
         #endregion
@@ -132,30 +132,6 @@ namespace Biblioteca_de_Clases
 
             return listaPerfil;
         }
-        /*
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conexionBD"].ConnectionString);
-
-        public void Agregar_Perfil(string Cod_perfil,string rol) {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("agregar_perfil", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@cod_perfil", Cod_perfil));
-            cmd.Parameters.Add(new SqlParameter("@rol", rol));
-            IDataReader reader = cmd.ExecuteReader();
-            con.Close();
-        }
-
-        public DataTable CargarDatos_Perfil()
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("listar_perfil", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.Close();
-            return dt;
-        }
-        */
         #endregion
     }
 

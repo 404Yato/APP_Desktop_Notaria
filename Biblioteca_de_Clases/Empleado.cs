@@ -15,10 +15,11 @@ namespace Biblioteca_de_Clases
         public string nombre { get; set; }
         public string apellido_paterno { get; set; }
         public string apellido_materno { get; set; }
+        public string contrasena { get; set; }
         public int fono { get; set; }
         public string direccion { get; set; }
         public string cod_comuna { get; set; }
-        public string cod_perfil { get; set; }
+        public int cod_perfil { get; set; }
         public string email { get; set; }
 
 
@@ -40,7 +41,7 @@ namespace Biblioteca_de_Clases
             fono = 0;
             direccion = string.Empty;
             cod_comuna = string.Empty;
-            cod_perfil = string.Empty;
+            cod_perfil = 0;
             email = string.Empty;
         }
         #endregion
@@ -111,7 +112,7 @@ namespace Biblioteca_de_Clases
             }
 
         }
-        public bool Read(string var)
+        public bool Readid(int var)
         {
             // Creo una instancia de conexión a Datos
             Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
@@ -131,6 +132,7 @@ namespace Biblioteca_de_Clases
             }
 
         }
+
         public bool Delete()
         {
             // Creo una instancia de conexión a Datos (SIEMPRE EN TODOS LOS METODOS)
