@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TemplatesCRUD" Height="450" Width="800">
     <Grid>
-
+        <!-- Diseño General (Menú y header) -->
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
         <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="100"/>
         <Rectangle Height="27" VerticalAlignment="Top" Fill="#FF283655" Margin="100,45,0,0" HorizontalAlignment="Left" Width="352"/>
@@ -45,8 +45,6 @@
 
         <!-- Ventana Guardar Archivos-->
         <Label x:Name="TituloLb" Content="Subir PDF" HorizontalAlignment="Left" Margin="397,130,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Height="36" Width="124" Visibility="Collapsed"/>
-        <Label x:Name="IdLb" Content="id" HorizontalAlignment="Left" Margin="327,181,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="32" Width="30" Visibility="Collapsed"/>
-        <TextBox x:Name="idTxt" HorizontalAlignment="Left" Margin="363,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Height="26" Visibility="Collapsed"/>
         <TextBox x:Name="datoTxt" HorizontalAlignment="Left" Margin="363,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208" IsEnabled="False" Height="26" Visibility="Collapsed"/>
         <Label x:Name="UrlLb" Content="Url" HorizontalAlignment="Left" Margin="327,252,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="38" Width="38" Visibility="Collapsed" />
         <TextBox x:Name="nombreTxt" HorizontalAlignment="Left" Margin="363,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Height="26" Visibility="Collapsed"/>
@@ -58,11 +56,12 @@
 
 
         <!-- Ventana Actualizar Archivo-->
-        <TextBox x:Name="NombreActualizarBtn" HorizontalAlignment="Left" Margin="380,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148" Height="22"/>
-        <Label x:Name="NombreActualizarLb"  Content="Nombre" HorizontalAlignment="Left" Margin="312,225,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="34" Width="80" RenderTransformOrigin="0.525,0.805"/>
-        <Button x:Name="ModificarActualizarBtn" Content="Modificar" HorizontalAlignment="Left" Margin="456,282,0,0" VerticalAlignment="Top" Height="24" Width="102" Click="ModificarArchivo_Click"/>
-        <Button x:Name="CerrarActualziarBtn" Content="Cerrar" HorizontalAlignment="Left" Margin="337,282,0,0" VerticalAlignment="Top" Height="24" Width="101" Click="cerrarBtn_Click"/>
-        <Border x:Name="BordeActualizarBd" BorderBrush="Black" BorderThickness="1" Margin="268,157,184,102" CornerRadius="4"/>
-        <Label x:Name="TitulosActualizarLb" Content="Ingrese nombre a modificar" HorizontalAlignment="Left" Margin="337,166,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="NombreActualizarBtn" HorizontalAlignment="Left" Margin="380,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148" Height="22" Visibility="Collapsed"/>
+        <Label x:Name="NombreActualizarLb"  Content="Nombre" HorizontalAlignment="Left" Margin="312,225,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="34" Width="80" RenderTransformOrigin="0.525,0.805" Visibility="Collapsed"/>
+        <Button x:Name="ModificarActualizarBtn" Content="Modificar" HorizontalAlignment="Left" Margin="456,282,0,0" VerticalAlignment="Top" Height="24" Width="102" Click="ModificarArchivo_Click" Visibility="Collapsed"/>
+        <Button x:Name="CerrarActualziarBtn" Content="Cerrar" HorizontalAlignment="Left" Margin="337,282,0,0" VerticalAlignment="Top" Height="24" Width="101" Click="cerrarBtn_Click" Visibility="Collapsed"/>
+        <Border x:Name="BordeActualizarBd" BorderBrush="Black" BorderThickness="1" Margin="268,157,184,102" CornerRadius="4" Visibility="Collapsed"/>
+        <Label x:Name="TitulosActualizarLb" Content="Ingrese nombre a modificar" HorizontalAlignment="Left" Margin="337,166,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Visibility="Collapsed"/>
+    
     </Grid>
 </Window>

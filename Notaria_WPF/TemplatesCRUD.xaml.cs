@@ -30,6 +30,202 @@ namespace Notaria_WPF
             InitializeComponent();
             llenadoDocumento();
             OcultarElementos();
+            limpiarCampos();
+        }
+
+        //Metodos de la Ventana Principal (Lista documentos)
+
+        public void llenadoDocumento()
+        {
+            template_documento template = new template_documento();
+            gridDocumento.ItemsSource = template.ReadAll();
+            gridDocumento.Items.Refresh();
+            
+        }
+
+        private void eliminarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (gridDocumento.SelectedIndex != -1)
+            {
+                template_documento template = (template_documento)gridDocumento.SelectedItem;
+                template.Delete();
+                llenadoDocumento();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar el objeto de la lista a eliminar");
+            }
+
+        }
+
+        private void ventanaGuardarArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            
+            OcultarElementos();
+            MostrarCrear();
+          
+        }
+
+        private void actualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (gridDocumento.SelectedIndex != -1)
+            {
+                OcultarElementos();
+                MostrarActualizar();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un objeto a modificar en la lista");
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+        //Metodos Ventana Crear Documentos
+
+
+        public void examinar_Click(object sender, RoutedEventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.DefaultExt = ".pdf"; // Default file extension
+            openFileDialog.Filter = "Text documents (.pdf)|*.pdf"; // Filter files by extension
+            openFileDialog.Multiselect = false;
+
+            bool? response = openFileDialog.ShowDialog();
+
+
+            if (response == true)
+            {
+                string filepath = openFileDialog.FileName;
+                datoTxt.Text = filepath;
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un documento");
+            }
+        }
+
+        private void cerrarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OcultarElementos();
+            llenadoDocumento();
+            MostrarVisible();
+            limpiarCampos();
+        }
+
+        public void subirArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            if (nombreTxt.Text != null || datoTxt.Text != null)
+            {
+                string filepath = datoTxt.Text;
+                FileStream fStream = File.OpenRead(filepath);
+                byte[] contents = new byte[fStream.Length];
+                fStream.Read(contents, 0, (int)fStream.Length);
+                fStream.Close();
+
+                template_documento template = new template_documento()
+                {
+                    nombre = nombreTxt.Text,
+                    template = contents,
+                    fecha_subida = DateTime.Now,
+
+                };
+
+                if (template.Create())
+                {
+
+                    MessageBox.Show("creado correctamente");
+                    limpiarCampos();
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo crear el template");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe llenar todos los campos");
+            }
+
+        }
+
+        
+
+
+
+
+        //Metodos Ventana Actualizar
+
+        private void ModificarArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            if (NombreActualizarBtn.Text != null)
+            {   
+                template_documento seleccionado = (template_documento)gridDocumento.SelectedItem;
+                template_documento template = new template_documento
+                {
+                    cod_template = seleccionado.cod_template,
+                    nombre = NombreActualizarBtn.Text,
+                    template = seleccionado.template,
+                    fecha_subida = DateTime.Now,
+                };
+
+                if (template.Update())
+                {
+
+                    MessageBox.Show("Actualizado correctamente");
+                    limpiarCampos();
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar el template");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe escribir el nuevo nombre");
+            }
+
+        }
+
+        public void cancelar_Click(object sender, RoutedEventArgs e)
+        {
+            OcultarElementos();
+            llenadoDocumento();
+            limpiarCampos();
+            MostrarVisible();
+        }
+
+        
+
+
+
+
+
+
+        
+
+        
+
+
+        // Metodos para Diseñar las Ventanas (Estetica)
+
+        private void limpiarCampos()
+        {
+            NombreActualizarBtn.Text = string.Empty;
+            datoTxt.Text = string.Empty;
+            nombreTxt.Text = string.Empty;
+
         }
 
 
@@ -40,8 +236,6 @@ namespace Notaria_WPF
             eliminarBtn.Visibility = Visibility.Collapsed;
             crearBtn.Visibility = Visibility.Collapsed;
             TituloLb.Visibility = Visibility.Collapsed;
-            IdLb.Visibility = Visibility.Collapsed;
-            idTxt.Visibility = Visibility.Collapsed;
             datoTxt.Visibility = Visibility.Collapsed;
             UrlLb.Visibility = Visibility.Collapsed;
             nombreTxt.Visibility = Visibility.Collapsed;
@@ -82,8 +276,6 @@ namespace Notaria_WPF
         private void MostrarCrear()
         {
             TituloLb.Visibility = Visibility.Visible;
-            IdLb.Visibility = Visibility.Visible;
-            idTxt.Visibility = Visibility.Visible;
             datoTxt.Visibility = Visibility.Visible;
             UrlLb.Visibility = Visibility.Visible;
             nombreTxt.Visibility = Visibility.Visible;
@@ -93,109 +285,15 @@ namespace Notaria_WPF
             CerrarBtn.Visibility = Visibility.Visible;
         }
 
-        
+        public void GuardarTemplate()
+        {
+
+        }
 
         private void Button_Click_Documentos(object sender, RoutedEventArgs e)
         {
-            
+
             MostrarVisible();
-        }
-    
-
-        public void llenadoDocumento()
-        {
-            template_documento template = new template_documento();
-            gridDocumento.ItemsSource = template.ReadAll();
-            gridDocumento.Items.Refresh();
-            
-        }
-
-
-        public void subirArchivo_Click(object sender, RoutedEventArgs e)
-        {
-            string filepath = datoTxt.Text;
-            FileStream fStream = File.OpenRead(filepath);
-            byte[] contents = new byte[fStream.Length];
-            fStream.Read(contents, 0, (int)fStream.Length);
-            fStream.Close();
-
-            template_documento template = new template_documento()
-            {
-                nombre = nombreTxt.Text,
-                template = contents,
-                fecha_subida = DateTime.Now,
-
-            };
-
-            if (template.Create())
-            {
-
-                MessageBox.Show("creado correctamente");
-
-            }
-            else
-            {
-                MessageBox.Show("No se pudo crear el template");
-            }
-
-
-        }
-
-        public void cancelar_Click(object sender, RoutedEventArgs e)
-        {
-
-            OcultarElementos();
-            llenadoDocumento();
-            MostrarVisible();
-        }
-
-        public void examinar_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.DefaultExt = ".pdf"; // Default file extension
-            openFileDialog.Filter = "Text documents (.pdf)|*.pdf"; // Filter files by extension
-            openFileDialog.Multiselect = false;
-
-            bool? response = openFileDialog.ShowDialog();
-            //openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-            if (response == true)
-            {
-                string filepath = openFileDialog.FileName;
-                datoTxt.Text = filepath;
-                //UploadFile(filepath);
-
-            }
-        }
-
-
-        private void ventanaGuardarArchivo_Click(object sender, RoutedEventArgs e)
-        {
-            OcultarElementos();
-            MostrarCrear();
-           
-        }
-
-
-        private void eliminarBtn_Click(object sender, RoutedEventArgs e)
-        {
-            template_documento template = (template_documento)gridDocumento.SelectedItem;
-            template.Delete();
-            llenadoDocumento();
-        }
-
-
-
-        private void actualizar_Click(object sender, RoutedEventArgs e)
-        {
-            OcultarElementos();
-            MostrarActualizar();
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private void gridDocumento_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
@@ -203,9 +301,7 @@ namespace Notaria_WPF
             llenadoDocumento();
         }
 
-
-
-        public void GuardarTemplate()
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -217,12 +313,12 @@ namespace Notaria_WPF
 
         private void gridDocumento_Selected(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void gridDocumento_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-           
+
         }
 
         private void Button_Click_Personal(object sender, RoutedEventArgs e)
@@ -233,36 +329,6 @@ namespace Notaria_WPF
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void cerrarBtn_Click(object sender, RoutedEventArgs e)
-        {
-            OcultarElementos();
-            llenadoDocumento();
-            MostrarVisible();
-        }
-
-        private void ModificarArchivo_Click(object sender, RoutedEventArgs e)
-        {
-            template_documento seleccionado = (template_documento)gridDocumento.SelectedItem;
-            template_documento template = new template_documento
-            {
-                cod_template = seleccionado.cod_template,
-                nombre = NombreActualizarBtn.Text,
-                template = seleccionado.template,
-                fecha_subida = DateTime.Now,
-            };
-
-            if (template.Update())
-            {
-
-                MessageBox.Show("Actualizado correctamente");
-
-            }
-            else
-            {
-                MessageBox.Show("No se pudo actualizar el template");
-            }
         }
     }
 }
