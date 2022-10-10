@@ -59,7 +59,6 @@ namespace Notaria_WPF
 
             template_documento template = new template_documento()
             {
-                cod_template = idTxt.Text,
                 nombre = nombreTxt.Text,
                 template = contents,
                 fecha_subida = DateTime.Now,

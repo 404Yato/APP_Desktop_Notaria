@@ -6,13 +6,13 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Notaria.Datos;
-using Syncfusion.XPS;
+
 
 namespace Biblioteca_de_Clases
 {
     public class template_documento
     {
-        public string cod_template { get; set; }
+        public int cod_template { get; set; }
         public string nombre { get; set; }
         public byte[] template { get; set; }
         public System.DateTime fecha_subida { get; set; }
@@ -24,7 +24,7 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            cod_template = string.Empty;
+            
             nombre = string.Empty;
             template = new byte[10];
             fecha_subida = DateTime.Now;

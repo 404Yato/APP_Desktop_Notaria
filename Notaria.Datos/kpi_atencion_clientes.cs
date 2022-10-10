@@ -14,7 +14,7 @@ namespace Notaria.Datos
     
     public partial class kpi_atencion_clientes
     {
-        public string cod_medicion { get; set; }
+        public int cod_medicion { get; set; }
         public System.DateTime fecha_medicion { get; set; }
         public System.DateTime tiempo_medido { get; set; }
     }
