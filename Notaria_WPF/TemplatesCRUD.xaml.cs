@@ -16,7 +16,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Biblioteca_de_Clases;
+using iText.Forms.Fields;
+using iText.Forms;
+using iText.Kernel.Pdf;
 using Microsoft.Win32;
+using iText.Kernel.Geom;
 
 namespace Notaria_WPF
 {
@@ -25,6 +29,9 @@ namespace Notaria_WPF
     /// </summary>
     public partial class TemplatesCRUD : Window
     {
+        string path;
+        string path3;
+
         public TemplatesCRUD()
         {
             InitializeComponent();
@@ -38,9 +45,14 @@ namespace Notaria_WPF
         public void llenadoDocumento()
         {
             template_documento template = new template_documento();
+
             gridDocumento.ItemsSource = template.ReadAll();
+
             gridDocumento.Items.Refresh();
+
             
+
+
         }
 
         private void eliminarBtn_Click(object sender, RoutedEventArgs e)
@@ -148,7 +160,7 @@ namespace Notaria_WPF
 
                 }
                 else
-                {
+                { 
                     MessageBox.Show("No se pudo crear el template");
                 }
             }
@@ -329,6 +341,37 @@ namespace Notaria_WPF
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TransformarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            template_documento seleccionado = (template_documento)gridDocumento.SelectedItem;
+            string path2 = @"..\Doc_Notarial\Origen\"+seleccionado.nombre+".pdf";
+            File.WriteAllBytes(path2, seleccionado.template);
+            path = path2;
+            path3 = @"..\Doc_Notarial\Destino\" + seleccionado.nombre + ".pdf";
+            MessageBox.Show("Funciono");
+            
+        }
+
+        private void GenerarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PdfDocument pdf = new PdfDocument(new PdfReader(path), new PdfWriter(path3));
+            PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
+            IDictionary<String, PdfFormField> fields = form.GetFormFields();
+            PdfFormField toSet;
+            fields.TryGetValue("nombre", out toSet);
+            toSet.SetValue("Byron");
+            fields.TryGetValue("nombre2", out toSet);
+            toSet.SetValue("Cristian");
+            fields.TryGetValue("dia", out toSet);
+            toSet.SetValue("10");
+            fields.TryGetValue("mes", out toSet);
+            toSet.SetValue("10");
+            fields.TryGetValue("anno", out toSet);
+            toSet.SetValue("22");
+            form.FlattenFields();
+            pdf.Close();
         }
     }
 }

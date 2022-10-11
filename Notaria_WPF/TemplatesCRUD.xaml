@@ -40,7 +40,7 @@
         <Button x:Name="eliminarBtn" Content="Eliminar" HorizontalAlignment="Left" Margin="650,148,0,0" VerticalAlignment="Top" Height="26" Width="68" Click="eliminarBtn_Click" Visibility="Collapsed"/>
         <Button Content="O" HorizontalAlignment="Left" Margin="585,148,0,0" VerticalAlignment="Top" Height="26" Width="51" Click="Button_Click" Visibility="Collapsed"/>
         <Button x:Name="actualizarBtn" Content="Actualizar" HorizontalAlignment="Left" Margin="511,148,0,0" VerticalAlignment="Top" Height="26" Width="57" Click="actualizar_Click" Visibility="Collapsed"/>
-
+        <Button x:Name="TransformarBtn" Content="Tranformar" HorizontalAlignment="Left" Margin="179,131,0,0" VerticalAlignment="Top" Click="TransformarBtn_Click"/>
 
 
         <!-- Ventana Guardar Archivos-->
@@ -62,6 +62,8 @@
         <Button x:Name="CerrarActualziarBtn" Content="Cerrar" HorizontalAlignment="Left" Margin="337,282,0,0" VerticalAlignment="Top" Height="24" Width="101" Click="cerrarBtn_Click" Visibility="Collapsed"/>
         <Border x:Name="BordeActualizarBd" BorderBrush="Black" BorderThickness="1" Margin="268,157,184,102" CornerRadius="4" Visibility="Collapsed"/>
         <Label x:Name="TitulosActualizarLb" Content="Ingrese nombre a modificar" HorizontalAlignment="Left" Margin="337,166,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Visibility="Collapsed"/>
-    
+        <Button x:Name="GenerarBtn" Content="Generar Doc" HorizontalAlignment="Left" Margin="179,194,0,0" VerticalAlignment="Top" Click="GenerarBtn_Click"/>
+
+
     </Grid>
 </Window>

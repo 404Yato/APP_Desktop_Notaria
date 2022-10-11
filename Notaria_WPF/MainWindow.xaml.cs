@@ -20,6 +20,7 @@ using Biblioteca_de_Clases;
 using System.IO;
 using System.ServiceModel.Channels;
 using System.Net;
+using iText.Kernel.Pdf;
 
 namespace Notaria_WPF
 {
@@ -37,6 +38,9 @@ namespace Notaria_WPF
 
 
         }
+
+       
+        
 
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
