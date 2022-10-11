@@ -97,13 +97,14 @@
             <Image  Source="/Img/volver.png" Width="38" Height="32"/>
         </Button>
         <Button x:Name="btn_limpiar" Content="Limpiar" Margin="0,92,94,0" VerticalAlignment="Top" Background="#FF00CCFF" FontFamily="Calibri" FontSize="16" BorderBrush="#FF283655" Height="37" Click="btn_limpiar_Click" HorizontalAlignment="Right" Width="96" Visibility="Collapsed"/>
+        <TextBlock x:Name="txbC_rut_empleado" HorizontalAlignment="Left" Margin="158,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFC6EEF7" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Padding="5,2,0,0" Visibility="Collapsed"/>
 
         <!-- BOTON DE LISTAR -->
         <DataGrid x:Name="dg_empleados" AutoGenerateColumns="False" Margin="127,230,26,25" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC" Visibility="Collapsed">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding rut}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
-                <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" />
                 <DataGridTextColumn Header="Fono" Binding="{Binding fono}" />
                 <DataGridTextColumn Header="Dirección" Binding="{Binding direccion}" />
                 <DataGridTextColumn Header="Comuna" Binding="{Binding cod_comuna}" />
@@ -117,7 +118,7 @@
         </Button>
         <Button x:Name="btn_modificar_Emp" Content="Modificar&#xD;&#xA;Empleado" Margin="0,145,304,0" VerticalAlignment="Top" Height="51" FontFamily="Calibri" FontSize="16" Background="#FF00CCFF" BorderBrush="#FF283655" Padding="16,2,16,2" HorizontalAlignment="Right" Width="121" Click="btn_modificar_Emp_Click" Visibility="Collapsed"/>
         <Label x:Name="lb_titulo_modificar" Content="Modificar Empleado" HorizontalAlignment="Left" Margin="159,93,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="22" Foreground="White" Width="242" Height="36" Visibility="Collapsed"/>
-        <Button x:Name="btn_Modificar_Emp" Content="Modificar Empleado" HorizontalAlignment="Left" Margin="326,474,0,0" VerticalAlignment="Top" Width="240" Height="40" Background="#FF00CCFF" BorderBrush="#FF283655" FontFamily="Calibri" FontSize="18" Click="btn_Modificar_Emp_Click_1" Visibility="Collapsed"/>
+        <Button x:Name="btn_Modificar_Emp" Content="Modificar Empleado" Margin="503,0,0,45" VerticalAlignment="Bottom" Height="40" Background="#FF00CCFF" BorderBrush="#FF283655" FontFamily="Calibri" FontSize="18" Click="btn_Modificar_Emp_Click_1" HorizontalAlignment="Left" Width="240" Visibility="Collapsed"/>
         <Label x:Name="lb_titulo_lista" Content="Lista de Empleado" HorizontalAlignment="Left" Margin="159,93,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="22" Foreground="White" Width="242" Height="36" Visibility="Collapsed"/>
 
         <!-- GESTION DE USUARIO -->
@@ -126,7 +127,7 @@
         <Button x:Name="btn_agre_usuario" Content="Agregar Usuario" HorizontalAlignment="Left" Margin="240,332,0,0" VerticalAlignment="Top" Width="190" Background="#FF00CCFF" BorderBrush="#FF283655" FontFamily="Calibri" FontSize="20" Cursor="Hand" Height="51" Click="btn_agre_usuario_Click" Visibility="Collapsed"/>
         <Button x:Name="btn_lista_usuario" Content="Lista de Usuarios" HorizontalAlignment="Left" Margin="593,332,0,0" VerticalAlignment="Top" Width="190" Background="#FF00CCFF" BorderBrush="#FF283655" FontFamily="Calibri" FontSize="20" Cursor="Hand" Height="51" Click="btn_lista_usuario_Click" Visibility="Collapsed"/>
         <Image x:Name="img_agregar_usuario" Margin="256,156,0,0" Source="/Img/agregar.png" Stretch="Fill" Height="157" VerticalAlignment="Top" HorizontalAlignment="Left" Width="158" Visibility="Collapsed"/>
-        <Image x:Name="img_listar_usuario" Margin="609,156,173,252" Source="/Img/lista-usuario.png" Stretch="Fill" Height="157" Width="158" Visibility="Collapsed"/>
+        <Image x:Name="img_listar_usuario" Margin="609,156,0,0" Source="/Img/lista-usuario.png" Stretch="Fill" Height="157" Width="158" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed"/>
 
 
         <!-- GESTION DE USUARIO BOTON AGREGAR -->
@@ -149,7 +150,36 @@
         <ComboBox x:Name="cbx_comuna_usuario" HorizontalAlignment="Left" Margin="546,356,0,0" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" VerticalAlignment="Top" Padding="5,4,0,4" Visibility="Collapsed"/>
         <Label x:Name="lb_region_usuario" Content="Seleccione la Región" HorizontalAlignment="Left" Margin="546,258,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <Label x:Name="lb_comuna_usuario" Content="Seleccione la Comuna" HorizontalAlignment="Left" Margin="546,326,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
+        <!--GESTION DE USUARIO LISTAR -->
+        <DataGrid x:Name="dg_usuarios" AutoGenerateColumns="False" Margin="127,230,26,25" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC" Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding="{Binding rut}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Fono" Binding="{Binding fono}" />
+                <DataGridTextColumn Header="Dirección" Binding="{Binding contraseña}" />
+                <DataGridTextColumn Header="Comuna" Binding="{Binding email}" />
+                <DataGridTextColumn Header="Rol" Binding="{Binding cod_comuna}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btn_modificar_usuario" Content="Modificar Usuario" Margin="0,141,26,0" VerticalAlignment="Top" Height="50" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_modificar_usuario_Click" HorizontalAlignment="Right" Width="154" Visibility="Collapsed"/>
+        <TextBox x:Name="txb_buscar_usuario" HorizontalAlignment="Left" Margin="127,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
+        <Button x:Name="btn_eliminar_usuario" Content="Eliminar Usuario" Margin="0,141,196,0" VerticalAlignment="Top" Height="50" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_eliminar_usuario_Click" HorizontalAlignment="Right" Width="154" Visibility="Collapsed"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1034,249,0,0" VerticalAlignment="Top" Width="0"/>
 
+        <!-- GESTION DE USUARIO MODIFICAR -->
+        <Button x:Name="btn_modifi_usuario" Content="Modificar Usuario" HorizontalAlignment="Left" Margin="432,0,0,34" Width="180" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_modifi_usuario_Click" Height="36" VerticalAlignment="Bottom" FontSize="18" FontFamily="Calibri" Visibility="Collapsed"/>
+        <TextBlock x:Name="txbc_rut_usuario" HorizontalAlignment="Left" Margin="158,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="242" FontFamily="Calibri" FontSize="18" Foreground="Black" Background="#FFC6EEF7" Visibility="Collapsed"/>
+        <Label x:Name="lb_rutM_usuario" Content="Rut del Usuario" HorizontalAlignment="Left" Margin="158,126,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_contraM_usuario" Content="Contraseña del Usuario" HorizontalAlignment="Left" Margin="158,192,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_nomM_usuario" Content="Nombre del Usuario" HorizontalAlignment="Left" Margin="158,259,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_apelPM_usuario" Content="Apellido Paterno del Usuario" HorizontalAlignment="Left" Margin="158,326,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_apellMM_usuario" Content="Apellido Materno del Usuario" HorizontalAlignment="Left" Margin="158,396,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_fonoM_usuario" Content="Fono del Usuario" HorizontalAlignment="Left" Margin="546,126,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_emailM_usuario" Content="Email del Usuario" HorizontalAlignment="Left" Margin="546,190,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_regionM_usaurio" Content="Region del Usuario" HorizontalAlignment="Left" Margin="546,256,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_comunaM_usaurio" Content="Comuna del Usuario" HorizontalAlignment="Left" Margin="546,326,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
+        <Label x:Name="lb_titulo_Usuario" Content="Gestión de Usuarios" HorizontalAlignment="Left" Margin="181,44,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="18"/>
 
     </Grid>
 </Window>

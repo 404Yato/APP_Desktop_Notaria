@@ -19,6 +19,10 @@ namespace Biblioteca_clases
         public string cod_comuna { get; set; }
         #endregion
 
+        public string Apellidos
+        {
+            get { return this.apellido_paterno + " " + this.apellido_materno; }
+        }
         #region CONSTRUCTOR
         public Usuario() //Inicializar el constructor
         {
@@ -81,7 +85,26 @@ namespace Biblioteca_clases
                 return false;
             }
         }
+        public bool Update()
+        {
+            // Creo una instancia de conexión a Datos
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            try
+            {
+                //Obtener el primer registro que coincida con el Rut usando LinQ
+                Notaria.Datos.usuario cliente = bbdd.usuario.First(e => e.rut == rut);
+                //Pasar los valores de las propiedades de negocio a Datos
+                CommonBC.Syncronize(this, cliente);
+                bbdd.SaveChanges();
 
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
         public List<Usuario> ReadAll()
         {
             Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();

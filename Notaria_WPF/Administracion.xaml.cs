@@ -30,16 +30,23 @@ namespace Notaria_WPF
         public Administracion()
         {
             InitializeComponent();
-            
-            
+                        
         }
-        
+
+        #region Llenar data Grid
         private void llenardatagridPerfil()
         {
             Perfil pf = new Perfil();
             dg_rols.ItemsSource = pf.ReadAll();
             dg_rols.Items.Refresh();
         }
+        private void llenardatagridUsuario() 
+        {
+            Usuario us = new Usuario();
+            dg_usuarios.ItemsSource = us.ReadAll();
+            dg_usuarios.Items.Refresh();
+        }
+        #endregion
 
         #region Visibilidad Perfil
         //Mostrar Todo de Perfil
@@ -256,7 +263,7 @@ namespace Notaria_WPF
             txb_email_empleado.Visibility = Visibility.Collapsed;
             txb_fono_empleado.Visibility = Visibility.Collapsed;
             txb_nom_empleado.Visibility = Visibility.Collapsed;
-            txb_rut_empleado.Visibility = Visibility.Collapsed;            
+            txbC_rut_empleado.Visibility = Visibility.Collapsed;            
             btn_volver_AgregarEmpleado.Visibility = Visibility.Collapsed;
             lb_titulo_personal.Visibility = Visibility.Collapsed;
             btn_limpiar.Visibility = Visibility.Collapsed;
@@ -288,7 +295,7 @@ namespace Notaria_WPF
             txb_email_empleado.Visibility = Visibility.Visible;
             txb_fono_empleado.Visibility = Visibility.Visible;
             txb_nom_empleado.Visibility = Visibility.Visible;
-            txb_rut_empleado.Visibility = Visibility.Visible;
+            txbC_rut_empleado.Visibility = Visibility.Visible;
             btn_volver_AgregarEmpleado.Visibility = Visibility.Visible;
             btn_modificar_Emp.Visibility = Visibility.Visible;
             btn_Modificar_Emp.Visibility = Visibility.Visible;
@@ -391,6 +398,7 @@ namespace Notaria_WPF
         #region Visibilidad Usuario
         private void MostrarUsuario() 
         {
+            lb_titulo_Usuario.Visibility = Visibility.Visible;
             rec_usuario_1.Visibility = Visibility.Visible;
             rec_usuario_2.Visibility = Visibility.Visible;
             btn_agre_usuario.Visibility = Visibility.Visible;
@@ -400,6 +408,7 @@ namespace Notaria_WPF
         }
         private void SacarUsuario()
         {
+            lb_titulo_Usuario.Visibility = Visibility.Collapsed;
             rec_usuario_1.Visibility = Visibility.Collapsed;
             rec_usuario_2.Visibility = Visibility.Collapsed;
             btn_agre_usuario.Visibility = Visibility.Collapsed;
@@ -451,6 +460,66 @@ namespace Notaria_WPF
             cbx_comuna_usuario.Visibility = Visibility.Collapsed;
             cbx_region_usuario.Visibility = Visibility.Collapsed;
         }
+        private void MostrarUsuarioList()
+        {
+            dg_usuarios.Visibility = Visibility.Visible;
+            btn_eliminar_usuario.Visibility = Visibility.Visible;
+            btn_modificar_usuario.Visibility = Visibility.Visible;
+            txb_buscar_usuario.Visibility = Visibility.Visible;
+           
+        }
+        private void SacarUsuarioList()
+        {
+            dg_usuarios.Visibility = Visibility.Collapsed;
+            btn_eliminar_usuario.Visibility = Visibility.Collapsed;
+            btn_modificar_usuario.Visibility = Visibility.Collapsed;
+            txb_buscar_usuario.Visibility = Visibility.Collapsed;
+
+        }
+        private void MostrarUsuarioModificar()
+        {
+            btn_modifi_usuario.Visibility = Visibility.Visible;
+            lb_rutM_usuario.Visibility = Visibility.Visible;
+            lb_contraM_usuario.Visibility = Visibility.Visible;
+            lb_apelPM_usuario.Visibility = Visibility.Visible;
+            lb_apellMM_usuario.Visibility = Visibility.Visible;
+            lb_nomM_usuario.Visibility = Visibility.Visible;
+            lb_fonoM_usuario.Visibility = Visibility.Visible;
+            lb_emailM_usuario.Visibility = Visibility.Visible;
+            lb_comunaM_usaurio.Visibility = Visibility.Visible;
+            lb_regionM_usaurio.Visibility = Visibility.Visible;
+            txbc_rut_usuario.Visibility = Visibility.Visible;
+            txb_contrasena_usuario.Visibility = Visibility.Visible;
+            txb_apellidoM_usuario.Visibility = Visibility.Visible;
+            txb_apellidoP_usuario.Visibility = Visibility.Visible;
+            txb_nombre_usuario.Visibility = Visibility.Visible;
+            txb_fono_usuario.Visibility = Visibility.Visible;
+            txb_email_usuario.Visibility = Visibility.Visible;
+            cbx_comuna_usuario.Visibility = Visibility.Visible;
+            cbx_region_usuario.Visibility = Visibility.Visible;
+        }
+        private void SacarUsuarioModificar()
+        {
+            btn_modifi_usuario.Visibility = Visibility.Collapsed;
+            lb_rutM_usuario.Visibility = Visibility.Collapsed;
+            lb_contraM_usuario.Visibility = Visibility.Collapsed;
+            lb_apelPM_usuario.Visibility = Visibility.Collapsed;
+            lb_apellMM_usuario.Visibility = Visibility.Collapsed;
+            lb_nomM_usuario.Visibility = Visibility.Collapsed;
+            lb_fonoM_usuario.Visibility = Visibility.Collapsed;
+            lb_emailM_usuario.Visibility = Visibility.Collapsed;
+            lb_comunaM_usaurio.Visibility = Visibility.Collapsed;
+            lb_regionM_usaurio.Visibility = Visibility.Collapsed;
+            txbc_rut_usuario.Visibility = Visibility.Collapsed;
+            txb_contrasena_usuario.Visibility = Visibility.Collapsed;
+            txb_apellidoM_usuario.Visibility = Visibility.Collapsed;
+            txb_apellidoP_usuario.Visibility = Visibility.Collapsed;
+            txb_nombre_usuario.Visibility = Visibility.Collapsed;
+            txb_fono_usuario.Visibility = Visibility.Collapsed;
+            txb_email_usuario.Visibility = Visibility.Collapsed;
+            cbx_comuna_usuario.Visibility = Visibility.Collapsed;
+            cbx_region_usuario.Visibility = Visibility.Collapsed;
+        }
         private bool ValidarAgregarUsuario()
         {
             bool validar = true;
@@ -492,9 +561,49 @@ namespace Notaria_WPF
             }
             return validar;
         }
+        private bool ValidarModificarUsuario() 
+        {
+            bool validar = true;
+            if (txb_contrasena_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_apellidoM_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_apellidoP_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_nombre_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_fono_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (txb_email_usuario.Text == string.Empty)
+            {
+                validar = false;
+            }
+            if (cbx_comuna_usuario.SelectedIndex == -1)
+            {
+                validar = false;
+            }
+            if (cbx_region_usuario.SelectedIndex == -1)
+            {
+                validar = false;
+            }
+            return validar;
+        }
+
+
 
         #endregion
 
+        #region Botones de Menu
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)                              // BOTON MENU GESTION DE PERFIL
         {
             MostrarPerfil();
@@ -503,7 +612,11 @@ namespace Notaria_WPF
             SacarListaEmpleados();
             SacarEmpleadoModificar();
             SacarUsuario();
+            SacarUsuarioList();
+            SacarUsuarioModificar();
+            SacarUsuarioAgregar();
             llenardatagridPerfil();
+            
         }
 
         private void Button_Click_Personal(object sender, RoutedEventArgs e)                            // BOTON MENU GESTION DE PERSONAL
@@ -513,6 +626,9 @@ namespace Notaria_WPF
             SacarListaEmpleados();
             SacarEmpleadoModificar();
             SacarUsuario();
+            SacarUsuarioList();
+            SacarUsuarioModificar();
+            SacarUsuarioAgregar();
             MostrarEmpleados();
             
             
@@ -526,7 +642,11 @@ namespace Notaria_WPF
             SacarListaEmpleados();
             SacarEmpleadoModificar();
             SacarUsuario();
-            
+            SacarUsuarioList();
+            SacarUsuarioModificar();
+            SacarUsuarioAgregar();
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)                                     // BOTON MENU GESTION DE USAURIO
@@ -535,11 +655,17 @@ namespace Notaria_WPF
             SacarEmpleados();
             SacarEmpleadoAgregar();
             SacarListaEmpleados();
+            SacarUsuarioList();
             SacarEmpleadoModificar();
+            SacarUsuarioAgregar();
             MostrarUsuario();
+            SacarUsuarioModificar();
+            llenardatagridUsuario();
         }
 
+        #endregion
 
+        #region Gestion de Perfil
         private void btn_agregarrol_Click(object sender, RoutedEventArgs e)                             // BOTON PERFIL AGREGAR ROL
         {
             //lista de perfil         
@@ -609,7 +735,9 @@ namespace Notaria_WPF
             }
         }
 
+        #endregion
 
+        #region Gestion de Empleados
         private void btn_agregar_empleados_Click(object sender, RoutedEventArgs e)                      // BOTON EMPLEADO MOSTRAR AGREGAR 
         {
             limpiarEmpleado();
@@ -630,9 +758,7 @@ namespace Notaria_WPF
             SacarListaEmpleados();
             SacarEmpleadoModificar();
             MostrarEmpleados();
-            
-
-
+          
         }
 
         private void btn_ing_AgrEmpl_Click(object sender, RoutedEventArgs e)                            // BOTON EMPLEADO AGREGAR EMPLEADO
@@ -715,7 +841,7 @@ namespace Notaria_WPF
             }
         }
 
-        private void btn_modificar_Emp_Click(object sender, RoutedEventArgs e)                          // BOTON EMPLEADO MODIFICAR
+        private void btn_modificar_Emp_Click(object sender, RoutedEventArgs e)                          // BOTON EMPLEADO MOSTRAR MODIFICAR
         {           
             if (dg_empleados.SelectedIndex != -1)
             {
@@ -725,7 +851,7 @@ namespace Notaria_WPF
                 CargarComboBoxRegion();
 
                 Empleado Em = (Empleado)dg_empleados.SelectedItem;
-                txb_rut_empleado.Text = Em.rut.ToString();
+                txbC_rut_empleado.Text = Em.rut.ToString();
                 txb_nom_empleado.Text = Em.nombre.ToString();
                 txb_apllP_empleado.Text = Em.apellido_paterno.ToString();
                 txb_apellM_empleado.Text = Em.apellido_materno.ToString();
@@ -740,7 +866,7 @@ namespace Notaria_WPF
             }
             else 
             {
-                MessageBox.Show("Ups se debe seleccionar un empleado en la tabla para ser modificar", "¿modificar?",
+                MessageBox.Show("Ups se debe seleccionar un empleado en la tabla para ser modificado", "¿modificar?",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
           
@@ -750,7 +876,7 @@ namespace Notaria_WPF
         {
             Empleado template = new Empleado
             {
-                rut = txb_rut_empleado.Text,
+                rut = txbC_rut_empleado.Text,
                 nombre = txb_nom_empleado.Text,
                 apellido_paterno = txb_apllP_empleado.Text,
                 apellido_materno = txb_apellM_empleado.Text,
@@ -767,7 +893,6 @@ namespace Notaria_WPF
                 {
                     MessageBox.Show("Se han actualizado los datos correctamente", "Datos Actualizados",
                         MessageBoxButton.OK, MessageBoxImage.Information);
-
                     SacarEmpleadoModificar();
                     MostrarListaEmpleados();
                     Empleado Em = new Empleado();
@@ -787,8 +912,9 @@ namespace Notaria_WPF
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        #endregion
 
-
+        #region Gestion de Usuarios
         private void btn_agre_usuario_Click(object sender, RoutedEventArgs e)                           // BOTON USUARIO MOSTRAR AGREGAR
         {
             SacarUsuario();
@@ -796,6 +922,7 @@ namespace Notaria_WPF
             CargarComboRegionUsuario();
             
         }
+
         private void cbx_region_usuario_SelectionChanged(object sender, SelectionChangedEventArgs e)    // COMBOBOX USUARIO CARGA COMBOBOX COMUNA
         {
             ComboUsuario();
@@ -804,6 +931,8 @@ namespace Notaria_WPF
         private void btn_lista_usuario_Click(object sender, RoutedEventArgs e)                          // BOTON USUARIO MOSTRAR LISTAR
         {
             SacarUsuario();
+            MostrarUsuarioList();
+            llenardatagridUsuario();
 
         }
 
@@ -842,5 +971,96 @@ namespace Notaria_WPF
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btn_modificar_usuario_Click(object sender, RoutedEventArgs e)                      // BOTON USUARIO MOSTRAR MODIFICAR 
+        {
+            SacarUsuarioList();
+            MostrarUsuarioModificar();
+                    
+            if (dg_usuarios.SelectedIndex != -1)
+            {             
+                CargarComboRegionUsuario();
+
+                Usuario Us = (Usuario)dg_usuarios.SelectedItem;
+                txbc_rut_usuario.Text = Us.rut.ToString();
+                txb_nombre_usuario.Text = Us.nombre.ToString();
+                txb_apellidoP_usuario.Text = Us.apellido_paterno.ToString();
+                txb_apellidoM_usuario.Text = Us.apellido_materno.ToString();
+                txb_fono_usuario.Text = Us.fono.ToString();
+                txb_contrasena_usuario.Text = Us.contraseña.ToString();
+                txb_email_usuario.Text = Us.email.ToString();
+                cbx_comuna_usuario.SelectedValue = Us.cod_comuna;
+
+            }
+            else
+            {
+                MessageBox.Show("Ups se debe seleccionar un empleado en la tabla para ser modificado", "¿modificar?",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void btn_eliminar_usuario_Click(object sender, RoutedEventArgs e)                       // BOTON USUARIO ELIMINAR
+        {
+            if (dg_usuarios.SelectedIndex != -1)
+            {
+                Usuario Us = (Usuario)dg_usuarios.SelectedItem;
+                Us.Delete();
+
+                if (MessageBox.Show("Seguro que desea eliminar al usuario? " + Us.nombre, "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    dg_usuarios.ItemsSource = Us.ReadAll();
+                    dg_usuarios.Items.Refresh();
+                }
+                else
+                {
+                    dg_usuarios.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ups se debe seleccionar un usuario en la tabla para ser eliminada", "¿Eliminar?",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void btn_modifi_usuario_Click(object sender, RoutedEventArgs e)                         // BOTON USUARIO REALIZAR MODIFICAR
+        {
+            Usuario template = new Usuario
+            {
+                rut = txbc_rut_usuario.Text,
+                nombre = txb_nombre_usuario.Text,
+                apellido_paterno = txb_apellidoP_usuario.Text,
+                apellido_materno = txb_apellidoM_usuario.Text,
+                fono = int.Parse(txb_fono_usuario.Text),
+                contraseña = txb_contrasena_usuario.Text,
+                email = txb_email_usuario.Text,
+                cod_comuna = (string)cbx_comuna_usuario.SelectedValue,
+            };
+            if (ValidarModificarUsuario())
+            {
+                if (template.Update())
+                {
+                    MessageBox.Show("Se han actualizado los datos correctamente", "Datos Actualizados",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    SacarUsuarioModificar();
+                    MostrarUsuarioList();
+                    llenardatagridUsuario();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar los datos", "Error al Actualizar",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ups los campos estan vacíos", "Campos Vacíos",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        #endregion
     }
 }
