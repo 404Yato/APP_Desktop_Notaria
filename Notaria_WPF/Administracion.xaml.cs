@@ -17,8 +17,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using Biblioteca_clases;
-
-
+using Notaria.Datos;
 
 namespace Notaria_WPF
 {
@@ -602,7 +601,18 @@ namespace Notaria_WPF
 
 
         #endregion
-
+        private void BuscarRutUsuario() 
+        {
+            Usuario Us = new Usuario();
+            if (txb_buscar_usuario.Text != "")
+            {
+                dg_usuarios.ItemsSource = Us.Filtrar_rut(txb_buscar_usuario.Text);
+            }
+            else
+            {
+                llenardatagridUsuario();
+            }
+        }
         #region Botones de Menu
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)                              // BOTON MENU GESTION DE PERFIL
         {
@@ -974,27 +984,44 @@ namespace Notaria_WPF
 
         private void btn_modificar_usuario_Click(object sender, RoutedEventArgs e)                      // BOTON USUARIO MOSTRAR MODIFICAR 
         {
-            SacarUsuarioList();
-            MostrarUsuarioModificar();
+            
                     
             if (dg_usuarios.SelectedIndex != -1)
-            {             
-                CargarComboRegionUsuario();
+            {
+                if (txb_buscar_usuario.Text == "")
+                {
+                    CargarComboRegionUsuario();
 
-                Usuario Us = (Usuario)dg_usuarios.SelectedItem;
-                txbc_rut_usuario.Text = Us.rut.ToString();
-                txb_nombre_usuario.Text = Us.nombre.ToString();
-                txb_apellidoP_usuario.Text = Us.apellido_paterno.ToString();
-                txb_apellidoM_usuario.Text = Us.apellido_materno.ToString();
-                txb_fono_usuario.Text = Us.fono.ToString();
-                txb_contrasena_usuario.Text = Us.contraseña.ToString();
-                txb_email_usuario.Text = Us.email.ToString();
-                cbx_comuna_usuario.SelectedValue = Us.cod_comuna;
+                    Usuario Us = (Usuario)dg_usuarios.SelectedItem;
+                    txbc_rut_usuario.Text = Us.rut.ToString();
+                    txb_nombre_usuario.Text = Us.nombre.ToString();
+                    txb_apellidoP_usuario.Text = Us.apellido_paterno.ToString();
+                    txb_apellidoM_usuario.Text = Us.apellido_materno.ToString();
+                    txb_fono_usuario.Text = Us.fono.ToString();
+                    txb_contrasena_usuario.Text = Us.contraseña.ToString();
+                    txb_email_usuario.Text = Us.email.ToString();
+                    cbx_comuna_usuario.SelectedValue = Us.cod_comuna;
+                }
+                else 
+                {
+                    CargarComboRegionUsuario();
 
+                    filtrar_rut_Result Us = (filtrar_rut_Result)dg_usuarios.SelectedItem;
+                    txbc_rut_usuario.Text = Us.rut.ToString();
+                    txb_nombre_usuario.Text = Us.nombre.ToString();
+                    txb_apellidoP_usuario.Text = Us.apellido_paterno.ToString();
+                    txb_apellidoM_usuario.Text = Us.apellido_materno.ToString();
+                    txb_fono_usuario.Text = Us.fono.ToString();
+                    txb_contrasena_usuario.Text = Us.contraseña.ToString();
+                    txb_email_usuario.Text = Us.email.ToString();
+                    cbx_comuna_usuario.SelectedValue = Us.cod_comuna;
+                }
+                SacarUsuarioList();
+                MostrarUsuarioModificar();
             }
             else
             {
-                MessageBox.Show("Ups se debe seleccionar un empleado en la tabla para ser modificado", "¿modificar?",
+                MessageBox.Show("Ups se debe seleccionar un empleado en la tabla para ser modificado", "¿Modificar?",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
@@ -1003,18 +1030,49 @@ namespace Notaria_WPF
         {
             if (dg_usuarios.SelectedIndex != -1)
             {
-                Usuario Us = (Usuario)dg_usuarios.SelectedItem;
-                Us.Delete();
+                if (txb_buscar_usuario.Text == "")
+                {
+                    Usuario Us = (Usuario)dg_usuarios.SelectedItem;
+                    Us.Delete();
 
-                if (MessageBox.Show("Seguro que desea eliminar al usuario? " + Us.nombre, "¿Está seguro?",
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                {
-                    dg_usuarios.ItemsSource = Us.ReadAll();
-                    dg_usuarios.Items.Refresh();
+                    if (MessageBox.Show("Seguro que desea eliminar al usuario? " + Us.nombre, "¿Está seguro?",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    {
+                        dg_usuarios.ItemsSource = Us.ReadAll();
+                        dg_usuarios.Items.Refresh();
+                    }
+                    else
+                    {
+                        dg_usuarios.SelectedIndex = -1;
+                    }
                 }
-                else
+                else 
                 {
-                    dg_usuarios.SelectedIndex = -1;
+                    filtrar_rut_Result Us = (filtrar_rut_Result)dg_usuarios.SelectedItem;
+                    Usuario usuario = new Usuario()
+                    {
+                        rut = Us.rut,
+                        nombre = Us.nombre,
+                        apellido_paterno = Us.apellido_paterno,
+                        apellido_materno = Us.apellido_materno,
+                        fono = Us.fono,
+                        contraseña = Us.contraseña,
+                        email = Us.email,
+                        cod_comuna = Us.cod_comuna,
+                    };
+                    usuario.Delete();
+
+                    if (MessageBox.Show("Seguro que desea eliminar al usuario? " + usuario.nombre, "¿Está seguro?",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    {
+                        dg_usuarios.ItemsSource = usuario.ReadAll();
+                        dg_usuarios.Items.Refresh();
+                        txb_buscar_usuario.Text = "";
+                    }
+                    else
+                    {
+                        dg_usuarios.SelectedIndex = -1;
+                    }
                 }
             }
             else
@@ -1062,5 +1120,10 @@ namespace Notaria_WPF
         }
 
         #endregion
+
+        private void txb_buscar_usuario_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BuscarRutUsuario();
+        }
     }
 }

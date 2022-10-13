@@ -309,6 +309,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="filtrar_rut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="llenarComboComuna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="region" Type="varchar" Mode="In" />
         </Function>
@@ -774,10 +777,24 @@
             <End Role="template_documento" EntitySet="template_documento" />
             <End Role="tipo_tramite" EntitySet="tipo_tramite" />
           </AssociationSet>
+          <FunctionImport Name="filtrar_rut" ReturnType="Collection(GestionNotariaModel.filtrar_rut_Result)">
+            <Parameter Name="rut" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="llenarComboComuna" ReturnType="Collection(GestionNotariaModel.llenarComboComuna_Result)">
             <Parameter Name="region" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="filtrar_rut_Result">
+          <Property Type="String" Name="rut" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="apellido_paterno" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="apellido_materno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="81" />
+          <Property Type="Int32" Name="fono" Nullable="false" />
+          <Property Type="String" Name="contraseña" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
+        </ComplexType>
         <ComplexType Name="llenarComboComuna_Result">
           <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
@@ -959,6 +976,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="filtrar_rut" FunctionName="GestionNotariaModel.Store.filtrar_rut">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GestionNotariaModel.filtrar_rut_Result">
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="fono" ColumnName="fono" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="llenarComboComuna" FunctionName="GestionNotariaModel.Store.llenarComboComuna">
             <ResultMapping>
               <ComplexTypeMapping TypeName="GestionNotariaModel.llenarComboComuna_Result">

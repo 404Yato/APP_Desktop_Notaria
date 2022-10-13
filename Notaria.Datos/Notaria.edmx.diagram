@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c4fa3e5074984eeba23a52fe2e2f1eae" Name="Diagram1">
+      <Diagram DiagramId="95fdf282b990467bb484dc0a5c20b0e6" Name="Diagram1">
         <EntityTypeShape EntityType="GestionNotariaModel.comuna" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionNotariaModel.doc_emitido" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionNotariaModel.empleado" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />

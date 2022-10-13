@@ -132,7 +132,7 @@
 
         <!-- GESTION DE USUARIO BOTON AGREGAR -->
         <TextBox x:Name="txb_rut_usuario" HorizontalAlignment="Left" Margin="158,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
-        <Button x:Name="btn_aregar_usuario" Content="Agregar Usuario" HorizontalAlignment="Center" Margin="0,501,0,0" VerticalAlignment="Top" Width="224" Background="#FF00CCFF" BorderBrush="#FF283655" FontFamily="Calibri" FontSize="18" Height="37" Click="btn_aregar_usuario_Click" Visibility="Collapsed"/>
+        <Button x:Name="btn_aregar_usuario" Content="Agregar Usuario" HorizontalAlignment="Center" Margin="0,0,0,29" Width="224" Background="#FF00CCFF" BorderBrush="#FF283655" FontFamily="Calibri" FontSize="18" Click="btn_aregar_usuario_Click" Height="32" VerticalAlignment="Bottom" Visibility="Collapsed"/>
         <Label x:Name="lb_rut_usuario" Content="Ingrese el rut" HorizontalAlignment="Left" Margin="158,126,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <TextBox x:Name="txb_nombre_usuario" HorizontalAlignment="Left" Margin="158,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
         <TextBox x:Name="txb_apellidoP_usuario" HorizontalAlignment="Left" Margin="158,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
@@ -163,7 +163,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btn_modificar_usuario" Content="Modificar Usuario" Margin="0,141,26,0" VerticalAlignment="Top" Height="50" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_modificar_usuario_Click" HorizontalAlignment="Right" Width="154" Visibility="Collapsed"/>
-        <TextBox x:Name="txb_buscar_usuario" HorizontalAlignment="Left" Margin="127,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
+        <TextBox x:Name="txb_buscar_usuario" HorizontalAlignment="Left" Margin="127,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" TextChanged="txb_buscar_usuario_TextChanged" Visibility="Collapsed" />
         <Button x:Name="btn_eliminar_usuario" Content="Eliminar Usuario" Margin="0,141,196,0" VerticalAlignment="Top" Height="50" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_eliminar_usuario_Click" HorizontalAlignment="Right" Width="154" Visibility="Collapsed"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="1034,249,0,0" VerticalAlignment="Top" Width="0"/>
 

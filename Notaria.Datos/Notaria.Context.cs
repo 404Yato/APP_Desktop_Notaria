@@ -43,6 +43,15 @@ namespace Notaria.Datos
         public virtual DbSet<ventas_online> ventas_online { get; set; }
         public virtual DbSet<ventas_presencial> ventas_presencial { get; set; }
     
+        public virtual ObjectResult<filtrar_rut_Result> filtrar_rut(string rut)
+        {
+            var rutParameter = rut != null ?
+                new ObjectParameter("rut", rut) :
+                new ObjectParameter("rut", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<filtrar_rut_Result>("filtrar_rut", rutParameter);
+        }
+    
         public virtual ObjectResult<llenarComboComuna_Result> llenarComboComuna(string region)
         {
             var regionParameter = region != null ?

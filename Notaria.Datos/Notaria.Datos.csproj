@@ -65,6 +65,9 @@
     <Compile Include="empleado.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="filtrar_rut_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="info_notaria.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>

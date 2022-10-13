@@ -23,6 +23,7 @@ namespace Biblioteca_clases
         {
             get { return this.apellido_paterno + " " + this.apellido_materno; }
         }
+
         #region CONSTRUCTOR
         public Usuario() //Inicializar el constructor
         {
@@ -140,6 +141,14 @@ namespace Biblioteca_clases
             }
 
             return listadoUsuario;
+        }
+
+        public IList<Notaria.Datos.filtrar_rut_Result> Filtrar_rut(string variable)
+        {
+            PortafolioEntities bb = new PortafolioEntities();
+            var results = bb.filtrar_rut(variable);
+
+            return results.ToList();
         }
 
         #endregion
