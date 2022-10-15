@@ -87,6 +87,8 @@
     <Compile Include="Comuna.cs" />
     <Compile Include="Doc_Emitido.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="EstadosReserva.cs" />
+    <Compile Include="EstadoVentasPres.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Reserva.cs" />
