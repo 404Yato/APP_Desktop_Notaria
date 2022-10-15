@@ -1,5 +1,9 @@
-﻿using System;
+﻿using NotariaL;
+using NotariaWPF;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,23 +14,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
-using System.Configuration;
-using NotariaL;
-using System.Data.SqlClient;
-using System.Data;
-using NotariaWPF;
 
 namespace Notaria_WPF
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para TiposDeTramites.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class TiposDeTramites : Window
     {
-        public MainWindow()
+        public TiposDeTramites()
         {
             InitializeComponent();
             Conexion.Conectar();
@@ -153,8 +150,8 @@ namespace Notaria_WPF
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            TiposDeTramites miTramite = new TiposDeTramites();
-            miTramite.ShowDialog();
+            Contador miContador = new Contador();
+            miContador.ShowDialog();
         }
     }
 }
