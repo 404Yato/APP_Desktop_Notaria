@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Biblioteca_de_Clases;
-using MahApps.Metro.Controls;
 using System.Configuration;
 
 namespace Notaria_WPF

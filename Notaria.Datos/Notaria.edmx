@@ -98,6 +98,16 @@
           <Property Name="usuario_rut" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="cod_tramite" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="template_documento">
           <Key>
             <PropertyRef Name="cod_template" />
@@ -318,7 +328,7 @@
         <Function Name="llenarComboComuna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cod_region" Type="varchar" Mode="In" />
         </Function>
-        <EntityContainer Name="PortafolioModelStoreContainer">
+        <EntityContainer Name="NotariaModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_emitido" EntityType="Self.doc_emitido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
@@ -328,6 +338,7 @@
           <EntitySet Name="perfil" EntityType="Self.perfil" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="region" EntityType="Self.region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reserva" EntityType="Self.reserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="template_documento" EntityType="Self.template_documento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipo_tramite" EntityType="Self.tipo_tramite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
@@ -494,6 +505,16 @@
           <Property Name="cod_tramite" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tipo_tramite" Relationship="Self.reserva_tipo_tramite_fk" FromRole="reserva" ToRole="tipo_tramite" />
           <NavigationProperty Name="usuario" Relationship="Self.reserva_usuario_fk" FromRole="reserva" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="template_documento">
           <Key>
@@ -716,6 +737,7 @@
           <EntitySet Name="perfil" EntityType="Self.perfil" />
           <EntitySet Name="region" EntityType="Self.region" />
           <EntitySet Name="reserva" EntityType="Self.reserva" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="template_documento" EntityType="Self.template_documento" />
           <EntitySet Name="tipo_tramite" EntityType="Self.tipo_tramite" />
           <EntitySet Name="usuario" EntityType="Self.usuario" />
@@ -769,22 +791,22 @@
             <End Role="template_documento" EntitySet="template_documento" />
             <End Role="tipo_tramite" EntitySet="tipo_tramite" />
           </AssociationSet>
-          <FunctionImport Name="buscar_documento" ReturnType="Collection(PortafolioModel.buscar_documento_Result)">
+          <FunctionImport Name="buscar_documento" ReturnType="Collection(NotariaModel.buscar_documento_Result)">
             <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="buscar_reservas" ReturnType="Collection(PortafolioModel.buscar_reservas_Result)">
+          <FunctionImport Name="buscar_reservas" ReturnType="Collection(NotariaModel.buscar_reservas_Result)">
             <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="buscar_ventas_pendientes" ReturnType="Collection(PortafolioModel.buscar_ventas_pendientes_Result)">
+          <FunctionImport Name="buscar_ventas_pendientes" ReturnType="Collection(NotariaModel.buscar_ventas_pendientes_Result)">
             <Parameter Name="estado" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="buscar_ventas_pres" ReturnType="Collection(PortafolioModel.buscar_ventas_pres_Result)">
+          <FunctionImport Name="buscar_ventas_pres" ReturnType="Collection(NotariaModel.buscar_ventas_pres_Result)">
             <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="filtrar_rut" ReturnType="Collection(PortafolioModel.filtrar_rut_Result)">
+          <FunctionImport Name="filtrar_rut" ReturnType="Collection(NotariaModel.filtrar_rut_Result)">
             <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="llenarComboComuna" ReturnType="Collection(PortafolioModel.llenarComboComuna_Result)">
+          <FunctionImport Name="llenarComboComuna" ReturnType="Collection(NotariaModel.llenarComboComuna_Result)">
             <Parameter Name="cod_region" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -948,6 +970,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="NotariaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="template_documento">
             <EntityTypeMapping TypeName="NotariaModel.template_documento">
               <MappingFragment StoreEntitySet="template_documento">
@@ -1007,9 +1040,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="buscar_documento" FunctionName="PortafolioModel.Store.buscar_documento">
+          <FunctionImportMapping FunctionImportName="buscar_documento" FunctionName="NotariaModel.Store.buscar_documento">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="PortafolioModel.buscar_documento_Result">
+              <ComplexTypeMapping TypeName="NotariaModel.buscar_documento_Result">
                 <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
                 <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
                 <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
@@ -1024,9 +1057,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="buscar_reservas" FunctionName="PortafolioModel.Store.buscar_reservas">
+          <FunctionImportMapping FunctionImportName="buscar_reservas" FunctionName="NotariaModel.Store.buscar_reservas">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="PortafolioModel.buscar_reservas_Result">
+              <ComplexTypeMapping TypeName="NotariaModel.buscar_reservas_Result">
                 <ScalarProperty Name="cod_reserva" ColumnName="cod_reserva" />
                 <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
                 <ScalarProperty Name="motivo" ColumnName="motivo" />
@@ -1036,9 +1069,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="buscar_ventas_pendientes" FunctionName="PortafolioModel.Store.buscar_ventas_pendientes">
+          <FunctionImportMapping FunctionImportName="buscar_ventas_pendientes" FunctionName="NotariaModel.Store.buscar_ventas_pendientes">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="PortafolioModel.buscar_ventas_pendientes_Result">
+              <ComplexTypeMapping TypeName="NotariaModel.buscar_ventas_pendientes_Result">
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
@@ -1048,9 +1081,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="buscar_ventas_pres" FunctionName="PortafolioModel.Store.buscar_ventas_pres">
+          <FunctionImportMapping FunctionImportName="buscar_ventas_pres" FunctionName="NotariaModel.Store.buscar_ventas_pres">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="PortafolioModel.buscar_ventas_pres_Result">
+              <ComplexTypeMapping TypeName="NotariaModel.buscar_ventas_pres_Result">
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
@@ -1060,9 +1093,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="filtrar_rut" FunctionName="PortafolioModel.Store.filtrar_rut">
+          <FunctionImportMapping FunctionImportName="filtrar_rut" FunctionName="NotariaModel.Store.filtrar_rut">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="PortafolioModel.filtrar_rut_Result">
+              <ComplexTypeMapping TypeName="NotariaModel.filtrar_rut_Result">
                 <ScalarProperty Name="rut" ColumnName="rut" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
@@ -1075,9 +1108,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="llenarComboComuna" FunctionName="PortafolioModel.Store.llenarComboComuna">
+          <FunctionImportMapping FunctionImportName="llenarComboComuna" FunctionName="NotariaModel.Store.llenarComboComuna">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="PortafolioModel.llenarComboComuna_Result">
+              <ComplexTypeMapping TypeName="NotariaModel.llenarComboComuna_Result">
                 <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
               </ComplexTypeMapping>
