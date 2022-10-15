@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Notaria_WPF.Properties {
+namespace Biblioteca_de_Clases.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -30,16 +30,6 @@ namespace Notaria_WPF.Properties {
         public string NotariaConnectionString {
             get {
                 return ((string)(this["NotariaConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-2H84OGS;Initial Catalog=Notaria;Integrated Security=True")]
-        public string Notaria {
-            get {
-                return ((string)(this["Notaria"]));
             }
         }
     }
