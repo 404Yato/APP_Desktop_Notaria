@@ -43,6 +43,7 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -86,8 +87,6 @@
     <Compile Include="Comuna.cs" />
     <Compile Include="Doc_Emitido.cs" />
     <Compile Include="Empleado.cs" />
-    <Compile Include="EstadosReserva.cs" />
-    <Compile Include="EstadoVentasPres.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Reserva.cs" />
@@ -98,9 +97,6 @@
     <Compile Include="Venta_online.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </None>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
