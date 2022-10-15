@@ -19,6 +19,9 @@ namespace Notaria.Datos
         public string motivo { get; set; }
         public string estado { get; set; }
         public string usuario_rut { get; set; }
-        public string cod_tramite { get; set; }
+        public int cod_tramite { get; set; }
+    
+        public virtual tipo_tramite tipo_tramite { get; set; }
+        public virtual usuario usuario { get; set; }
     }
 }

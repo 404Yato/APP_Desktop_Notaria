@@ -89,6 +89,7 @@
     <Compile Include="Empleado.cs" />
     <Compile Include="EstadosReserva.cs" />
     <Compile Include="EstadoVentasPres.cs" />
+    <Compile Include="LlenarCombo.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Reserva.cs" />

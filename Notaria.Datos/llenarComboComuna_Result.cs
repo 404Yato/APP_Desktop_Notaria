@@ -10,15 +10,10 @@
 namespace Notaria.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ventas_online
+    public partial class llenarComboComuna_Result
     {
-        public int cod_venta { get; set; }
-        public int amount { get; set; }
-        public System.DateTime transaction_date { get; set; }
-        public int cod_documento { get; set; }
-    
-        public virtual doc_emitido doc_emitido { get; set; }
+        public string cod_comuna { get; set; }
+        public string nombre { get; set; }
     }
 }

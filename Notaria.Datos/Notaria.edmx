@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PortafolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="GestionNotariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="comuna">
           <Key>
             <PropertyRef Name="cod_comuna" />
@@ -25,7 +25,7 @@
           <Property Name="valido" Type="bit" Nullable="false" />
           <Property Name="presencialidad" Type="bit" Nullable="false" />
           <Property Name="rut_cliente_pres" Type="varchar" MaxLength="12" />
-          <Property Name="cod_tramite" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_tramite" Type="int" Nullable="false" />
           <Property Name="usuario_rut" Type="varchar" MaxLength="12" />
           <Property Name="empleado_rut" Type="varchar" MaxLength="12" />
         </EntityType>
@@ -96,7 +96,7 @@
           <Property Name="motivo" Type="varchar" MaxLength="500" />
           <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="usuario_rut" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="cod_tramite" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_tramite" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -126,7 +126,7 @@
           <Property Name="descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="requisitos" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="precio" Type="int" Nullable="false" />
-          <Property Name="cod_template" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_template" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -148,7 +148,7 @@
           <Property Name="cod_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="transaction_date" Type="date" Nullable="false" />
-          <Property Name="cod_documento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_documento" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ventas_presencial">
           <Key>
@@ -159,7 +159,7 @@
           <Property Name="transaction_date" Type="date" Nullable="false" />
           <Property Name="rut_persona" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="estado" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="doc_emitido_cod_documento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="doc_emitido_cod_documento" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="comuna_region_fk">
           <End Role="region" Type="Self.region" Multiplicity="1" />
@@ -226,7 +226,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PortafolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="GestionNotariaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="comuna">
           <Key>
             <PropertyRef Name="cod_comuna" />
@@ -248,7 +248,7 @@
           <Property Name="valido" Type="Boolean" Nullable="false" />
           <Property Name="presencialidad" Type="Boolean" Nullable="false" />
           <Property Name="rut_cliente_pres" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="cod_tramite" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_tramite" Type="Int32" Nullable="false" />
           <Property Name="usuario_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="empleado_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="empleado" Relationship="Self.doc_emitido_empleado_fk" FromRole="doc_emitido" ToRole="empleado" />
@@ -490,9 +490,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PortafolioModelStoreContainer" CdmEntityContainer="PortafolioEntities">
+        <EntityContainerMapping StorageEntityContainer="GestionNotariaModelStoreContainer" CdmEntityContainer="PortafolioEntities">
           <EntitySetMapping Name="comuna">
-            <EntityTypeMapping TypeName="PortafolioModel.comuna">
+            <EntityTypeMapping TypeName="GestionNotariaModel.comuna">
               <MappingFragment StoreEntitySet="comuna">
                 <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -501,7 +501,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="doc_emitido">
-            <EntityTypeMapping TypeName="PortafolioModel.doc_emitido">
+            <EntityTypeMapping TypeName="GestionNotariaModel.doc_emitido">
               <MappingFragment StoreEntitySet="doc_emitido">
                 <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
                 <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
@@ -518,7 +518,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="empleado">
-            <EntityTypeMapping TypeName="PortafolioModel.empleado">
+            <EntityTypeMapping TypeName="GestionNotariaModel.empleado">
               <MappingFragment StoreEntitySet="empleado">
                 <ScalarProperty Name="rut" ColumnName="rut" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -534,7 +534,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="info_notaria">
-            <EntityTypeMapping TypeName="PortafolioModel.info_notaria">
+            <EntityTypeMapping TypeName="GestionNotariaModel.info_notaria">
               <MappingFragment StoreEntitySet="info_notaria">
                 <ScalarProperty Name="cod_notaria" ColumnName="cod_notaria" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
@@ -547,7 +547,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kpi_atencion_clientes">
-            <EntityTypeMapping TypeName="PortafolioModel.kpi_atencion_clientes">
+            <EntityTypeMapping TypeName="GestionNotariaModel.kpi_atencion_clientes">
               <MappingFragment StoreEntitySet="kpi_atencion_clientes">
                 <ScalarProperty Name="cod_medicion" ColumnName="cod_medicion" />
                 <ScalarProperty Name="fecha_medicion" ColumnName="fecha_medicion" />
@@ -556,7 +556,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kpi_tramites_realizados">
-            <EntityTypeMapping TypeName="PortafolioModel.kpi_tramites_realizados">
+            <EntityTypeMapping TypeName="GestionNotariaModel.kpi_tramites_realizados">
               <MappingFragment StoreEntitySet="kpi_tramites_realizados">
                 <ScalarProperty Name="cod_medicion" ColumnName="cod_medicion" />
                 <ScalarProperty Name="cant_tramites" ColumnName="cant_tramites" />
@@ -566,7 +566,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="perfil">
-            <EntityTypeMapping TypeName="PortafolioModel.perfil">
+            <EntityTypeMapping TypeName="GestionNotariaModel.perfil">
               <MappingFragment StoreEntitySet="perfil">
                 <ScalarProperty Name="cod_perfil" ColumnName="cod_perfil" />
                 <ScalarProperty Name="rol" ColumnName="rol" />
@@ -574,7 +574,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="region">
-            <EntityTypeMapping TypeName="PortafolioModel.region">
+            <EntityTypeMapping TypeName="GestionNotariaModel.region">
               <MappingFragment StoreEntitySet="region">
                 <ScalarProperty Name="cod_region" ColumnName="cod_region" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -582,7 +582,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="reserva">
-            <EntityTypeMapping TypeName="PortafolioModel.reserva">
+            <EntityTypeMapping TypeName="GestionNotariaModel.reserva">
               <MappingFragment StoreEntitySet="reserva">
                 <ScalarProperty Name="cod_reserva" ColumnName="cod_reserva" />
                 <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
@@ -594,7 +594,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PortafolioModel.sysdiagrams">
+            <EntityTypeMapping TypeName="GestionNotariaModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -605,7 +605,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="template_documento">
-            <EntityTypeMapping TypeName="PortafolioModel.template_documento">
+            <EntityTypeMapping TypeName="GestionNotariaModel.template_documento">
               <MappingFragment StoreEntitySet="template_documento">
                 <ScalarProperty Name="cod_template" ColumnName="cod_template" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -615,7 +615,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tipo_tramite">
-            <EntityTypeMapping TypeName="PortafolioModel.tipo_tramite">
+            <EntityTypeMapping TypeName="GestionNotariaModel.tipo_tramite">
               <MappingFragment StoreEntitySet="tipo_tramite">
                 <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
                 <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
@@ -627,7 +627,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="usuario">
-            <EntityTypeMapping TypeName="PortafolioModel.usuario">
+            <EntityTypeMapping TypeName="GestionNotariaModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
                 <ScalarProperty Name="rut" ColumnName="rut" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -641,7 +641,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ventas_online">
-            <EntityTypeMapping TypeName="PortafolioModel.ventas_online">
+            <EntityTypeMapping TypeName="GestionNotariaModel.ventas_online">
               <MappingFragment StoreEntitySet="ventas_online">
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
@@ -651,7 +651,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ventas_presencial">
-            <EntityTypeMapping TypeName="PortafolioModel.ventas_presencial">
+            <EntityTypeMapping TypeName="GestionNotariaModel.ventas_presencial">
               <MappingFragment StoreEntitySet="ventas_presencial">
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
                 <ScalarProperty Name="amount" ColumnName="amount" />

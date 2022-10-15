@@ -54,6 +54,42 @@ namespace Biblioteca_de_Clases
             }
 
         }
+
+        public List<Region> ReadAll()
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+
+            try
+            {
+                /* Se obtiene todos los registro desde la tabla */
+                List<Notaria.Datos.region> listadoDatos = bbdd.region.ToList<Notaria.Datos.region>();
+
+                /* Se convierte el listado de datos en un listado de negocio */
+                List<Region> listadoPerfil = GenerarListado(listadoDatos);
+
+                /* Se retorna la lista */
+                return listadoPerfil;
+            }
+            catch (Exception)
+            {
+                return new List<Region>();
+            }
+        }
+        private List<Region> GenerarListado(List<Notaria.Datos.region> listadoDatos)
+        {
+            List<Region> listaPerfil = new List<Region>();
+
+            foreach (Notaria.Datos.region dato in listadoDatos)
+            {
+
+                Region negocio = new Region();
+                CommonBC.Syncronize(dato, negocio);
+
+                listaPerfil.Add(negocio);
+            }
+
+            return listaPerfil;
+        }
         #endregion
     }
 }

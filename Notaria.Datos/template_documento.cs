@@ -14,6 +14,12 @@ namespace Notaria.Datos
     
     public partial class template_documento
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public template_documento()
+        {
+            this.tipo_tramite = new HashSet<tipo_tramite>();
+        }
+    
         public int cod_template { get; set; }
         public string nombre { get; set; }
         public byte[] template { get; set; }

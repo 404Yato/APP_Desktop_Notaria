@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Biblioteca_de_Clases;
+using MahApps.Metro.Controls;
 using System.Configuration;
 
 namespace Notaria_WPF
@@ -24,11 +26,15 @@ namespace Notaria_WPF
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Administracion admin = new Administracion();
+            admin.Show();
+            this.Close();
         }
+
     }
 }
