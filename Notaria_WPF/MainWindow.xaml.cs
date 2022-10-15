@@ -14,6 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Configuration;
+using NotariaL;
+using System.Data.SqlClient;
+using System.Data;
+using NotariaWPF;
 
 namespace Notaria_WPF
 {
@@ -25,9 +29,124 @@ namespace Notaria_WPF
         public MainWindow()
         {
             InitializeComponent();
+            Conexion.Conectar();
+            MessageBox.Show("Conexion exitosa");
+            DataGrid1.DataContext = llenar_grid();
+        }
+
+        public DataTable llenar_grid()
+        {
+            Conexion.Conectar();
+            DataTable dt = new DataTable();
+            string consulta = "SELECT * FROM dbo.tipo_tramite";
+            SqlCommand cmd = new SqlCommand(consulta, Conexion.Conectar());
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+            return dt;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Conexion.Conectar();
+            string insertar = "INSERT INTO dbo.tipo_tramite VALUES (@cod_tramite, @nombre_tramite, @descripcion, @requisitos, @precio, @cod_template)";
+            SqlCommand cmd1 = new SqlCommand(insertar, Conexion.Conectar());
+            cmd1.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
+            cmd1.Parameters.AddWithValue("@nombre_tramite", NTB.Text);
+            cmd1.Parameters.AddWithValue("@descripcion", DTB.Text);
+            cmd1.Parameters.AddWithValue("@requisitos", RTB.Text);
+            cmd1.Parameters.AddWithValue("@precio", PTB.Text);
+            cmd1.Parameters.AddWithValue("@cod_template", CTB.Text);
+
+            cmd1.ExecuteNonQuery();
+
+            MessageBox.Show("Los datos fueron agregados con exito");
+
+            DataGrid1.DataContext = llenar_grid();
+        }
+
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            Conexion.Conectar();
+            string actualizar = "UPDATE dbo.tipo_tramite SET cod_tramite=@cod_tramite, nombre_tramite=@nombre_tramite, descripcion=@descripcion, requisitos=@requisitos, precio=@precio, cod_template=@cod_template WHERE cod_template=@cod_template";
+            SqlCommand cmd2 = new SqlCommand(actualizar, Conexion.Conectar());
+
+            cmd2.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
+            cmd2.Parameters.AddWithValue("@nombre_tramite", NTB.Text);
+            cmd2.Parameters.AddWithValue("@descripcion", DTB.Text);
+            cmd2.Parameters.AddWithValue("@requisitos", RTB.Text);
+            cmd2.Parameters.AddWithValue("@precio", PTB.Text);
+            cmd2.Parameters.AddWithValue("@cod_template", CTB.Text);
+
+            cmd2.ExecuteNonQuery();
+
+            MessageBox.Show("Los datos fueron actualizados con exito");
+            DataGrid1.DataContext = llenar_grid();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Conexion.Conectar();
+            string eliminar = "DELETE FROM dbo.tipo_tramite WHERE cod_tramite=@cod_tramite";
+            SqlCommand cmd3 = new SqlCommand(eliminar, Conexion.Conectar());
+
+            cmd3.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
+
+            cmd3.ExecuteNonQuery();
+
+            MessageBox.Show("Los datos fueron eliminados con exito");
+
+            DataGrid1.DataContext = llenar_grid();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            IDTB.Clear();
+            NTB.Clear();
+            DTB.Clear();
+            RTB.Clear();
+            PTB.Clear();
+            CTB.Clear();
+            IDTB.Focus();
+        }
+
+        private void BContador_Click(object sender, RoutedEventArgs e)
+        {
+            Contador miContador = new Contador();
+            miContador.ShowDialog();
+        }
+
+        private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ///Diseño miDiseño = new Diseño();
+            ///miDiseño.ShowDialog();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Documentos(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Personal(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
 
         }
