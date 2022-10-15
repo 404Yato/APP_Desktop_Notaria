@@ -17,6 +17,7 @@ namespace Notaria.Datos
         public int cod_venta { get; set; }
         public int amount { get; set; }
         public System.DateTime transaction_date { get; set; }
+        public string rut_persona { get; set; }
         public int cod_documento { get; set; }
     
         public virtual doc_emitido doc_emitido { get; set; }

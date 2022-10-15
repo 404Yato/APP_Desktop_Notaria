@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GestionNotariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PortafolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="comuna">
           <Key>
             <PropertyRef Name="cod_comuna" />
@@ -41,7 +41,7 @@
           <Property Name="fono" Type="int" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="100" />
           <Property Name="cod_comuna" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="cod_perfil" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_perfil" Type="int" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="info_notaria">
@@ -148,6 +148,7 @@
           <Property Name="cod_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="transaction_date" Type="date" Nullable="false" />
+          <Property Name="rut_persona" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="cod_documento" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ventas_presencial">
@@ -185,6 +186,130 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="doc_emitido_tipo_tramite_fk">
+          <End Role="tipo_tramite" Type="Self.tipo_tramite" Multiplicity="1" />
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_tramite">
+              <PropertyRef Name="cod_tramite" />
+            </Principal>
+            <Dependent Role="doc_emitido">
+              <PropertyRef Name="cod_tramite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="doc_emitido_usuario_fk">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="rut" />
+            </Principal>
+            <Dependent Role="doc_emitido">
+              <PropertyRef Name="usuario_rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="empleado_comuna_fk">
+          <End Role="comuna" Type="Self.comuna" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comuna">
+              <PropertyRef Name="cod_comuna" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="cod_comuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="empleado_perfil_fk">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="cod_perfil" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="cod_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reserva_tipo_tramite_fk">
+          <End Role="tipo_tramite" Type="Self.tipo_tramite" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_tramite">
+              <PropertyRef Name="cod_tramite" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="cod_tramite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reserva_usuario_fk">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="rut" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="usuario_rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tipo_tram_template_doc_fk">
+          <End Role="template_documento" Type="Self.template_documento" Multiplicity="1" />
+          <End Role="tipo_tramite" Type="Self.tipo_tramite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="template_documento">
+              <PropertyRef Name="cod_template" />
+            </Principal>
+            <Dependent Role="tipo_tramite">
+              <PropertyRef Name="cod_template" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuario_comuna_fk">
+          <End Role="comuna" Type="Self.comuna" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comuna">
+              <PropertyRef Name="cod_comuna" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="cod_comuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ventas_online_doc_emitido_fk">
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ventas_online" Type="Self.ventas_online" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc_emitido">
+              <PropertyRef Name="cod_documento" />
+            </Principal>
+            <Dependent Role="ventas_online">
+              <PropertyRef Name="cod_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ventas_pres_doc_emit_fk">
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ventas_presencial" Type="Self.ventas_presencial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc_emitido">
+              <PropertyRef Name="cod_documento" />
+            </Principal>
+            <Dependent Role="ventas_presencial">
+              <PropertyRef Name="doc_emitido_cod_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="buscar_documento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="rut" Type="varchar" Mode="In" />
         </Function>
@@ -196,6 +321,12 @@
         </Function>
         <Function Name="buscar_ventas_pres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="filtrar_rut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="llenarComboComuna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_region" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="PortafolioModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
@@ -221,12 +352,52 @@
             <End Role="empleado" EntitySet="empleado" />
             <End Role="doc_emitido" EntitySet="doc_emitido" />
           </AssociationSet>
+          <AssociationSet Name="doc_emitido_tipo_tramite_fk" Association="Self.doc_emitido_tipo_tramite_fk">
+            <End Role="tipo_tramite" EntitySet="tipo_tramite" />
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+          </AssociationSet>
+          <AssociationSet Name="doc_emitido_usuario_fk" Association="Self.doc_emitido_usuario_fk">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+          </AssociationSet>
+          <AssociationSet Name="empleado_comuna_fk" Association="Self.empleado_comuna_fk">
+            <End Role="comuna" EntitySet="comuna" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="empleado_perfil_fk" Association="Self.empleado_perfil_fk">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="reserva_tipo_tramite_fk" Association="Self.reserva_tipo_tramite_fk">
+            <End Role="tipo_tramite" EntitySet="tipo_tramite" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="reserva_usuario_fk" Association="Self.reserva_usuario_fk">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="tipo_tram_template_doc_fk" Association="Self.tipo_tram_template_doc_fk">
+            <End Role="template_documento" EntitySet="template_documento" />
+            <End Role="tipo_tramite" EntitySet="tipo_tramite" />
+          </AssociationSet>
+          <AssociationSet Name="usuario_comuna_fk" Association="Self.usuario_comuna_fk">
+            <End Role="comuna" EntitySet="comuna" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="ventas_online_doc_emitido_fk" Association="Self.ventas_online_doc_emitido_fk">
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+            <End Role="ventas_online" EntitySet="ventas_online" />
+          </AssociationSet>
+          <AssociationSet Name="ventas_pres_doc_emit_fk" Association="Self.ventas_pres_doc_emit_fk">
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+            <End Role="ventas_presencial" EntitySet="ventas_presencial" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="GestionNotariaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PortafolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="comuna">
           <Key>
             <PropertyRef Name="cod_comuna" />
@@ -235,6 +406,8 @@
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cod_region" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="region" Relationship="Self.comuna_region_fk" FromRole="comuna" ToRole="region" />
+          <NavigationProperty Name="empleado" Relationship="Self.empleado_comuna_fk" FromRole="comuna" ToRole="empleado" />
+          <NavigationProperty Name="usuario" Relationship="Self.usuario_comuna_fk" FromRole="comuna" ToRole="usuario" />
         </EntityType>
         <EntityType Name="doc_emitido">
           <Key>
@@ -252,6 +425,10 @@
           <Property Name="usuario_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="empleado_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="empleado" Relationship="Self.doc_emitido_empleado_fk" FromRole="doc_emitido" ToRole="empleado" />
+          <NavigationProperty Name="tipo_tramite" Relationship="Self.doc_emitido_tipo_tramite_fk" FromRole="doc_emitido" ToRole="tipo_tramite" />
+          <NavigationProperty Name="usuario" Relationship="Self.doc_emitido_usuario_fk" FromRole="doc_emitido" ToRole="usuario" />
+          <NavigationProperty Name="ventas_online" Relationship="Self.ventas_online_doc_emitido_fk" FromRole="doc_emitido" ToRole="ventas_online" />
+          <NavigationProperty Name="ventas_presencial" Relationship="Self.ventas_pres_doc_emit_fk" FromRole="doc_emitido" ToRole="ventas_presencial" />
         </EntityType>
         <EntityType Name="empleado">
           <Key>
@@ -265,9 +442,11 @@
           <Property Name="fono" Type="Int32" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cod_comuna" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cod_perfil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_perfil" Type="Int32" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="comuna" Relationship="Self.empleado_comuna_fk" FromRole="empleado" ToRole="comuna" />
           <NavigationProperty Name="doc_emitido" Relationship="Self.doc_emitido_empleado_fk" FromRole="empleado" ToRole="doc_emitido" />
+          <NavigationProperty Name="perfil" Relationship="Self.empleado_perfil_fk" FromRole="empleado" ToRole="perfil" />
         </EntityType>
         <EntityType Name="info_notaria">
           <Key>
@@ -304,6 +483,7 @@
           </Key>
           <Property Name="cod_perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="rol" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="empleado" Relationship="Self.empleado_perfil_fk" FromRole="perfil" ToRole="empleado" />
         </EntityType>
         <EntityType Name="region">
           <Key>
@@ -322,7 +502,9 @@
           <Property Name="motivo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="usuario_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cod_tramite" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_tramite" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tipo_tramite" Relationship="Self.reserva_tipo_tramite_fk" FromRole="reserva" ToRole="tipo_tramite" />
+          <NavigationProperty Name="usuario" Relationship="Self.reserva_usuario_fk" FromRole="reserva" ToRole="usuario" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -342,6 +524,7 @@
           <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="template" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="fecha_subida" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tipo_tramite" Relationship="Self.tipo_tram_template_doc_fk" FromRole="template_documento" ToRole="tipo_tramite" />
         </EntityType>
         <EntityType Name="tipo_tramite">
           <Key>
@@ -352,7 +535,10 @@
           <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="requisitos" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="precio" Type="Int32" Nullable="false" />
-          <Property Name="cod_template" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_template" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="doc_emitido" Relationship="Self.doc_emitido_tipo_tramite_fk" FromRole="tipo_tramite" ToRole="doc_emitido" />
+          <NavigationProperty Name="reserva" Relationship="Self.reserva_tipo_tramite_fk" FromRole="tipo_tramite" ToRole="reserva" />
+          <NavigationProperty Name="template_documento" Relationship="Self.tipo_tram_template_doc_fk" FromRole="tipo_tramite" ToRole="template_documento" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -366,6 +552,9 @@
           <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="cod_comuna" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="comuna" Relationship="Self.usuario_comuna_fk" FromRole="usuario" ToRole="comuna" />
+          <NavigationProperty Name="doc_emitido" Relationship="Self.doc_emitido_usuario_fk" FromRole="usuario" ToRole="doc_emitido" />
+          <NavigationProperty Name="reserva" Relationship="Self.reserva_usuario_fk" FromRole="usuario" ToRole="reserva" />
         </EntityType>
         <EntityType Name="ventas_online">
           <Key>
@@ -374,7 +563,9 @@
           <Property Name="cod_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="cod_documento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rut_persona" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_documento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="doc_emitido" Relationship="Self.ventas_online_doc_emitido_fk" FromRole="ventas_online" ToRole="doc_emitido" />
         </EntityType>
         <EntityType Name="ventas_presencial">
           <Key>
@@ -385,7 +576,8 @@
           <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="rut_persona" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="doc_emitido_cod_documento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="doc_emitido_cod_documento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="doc_emitido" Relationship="Self.ventas_pres_doc_emit_fk" FromRole="ventas_presencial" ToRole="doc_emitido" />
         </EntityType>
         <Association Name="comuna_region_fk">
           <End Role="region" Type="Self.region" Multiplicity="1" />
@@ -399,6 +591,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="empleado_comuna_fk">
+          <End Role="comuna" Type="Self.comuna" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comuna">
+              <PropertyRef Name="cod_comuna" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="cod_comuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuario_comuna_fk">
+          <End Role="comuna" Type="Self.comuna" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comuna">
+              <PropertyRef Name="cod_comuna" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="cod_comuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="doc_emitido_empleado_fk">
           <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
           <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="*" />
@@ -408,6 +624,106 @@
             </Principal>
             <Dependent Role="doc_emitido">
               <PropertyRef Name="empleado_rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="doc_emitido_tipo_tramite_fk">
+          <End Role="tipo_tramite" Type="Self.tipo_tramite" Multiplicity="1" />
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_tramite">
+              <PropertyRef Name="cod_tramite" />
+            </Principal>
+            <Dependent Role="doc_emitido">
+              <PropertyRef Name="cod_tramite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="doc_emitido_usuario_fk">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="rut" />
+            </Principal>
+            <Dependent Role="doc_emitido">
+              <PropertyRef Name="usuario_rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ventas_online_doc_emitido_fk">
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ventas_online" Type="Self.ventas_online" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc_emitido">
+              <PropertyRef Name="cod_documento" />
+            </Principal>
+            <Dependent Role="ventas_online">
+              <PropertyRef Name="cod_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ventas_pres_doc_emit_fk">
+          <End Role="doc_emitido" Type="Self.doc_emitido" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ventas_presencial" Type="Self.ventas_presencial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc_emitido">
+              <PropertyRef Name="cod_documento" />
+            </Principal>
+            <Dependent Role="ventas_presencial">
+              <PropertyRef Name="doc_emitido_cod_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="empleado_perfil_fk">
+          <End Role="perfil" Type="Self.perfil" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perfil">
+              <PropertyRef Name="cod_perfil" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="cod_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reserva_tipo_tramite_fk">
+          <End Role="tipo_tramite" Type="Self.tipo_tramite" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_tramite">
+              <PropertyRef Name="cod_tramite" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="cod_tramite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reserva_usuario_fk">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="reserva" Type="Self.reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="rut" />
+            </Principal>
+            <Dependent Role="reserva">
+              <PropertyRef Name="usuario_rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tipo_tram_template_doc_fk">
+          <End Role="template_documento" Type="Self.template_documento" Multiplicity="1" />
+          <End Role="tipo_tramite" Type="Self.tipo_tramite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="template_documento">
+              <PropertyRef Name="cod_template" />
+            </Principal>
+            <Dependent Role="tipo_tramite">
+              <PropertyRef Name="cod_template" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -431,9 +747,49 @@
             <End Role="region" EntitySet="region" />
             <End Role="comuna" EntitySet="comuna" />
           </AssociationSet>
+          <AssociationSet Name="empleado_comuna_fk" Association="Self.empleado_comuna_fk">
+            <End Role="comuna" EntitySet="comuna" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="usuario_comuna_fk" Association="Self.usuario_comuna_fk">
+            <End Role="comuna" EntitySet="comuna" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
           <AssociationSet Name="doc_emitido_empleado_fk" Association="Self.doc_emitido_empleado_fk">
             <End Role="empleado" EntitySet="empleado" />
             <End Role="doc_emitido" EntitySet="doc_emitido" />
+          </AssociationSet>
+          <AssociationSet Name="doc_emitido_tipo_tramite_fk" Association="Self.doc_emitido_tipo_tramite_fk">
+            <End Role="tipo_tramite" EntitySet="tipo_tramite" />
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+          </AssociationSet>
+          <AssociationSet Name="doc_emitido_usuario_fk" Association="Self.doc_emitido_usuario_fk">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+          </AssociationSet>
+          <AssociationSet Name="ventas_online_doc_emitido_fk" Association="Self.ventas_online_doc_emitido_fk">
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+            <End Role="ventas_online" EntitySet="ventas_online" />
+          </AssociationSet>
+          <AssociationSet Name="ventas_pres_doc_emit_fk" Association="Self.ventas_pres_doc_emit_fk">
+            <End Role="doc_emitido" EntitySet="doc_emitido" />
+            <End Role="ventas_presencial" EntitySet="ventas_presencial" />
+          </AssociationSet>
+          <AssociationSet Name="empleado_perfil_fk" Association="Self.empleado_perfil_fk">
+            <End Role="perfil" EntitySet="perfil" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="reserva_tipo_tramite_fk" Association="Self.reserva_tipo_tramite_fk">
+            <End Role="tipo_tramite" EntitySet="tipo_tramite" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="reserva_usuario_fk" Association="Self.reserva_usuario_fk">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="reserva" EntitySet="reserva" />
+          </AssociationSet>
+          <AssociationSet Name="tipo_tram_template_doc_fk" Association="Self.tipo_tram_template_doc_fk">
+            <End Role="template_documento" EntitySet="template_documento" />
+            <End Role="tipo_tramite" EntitySet="tipo_tramite" />
           </AssociationSet>
           <FunctionImport Name="buscar_documento" ReturnType="Collection(PortafolioModel.buscar_documento_Result)">
             <Parameter Name="rut" Mode="In" Type="String" />
@@ -447,6 +803,12 @@
           <FunctionImport Name="buscar_ventas_pres" ReturnType="Collection(PortafolioModel.buscar_ventas_pres_Result)">
             <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="filtrar_rut" ReturnType="Collection(PortafolioModel.filtrar_rut_Result)">
+            <Parameter Name="rut" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="llenarComboComuna" ReturnType="Collection(PortafolioModel.llenarComboComuna_Result)">
+            <Parameter Name="cod_region" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="buscar_documento_Result">
           <Property Type="Int32" Name="cod_documento" Nullable="false" />
@@ -457,7 +819,7 @@
           <Property Type="Boolean" Name="valido" Nullable="false" />
           <Property Type="Boolean" Name="presencialidad" Nullable="false" />
           <Property Type="String" Name="rut_cliente_pres" Nullable="true" MaxLength="12" />
-          <Property Type="String" Name="cod_tramite" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="cod_tramite" Nullable="false" />
           <Property Type="String" Name="usuario_rut" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="empleado_rut" Nullable="true" MaxLength="12" />
         </ComplexType>
@@ -467,7 +829,7 @@
           <Property Type="String" Name="motivo" Nullable="true" MaxLength="500" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="usuario_rut" Nullable="false" MaxLength="12" />
-          <Property Type="String" Name="cod_tramite" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="cod_tramite" Nullable="false" />
         </ComplexType>
         <ComplexType Name="buscar_ventas_pendientes_Result">
           <Property Type="Int32" Name="cod_venta" Nullable="false" />
@@ -475,7 +837,7 @@
           <Property Type="DateTime" Name="transaction_date" Nullable="false" />
           <Property Type="String" Name="rut_persona" Nullable="false" MaxLength="12" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="doc_emitido_cod_documento" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="doc_emitido_cod_documento" Nullable="false" />
         </ComplexType>
         <ComplexType Name="buscar_ventas_pres_Result">
           <Property Type="Int32" Name="cod_venta" Nullable="false" />
@@ -483,16 +845,31 @@
           <Property Type="DateTime" Name="transaction_date" Nullable="false" />
           <Property Type="String" Name="rut_persona" Nullable="false" MaxLength="12" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="doc_emitido_cod_documento" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="doc_emitido_cod_documento" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="filtrar_rut_Result">
+          <Property Type="String" Name="rut" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="apellido_paterno" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="apellido_materno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="80" />
+          <Property Type="Int32" Name="fono" Nullable="false" />
+          <Property Type="String" Name="contraseña" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="llenarComboComuna_Result">
+          <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GestionNotariaModelStoreContainer" CdmEntityContainer="PortafolioEntities">
+        <EntityContainerMapping StorageEntityContainer="PortafolioModelStoreContainer" CdmEntityContainer="PortafolioEntities">
           <EntitySetMapping Name="comuna">
-            <EntityTypeMapping TypeName="GestionNotariaModel.comuna">
+            <EntityTypeMapping TypeName="PortafolioModel.comuna">
               <MappingFragment StoreEntitySet="comuna">
                 <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -501,7 +878,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="doc_emitido">
-            <EntityTypeMapping TypeName="GestionNotariaModel.doc_emitido">
+            <EntityTypeMapping TypeName="PortafolioModel.doc_emitido">
               <MappingFragment StoreEntitySet="doc_emitido">
                 <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
                 <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
@@ -518,7 +895,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="empleado">
-            <EntityTypeMapping TypeName="GestionNotariaModel.empleado">
+            <EntityTypeMapping TypeName="PortafolioModel.empleado">
               <MappingFragment StoreEntitySet="empleado">
                 <ScalarProperty Name="rut" ColumnName="rut" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -534,7 +911,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="info_notaria">
-            <EntityTypeMapping TypeName="GestionNotariaModel.info_notaria">
+            <EntityTypeMapping TypeName="PortafolioModel.info_notaria">
               <MappingFragment StoreEntitySet="info_notaria">
                 <ScalarProperty Name="cod_notaria" ColumnName="cod_notaria" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
@@ -547,7 +924,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kpi_atencion_clientes">
-            <EntityTypeMapping TypeName="GestionNotariaModel.kpi_atencion_clientes">
+            <EntityTypeMapping TypeName="PortafolioModel.kpi_atencion_clientes">
               <MappingFragment StoreEntitySet="kpi_atencion_clientes">
                 <ScalarProperty Name="cod_medicion" ColumnName="cod_medicion" />
                 <ScalarProperty Name="fecha_medicion" ColumnName="fecha_medicion" />
@@ -556,7 +933,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="kpi_tramites_realizados">
-            <EntityTypeMapping TypeName="GestionNotariaModel.kpi_tramites_realizados">
+            <EntityTypeMapping TypeName="PortafolioModel.kpi_tramites_realizados">
               <MappingFragment StoreEntitySet="kpi_tramites_realizados">
                 <ScalarProperty Name="cod_medicion" ColumnName="cod_medicion" />
                 <ScalarProperty Name="cant_tramites" ColumnName="cant_tramites" />
@@ -566,7 +943,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="perfil">
-            <EntityTypeMapping TypeName="GestionNotariaModel.perfil">
+            <EntityTypeMapping TypeName="PortafolioModel.perfil">
               <MappingFragment StoreEntitySet="perfil">
                 <ScalarProperty Name="cod_perfil" ColumnName="cod_perfil" />
                 <ScalarProperty Name="rol" ColumnName="rol" />
@@ -574,7 +951,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="region">
-            <EntityTypeMapping TypeName="GestionNotariaModel.region">
+            <EntityTypeMapping TypeName="PortafolioModel.region">
               <MappingFragment StoreEntitySet="region">
                 <ScalarProperty Name="cod_region" ColumnName="cod_region" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -582,7 +959,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="reserva">
-            <EntityTypeMapping TypeName="GestionNotariaModel.reserva">
+            <EntityTypeMapping TypeName="PortafolioModel.reserva">
               <MappingFragment StoreEntitySet="reserva">
                 <ScalarProperty Name="cod_reserva" ColumnName="cod_reserva" />
                 <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
@@ -594,7 +971,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="GestionNotariaModel.sysdiagrams">
+            <EntityTypeMapping TypeName="PortafolioModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -605,7 +982,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="template_documento">
-            <EntityTypeMapping TypeName="GestionNotariaModel.template_documento">
+            <EntityTypeMapping TypeName="PortafolioModel.template_documento">
               <MappingFragment StoreEntitySet="template_documento">
                 <ScalarProperty Name="cod_template" ColumnName="cod_template" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -615,7 +992,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tipo_tramite">
-            <EntityTypeMapping TypeName="GestionNotariaModel.tipo_tramite">
+            <EntityTypeMapping TypeName="PortafolioModel.tipo_tramite">
               <MappingFragment StoreEntitySet="tipo_tramite">
                 <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
                 <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
@@ -627,7 +1004,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="usuario">
-            <EntityTypeMapping TypeName="GestionNotariaModel.usuario">
+            <EntityTypeMapping TypeName="PortafolioModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
                 <ScalarProperty Name="rut" ColumnName="rut" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -641,17 +1018,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ventas_online">
-            <EntityTypeMapping TypeName="GestionNotariaModel.ventas_online">
+            <EntityTypeMapping TypeName="PortafolioModel.ventas_online">
               <MappingFragment StoreEntitySet="ventas_online">
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="rut_persona" ColumnName="rut_persona" />
                 <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ventas_presencial">
-            <EntityTypeMapping TypeName="GestionNotariaModel.ventas_presencial">
+            <EntityTypeMapping TypeName="PortafolioModel.ventas_presencial">
               <MappingFragment StoreEntitySet="ventas_presencial">
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
@@ -712,6 +1090,29 @@
                 <ScalarProperty Name="rut_persona" ColumnName="rut_persona" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="doc_emitido_cod_documento" ColumnName="doc_emitido_cod_documento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="filtrar_rut" FunctionName="PortafolioModel.Store.filtrar_rut">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.filtrar_rut_Result">
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="fono" ColumnName="fono" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="llenarComboComuna" FunctionName="PortafolioModel.Store.llenarComboComuna">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.llenarComboComuna_Result">
+                <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

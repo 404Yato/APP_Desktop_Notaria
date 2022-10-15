@@ -24,5 +24,8 @@ namespace Notaria.Datos
         public string nombre { get; set; }
         public byte[] template { get; set; }
         public System.DateTime fecha_subida { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tipo_tramite> tipo_tramite { get; set; }
     }
 }

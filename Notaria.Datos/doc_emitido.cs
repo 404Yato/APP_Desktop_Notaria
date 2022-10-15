@@ -34,5 +34,11 @@ namespace Notaria.Datos
         public string empleado_rut { get; set; }
     
         public virtual empleado empleado { get; set; }
+        public virtual tipo_tramite tipo_tramite { get; set; }
+        public virtual usuario usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ventas_online> ventas_online { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ventas_presencial> ventas_presencial { get; set; }
     }
 }

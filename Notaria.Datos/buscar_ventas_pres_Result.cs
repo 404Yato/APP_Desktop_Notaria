@@ -18,6 +18,6 @@ namespace Notaria.Datos
         public System.DateTime transaction_date { get; set; }
         public string rut_persona { get; set; }
         public string estado { get; set; }
-        public string doc_emitido_cod_documento { get; set; }
+        public int doc_emitido_cod_documento { get; set; }
     }
 }

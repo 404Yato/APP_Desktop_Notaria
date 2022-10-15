@@ -78,5 +78,23 @@ namespace Notaria.Datos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<buscar_ventas_pres_Result>("buscar_ventas_pres", rutParameter);
         }
+    
+        public virtual ObjectResult<filtrar_rut_Result> filtrar_rut(string rut)
+        {
+            var rutParameter = rut != null ?
+                new ObjectParameter("rut", rut) :
+                new ObjectParameter("rut", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<filtrar_rut_Result>("filtrar_rut", rutParameter);
+        }
+    
+        public virtual ObjectResult<llenarComboComuna_Result> llenarComboComuna(string cod_region)
+        {
+            var cod_regionParameter = cod_region != null ?
+                new ObjectParameter("cod_region", cod_region) :
+                new ObjectParameter("cod_region", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<llenarComboComuna_Result>("llenarComboComuna", cod_regionParameter);
+        }
     }
 }

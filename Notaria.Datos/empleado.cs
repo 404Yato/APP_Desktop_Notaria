@@ -31,7 +31,9 @@ namespace Notaria.Datos
         public int cod_perfil { get; set; }
         public string email { get; set; }
     
+        public virtual comuna comuna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_emitido> doc_emitido { get; set; }
+        public virtual perfil perfil { get; set; }
     }
 }

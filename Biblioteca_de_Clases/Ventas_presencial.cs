@@ -14,7 +14,7 @@ namespace Biblioteca_de_Clases
         public System.DateTime transaction_date { get; set; }
         public string rut_persona { get; set; }
         public string estado { get; set; }
-        public string doc_emitido_cod_documento { get; set; }
+        public int doc_emitido_cod_documento { get; set; }
         #endregion
 
         #region CONSTRUCTOR
@@ -29,7 +29,7 @@ namespace Biblioteca_de_Clases
             transaction_date = DateTime.Now;
             rut_persona = string.Empty;
             estado = string.Empty;
-            doc_emitido_cod_documento = string.Empty;
+            doc_emitido_cod_documento = 0;
         }
         #endregion
 

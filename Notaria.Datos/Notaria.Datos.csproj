@@ -56,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="buscar_documento_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="buscar_reservas_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="buscar_ventas_pendientes_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="buscar_ventas_pres_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="comuna.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>

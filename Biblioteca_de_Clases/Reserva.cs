@@ -15,7 +15,7 @@ namespace Biblioteca_de_Clases
         public string motivo { get; set; }
         public string estado { get; set; }
         public string usuario_rut { get; set; }
-        public string cod_tramite { get; set; }
+        public int cod_tramite { get; set; }
         #endregion
 
         #region CONSTRUCTOR
@@ -30,7 +30,7 @@ namespace Biblioteca_de_Clases
             motivo = string.Empty;
             estado = string.Empty;
             usuario_rut = string.Empty;
-            cod_tramite = string.Empty;
+            cod_tramite = 0;
         }
         #endregion
 

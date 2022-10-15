@@ -21,7 +21,7 @@ namespace Notaria.Datos
         public bool valido { get; set; }
         public bool presencialidad { get; set; }
         public string rut_cliente_pres { get; set; }
-        public string cod_tramite { get; set; }
+        public int cod_tramite { get; set; }
         public string usuario_rut { get; set; }
         public string empleado_rut { get; set; }
     }
