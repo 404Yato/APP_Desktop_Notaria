@@ -30,7 +30,7 @@ namespace Notaria_WPF
         {
             InitializeComponent();
             Conexion.Conectar();
-            MessageBox.Show("Conexion exitosa");
+            ///MessageBox.Show("Conexion exitosa");
             DataGrid1.DataContext = llenar_grid();
         }
 
