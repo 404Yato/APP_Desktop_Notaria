@@ -177,6 +177,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="TiposDeTramites.xaml.cs">
+      <DependentUpon>TiposDeTramites.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Contador.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="HistorialReservas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,6 +205,10 @@
     <Compile Include="HistorialDocumentos.xaml.cs">
       <DependentUpon>HistorialDocumentos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="Contador.xaml.cs">
+      <DependentUpon>Contador.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HistorialReservas.xaml.cs">
       <DependentUpon>HistorialReservas.xaml</DependentUpon>
     </Compile>
@@ -212,6 +223,10 @@
     <Page Include="VistaCajero.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TiposDeTramites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
