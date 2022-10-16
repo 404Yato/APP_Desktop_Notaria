@@ -151,13 +151,12 @@
         <Label x:Name="lb_region_usuario" Content="Seleccione la Región" HorizontalAlignment="Left" Margin="546,258,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <Label x:Name="lb_comuna_usuario" Content="Seleccione la Comuna" HorizontalAlignment="Left" Margin="546,326,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <!--GESTION DE USUARIO LISTAR -->
-        <DataGrid x:Name="dg_usuarios" AutoGenerateColumns="False" Margin="127,230,26,25" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC">
+        <DataGrid x:Name="dg_usuarios" AutoGenerateColumns="False" Margin="127,230,26,25" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC" Visibility="Collapsed">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding rut}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
                 <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" />
                 <DataGridTextColumn Header="Fono" Binding="{Binding fono}" />
-                
                 <DataGridTextColumn Header="Email" Binding="{Binding email}" />
                 <DataGridTextColumn Header="Codigo de Comuna" Binding="{Binding cod_comuna}" />
             </DataGrid.Columns>
@@ -165,7 +164,7 @@
         <Button x:Name="btn_modificar_usuario" Content="Modificar Usuario" Margin="0,141,26,0" VerticalAlignment="Top" Height="50" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_modificar_usuario_Click" HorizontalAlignment="Right" Width="154" Visibility="Collapsed"/>
         <TextBox x:Name="txb_buscar_usuario" HorizontalAlignment="Left" Margin="127,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" TextChanged="txb_buscar_usuario_TextChanged" Visibility="Collapsed" />
         <Button x:Name="btn_eliminar_usuario" Content="Eliminar Usuario" Margin="0,141,196,0" VerticalAlignment="Top" Height="50" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_eliminar_usuario_Click" HorizontalAlignment="Right" Width="154" Visibility="Collapsed"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1034,249,0,0" VerticalAlignment="Top" Width="0"/>
+        <Label x:Name="lb_buscador_usuario" Content="Buscador por Rut" HorizontalAlignment="Left" Margin="127,121,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="18" FontFamily="Calibri" Visibility="Collapsed"/>
 
         <!-- GESTION DE USUARIO MODIFICAR -->
         <Button x:Name="btn_modifi_usuario" Content="Modificar Usuario" HorizontalAlignment="Left" Margin="432,0,0,34" Width="180" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_modifi_usuario_Click" Height="36" VerticalAlignment="Bottom" FontSize="18" FontFamily="Calibri" Visibility="Collapsed"/>
@@ -179,7 +178,7 @@
         <Label x:Name="lb_emailM_usuario" Content="Email del Usuario" HorizontalAlignment="Left" Margin="546,190,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
         <Label x:Name="lb_regionM_usaurio" Content="Region del Usuario" HorizontalAlignment="Left" Margin="546,256,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
         <Label x:Name="lb_comunaM_usaurio" Content="Comuna del Usuario" HorizontalAlignment="Left" Margin="546,326,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
-        <Label x:Name="lb_titulo_Usuario" Content="Gestión de Usuarios" HorizontalAlignment="Left" Margin="181,44,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="18"/>
+        <Label x:Name="lb_titulo_Usuario" Content="Gestión de Usuarios" HorizontalAlignment="Left" Margin="181,44,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="18" Visibility="Collapsed"/>
 
     </Grid>
 </Window>
