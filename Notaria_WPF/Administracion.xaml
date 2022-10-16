@@ -151,15 +151,15 @@
         <Label x:Name="lb_region_usuario" Content="Seleccione la Región" HorizontalAlignment="Left" Margin="546,258,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <Label x:Name="lb_comuna_usuario" Content="Seleccione la Comuna" HorizontalAlignment="Left" Margin="546,326,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <!--GESTION DE USUARIO LISTAR -->
-        <DataGrid x:Name="dg_usuarios" AutoGenerateColumns="False" Margin="127,230,26,25" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC" Visibility="Collapsed">
+        <DataGrid x:Name="dg_usuarios" AutoGenerateColumns="False" Margin="127,230,26,25" FontFamily="Calibri" FontSize="16" IsReadOnly="True" Background="#FFDCE1EC">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding rut}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
                 <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" />
                 <DataGridTextColumn Header="Fono" Binding="{Binding fono}" />
-                <DataGridTextColumn Header="Dirección" Binding="{Binding contraseña}" />
-                <DataGridTextColumn Header="Comuna" Binding="{Binding email}" />
-                <DataGridTextColumn Header="Rol" Binding="{Binding cod_comuna}" />
+                
+                <DataGridTextColumn Header="Email" Binding="{Binding email}" />
+                <DataGridTextColumn Header="Codigo de Comuna" Binding="{Binding cod_comuna}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btn_modificar_usuario" Content="Modificar Usuario" Margin="0,141,26,0" VerticalAlignment="Top" Height="50" BorderBrush="#FF283655" Background="#FF00CCFF" Click="btn_modificar_usuario_Click" HorizontalAlignment="Right" Width="154" Visibility="Collapsed"/>
