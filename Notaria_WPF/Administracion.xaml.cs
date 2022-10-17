@@ -465,7 +465,9 @@ namespace Notaria_WPF
             btn_eliminar_usuario.Visibility = Visibility.Visible;
             btn_modificar_usuario.Visibility = Visibility.Visible;
             txb_buscar_usuario.Visibility = Visibility.Visible;
-           
+            lb_buscador_usuario.Visibility= Visibility.Visible;
+
+
         }
         private void SacarUsuarioList()
         {
@@ -473,7 +475,7 @@ namespace Notaria_WPF
             btn_eliminar_usuario.Visibility = Visibility.Collapsed;
             btn_modificar_usuario.Visibility = Visibility.Collapsed;
             txb_buscar_usuario.Visibility = Visibility.Collapsed;
-
+            lb_buscador_usuario.Visibility = Visibility.Collapsed;
         }
         private void MostrarUsuarioModificar()
         {

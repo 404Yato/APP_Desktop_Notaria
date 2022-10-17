@@ -155,10 +155,20 @@
     <Compile Include="ActualizarArchivo.xaml.cs">
       <DependentUpon>ActualizarArchivo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormCartaPoder.xaml.cs">
+      <DependentUpon>FormCartaPoder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TemplatesCRUD.xaml.cs">
       <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaRecepcionista.xaml.cs">
+      <DependentUpon>VistaRecepcionista.xaml</DependentUpon>
+    </Compile>
     <Page Include="ActualizarArchivo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormCartaPoder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +184,13 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Administracion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="TiposDeTramites.xaml.cs">
+      <DependentUpon>TiposDeTramites.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Contador.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -198,6 +215,10 @@
     <Compile Include="HistorialDocumentos.xaml.cs">
       <DependentUpon>HistorialDocumentos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="Contador.xaml.cs">
+      <DependentUpon>Contador.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HistorialReservas.xaml.cs">
       <DependentUpon>HistorialReservas.xaml</DependentUpon>
     </Compile>
@@ -212,6 +233,14 @@
     <Page Include="VistaCajero.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TiposDeTramites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaRecepcionista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -241,9 +270,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Imagenes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Biblioteca_de_Clases\Biblioteca_de_Clases.csproj">
       <Project>{e3387781-8667-4ad9-becf-8c5f9b331754}</Project>

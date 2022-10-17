@@ -12,31 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Biblioteca_de_Clases;
-using System.Configuration;
-using NotariaL;
-using System.Data.SqlClient;
-using System.Data;
-using NotariaWPF;
 
-namespace Notaria_WPF
+namespace Notaria_WPF.Formularios
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para FormCartaPoder.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class FormCartaPoder : Page
     {
-        public MainWindow()
+        public FormCartaPoder()
         {
             InitializeComponent();
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Administracion admin = new Administracion();
-            admin.Show();
-            this.Close();
         }
 
     }
