@@ -25,6 +25,7 @@ namespace Notaria_WPF
     {
         //Declaración de objetos referencia a paginas de formularios
         FormCartaPoder formCartaPoder = new FormCartaPoder();
+        FormCartaRenuncia formCartaRenuncia = new FormCartaRenuncia();
 
         public VistaRecepcionista()
         {
@@ -263,6 +264,10 @@ namespace Notaria_WPF
             if (tramite.cod_tramite == 1)
             {
                 FrameFormularios.NavigationService.Navigate(formCartaPoder);
+            }
+            else if (tramite.cod_tramite == 3) 
+            {
+                FrameFormularios.NavigationService.Navigate(formCartaRenuncia);
             }
             else
             {
