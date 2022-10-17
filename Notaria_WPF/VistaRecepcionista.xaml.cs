@@ -29,11 +29,16 @@ namespace Notaria_WPF
             OcultarDocumentos();
             LlenaDataGrid();
             CargarComboBox();
-            CargarComboTipoTramite();
-
         }
 
         #region Reservas
+        private void LimpiarCamposReservas()
+        {
+            txtRutBuscado.Text = String.Empty;
+            cbEstadoReserva.SelectedIndex = -1;
+
+        }
+
         private void OcultarReservas()
         {
             dgReservas.Visibility = Visibility.Collapsed;
@@ -59,6 +64,8 @@ namespace Notaria_WPF
             cbEstadoReserva.Visibility = Visibility.Visible;
             lbRut.Visibility = Visibility.Visible;
             OcultarDocumentos();
+            LimpiarCamposReservas();
+            OcultarControlesTramite();
         }
 
         private void BuscarReserva()
@@ -173,6 +180,16 @@ namespace Notaria_WPF
             cbTipoTramite.Visibility = Visibility.Visible;
             lbTipoTramite.Visibility = Visibility.Visible;
             OcultarReservas();
+            OcultarControlesTramite();
+            LimpiarCamposTramites();
+            CargarComboTipoTramite();
+        }
+        private void LimpiarCamposTramites()
+        {
+            txbDesc.Text = String.Empty;
+            txbRequisitos.Text = String.Empty;
+            txtPrecio.Text = String.Empty;
+            cbTipoTramite.SelectedIndex = -1;
         }
 
         private void OcultarDocumentos()
@@ -190,18 +207,48 @@ namespace Notaria_WPF
             cbTipoTramite.SelectedIndex = -1; //Posiciona el combobox en Null
 
         }
+        private void OcultarControlesTramite()
+        {
+            lbDesc.Visibility = Visibility.Collapsed;
+            lbNombreTramite.Visibility = Visibility.Collapsed;
+            lbRequisitos.Visibility = Visibility.Collapsed;
+            lbPrecio.Visibility = Visibility.Collapsed;
+            txbDesc.Visibility = Visibility.Collapsed;
+            txbRequisitos.Visibility = Visibility.Collapsed;
+            txtPrecio.Visibility = Visibility.Collapsed;
+            btnCrearDoc.Visibility = Visibility.Collapsed;
+        }
 
+        private void MostrarControlesTramite()
+        {
+            lbDesc.Visibility = Visibility.Visible;
+            lbNombreTramite.Visibility = Visibility.Visible;
+            lbRequisitos.Visibility = Visibility.Visible;
+            lbPrecio.Visibility = Visibility.Visible;
+            txbDesc.Visibility = Visibility.Visible;
+            txbRequisitos.Visibility = Visibility.Visible;
+            txtPrecio.Visibility = Visibility.Visible;
+            btnCrearDoc.Visibility = Visibility.Visible;
+        }
         private void MostrarInfoTramite()
         {
+            MostrarControlesTramite();
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
+            lbNombreTramite.Content = tramite.nombre_tramite;
+            txbDesc.Text = tramite.descripcion;
+            txbRequisitos.Text = tramite.requisitos;
+            txtPrecio.Text = "$ " + tramite.precio.ToString();
         }
 
         private void cbTipoTramite_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if(cbTipoTramite.SelectedIndex != -1)
+            {
+                MostrarInfoTramite();
+            }
         }
-        #endregion
 
+        #endregion
 
     }
 }
