@@ -1,0 +1,30 @@
+﻿<Page x:Class="Notaria_WPF.Formularios.FormCartaPoder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Notaria_WPF.Formularios"
+      mc:Ignorable="d" 
+      d:DesignHeight="441" d:DesignWidth="676"
+
+      Title="FormCartaPoder">
+
+    <Grid>
+        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="160,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Nombres" HorizontalAlignment="Left" Margin="39,100,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="39,149,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="39,198,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
+        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Margin="160,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Margin="160,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Datos de quien otorga" HorizontalAlignment="Left" Margin="55,29,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontFamily="Calibri Light" FontSize="22" Height="40" Width="209"/>
+        <TextBox x:Name="txtNombre_Copy"  HorizontalAlignment="Left" Margin="472,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Nombres" HorizontalAlignment="Left" Margin="351,100,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="351,149,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="351,198,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
+        <TextBox x:Name="txtApellidoM_Copy" HorizontalAlignment="Left" Margin="472,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <TextBox x:Name="txtApellidoP_Copy" HorizontalAlignment="Left" Margin="472,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Datos de a quien se le otorga" HorizontalAlignment="Left" Margin="367,29,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontFamily="Calibri Light" FontSize="22" Height="40" Width="267" Background="Transparent"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Center" Height="48" Margin="0,297,0,0" VerticalAlignment="Top" Width="260" FontSize="24" FontFamily="Calibri"/>
+
+    </Grid>
+</Page>

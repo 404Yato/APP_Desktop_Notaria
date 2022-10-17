@@ -50,6 +50,7 @@
         <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="22" Margin="153,114,0,0" VerticalAlignment="Top" Width="84" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544" Visibility="Collapsed"/>
 
         <!--Apartado Creación de Documentos-->
+        <Frame x:Name="FrameFormularios" HorizontalAlignment="Left" Height="441" Margin="114,83,0,0" VerticalAlignment="Top" Width="676"/>
         <ComboBox x:Name="cbTipoTramite" HorizontalAlignment="Right" Margin="0,118,66,0" VerticalAlignment="Top" Width="178" Height="34" Background="White" Foreground="Black" BorderBrush="#89000000" SelectionChanged="cbTipoTramite_SelectionChanged" FontSize="14" Visibility="Collapsed"/>
         <Label x:Name="lbTipoTramite" Content="Seleccione el tipo de documento a crear:" Margin="138,118,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Calibri Light" Foreground="#DDFFFFFF" Height="48" HorizontalAlignment="Left" Width="377" FontWeight="Bold" Visibility="Collapsed"/>
         <Label x:Name="lbNombreTramite" Content="Carta de Poder" HorizontalAlignment="Left" Margin="138,166,0,0" VerticalAlignment="Top" Height="26" Width="288" FontSize="14" Foreground="#DDFFFFFF" FontFamily="Calibri Light" Visibility="Collapsed" FontWeight="Bold"/>
@@ -59,7 +60,7 @@
         <TextBlock x:Name="txbRequisitos" HorizontalAlignment="Left" Margin="144,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="371" Foreground="Black" Background="White" IsEnabled="False" Visibility="Collapsed" FontFamily="Calibri" TextAlignment="Justify" LineHeight="6"/>
         <Label x:Name="lbPrecio" Content="Precio" HorizontalAlignment="Left" Margin="556,191,0,0" VerticalAlignment="Top" Height="26" Width="100" FontSize="14" Foreground="#DDFFFFFF" FontFamily="Calibri Light" Visibility="Collapsed" FontWeight="Bold"/>
         <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="561,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="White" Height="23" IsReadOnly="True" Visibility="Collapsed" FontFamily="Calibri" TextAlignment="Center"/>
-        <Button x:Name="btnCrearDoc" Content="Crear" HorizontalAlignment="Left" Margin="562,304,0,0" VerticalAlignment="Top" Height="61" Width="134" Cursor="Hand" Visibility="Collapsed" FontFamily="Calibri" FontWeight="Bold" FontSize="22"/>
+        <Button x:Name="btnCrearDoc" Content="Crear" HorizontalAlignment="Left" Margin="562,304,0,0" VerticalAlignment="Top" Height="61" Width="134" Cursor="Hand" Visibility="Collapsed" FontFamily="Calibri" FontWeight="Bold" FontSize="22" Click="btnCrearDoc_Click"/>
 
     </Grid>
 </Window>

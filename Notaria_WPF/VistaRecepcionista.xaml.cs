@@ -13,14 +13,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Notaria_WPF.Formularios;
 
 namespace Notaria_WPF
 {
     /// <summary>
     /// Lógica de interacción para VistaRecepcionista.xaml
     /// </summary>
+    
     public partial class VistaRecepcionista : Window
     {
+        //Declaración de objetos referencia a paginas de formularios
+        FormCartaPoder formCartaPoder = new FormCartaPoder();
+
         public VistaRecepcionista()
         {
             InitializeComponent();
@@ -250,5 +255,11 @@ namespace Notaria_WPF
 
         #endregion
 
+        private void btnCrearDoc_Click(object sender, RoutedEventArgs e)
+        {
+            OcultarControlesTramite();
+            OcultarDocumentos();
+            FrameFormularios.NavigationService.Navigate(formCartaPoder);
+        }
     }
 }
