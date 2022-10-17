@@ -259,7 +259,16 @@ namespace Notaria_WPF
         {
             OcultarControlesTramite();
             OcultarDocumentos();
-            FrameFormularios.NavigationService.Navigate(formCartaPoder);
+            Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
+            if (tramite.cod_tramite == 1)
+            {
+                FrameFormularios.NavigationService.Navigate(formCartaPoder);
+            }
+            else
+            {
+                MessageBox.Show("Estamos trabajando aún en esto", "Lo sentimos");
+            }
+            
         }
     }
 }
