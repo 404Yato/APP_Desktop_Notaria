@@ -36,7 +36,6 @@ namespace Notaria.Datos
         public virtual DbSet<perfil> perfil { get; set; }
         public virtual DbSet<region> region { get; set; }
         public virtual DbSet<reserva> reserva { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<template_documento> template_documento { get; set; }
         public virtual DbSet<tipo_tramite> tipo_tramite { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
@@ -88,13 +87,13 @@ namespace Notaria.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<filtrar_rut_Result>("filtrar_rut", rutParameter);
         }
     
-        public virtual ObjectResult<llenarComboComuna_Result> llenarComboComuna(string region)
+        public virtual ObjectResult<llenarComboComuna_Result> llenarComboComuna(string cod_region)
         {
-            var regionParameter = region != null ?
-                new ObjectParameter("region", region) :
-                new ObjectParameter("region", typeof(string));
+            var cod_regionParameter = cod_region != null ?
+                new ObjectParameter("cod_region", cod_region) :
+                new ObjectParameter("cod_region", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<llenarComboComuna_Result>("llenarComboComuna", regionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<llenarComboComuna_Result>("llenarComboComuna", cod_regionParameter);
         }
     
         public virtual ObjectResult<notarialogin_Result> notarialogin(string rut_busca, string contra)

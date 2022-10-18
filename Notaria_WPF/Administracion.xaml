@@ -30,14 +30,21 @@
         <Button Content="Gestión&#xA;de Usuario" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Padding="10,4,10,4" Click="Button_Click"/>
         <Button Content="Gestión de&#xA;Documentos" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Documentos" Padding="10,4,10,4"/>
         <Button x:Name="btn_gestionpersonal" Content="Gestión&#xA;de Personal" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="56" Width="106" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Personal" Padding="10,4,10,4"/>
-        <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020"/>
+        <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020" Cursor="Hand"/>
         <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
         <Label Content="Administrador" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
         <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
+        <Button x:Name="btn_cerrarSesion" Margin="0,5,10,0" VerticalAlignment="Top" Height="38" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="132" Click="CerrarSesion">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cerrar Sesión" Padding="0,7,5,0" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="16"/>
+                <Image  Source="/Img/logout.png" Width="40" Height="36" RenderTransformOrigin="0.5,0.5"/>
+            </StackPanel>
+        </Button>
+
 
         <!-- Gestión de perfiles-->
         <Rectangle x:Name="rec_perfil" Margin="191,125,0,0" Fill="#FF283655" RadiusX="20" RadiusY="20" HorizontalAlignment="Left" Width="266" Height="307" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <!-- <TextBox x:Name="tb_introid" Margin="219,222,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7"/> -->
+        <TextBox x:Name="tb_introid" Margin="219,222,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7" MaxLength="1" KeyDown="tb_introid_KeyDown" Visibility="Collapsed"/>
         <Rectangle HorizontalAlignment="Left" Margin="101,0,0,0" Width="5" Fill="#FF00CCFF"/>
         <Rectangle HorizontalAlignment="Left" Margin="452,45,0,0" Width="5" Fill="#FF00CCFF" Height="24" VerticalAlignment="Top"/>
         <Rectangle Margin="457,45,0,0" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>
@@ -47,16 +54,14 @@
                 <DataGridTextColumn Header="Rol" Binding="{Binding rol}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Cerrar sesión" Margin="0,9,37,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontSize="16" FontFamily="Calibri" HorizontalAlignment="Right" Width="105"/>
-        <!-- <Label x:Name="lb_introid" Content="Introducir ID" Margin="219,186,0,0" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211"/> -->
-        <TextBox x:Name="tb_asignarrol" Margin="219,262,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7" Visibility="Collapsed"/>
-        <Label x:Name="lb_asignarrol" Content="Asignar Rol" Margin="219,225,0,0" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Visibility="Collapsed"/>
+        <Label x:Name="lb_introid" Content="Introducir ID" Margin="219,186,0,0" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Visibility="Collapsed"/>
+        <TextBox x:Name="tb_asignarrol" Margin="219,304,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7" MaxLength="40" Visibility="Collapsed"/>
+        <Label x:Name="lb_asignarrol" Content="Asignar Rol" Margin="219,0,0,0" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32" VerticalAlignment="Center" HorizontalAlignment="Left" Width="211" Visibility="Collapsed"/>
         <Button x:Name="btn_agregarrol" Content="Agregar Nuevo Rol" Margin="219,358,0,0" Background="#FF00CCFF" FontFamily="Calibri" FontSize="18" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Click="btn_agregarrol_Click" Visibility="Collapsed"/>
         <Button x:Name="btn_eliminarrol" Content="Eliminar Rol" Margin="0,0,200,50" Background="#FF00CCFF" FontFamily="Calibri" FontSize="18" Height="44" VerticalAlignment="Bottom" Click="btn_eliminarrol_Click" HorizontalAlignment="Right" Width="148" BorderBrush="#FF283655" Visibility="Collapsed"/>
         <Rectangle HorizontalAlignment="Left" Margin="101,69,0,0" Width="356" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>
         <Label x:Name="lb_titulo_perfil" Content="Gestión de Perfiles" Margin="200,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.547" Foreground="White" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Left" Width="152" Visibility="Hidden"/>
         <Label x:Name="lb_titulo2" Content="Agregar Nuevo Perfil" Margin="219,138,0,0" Foreground="White" FontFamily="Calibri" FontSize="20" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Visibility="Collapsed"/>
-        <Image Margin="0,8,10,0" Source="/Img/logout.png" Stretch="Fill" Height="31" VerticalAlignment="Top" HorizontalAlignment="Right" Width="33"/>
 
         <!-- Gestión de personal-->
         <Rectangle x:Name="rec_empleados2" HorizontalAlignment="Left" Height="268" Margin="540,136,0,0" VerticalAlignment="Top" Width="253" Fill="#FF283655" RadiusX="25" RadiusY="25" Visibility="Hidden"/>
@@ -74,7 +79,7 @@
         <TextBox x:Name="txb_nom_empleado" HorizontalAlignment="Left" Margin="158,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed"/>
         <TextBox x:Name="txb_apllP_empleado" HorizontalAlignment="Left" Margin="158,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed"/>
         <TextBox x:Name="txb_apellM_empleado" HorizontalAlignment="Left" Margin="157,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed"/>
-        <TextBox x:Name="txb_fono_empleado" HorizontalAlignment="Left" Margin="156,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
+        <TextBox x:Name="txb_fono_empleado" HorizontalAlignment="Left" Margin="156,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" KeyDown="txb_fono_empleado_KeyDown" Visibility="Collapsed" />
         <TextBox x:Name="txb_dirc_empleado" HorizontalAlignment="Left" Margin="503,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" BorderBrush="#FF283655" Padding="5,4,0,4" Visibility="Collapsed"/>
         <TextBox x:Name="txb_email_empleado" HorizontalAlignment="Left" Margin="503,409,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed"/>
         <Label x:Name="lb_ing_rutE" Content="Ingrese Rut" HorizontalAlignment="Left" Margin="159,140,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Width="241" Foreground="White" Visibility="Collapsed"/>
@@ -141,7 +146,7 @@
         <Label x:Name="lb_apellidoP_usuario" Content="Ingrese apellido paterno" HorizontalAlignment="Left" Margin="158,326,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <Label x:Name="lb_apellidoM_usuario" Content="Ingrese apellido materno" HorizontalAlignment="Left" Margin="158,396,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <Label x:Name="lb_fono_usuario" Content="Ingrese el numero de contacto" HorizontalAlignment="Left" Margin="546,126,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
-        <TextBox x:Name="txb_fono_usuario" HorizontalAlignment="Left" Margin="546,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
+        <TextBox x:Name="txb_fono_usuario" HorizontalAlignment="Left" Margin="546,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" KeyDown="txb_fono_usuario_KeyDown" Visibility="Collapsed" />
         <Label x:Name="lb_contrasena_usuario" Content="Ingrese una contraseña" HorizontalAlignment="Left" Margin="158,191,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>
         <TextBox x:Name="txb_contrasena_usuario" HorizontalAlignment="Left" Margin="158,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Height="30" FontFamily="Calibri" FontSize="18" Background="#FFC6EEF7" Padding="5,4,0,4" Visibility="Collapsed" />
         <Label x:Name="lb_email_usuario" Content="Ingrese Email" HorizontalAlignment="Left" Margin="546,192,0,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="#DDFFFFFF" Width="242" Visibility="Collapsed"/>

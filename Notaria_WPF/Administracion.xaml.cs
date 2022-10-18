@@ -50,8 +50,8 @@ namespace Notaria_WPF
         #region Visibilidad Perfil
         //Mostrar Todo de Perfil
         private void MostrarPerfil() {
-            //tb_introid.Visibility = Visibility.Visible;
-            //lb_introid.Visibility = Visibility.Visible;
+            tb_introid.Visibility = Visibility.Visible;
+            lb_introid.Visibility = Visibility.Visible;
             lb_asignarrol.Visibility = Visibility.Visible;
             tb_asignarrol.Visibility = Visibility.Visible;
             btn_agregarrol.Visibility = Visibility.Visible;
@@ -65,8 +65,8 @@ namespace Notaria_WPF
         }
         //Ocultar Todo de Perfil
         private void SacarPerfil() {
-            //tb_introid.Visibility = Visibility.Collapsed;
-            //lb_introid.Visibility = Visibility.Collapsed;
+            tb_introid.Visibility = Visibility.Collapsed;
+            lb_introid.Visibility = Visibility.Collapsed;
             lb_asignarrol.Visibility = Visibility.Collapsed;
             tb_asignarrol.Visibility = Visibility.Collapsed;
             btn_agregarrol.Visibility = Visibility.Collapsed;
@@ -304,15 +304,15 @@ namespace Notaria_WPF
         }
         #endregion
 
-        #region Validacion Campos vacios
+        #region Validacion PERFIL
         //Validar los campos de Perfil que no esten vacíos
         private bool ValidarTextbox_Perfil()
         {
             bool validar = true;
-           /* if (tb_introid.Text == string.Empty)
+            if (tb_introid.Text == string.Empty)
             {
                 validar = false;
-            }*/
+            }
             if (tb_asignarrol.Text == string.Empty)
             {
                 validar = false;
@@ -322,8 +322,16 @@ namespace Notaria_WPF
         //Limpiar los campos de Perfil 
         private void limpiar_campos_perfil()
         {
-            //tb_introid.Text = string.Empty;
+            tb_introid.Text = string.Empty;
             tb_asignarrol.Text = string.Empty;
+        }
+        private void tb_introid_KeyDown(object sender, KeyEventArgs e)                                  // Validar campo Id perfil solo numeros
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+
         }
 
         #endregion
@@ -391,6 +399,13 @@ namespace Notaria_WPF
             txb_nom_empleado.Text = string.Empty;
             txb_rut_empleado.Text = string.Empty;
             txb_contra_empleado.Text = string.Empty;
+        }
+        private void txb_fono_empleado_KeyDown(object sender, KeyEventArgs e)                           // Validacion campo fono solo numeros Empleados
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
         #endregion
 
@@ -521,6 +536,13 @@ namespace Notaria_WPF
             cbx_comuna_usuario.Visibility = Visibility.Collapsed;
             cbx_region_usuario.Visibility = Visibility.Collapsed;
         }
+
+
+
+
+        #endregion
+
+        #region Validacion Usuario
         private bool ValidarAgregarUsuario()
         {
             bool validar = true;
@@ -562,7 +584,7 @@ namespace Notaria_WPF
             }
             return validar;
         }
-        private bool ValidarModificarUsuario() 
+        private bool ValidarModificarUsuario()
         {
             bool validar = true;
             if (txb_contrasena_usuario.Text == string.Empty)
@@ -599,11 +621,17 @@ namespace Notaria_WPF
             }
             return validar;
         }
-
-
-
+        private void txb_fono_usuario_KeyDown(object sender, KeyEventArgs e)                            // VALIDACION campo fono Usuarios solo numero
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
         #endregion
-        private void BuscarRutUsuario() 
+
+        #region Metodo Usuario Buscar Rut
+        private void BuscarRutUsuario()
         {
             Usuario Us = new Usuario();
             if (txb_buscar_usuario.Text != "")
@@ -615,6 +643,8 @@ namespace Notaria_WPF
                 llenardatagridUsuario();
             }
         }
+
+        #endregion
 
         #region Botones de Menu
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)                              // BOTON MENU GESTION DE PERFIL
@@ -675,6 +705,18 @@ namespace Notaria_WPF
             SacarUsuarioModificar();
             llenardatagridUsuario();
         }
+        private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow MW = new MainWindow();
+                MW.Show();
+                this.Close();
+            }
+            else { }
+
+        }
 
         #endregion
 
@@ -685,7 +727,8 @@ namespace Notaria_WPF
             if (ValidarTextbox_Perfil())
             {
                 Perfil pf = new Perfil() 
-                {                    
+                {    
+                    cod_perfil = int.Parse(tb_introid.Text),
                     rol = tb_asignarrol.Text
                 };
                 if (pf.Create())
@@ -1128,5 +1171,7 @@ namespace Notaria_WPF
         {
             BuscarRutUsuario();
         }
+
+
     }
 }
