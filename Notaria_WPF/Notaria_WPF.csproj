@@ -158,6 +158,15 @@
     <Compile Include="Formularios\FormCartaPoder.xaml.cs">
       <DependentUpon>FormCartaPoder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormDeclaracionJurada.xaml.cs">
+      <DependentUpon>FormDeclaracionJurada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormPrestacionServicio.xaml.cs">
+      <DependentUpon>FormPrestacionServicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormPrestacionServicio2.xaml.cs">
+      <DependentUpon>FormPrestacionServicio2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TemplatesCRUD.xaml.cs">
       <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
     </Compile>
@@ -169,6 +178,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Formularios\FormCartaPoder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormDeclaracionJurada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormPrestacionServicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormPrestacionServicio2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

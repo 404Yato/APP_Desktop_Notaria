@@ -25,6 +25,9 @@ namespace Notaria_WPF
     {
         //Declaración de objetos referencia a paginas de formularios
         FormCartaPoder formCartaPoder = new FormCartaPoder();
+        FormDeclaracionJurada formDeclaracion = new FormDeclaracionJurada();
+        FormPrestacionServicio prestacionServicio = new FormPrestacionServicio();
+        FormPrestacionServicio2 prestacionServicio2 = new FormPrestacionServicio2();
 
         public VistaRecepcionista()
         {
@@ -264,11 +267,36 @@ namespace Notaria_WPF
             {
                 FrameFormularios.NavigationService.Navigate(formCartaPoder);
             }
+            else if (tramite.cod_tramite == 2)
+            {
+                FrameFormularios.NavigationService.Navigate(formDeclaracion);
+            }
+            else if (tramite.cod_tramite == 3)
+            {
+                FrameFormularios.NavigationService.Navigate(prestacionServicio);
+                btnSiguientePrestacion.Visibility = Visibility.Visible;
+            }
             else
             {
                 MessageBox.Show("Estamos trabajando aún en esto", "Lo sentimos");
             }
             
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FrameFormularios.NavigationService.Navigate(prestacionServicio2);
+            btnSiguientePrestacion.Visibility = Visibility.Collapsed;
+            btnAtrasPrestacion.Visibility = Visibility.Visible;
+            btnGuardarPrestacion.Visibility = Visibility.Visible;
+        }
+
+        private void btnAtras_Click(object sender, RoutedEventArgs e)
+        {
+            FrameFormularios.NavigationService.Navigate(prestacionServicio);
+            btnAtrasPrestacion.Visibility= Visibility.Collapsed;
+            btnGuardarPrestacion.Visibility = Visibility.Collapsed;
+            btnSiguientePrestacion.Visibility = Visibility.Visible;
         }
     }
 }
