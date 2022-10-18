@@ -63,7 +63,7 @@
         <Button x:Name="btnCrearDoc" Content="Crear" HorizontalAlignment="Left" Margin="562,304,0,0" VerticalAlignment="Top" Height="61" Width="134" Cursor="Hand" Visibility="Collapsed" FontFamily="Calibri" FontWeight="Bold" FontSize="22" Click="btnCrearDoc_Click"/>
         <Button x:Name="btnSiguientePrestacion" Content="Siguiente" HorizontalAlignment="Left" Margin="660,463,0,0" VerticalAlignment="Top" Click="Button_Click_1" Visibility="Collapsed"/>
         <Button x:Name="btnAtrasPrestacion" Content="Volver" HorizontalAlignment="Left" Margin="554,442,0,0" VerticalAlignment="Top" Visibility="Collapsed" Click="btnAtras_Click"/>
-        <Button x:Name="btnGuardarPrestacion" Content="Guardar" HorizontalAlignment="Left" Margin="646,442,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+       
 
     </Grid>
 </Window>

@@ -49,5 +49,15 @@
         <TextBox x:Name="txtNumMandatario"  HorizontalAlignment="Left" Margin="472,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
         <TextBox x:Name="txtCiudadMandatario"  HorizontalAlignment="Left" Margin="472,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
         <TextBox x:Name="txtComunaMandatario"  HorizontalAlignment="Left" Margin="472,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
+        <Button x:Name="btnGuardarPrestacion" Content="Guardar" HorizontalAlignment="Left" Margin="544,398,0,0" VerticalAlignment="Top" Height="28" RenderTransformOrigin="0.5,0.5" Width="92">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Page>
