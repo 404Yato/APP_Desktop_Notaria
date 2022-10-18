@@ -39,7 +39,7 @@ namespace Notaria_WPF
         FormCartaPoder formCartaPoder = new FormCartaPoder();
         FormDeclaracionJurada formDeclaracion = new FormDeclaracionJurada();
         FormPrestacionServicio prestacionServicio = new FormPrestacionServicio();
-        FormPrestacionServicio2 prestacionServicio2 = new FormPrestacionServicio2();
+        
 
         public VistaRecepcionista()
         {
@@ -293,31 +293,18 @@ namespace Notaria_WPF
             OcultarDocumentos();
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
 
-
-            if (tramite.cod_tramite == 1)
+            if (tramite.cod_tramite == 2)
             {
                 Transformar();
-                FrameFormularios.NavigationService.Navigate(formCartaPoder);
-                btnInicio.Visibility = Visibility.Visible;
-            }
-
-            else if (tramite.cod_tramite == 3)
-            {
-                Transformar();
-                FrameFormularios.Height = 823;
-                this.SizeToContent = SizeToContent.Height;
-                FrameFormularios.NavigationService.Navigate(formArrVehiculo);
-                btnInicio.Visibility = Visibility.Visible;
-
-            }
-            else if (tramite.cod_tramite == 2)
-            {
                 FrameFormularios.NavigationService.Navigate(formDeclaracion);
             }
             else if (tramite.cod_tramite == 3)
             {
+                Transformar();
+                FrameFormularios.Height = 900;
+                this.SizeToContent = SizeToContent.Height;
                 FrameFormularios.NavigationService.Navigate(prestacionServicio);
-                btnSiguientePrestacion.Visibility = Visibility.Visible;
+                //btnSiguientePrestacion.Visibility = Visibility.Visible;
             }
             else
             {
@@ -325,5 +312,7 @@ namespace Notaria_WPF
             }
             
         }
+
+        #endregion
     }
 }

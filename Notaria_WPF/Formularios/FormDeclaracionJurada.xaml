@@ -9,18 +9,19 @@
       Title="FormDeclaracionJurada">
 
     <Grid>
-        <Label Content="Nombres" HorizontalAlignment="Left" Margin="198,154,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="26" Width="60"/>
-        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="304,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
-        <TextBox x:Name="txtRut"  HorizontalAlignment="Left" Margin="304,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
-        <Label Content="Direccion" HorizontalAlignment="Left" Margin="198,290,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="26" Width="60"/>
-        <Label Content="Estado Civil" HorizontalAlignment="Left" Margin="198,342,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="24" Width="72"/>
-        <TextBox x:Name="txtDireccion"  HorizontalAlignment="Left" Margin="304,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
-        <Label Content="Rut" HorizontalAlignment="Left" Margin="198,242,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="26" Width="28"/>
-        <TextBox x:Name="txtEstado"  HorizontalAlignment="Left" Margin="304,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
-        <Label Content="Formulario Declaraión Jurada" HorizontalAlignment="Left" Margin="240,40,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" FontFamily="Arial Black" FontSize="16"/>
-        <TextBox x:Name="txtApellido"  HorizontalAlignment="Left" Margin="304,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
-        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="198,196,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="24" Width="60"/>
-        <Border BorderBrush="White" BorderThickness="1" Margin="174,10,133,21"/>
+        <Label Content="Nombres" HorizontalAlignment="Left" Margin="196,115,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="26" Width="60"/>
+        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="302,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
+        <TextBox x:Name="txtRut"  HorizontalAlignment="Left" Margin="302,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
+        <Label Content="Direccion" HorizontalAlignment="Left" Margin="196,251,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="26" Width="60"/>
+        <Label Content="Estado Civil" HorizontalAlignment="Left" Margin="196,303,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="24" Width="72"/>
+        <TextBox x:Name="txtDireccion"  HorizontalAlignment="Left" Margin="302,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Margin="196,203,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="26" Width="28"/>
+        <TextBox x:Name="txtEstado"  HorizontalAlignment="Left" Margin="302,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
+        <Label Content="Formulario Declaraión Jurada" HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" FontFamily="Arial Black" FontSize="16"/>
+        <TextBox x:Name="txtApellido"  HorizontalAlignment="Left" Margin="302,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" Background="White" Height="26"/>
+        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="196,157,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF" Height="24" Width="60"/>
+        <Border BorderBrush="White" BorderThickness="1" Margin="162,26,144,16"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Center" Margin="0,361,0,0" VerticalAlignment="Top" Width="164" Click="btnGuardar_Click" />
 
     </Grid>
 </Page>
