@@ -40,8 +40,5 @@ namespace Biblioteca_de_Clases
             return results.ToList();
         }
 
-
-
-
     }
 }

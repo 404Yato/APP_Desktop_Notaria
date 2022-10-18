@@ -107,6 +107,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Notaria.edmx</DependentUpon>
     </Compile>
+    <Compile Include="notarialogin_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="perfil.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
