@@ -615,6 +615,7 @@ namespace Notaria_WPF
                 llenardatagridUsuario();
             }
         }
+
         #region Botones de Menu
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)                              // BOTON MENU GESTION DE PERFIL
         {

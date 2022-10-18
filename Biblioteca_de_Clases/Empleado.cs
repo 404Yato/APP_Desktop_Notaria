@@ -1,6 +1,7 @@
 ﻿using Notaria.Datos;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -187,6 +188,26 @@ namespace Biblioteca_de_Clases
 
             return listaEmpleado;
         }
+        public IList<Notaria.Datos.notarialogin_Result> NotariaLogin(string rut, string contra)
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            var resultado = bbdd.notarialogin(rut, contra);
+            return resultado.ToList();
+        }
+
+
+        public int login(string rut, string contra) 
+        {
+            using (PortafolioEntities bd = new PortafolioEntities())
+            {
+                var dataform = bd.notarialogin(rut, contra).FirstOrDefault();
+                return dataform.cod_perfil;
+
+            }
+        }
+
+
+
         #endregion
     }
 }

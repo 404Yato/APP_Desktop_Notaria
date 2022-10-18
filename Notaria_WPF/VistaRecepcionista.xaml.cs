@@ -264,6 +264,7 @@ namespace Notaria_WPF
             if (tramite.cod_tramite == 1)
             {
                 FrameFormularios.NavigationService.Navigate(formCartaPoder);
+                
             }
             else if (tramite.cod_tramite == 3) 
             {

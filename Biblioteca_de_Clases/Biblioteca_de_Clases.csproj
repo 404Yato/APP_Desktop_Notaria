@@ -63,6 +63,7 @@
     <Compile Include="EstadosReserva.cs" />
     <Compile Include="EstadoVentasPres.cs" />
     <Compile Include="LlenarCombo.cs" />
+    <Compile Include="LoginNotaria.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

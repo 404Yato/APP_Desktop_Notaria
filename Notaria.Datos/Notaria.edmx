@@ -327,6 +327,10 @@
         <Function Name="llenarComboComuna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="region" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="notarialogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut_busca" Type="varchar" Mode="In" />
+          <Parameter Name="contra" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="GestionNotariaModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_emitido" EntityType="Self.doc_emitido" Schema="dbo" store:Type="Tables" />
@@ -807,6 +811,10 @@
           <FunctionImport Name="llenarComboComuna" ReturnType="Collection(GestionNotariaModel.llenarComboComuna_Result)">
             <Parameter Name="region" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="notarialogin" ReturnType="Collection(GestionNotariaModel.notarialogin_Result)">
+            <Parameter Name="rut_busca" Mode="In" Type="String" />
+            <Parameter Name="contra" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="buscar_documento_Result">
           <Property Type="Int32" Name="cod_documento" Nullable="false" />
@@ -859,6 +867,10 @@
         <ComplexType Name="llenarComboComuna_Result">
           <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="notarialogin_Result">
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="cod_perfil" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1110,6 +1122,14 @@
               <ComplexTypeMapping TypeName="GestionNotariaModel.llenarComboComuna_Result">
                 <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="notarialogin" FunctionName="GestionNotariaModel.Store.notarialogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GestionNotariaModel.notarialogin_Result">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cod_perfil" ColumnName="cod_perfil" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
