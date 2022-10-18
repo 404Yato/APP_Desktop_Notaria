@@ -28,8 +28,10 @@
         <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="218,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="28" Height="40" Width="133"/>
         <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
         <Button Content="Gestión&#xA;de Usuario" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Padding="10,4,10,4" Click="Button_Click"/>
-        <Button Content="Gestión de&#xA;Documentos" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Documentos" Padding="10,4,10,4"/>
+        <Button Content="Gestión de&#xA;Templates" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Documentos" Padding="10,4,10,4"/>
         <Button x:Name="btn_gestionpersonal" Content="Gestión&#xA;de Personal" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="56" Width="106" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Personal" Padding="10,4,10,4"/>
+        <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020"/>
+        <Button x:Name="btn_GestionDocumentos" Content="Gestión&#xA;de&#xA;Documentos" HorizontalAlignment="Left" Margin="0,360,0,0" VerticalAlignment="Top" Height="70" Width="106" FontSize="14" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" OpacityMask="#FFB92020" Click="btn_GestionDocumentos_Click" Cursor="Hand"/>
         <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020" Cursor="Hand"/>
         <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
         <Label Content="Administrador" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
@@ -184,6 +186,61 @@
         <Label x:Name="lb_regionM_usaurio" Content="Region del Usuario" HorizontalAlignment="Left" Margin="546,256,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
         <Label x:Name="lb_comunaM_usaurio" Content="Comuna del Usuario" HorizontalAlignment="Left" Margin="546,326,0,0" VerticalAlignment="Top" Width="242" Height="30" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Visibility="Collapsed"/>
         <Label x:Name="lb_titulo_Usuario" Content="Gestión de Usuarios" HorizontalAlignment="Left" Margin="181,44,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="18" Visibility="Collapsed"/>
+
+        <!--Gestión de Templates-->
+        <DataGrid x:Name="gridDocumento" AutoGenerateColumns="False" Margin="400,194,33,74" Visibility="Collapsed"  >
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="id" Binding="{Binding cod_template}" Width="auto"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"  Width="auto"/>
+                <DataGridTextColumn Header="Archivo" Binding="{Binding template}" Width="auto"/>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding fecha_subida}" Width="auto"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="crearBtn" Content="+" HorizontalAlignment="Left" Margin="730,148,0,0" VerticalAlignment="Top" Height="26" Width="31" Click="ventanaGuardarArchivo_Click" Visibility="Collapsed"/>
+        <Button x:Name="eliminarBtn" Content="Eliminar" HorizontalAlignment="Left" Margin="650,148,0,0" VerticalAlignment="Top" Height="26" Width="68" Click="eliminarBtn_Click" Visibility="Collapsed"/>
+        <Button Content="O" HorizontalAlignment="Left" Margin="585,148,0,0" VerticalAlignment="Top" Height="26" Width="51" Click="Button_Click" Visibility="Collapsed"/>
+        <Button x:Name="actualizarBtn" Content="Actualizar" HorizontalAlignment="Left" Margin="511,148,0,0" VerticalAlignment="Top" Height="26" Width="57" Click="actualizar_Click" Visibility="Collapsed"/>
+
+        <!-- Ventana Guardar Archivos-->
+        <Label x:Name="TituloLb" Content="Subir PDF" HorizontalAlignment="Left" Margin="397,130,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Height="36" Width="124" Visibility="Collapsed"/>
+        <TextBox x:Name="datoTxt" HorizontalAlignment="Left" Margin="363,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208" IsEnabled="False" Height="26" Visibility="Collapsed"/>
+        <Label x:Name="UrlLb" Content="Url" HorizontalAlignment="Left" Margin="327,252,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="38" Width="38" Visibility="Collapsed" />
+        <TextBox x:Name="nombreTxt" HorizontalAlignment="Left" Margin="363,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Height="26" Visibility="Collapsed"/>
+        <Label x:Name="nombreLb" Content="Nombre" HorizontalAlignment="Left" Margin="289,218,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="37" Width="84" Visibility="Collapsed"/>
+        <Button x:Name="ExaminaBtn" Content="Examinar" HorizontalAlignment="Left" Margin="571,257,0,0" VerticalAlignment="Top" Height="26" Width="56" Click="examinar_Click" Visibility="Collapsed"/>
+        <Button x:Name="SubirBtn" Content="Subir" HorizontalAlignment="Left" Margin="493,298,0,0" VerticalAlignment="Top" Height="34" Width="134" Click="subirArchivo_Click" Visibility="Collapsed"/>
+        <Button x:Name="CerrarBtn" Content="Cerrar" HorizontalAlignment="Center" Margin="0,298,0,0" VerticalAlignment="Top" Height="34" Width="134" Click="cancelar_Click" Visibility="Collapsed"/>
+        <Border x:Name="BordeBn" BorderBrush="Black" BorderThickness="1" Margin="268,115,134,76" CornerRadius="4" Visibility="Collapsed"/>
+
+        <!-- Ventana Actualizar Archivo-->
+        <TextBox x:Name="NombreActualizarBtn" HorizontalAlignment="Left" Margin="380,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148" Height="22" Visibility="Collapsed"/>
+        <Label x:Name="NombreActualizarLb"  Content="Nombre" HorizontalAlignment="Left" Margin="312,225,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="34" Width="80" RenderTransformOrigin="0.525,0.805" Visibility="Collapsed"/>
+        <Button x:Name="ModificarActualizarBtn" Content="Modificar" HorizontalAlignment="Left" Margin="456,282,0,0" VerticalAlignment="Top" Height="24" Width="102" Click="ModificarArchivo_Click" Visibility="Collapsed"/>
+        <Button x:Name="CerrarActualziarBtn" Content="Cerrar" HorizontalAlignment="Left" Margin="337,282,0,0" VerticalAlignment="Top" Height="24" Width="101" Click="cerrarBtn_Click" Visibility="Collapsed"/>
+        <Border x:Name="BordeActualizarBd" BorderBrush="Black" BorderThickness="1" Margin="268,157,184,102" CornerRadius="4" Visibility="Collapsed"/>
+        <Label x:Name="TitulosActualizarLb" Content="Ingrese nombre a modificar" HorizontalAlignment="Left" Margin="337,166,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Visibility="Collapsed"/>
+
+        <!--Gestión de Documentos-->
+        <DataGrid Name="dgDocumentos" Margin="142,150,38,52" IsReadOnly="True" AutoGenerateColumns="False" Visibility="Collapsed">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Binding="{Binding cod_documento}" />
+                <DataGridTextColumn Header="Rut Cliente Presencial" Binding="{Binding rut_cliente_pres}" />
+                <DataGridTextColumn Header="Rut Cliente Online" Binding="{Binding usuario_rut}" />
+                <DataGridTextColumn Header="Rut Empleado" Binding="{Binding empleado_rut}" />
+                <DataGridTextColumn Header="Fecha de Emisión" Binding="{Binding fecha_emision}" />
+                <DataGridTextColumn Header="Precio" Binding="{Binding precio}" />
+                <DataGridTextColumn Header="Validez" Binding="{Binding valido}" />
+                <DataGridTextColumn Header="Presencialidad" Binding="{Binding presencialidad}" />
+                <DataGridTextColumn Header="Codigo del Tramite" Binding="{Binding cod_tramite}" />
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="txtRutBuscado" Height="34" Margin="0,102,458,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" SelectionBrush="#FFB4EFFE" Foreground="White" Padding="5,4,0,4" TextChanged="txtRutBuscado_TextChanged" HorizontalAlignment="Right" Width="197" Visibility="Collapsed"/>
+        <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="22" Margin="164,114,0,0" VerticalAlignment="Top" Width="84" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544" Visibility="Collapsed"/>
 
     </Grid>
 </Window>

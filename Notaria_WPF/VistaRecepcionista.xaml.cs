@@ -14,17 +14,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Notaria_WPF.Formularios;
+using System.IO;
+using iText.Forms.Fields;
+using iText.Forms;
+using iText.Kernel.Pdf;
+using Microsoft.Win32;
+using iText.Kernel.Geom;
+
 
 namespace Notaria_WPF
 {
+
     /// <summary>
     /// Lógica de interacción para VistaRecepcionista.xaml
     /// </summary>
     
     public partial class VistaRecepcionista : Window
     {
+        //Declaración Variables para Rutas de templates
+        string path;
+        string path3;
+
         //Declaración de objetos referencia a paginas de formularios
         FormCartaPoder formCartaPoder = new FormCartaPoder();
+        FormArriendoVehiculo formArrVehiculo = new FormArriendoVehiculo();
         FormCartaRenuncia formCartaRenuncia = new FormCartaRenuncia();
 
         public VistaRecepcionista()
@@ -72,6 +85,7 @@ namespace Notaria_WPF
             OcultarDocumentos();
             LimpiarCamposReservas();
             OcultarControlesTramite();
+            FrameFormularios.Content = null;
         }
 
         private void BuscarReserva()
@@ -189,6 +203,7 @@ namespace Notaria_WPF
             OcultarControlesTramite();
             LimpiarCamposTramites();
             CargarComboTipoTramite();
+            FrameFormularios.Content = null;
         }
         private void LimpiarCamposTramites()
         {
@@ -254,19 +269,46 @@ namespace Notaria_WPF
             }
         }
 
-        #endregion
+        private void Transformar() //Transforma arreglo de bytes en un archivo PDF desde la base de datos
+        {
+            Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
+            Biblioteca_de_Clases.template_documento template = new Biblioteca_de_Clases.template_documento()
+            {
+                cod_template = tramite.cod_template
+            };
+            if (template.Read())
+            {
+                string path2 = @"..\Doc_Notarial\Origen\" + template.nombre + ".pdf";
+                File.WriteAllBytes(path2, template.template);
+                path = path2;
+                path3 = @"..\Doc_Notarial\Destino\" + template.nombre + ".pdf";
+            }
+        }
 
         private void btnCrearDoc_Click(object sender, RoutedEventArgs e)
         {
+
             OcultarControlesTramite();
             OcultarDocumentos();
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
+
+
             if (tramite.cod_tramite == 1)
             {
+                Transformar();
                 FrameFormularios.NavigationService.Navigate(formCartaPoder);
-                
+                btnInicio.Visibility = Visibility.Visible;
             }
-            else if (tramite.cod_tramite == 3) 
+
+            else if (tramite.cod_tramite == 3)
+            {
+                Transformar();
+                FrameFormularios.Height = 823;
+                this.SizeToContent = SizeToContent.Height;
+                FrameFormularios.NavigationService.Navigate(formArrVehiculo);
+                btnInicio.Visibility = Visibility.Visible;
+            }
+            else if (tramite.cod_tramite == 5) 
             {
                 FrameFormularios.NavigationService.Navigate(formCartaRenuncia);
             }
@@ -274,7 +316,17 @@ namespace Notaria_WPF
             {
                 MessageBox.Show("Estamos trabajando aún en esto", "Lo sentimos");
             }
-            
+        }
+
+        #endregion
+
+        private void btnInicio_Click(object sender, RoutedEventArgs e)
+        {
+            FrameFormularios.Content = null;
+            lbTipoTramite.Visibility = Visibility.Visible;
+            cbTipoTramite.Visibility = Visibility.Visible;
+            btnInicio.Visibility = Visibility.Collapsed;
+            cbTipoTramite.SelectedIndex = -1;
         }
     }
 }

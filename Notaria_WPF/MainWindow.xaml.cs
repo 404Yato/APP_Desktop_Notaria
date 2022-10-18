@@ -29,7 +29,8 @@ namespace Notaria_WPF
         public MainWindow()
         {
             InitializeComponent();
-            
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
         }
 
         private bool ValidarCampos()
@@ -63,40 +64,40 @@ namespace Notaria_WPF
                     this.Close();
 
                 }
-                if (Em.login(rut, contra) == 2)                                                                 // Igresar Notario
+                else if (Em.login(rut, contra) == 2)                                                                 // Igresar Notario
                 {
                     MessageBox.Show("NOTARIO AQUII !!!!", "NOTARIO ",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                if (Em.login(rut, contra) == 3)                                                                 // RECEPCIONISTA
+                else if (Em.login(rut, contra) == 3)                                                                 // RECEPCIONISTA
                 {
                     VistaRecepcionista RC = new VistaRecepcionista();
                     RC.Show();
                     this.Close();
                 }
-                if (Em.login(rut, contra) == 4)                                                                 // CAJERO
+                else if (Em.login(rut, contra) == 4)                                                                 // CAJERO
                 {
                     VistaCajero CJ = new VistaCajero();
                     CJ.Show();
                     this.Close();
                 }
-                if (Em.login(rut, contra) == 5)                                                                 // Ingresar Oficial
+                else if (Em.login(rut, contra) == 5)                                                                 // Ingresar Oficial
                 {
                     MessageBox.Show("Oficial AQUII !!!!", "Oficial ",
                          MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                if (Em.login(rut, contra) == 6)                                                                 // Ingresar Conservador de bienes raíces
+                else if (Em.login(rut, contra) == 6)                                                                 // Ingresar Conservador de bienes raíces
                 {
                     MessageBox.Show("Conservador de bienes raíces AQUII !!!!", "Conservador de bienes raíces ",
                          MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
-                if (Em.login(rut, contra) == 7)                                                                 // Ingresar Personal de póliza
+                else if (Em.login(rut, contra) == 7)                                                                 // Ingresar Personal de póliza
                 {
                     MessageBox.Show("Personal de póliza AQUII !!!!", "Personal de póliza ",
                          MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                if (Em.login(rut, contra) == 8)                                                                 // CONTADOR
+                else if (Em.login(rut, contra) == 8)                                                                 // CONTADOR
                 {
                     Contador CO = new Contador();
                     CO.Show();

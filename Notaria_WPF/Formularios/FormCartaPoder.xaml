@@ -10,21 +10,22 @@
       Title="FormCartaPoder">
 
     <Grid>
-        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="160,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
-        <Label Content="Nombres" HorizontalAlignment="Left" Margin="39,100,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
-        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="39,149,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
-        <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="39,198,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
-        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Margin="160,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
-        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Margin="160,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
-        <Label Content="Datos de quien otorga" HorizontalAlignment="Left" Margin="55,29,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontFamily="Calibri Light" FontSize="22" Height="40" Width="209"/>
-        <TextBox x:Name="txtNombre_Copy"  HorizontalAlignment="Left" Margin="472,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
-        <Label Content="Nombres" HorizontalAlignment="Left" Margin="351,100,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
-        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="351,149,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
-        <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="351,198,0,0" VerticalAlignment="Top" Cursor="IBeam" Foreground="#DDFFFFFF"/>
-        <TextBox x:Name="txtApellidoM_Copy" HorizontalAlignment="Left" Margin="472,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
-        <TextBox x:Name="txtApellidoP_Copy" HorizontalAlignment="Left" Margin="472,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
-        <Label Content="Datos de a quien se le otorga" HorizontalAlignment="Left" Margin="367,29,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontFamily="Calibri Light" FontSize="22" Height="40" Width="267" Background="Transparent"/>
-        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Center" Height="48" Margin="0,297,0,0" VerticalAlignment="Top" Width="260" FontSize="24" FontFamily="Calibri"/>
+        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="164,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Nombres" HorizontalAlignment="Left" Margin="43,154,0,0" VerticalAlignment="Top" Cursor="Arrow" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="43,203,0,0" VerticalAlignment="Top" Cursor="Arrow" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="43,252,0,0" VerticalAlignment="Top" Cursor="Arrow" Foreground="#DDFFFFFF"/>
+        <TextBox x:Name="txtApellidoP" HorizontalAlignment="Left" Margin="164,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <TextBox x:Name="txtApellidoM" HorizontalAlignment="Left" Margin="164,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Datos de quien otorga" HorizontalAlignment="Left" Margin="59,83,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontFamily="Calibri Light" FontSize="22" Height="40" Width="209" Cursor="Arrow"/>
+        <TextBox x:Name="txtNombre2"  HorizontalAlignment="Left" Margin="476,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Nombres" HorizontalAlignment="Left" Margin="355,154,0,0" VerticalAlignment="Top" Cursor="Arrow" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Margin="355,203,0,0" VerticalAlignment="Top" Cursor="Arrow" Foreground="#DDFFFFFF"/>
+        <Label Content="Apellido Materno" HorizontalAlignment="Left" Margin="355,252,0,0" VerticalAlignment="Top" Cursor="Arrow" Foreground="#DDFFFFFF"/>
+        <TextBox x:Name="txtApellidoP2" HorizontalAlignment="Left" Margin="476,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <TextBox x:Name="txtApellidoM2" HorizontalAlignment="Left" Margin="476,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Cursor="IBeam" Background="White"/>
+        <Label Content="Datos de a quien se le otorga" HorizontalAlignment="Left" Margin="371,83,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontFamily="Calibri Light" FontSize="22" Height="40" Width="267" Background="Transparent" Cursor="Arrow"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Center" Height="48" Margin="0,325,0,0" VerticalAlignment="Top" Width="260" FontSize="24" FontFamily="Calibri" Cursor="Hand" Click="btnCrear_Click"/>
+        <Label Content="Carta de Poder" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" FontFamily="Calibri Light" FontSize="22" Height="40" Width="148" Cursor="Arrow"/>
 
     </Grid>
 </Page>
