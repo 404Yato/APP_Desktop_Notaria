@@ -640,7 +640,7 @@ namespace Notaria_WPF
         }
         #endregion
 
-        #endregion
+       
 
         #region Visibilidad Templates
         private void OcultarElementos()
@@ -889,7 +889,7 @@ namespace Notaria_WPF
         }
         #endregion
 
-        private void BuscarRutUsuario() 
+        
         #region Metodo Usuario Buscar Rut
         private void BuscarRutUsuario()
         {
