@@ -18,6 +18,10 @@ using System.Data.SqlClient;
 using System.Data;
 using Biblioteca_clases;
 using Notaria.Datos;
+using iText.Layout.Borders;
+using System.Security.Policy;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Notaria_WPF
 {
@@ -29,7 +33,11 @@ namespace Notaria_WPF
         public Administracion()
         {
             InitializeComponent();
-                        
+            llenadoDocumento();
+            OcultarElementos();
+            limpiarCampos();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
         }
 
         #region Llenar data Grid
@@ -200,6 +208,7 @@ namespace Notaria_WPF
             txb_contra_empleado.Visibility = Visibility.Visible;
             lb_ing_contra.Visibility = Visibility.Visible;
         }
+
         private void MostrarEmpleados()
         {
             btn_list_empleados.Visibility = Visibility.Visible;
@@ -211,6 +220,7 @@ namespace Notaria_WPF
             rec_empleados2.Visibility = Visibility.Visible;
 
         }
+
         private void SacarEmpleados()
         {
             btn_list_empleados.Visibility = Visibility.Hidden;
@@ -603,6 +613,254 @@ namespace Notaria_WPF
 
 
         #endregion
+
+        #region Visibilidad Templates
+        private void OcultarElementos()
+        {
+            gridDocumento.Visibility = Visibility.Collapsed;
+            actualizarBtn.Visibility = Visibility.Collapsed;
+            eliminarBtn.Visibility = Visibility.Collapsed;
+            crearBtn.Visibility = Visibility.Collapsed;
+            TituloLb.Visibility = Visibility.Collapsed;
+            datoTxt.Visibility = Visibility.Collapsed;
+            UrlLb.Visibility = Visibility.Collapsed;
+            nombreTxt.Visibility = Visibility.Collapsed;
+            nombreLb.Visibility = Visibility.Collapsed;
+            ExaminaBtn.Visibility = Visibility.Collapsed;
+            SubirBtn.Visibility = Visibility.Collapsed;
+            CerrarBtn.Visibility = Visibility.Collapsed;
+            BordeBn.Visibility = Visibility.Collapsed;
+            NombreActualizarBtn.Visibility = Visibility.Collapsed;
+            NombreActualizarLb.Visibility = Visibility.Collapsed;
+            ModificarActualizarBtn.Visibility = Visibility.Collapsed;
+            CerrarActualziarBtn.Visibility = Visibility.Collapsed;
+            BordeActualizarBd.Visibility = Visibility.Collapsed;
+            TitulosActualizarLb.Visibility = Visibility.Collapsed;
+        }
+        private void MostrarActualizar()
+        {
+            NombreActualizarBtn.Visibility = Visibility.Visible;
+            NombreActualizarLb.Visibility = Visibility.Visible;
+            ModificarActualizarBtn.Visibility = Visibility.Visible;
+            CerrarActualziarBtn.Visibility = Visibility.Visible;
+            BordeActualizarBd.Visibility = Visibility.Visible;
+            TitulosActualizarLb.Visibility = Visibility.Visible;
+        }
+
+
+        private void MostrarVisible()
+        {
+            gridDocumento.Visibility = Visibility.Visible;
+            actualizarBtn.Visibility = Visibility.Visible;
+            eliminarBtn.Visibility = Visibility.Visible;
+            crearBtn.Visibility = Visibility.Visible;
+        }
+
+        private void MostrarCrear()
+        {
+            TituloLb.Visibility = Visibility.Visible;
+            datoTxt.Visibility = Visibility.Visible;
+            UrlLb.Visibility = Visibility.Visible;
+            nombreTxt.Visibility = Visibility.Visible;
+            nombreLb.Visibility = Visibility.Visible;
+            ExaminaBtn.Visibility = Visibility.Visible;
+            SubirBtn.Visibility = Visibility.Visible;
+            CerrarBtn.Visibility = Visibility.Visible;
+        }
+
+        #endregion
+
+        #region Visibilidad Documentos
+        private void MostrarDocumentos()
+        {
+            dgDocumentos.Visibility = Visibility.Visible;
+            txtRutBuscado.Visibility = Visibility.Visible;
+            lbRut.Visibility = Visibility.Visible;
+        }
+
+        private void OcultarDocumentos()
+        {
+            dgDocumentos.Visibility = Visibility.Collapsed;
+            txtRutBuscado.Visibility = Visibility.Collapsed;
+            lbRut.Visibility = Visibility.Collapsed;
+        }
+        
+        #endregion
+
+        #region Gestión Templates
+
+        public void llenadoDocumento()
+        {
+            Biblioteca_de_Clases.template_documento template = new Biblioteca_de_Clases.template_documento();
+
+            gridDocumento.ItemsSource = template.ReadAll();
+
+            gridDocumento.Items.Refresh();
+
+        }
+
+        private void eliminarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (gridDocumento.SelectedIndex != -1)
+            {
+                Biblioteca_de_Clases.template_documento template = (Biblioteca_de_Clases.template_documento)gridDocumento.SelectedItem;
+                template.Delete();
+                llenadoDocumento();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar el objeto de la lista a eliminar");
+            }
+
+        }
+
+        private void ventanaGuardarArchivo_Click(object sender, RoutedEventArgs e)
+        {
+
+            OcultarElementos();
+            MostrarCrear();
+
+        }
+
+        private void actualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (gridDocumento.SelectedIndex != -1)
+            {
+                OcultarElementos();
+                MostrarActualizar();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un objeto a modificar en la lista");
+            }
+
+        }
+
+        //Metodos Ventana Crear Documentos
+
+
+        public void examinar_Click(object sender, RoutedEventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.DefaultExt = ".pdf"; // Default file extension
+            openFileDialog.Filter = "Text documents (.pdf)|*.pdf"; // Filter files by extension
+            openFileDialog.Multiselect = false;
+
+            bool? response = openFileDialog.ShowDialog();
+
+
+            if (response == true)
+            {
+                string filepath = openFileDialog.FileName;
+                datoTxt.Text = filepath;
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un documento");
+            }
+        }
+
+        private void cerrarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OcultarElementos();
+            llenadoDocumento();
+            MostrarVisible();
+            limpiarCampos();
+        }
+
+        public void subirArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            if (nombreTxt.Text != null || datoTxt.Text != null)
+            {
+                string filepath = datoTxt.Text;
+                FileStream fStream = File.OpenRead(filepath);
+                byte[] contents = new byte[fStream.Length];
+                fStream.Read(contents, 0, (int)fStream.Length);
+                fStream.Close();
+
+                Biblioteca_de_Clases.template_documento template = new Biblioteca_de_Clases.template_documento()
+                {
+                    nombre = nombreTxt.Text,
+                    template = contents,
+                    fecha_subida = DateTime.Now,
+
+                };
+
+                if (template.Create())
+                {
+
+                    MessageBox.Show("creado correctamente");
+                    limpiarCampos();
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo crear el template");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe llenar todos los campos");
+            }
+
+        }
+
+        //Metodos Ventana Actualizar
+
+        private void ModificarArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            if (NombreActualizarBtn.Text != null)
+            {
+                Biblioteca_de_Clases.template_documento seleccionado = (Biblioteca_de_Clases.template_documento)gridDocumento.SelectedItem;
+                Biblioteca_de_Clases.template_documento template = new Biblioteca_de_Clases.template_documento
+                {
+                    cod_template = seleccionado.cod_template,
+                    nombre = NombreActualizarBtn.Text,
+                    template = seleccionado.template,
+                    fecha_subida = DateTime.Now,
+                };
+
+                if (template.Update())
+                {
+
+                    MessageBox.Show("Actualizado correctamente");
+                    limpiarCampos();
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar el template");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe escribir el nuevo nombre");
+            }
+
+        }
+
+        public void cancelar_Click(object sender, RoutedEventArgs e)
+        {
+            OcultarElementos();
+            llenadoDocumento();
+            limpiarCampos();
+            MostrarVisible();
+        }
+
+
+        // Metodos para Diseñar las Ventanas (Estetica)
+
+        private void limpiarCampos()
+        {
+            NombreActualizarBtn.Text = string.Empty;
+            datoTxt.Text = string.Empty;
+            nombreTxt.Text = string.Empty;
+
+        }
+        #endregion
+
         private void BuscarRutUsuario() 
         {
             Usuario Us = new Usuario();
@@ -615,6 +873,34 @@ namespace Notaria_WPF
                 llenardatagridUsuario();
             }
         }
+
+        #region Gestion de Documentos
+
+        private void LlenaDataGrid()
+        {
+            Doc_Emitido doc_emitido = new Doc_Emitido();
+
+            dgDocumentos.ItemsSource = doc_emitido.ReadAll();
+            dgDocumentos.Items.Refresh();
+        }
+
+        private void txtRutBuscado_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Doc_Emitido documento = new Doc_Emitido();
+            if (txtRutBuscado.Text != String.Empty)
+            {
+                if (txtRutBuscado.IsFocused)
+                {
+                    dgDocumentos.ItemsSource = documento.Buscar_Documento(txtRutBuscado.Text);
+                    dgDocumentos.Items.Refresh();
+                }
+            }
+            else
+            {
+                LlenaDataGrid();
+            }
+        }
+        #endregion
 
         #region Botones de Menu
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)                              // BOTON MENU GESTION DE PERFIL
@@ -629,7 +915,8 @@ namespace Notaria_WPF
             SacarUsuarioModificar();
             SacarUsuarioAgregar();
             llenardatagridPerfil();
-            
+            OcultarElementos();
+            OcultarDocumentos();
         }
 
         private void Button_Click_Personal(object sender, RoutedEventArgs e)                            // BOTON MENU GESTION DE PERSONAL
@@ -643,8 +930,8 @@ namespace Notaria_WPF
             SacarUsuarioModificar();
             SacarUsuarioAgregar();
             MostrarEmpleados();
-            
-            
+            OcultarElementos();
+            OcultarDocumentos();
         }
 
         private void Button_Click_Documentos(object sender, RoutedEventArgs e)                          // BOTON MENU GESTION DE DOCUMENTOS
@@ -658,8 +945,8 @@ namespace Notaria_WPF
             SacarUsuarioList();
             SacarUsuarioModificar();
             SacarUsuarioAgregar();
-
-
+            MostrarVisible();
+            OcultarDocumentos();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)                                     // BOTON MENU GESTION DE USAURIO
@@ -674,6 +961,24 @@ namespace Notaria_WPF
             MostrarUsuario();
             SacarUsuarioModificar();
             llenardatagridUsuario();
+            OcultarElementos();
+            OcultarDocumentos();
+        }
+
+        private void btn_GestionDocumentos_Click(object sender, RoutedEventArgs e)
+        {
+            SacarPerfil();
+            SacarEmpleados();
+            SacarEmpleadoAgregar();
+            SacarListaEmpleados();
+            SacarUsuarioList();
+            SacarEmpleadoModificar();
+            SacarUsuarioAgregar();
+            SacarUsuarioModificar();
+            llenardatagridUsuario();
+            OcultarElementos();
+            MostrarDocumentos();
+            LlenaDataGrid();
         }
 
         #endregion

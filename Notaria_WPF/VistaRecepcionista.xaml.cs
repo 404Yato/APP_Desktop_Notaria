@@ -307,10 +307,8 @@ namespace Notaria_WPF
                 this.SizeToContent = SizeToContent.Height;
                 FrameFormularios.NavigationService.Navigate(formArrVehiculo);
                 btnInicio.Visibility = Visibility.Visible;
-
-                
             }
-            else if (tramite.cod_tramite == 3) 
+            else if (tramite.cod_tramite == 5) 
             {
                 FrameFormularios.NavigationService.Navigate(formCartaRenuncia);
             }
