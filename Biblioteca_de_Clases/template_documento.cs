@@ -132,6 +132,27 @@ namespace Biblioteca_de_Clases
             }
 
         }
+
+        public bool Read()
+        {
+            // Creo una instancia de conexión a Datos
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+
+            try
+            {
+                //Obtener el primer registro que coincida con el Rut usando LinQ
+                Notaria.Datos.template_documento template = bbdd.template_documento.First(e => e.cod_template == cod_template);
+                //Pasar los valores Datos(bd) a negocio 
+                CommonBC.Syncronize(template, this);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
     }
     
         
