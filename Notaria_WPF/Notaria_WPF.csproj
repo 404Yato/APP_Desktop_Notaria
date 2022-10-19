@@ -167,6 +167,9 @@
     <Compile Include="TemplatesCRUD.xaml.cs">
       <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaOficial.xaml.cs">
+      <DependentUpon>VistaOficial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistaRecepcionista.xaml.cs">
       <DependentUpon>VistaRecepcionista.xaml</DependentUpon>
     </Compile>
@@ -249,6 +252,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TiposDeTramites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaOficial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
