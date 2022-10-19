@@ -322,6 +322,7 @@
           <Parameter Name="rut_busca" Type="varchar" Mode="In" />
           <Parameter Name="contra" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SP_LlenarDGVistasOF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PortafolioModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_emitido" EntityType="Self.doc_emitido" Schema="dbo" store:Type="Tables" />
@@ -795,6 +796,7 @@
             <Parameter Name="rut_busca" Mode="In" Type="String" />
             <Parameter Name="contra" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_LlenarDGVistasOF" ReturnType="Collection(PortafolioModel.SP_LlenarDGVistasOF_Result)" />
         </EntityContainer>
         <ComplexType Name="buscar_documento_Result">
           <Property Type="Int32" Name="cod_documento" Nullable="false" />
@@ -851,6 +853,16 @@
         <ComplexType Name="notarialogin_Result">
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
           <Property Type="Int32" Name="cod_perfil" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_LlenarDGVistasOF_Result">
+          <Property Type="Int32" Name="cod_documento" Nullable="false" />
+          <Property Type="String" Name="nombre_tramite" Nullable="false" MaxLength="100" />
+          <Property Type="Binary" Name="copia_documento" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_emision" Nullable="false" />
+          <Property Type="Int32" Name="precio" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1100,6 +1112,20 @@
               <ComplexTypeMapping TypeName="PortafolioModel.notarialogin_Result">
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="cod_perfil" ColumnName="cod_perfil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LlenarDGVistasOF" FunctionName="PortafolioModel.Store.SP_LlenarDGVistasOF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.SP_LlenarDGVistasOF_Result">
+                <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
+                <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
+                <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
