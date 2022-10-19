@@ -283,8 +283,6 @@ namespace Notaria_WPF
             {
                 string path2 = @"..\Doc_Notarial\Origen\" + template.nombre + ".pdf";
                 File.WriteAllBytes(path2, template.template);
-                path = path2;
-                path3 = @"..\Doc_Notarial\Destino\" + template.nombre + ".pdf";
             }
         }
 
