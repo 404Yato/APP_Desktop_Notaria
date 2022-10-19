@@ -63,7 +63,7 @@ namespace NotariaWPF
         {
             Conexion.Conectar();
             DataTable dt = new DataTable();
-            string consulta = "select sum(amount) as 'Ventas registradas', sum(precio*amount) as 'Ganancias', MONTH(transaction_date) as 'Mes' from dbo.ventas_presencial vp join dbo.doc_emitido de on vp.doc_emitido_cod_documento=de.cod_documento where estado='Confirmado' group by MONTH(transaction_date)";
+            string consulta = "select sum(amount) as 'Ventas registradas', sum(precio*amount) as 'Ganancias', MONTH(transaction_date) as 'Mes' from dbo.ventas_presencial vp join dbo.doc_emitido de on vp.doc_emitido_cod_documento=de.cod_documento where vp.estado='Confirmado' group by MONTH(transaction_date)";
             SqlCommand cmd = new SqlCommand(consulta, Conexion.Conectar());
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);

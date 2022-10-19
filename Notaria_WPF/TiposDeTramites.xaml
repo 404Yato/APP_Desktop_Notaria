@@ -18,7 +18,7 @@
         <Label Content="NOTARÍA" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="24"/>
         <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="202,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="24" Height="40" Width="133"/>
         <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
-        <Button Content="Apartado&#xD;&#xA;contador" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_6"/>
+        <Button Content="Gestión&#xD;de&#xA;tramites" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="64" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_6"/>
         <Label Content="Administrador" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
         <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
         <Image Margin="0,7,158,0" Source="/Imagenes/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
