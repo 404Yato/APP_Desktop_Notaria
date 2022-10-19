@@ -26,6 +26,13 @@ namespace Notaria_WPF
     /// </summary>
     public partial class MainWindow
     {
+        public static string _rutEmpleado { get; set; } = string.Empty;
+        public static string rutEmpleado
+        {
+            get { return _rutEmpleado; }
+            set { _rutEmpleado = rutEmpleado; }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -49,7 +56,7 @@ namespace Notaria_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            rutEmpleado =txb_rut.Text;
             string rut = txb_rut.Text;
             string contra = txb_contra.Text;
             if (ValidarCampos())                                                                                // VALIDACION DE CAMPOS VACIOS
