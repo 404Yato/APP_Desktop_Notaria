@@ -113,6 +113,33 @@ namespace Biblioteca_de_Clases
             }
 
         }
+        public bool ReadContra(string contrasena)
+        {
+            // Creo una instancia de conexión a Datos
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+
+            try
+            {
+                //Obtener el primer registro que coincida con el codigo de perfil usando LinQ
+                Notaria.Datos.empleado PF = bbdd.empleado.First(e => e.rut == rut);
+                //Pasar los valores Datos(bd) a negocio 
+                if (PF.contrasena == contrasena)
+                {
+                    CommonBC.Syncronize(PF, this);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
         public bool Readid(int var)
         {
             // Creo una instancia de conexión a Datos

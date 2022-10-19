@@ -89,6 +89,7 @@ namespace Notaria_WPF
             LimpiarCamposReservas();
             OcultarControlesTramite();
             FrameFormularios.Content = null;
+            btnInicio.Visibility = Visibility.Collapsed;
         }
 
         private void BuscarReserva()
@@ -202,6 +203,7 @@ namespace Notaria_WPF
         {
             cbTipoTramite.Visibility = Visibility.Visible;
             lbTipoTramite.Visibility = Visibility.Visible;
+            btnInicio.Visibility = Visibility.Collapsed;
             OcultarReservas();
             OcultarControlesTramite();
             LimpiarCamposTramites();
@@ -313,9 +315,11 @@ namespace Notaria_WPF
                 FrameFormularios.NavigationService.Navigate(formArrVehiculo);
                 btnInicio.Visibility = Visibility.Visible;
             }
-            else if (tramite.cod_tramite == 5) 
+            else if (tramite.cod_tramite == 4) 
             {
+                Transformar();
                 FrameFormularios.NavigationService.Navigate(formCartaRenuncia);
+                btnInicio.Visibility = Visibility.Visible;
             }
             else
             {
