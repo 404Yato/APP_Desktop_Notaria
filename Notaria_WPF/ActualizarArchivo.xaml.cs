@@ -44,7 +44,7 @@ namespace Notaria_WPF
             if (template_Documento.Update())
             {
 
-                MessageBox.Show("creado correctamente");
+                MessageBox.Show("Creado correctamente");
 
             }
             else

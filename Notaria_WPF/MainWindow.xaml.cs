@@ -26,12 +26,7 @@ namespace Notaria_WPF
     /// </summary>
     public partial class MainWindow
     {
-        public static string _rutEmpleado { get; set; } = string.Empty;
-        public static string rutEmpleado
-        {
-            get { return _rutEmpleado; }
-            set { _rutEmpleado = rutEmpleado; }
-        }
+        public static string rutEmpleado { get; set; } = string.Empty;
 
         public MainWindow()
         {

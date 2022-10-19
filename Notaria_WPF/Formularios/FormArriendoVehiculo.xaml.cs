@@ -110,6 +110,7 @@ namespace Notaria_WPF.Formularios
                 estado = "En revisión",
                 valido = false,
                 presencialidad = true,
+                usuario_rut = string.Empty,
                 rut_cliente_pres = txtrutArrendador.Text,
                 cod_tramite = VistaRecepcionista.codTramite,
                 empleado_rut = MainWindow.rutEmpleado
