@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Biblioteca_de_Clases;
 
 namespace Notaria_WPF.Formularios
 {
@@ -49,11 +51,41 @@ namespace Notaria_WPF.Formularios
             toSet.SetValue(DateTime.Now.ToString("yy"));
             form.FlattenFields();
             pdf.Close();
-            MessageBox.Show("Documento creado correctamente","Éxito");
-            limpiar();
+
+            //Transformar documento emitido en bytes
+            string filepath = path3;
+            FileStream fStream = File.OpenRead(filepath);
+            byte[] contents = new byte[fStream.Length];
+            fStream.Read(contents, 0, (int)fStream.Length);
+            fStream.Close();
+
+
+            Doc_Emitido doc = new Doc_Emitido()
+            {
+                copia_documento = contents,
+                fecha_emision = DateTime.Now,
+                precio = VistaRecepcionista.precio,
+                estado = "En revisión",
+                valido = false,
+                presencialidad = true,
+                usuario_rut = string.Empty,
+                rut_cliente_pres = txtRut.Text,
+                cod_tramite = VistaRecepcionista.codTramite,
+                empleado_rut = MainWindow.rutEmpleado
+            };
+
+            if (doc.Create())
+            {
+                MessageBox.Show("Documento creado correctamente", "Éxito");
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Error", "Error");
+            }
         }
 
-        private void limpiar()
+        private void Limpiar()
         {
             txtNombre.Text = String.Empty;
             txtApellidoP.Text = String.Empty;
@@ -61,6 +93,7 @@ namespace Notaria_WPF.Formularios
             txtNombre2.Text = String.Empty;
             txtApellidoP2.Text = String.Empty;
             txtApellidoM2.Text = String.Empty;
+            txtRut.Text = String.Empty;
         }
     }
 }

@@ -15,12 +15,14 @@
         <Label Content="Área de Trabajo" HorizontalAlignment="Left" Margin="22,223,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="16"/>
         <TextBox x:Name="txb_areaTrabajo" HorizontalAlignment="Left" Margin="191,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Foreground="Black" Background="#FFC6EEF7" FontFamily="Calibri" FontSize="16" Padding="5,4,0,4"/>
         <Label Content="Dia de Renuncia " HorizontalAlignment="Left" Margin="22,272,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="16"/>
-        <TextBox x:Name="tbx_dia" HorizontalAlignment="Left" Margin="191,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Foreground="Black" Background="#FFC6EEF7" FontFamily="Calibri" FontSize="16" Padding="5,4,0,4"/>
+        <TextBox x:Name="txb_dia" HorizontalAlignment="Left" Margin="191,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Foreground="Black" Background="#FFC6EEF7" FontFamily="Calibri" FontSize="16" Padding="5,4,0,4"/>
         <Label Content="Mes de Renuncia " HorizontalAlignment="Left" Margin="22,319,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="16"/>
         <TextBox x:Name="txb_mes" HorizontalAlignment="Left" Margin="191,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Foreground="Black" Background="#FFC6EEF7" FontFamily="Calibri" FontSize="16" Padding="5,4,0,4"/>
         <Label Content="Datos de Empleador" HorizontalAlignment="Left" Margin="22,83,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Width="164"/>
         <Label Content="Datos del Trabajador" HorizontalAlignment="Left" Margin="22,178,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Calibri" Foreground="#DDFFFFFF" Width="164"/>
-        <Button x:Name="btn_crear" Content="Crear" HorizontalAlignment="Left" Margin="383,362,0,0" VerticalAlignment="Top" Height="47" Width="215" FontFamily="Calibri" FontSize="20"/>
+        <Button x:Name="btn_crear" Content="Crear" HorizontalAlignment="Left" Margin="395,358,0,0" VerticalAlignment="Top" Height="47" Width="215" FontFamily="Calibri" FontSize="20" Click="btn_crear_Click"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Margin="395,224,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="16"/>
+        <TextBox x:Name="txb_rut" HorizontalAlignment="Left" Margin="446,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Foreground="Black" Background="#FFC6EEF7" FontFamily="Calibri" FontSize="16" Padding="5,4,0,4"/>
     </Grid>
 
 
