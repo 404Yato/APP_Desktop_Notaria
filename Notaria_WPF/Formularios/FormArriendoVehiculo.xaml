@@ -57,5 +57,8 @@
         <TextBox x:Name="txtColorVehiculo" HorizontalAlignment="Left" Margin="457,672,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" Background="White" FontFamily="Calibri"/>
         <Label Content="Patente" HorizontalAlignment="Left" Margin="369,719,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Cursor="Arrow" FontFamily="Calibri"/>
         <TextBox x:Name="txtPatenteVehiculo" HorizontalAlignment="Left" Margin="457,723,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" Background="White" FontFamily="Calibri"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Height="32" Margin="277,768,0,0" VerticalAlignment="Top" Width="174" Click="btnCrear_Click"/>
+        <Label Content="Monto Arriendo" HorizontalAlignment="Left" Margin="349,463,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" Cursor="Arrow" FontFamily="Calibri"/>
+        <TextBox x:Name="txtMontoArriendo" HorizontalAlignment="Left" Margin="457,467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" Background="White" FontFamily="Calibri"/>
     </Grid>
 </Page>

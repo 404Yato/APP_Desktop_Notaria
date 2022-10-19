@@ -31,6 +31,9 @@ namespace Notaria_WPF
     
     public partial class VistaRecepcionista : Window
     {
+        //Declaración Variables para creación de documento emitido
+        public static int precio { get; set; } = 0;
+        public static int codTramite { get; set; } = 0;
         //Declaración Variables para Rutas de templates
         string path;
         string path3;
@@ -292,6 +295,8 @@ namespace Notaria_WPF
             OcultarDocumentos();
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
 
+            codTramite = tramite.cod_tramite;
+            precio = tramite.precio;
 
             if (tramite.cod_tramite == 1)
             {
