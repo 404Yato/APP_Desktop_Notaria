@@ -17,7 +17,7 @@ namespace Biblioteca_de_Clases
         public bool valido { get; set; }
         public bool presencialidad { get; set; }
         public string rut_cliente_pres { get; set; }
-        public string cod_tramite { get; set; }
+        public int cod_tramite { get; set; }
         public string usuario_rut { get; set; }
         public string empleado_rut { get; set; }
         #endregion
@@ -35,7 +35,7 @@ namespace Biblioteca_de_Clases
             valido = false;
             presencialidad = false;
             rut_cliente_pres = String.Empty;
-            cod_tramite = String.Empty;
+            cod_tramite = 0;
             usuario_rut = String.Empty;
             empleado_rut = String.Empty;
         }
@@ -104,6 +104,32 @@ namespace Biblioteca_de_Clases
             Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
             var resultado = bbdd.buscar_documento(variable);
             return resultado.ToList();
+        }
+
+        public bool Create()
+        {
+            // Creo una instancia de conexión a Datos
+            //OnBreakEntities es el nombre de la conexión
+            PortafolioEntities bbdd = new PortafolioEntities();
+            Notaria.Datos.doc_emitido doc = new Notaria.Datos.doc_emitido();
+
+            try
+            {
+                //Pasar los valores de las propiedades de negocio a Datos
+                //CommonBC.Syncronize(desde, hasta); usa las propiedades definidas en this class
+                //luego se agraga con el metodo add con el objeto creado como parametro y saveChanges() guarda=Commit
+                CommonBC.Syncronize(this, doc);
+                bbdd.doc_emitido.Add(doc);
+                bbdd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                //En caso de que no se guarde, eliminara al objeto
+                bbdd.doc_emitido.Remove(doc);
+                return false;
+            }
+
         }
         #endregion
     }
