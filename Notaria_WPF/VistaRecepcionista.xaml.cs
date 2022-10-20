@@ -216,7 +216,6 @@ namespace Notaria_WPF
         }
         private void LimpiarCamposTramites()
         {
-            txbDesc.Text = String.Empty;
             txbRequisitos.Text = String.Empty;
             txtPrecio.Text = String.Empty;
             cbTipoTramite.SelectedIndex = -1;
@@ -239,11 +238,9 @@ namespace Notaria_WPF
         }
         private void OcultarControlesTramite()
         {
-            lbDesc.Visibility = Visibility.Collapsed;
             lbNombreTramite.Visibility = Visibility.Collapsed;
             lbRequisitos.Visibility = Visibility.Collapsed;
             lbPrecio.Visibility = Visibility.Collapsed;
-            txbDesc.Visibility = Visibility.Collapsed;
             txbRequisitos.Visibility = Visibility.Collapsed;
             txtPrecio.Visibility = Visibility.Collapsed;
             btnCrearDoc.Visibility = Visibility.Collapsed;
@@ -251,11 +248,9 @@ namespace Notaria_WPF
 
         private void MostrarControlesTramite()
         {
-            lbDesc.Visibility = Visibility.Visible;
             lbNombreTramite.Visibility = Visibility.Visible;
             lbRequisitos.Visibility = Visibility.Visible;
             lbPrecio.Visibility = Visibility.Visible;
-            txbDesc.Visibility = Visibility.Visible;
             txbRequisitos.Visibility = Visibility.Visible;
             txtPrecio.Visibility = Visibility.Visible;
             btnCrearDoc.Visibility = Visibility.Visible;
@@ -265,7 +260,6 @@ namespace Notaria_WPF
             MostrarControlesTramite();
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
             lbNombreTramite.Content = tramite.nombre_tramite;
-            txbDesc.Text = tramite.descripcion;
             txbRequisitos.Text = tramite.requisitos;
             txtPrecio.Text = "$ " + tramite.precio.ToString();
         }
