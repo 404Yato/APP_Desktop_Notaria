@@ -61,9 +61,9 @@ namespace Notaria_WPF
                 {
                     rut = rut
                 };
-                if (empleado.Read())
+                if (empleado.Read())                                                                            //Validación Rut correcto
                 {
-                    if (empleado.ReadContra(contra))
+                    if (empleado.ReadContra(contra))                                                            //Validación Contraseña Correcta
                     {
                         if (Em.login(rut, contra) == 1)                                                                 // ADMINISTRADOR
                         {

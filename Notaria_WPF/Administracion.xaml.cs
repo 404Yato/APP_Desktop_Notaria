@@ -904,6 +904,7 @@ namespace Notaria_WPF
             }
         }
         #endregion
+
         #region Gestion de Documentos
 
         private void LlenaDataGrid()
@@ -931,8 +932,6 @@ namespace Notaria_WPF
             }
         }
         #endregion
-
-        
 
         #region Botones de Menu
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)                              // BOTON MENU GESTION DE PERFIL

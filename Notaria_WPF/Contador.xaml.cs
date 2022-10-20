@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Notaria_WPF;
 
 namespace NotariaWPF
 {
@@ -102,6 +103,19 @@ namespace NotariaWPF
 
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow MW = new MainWindow();
+                MW.Show();
+                this.Close();
+            }
+            else { }
 
         }
     }

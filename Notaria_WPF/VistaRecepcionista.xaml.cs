@@ -337,5 +337,18 @@ namespace Notaria_WPF
             btnInicio.Visibility = Visibility.Collapsed;
             cbTipoTramite.SelectedIndex = -1;
         }
+
+        private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow MW = new MainWindow();
+                MW.Show();
+                this.Close();
+            }
+            else { }
+
+        }
     }
 }
