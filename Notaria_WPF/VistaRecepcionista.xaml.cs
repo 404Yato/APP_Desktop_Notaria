@@ -294,27 +294,40 @@ namespace Notaria_WPF
             OcultarControlesTramite();
             OcultarDocumentos();
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
+            codTramite = tramite.cod_tramite;
+            precio = tramite.precio;
 
             if (tramite.cod_tramite == 1)
             {
                 Transformar();
+                FrameFormularios.NavigationService.Navigate(formCartaPoder);
+                btnInicio.Visibility = Visibility.Visible;
+            }
+            else if (tramite.cod_tramite == 2)
+            {
+                Transformar();
                 FrameFormularios.NavigationService.Navigate(formDeclaracion);
+                btnInicio.Visibility = Visibility.Visible;
             }
             else if (tramite.cod_tramite == 3)
             {
                 Transformar();
-                FrameFormularios.Height = 900;
+                FrameFormularios.Height = 823;
                 this.SizeToContent = SizeToContent.Height;
                 FrameFormularios.NavigationService.Navigate(formArrVehiculo);
                 btnInicio.Visibility = Visibility.Visible;
             }
-            else if (tramite.cod_tramite == 4) 
+            else if (tramite.cod_tramite == 4)
             {
                 Transformar();
                 FrameFormularios.NavigationService.Navigate(formCartaRenuncia);
                 btnInicio.Visibility = Visibility.Visible;
+            }
+            else if (tramite.cod_tramite == 5) 
+            {
+                Transformar();
                 FrameFormularios.NavigationService.Navigate(prestacionServicio);
-                //btnSiguientePrestacion.Visibility = Visibility.Visible;
+                btnInicio.Visibility = Visibility.Visible;
             }
             else
             {

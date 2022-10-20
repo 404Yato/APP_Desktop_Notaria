@@ -188,22 +188,19 @@
         <Label x:Name="lb_titulo_Usuario" Content="Gestión de Usuarios" HorizontalAlignment="Left" Margin="181,44,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontFamily="Calibri" FontSize="18" Visibility="Collapsed"/>
 
         <!--Gestión de Templates-->
-        <DataGrid x:Name="gridDocumento" AutoGenerateColumns="False" Margin="400,194,33,74" Visibility="Collapsed"  >
+        <DataGrid x:Name="gridDocumento" AutoGenerateColumns="False" Margin="331,194,33,74" Visibility="Visible"  >
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="id" Binding="{Binding cod_template}" Width="auto"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"  Width="auto"/>
-                <DataGridTextColumn Header="Archivo" Binding="{Binding template}" Width="auto"/>
                 <DataGridTextColumn Header="Fecha" Binding="{Binding fecha_subida}" Width="auto"/>
-
-
+                
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="crearBtn" Content="+" HorizontalAlignment="Left" Margin="730,148,0,0" VerticalAlignment="Top" Height="26" Width="31" Click="ventanaGuardarArchivo_Click" Visibility="Collapsed"/>
-        <Button x:Name="eliminarBtn" Content="Eliminar" HorizontalAlignment="Left" Margin="650,148,0,0" VerticalAlignment="Top" Height="26" Width="68" Click="eliminarBtn_Click" Visibility="Collapsed"/>
-        <Button Content="O" HorizontalAlignment="Left" Margin="585,148,0,0" VerticalAlignment="Top" Height="26" Width="51" Click="Button_Click" Visibility="Collapsed"/>
-        <Button x:Name="actualizarBtn" Content="Actualizar" HorizontalAlignment="Left" Margin="511,148,0,0" VerticalAlignment="Top" Height="26" Width="57" Click="actualizar_Click" Visibility="Collapsed"/>
+        <Button x:Name="crearBtn" Content="Crear" HorizontalAlignment="Left" Margin="793,153,0,0" VerticalAlignment="Top" Height="26" Width="90" Click="ventanaGuardarArchivo_Click" Visibility="Visible"/>
+        <Button x:Name="eliminarBtn" Content="Eliminar" HorizontalAlignment="Left" Margin="679,153,0,0" VerticalAlignment="Top" Height="26" Width="87" Click="eliminarBtn_Click" Visibility="Visible"/>
+        <Button x:Name="actualizarBtn" Content="Actualizar" HorizontalAlignment="Left" Margin="562,153,0,0" VerticalAlignment="Top" Height="26" Width="96" Click="actualizar_Click" Visibility="Visible"/>
 
         <!-- Ventana Guardar Archivos-->
         <Label x:Name="TituloLb" Content="Subir PDF" HorizontalAlignment="Left" Margin="397,130,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Height="36" Width="124" Visibility="Collapsed"/>
