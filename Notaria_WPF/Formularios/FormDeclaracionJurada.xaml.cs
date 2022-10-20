@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Biblioteca_de_Clases;
 
 namespace Notaria_WPF.Formularios
 {
@@ -35,7 +37,7 @@ namespace Notaria_WPF.Formularios
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNombre.Text == null || txtApellido.Text == null || txtDireccion.Text == null || txtEstado.Text == null || txtRut.Text == null)
+            if (txtNombre.Text != null || txtApellido.Text != null || txtDireccion.Text != null || txtEstado.Text != null || txtRut.Text != null)
             {
                 PdfDocument pdf = new PdfDocument(new PdfReader(path), new PdfWriter(path3));
                 PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
@@ -51,8 +53,38 @@ namespace Notaria_WPF.Formularios
                 toSet.SetValue(txtRut.Text);
                 form.FlattenFields();
                 pdf.Close();
-                limpiarCampos();
-                MessageBox.Show("Documento creado correctamente", "Éxito");
+
+                //Transformar documento emitido en bytes
+                string filepath = path3;
+                FileStream fStream = File.OpenRead(filepath);
+                byte[] contents = new byte[fStream.Length];
+                fStream.Read(contents, 0, (int)fStream.Length);
+                fStream.Close();
+
+
+                Doc_Emitido doc = new Doc_Emitido()
+                {
+                    copia_documento = contents,
+                    fecha_emision = DateTime.Now,
+                    precio = VistaRecepcionista.precio,
+                    estado = "En revisión",
+                    valido = false,
+                    presencialidad = true,
+                    usuario_rut = string.Empty,
+                    rut_cliente_pres = txtRut.Text,
+                    cod_tramite = VistaRecepcionista.codTramite,
+                    empleado_rut = MainWindow.rutEmpleado
+                };
+
+                if (doc.Create())
+                {
+                    MessageBox.Show("Documento creado correctamente", "Éxito");
+                    limpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo guardar el documento, intentelo nuevamente", "Error");
+                }
             }
             else
             {

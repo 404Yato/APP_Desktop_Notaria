@@ -12,14 +12,12 @@ namespace Notaria.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class ventas_online
+    public partial class sysdiagrams
     {
-        public int cod_venta { get; set; }
-        public int amount { get; set; }
-        public System.DateTime transaction_date { get; set; }
-        public string rut_persona { get; set; }
-        public int cod_documento { get; set; }
-    
-        public virtual doc_emitido doc_emitido { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
