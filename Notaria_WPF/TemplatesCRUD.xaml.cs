@@ -21,6 +21,7 @@ using iText.Forms;
 using iText.Kernel.Pdf;
 using Microsoft.Win32;
 using iText.Kernel.Geom;
+using System.Diagnostics;
 
 namespace Notaria_WPF
 {
@@ -373,5 +374,14 @@ namespace Notaria_WPF
             form.FlattenFields();
             pdf.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Process proceso = new Process();
+            proceso.StartInfo.FileName = @"C:\Users\victo\source\repos\404Yato\APP_Desktop_Notaria\Notaria_WPF\bin\Doc_Notarial\Destino\Declaración Jurada Simple.pdf";
+            proceso.Start();
+        }
+
+        
     }
 }

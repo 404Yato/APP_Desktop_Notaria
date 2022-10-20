@@ -47,7 +47,7 @@
                 <DataGridTextColumn Header="Rol" Binding="{Binding rol}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Cerrar sesión" Margin="0,9,37,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontSize="16" FontFamily="Calibri" HorizontalAlignment="Right" Width="105"/>
+        <Label Content="Cerrar sesión" Margin="798,9,37,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontSize="16" FontFamily="Calibri"/>
         <!-- <Label x:Name="lb_introid" Content="Introducir ID" Margin="219,186,0,0" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211"/> -->
         <TextBox x:Name="tb_asignarrol" Margin="219,262,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7" Visibility="Collapsed"/>
         <Label x:Name="lb_asignarrol" Content="Asignar Rol" Margin="219,225,0,0" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Visibility="Collapsed"/>
