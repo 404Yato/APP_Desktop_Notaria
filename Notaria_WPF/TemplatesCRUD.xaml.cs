@@ -51,9 +51,6 @@ namespace Notaria_WPF
 
             gridDocumento.Items.Refresh();
 
-            
-
-
         }
 
         private void eliminarBtn_Click(object sender, RoutedEventArgs e)
@@ -92,14 +89,6 @@ namespace Notaria_WPF
             }
 
         }
-
-
-
-
-
-
-
-
 
         //Metodos Ventana Crear Documentos
 

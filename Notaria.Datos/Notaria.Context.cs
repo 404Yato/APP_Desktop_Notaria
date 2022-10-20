@@ -95,5 +95,18 @@ namespace Notaria.Datos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<llenarComboComuna_Result>("llenarComboComuna", cod_regionParameter);
         }
+    
+        public virtual ObjectResult<notarialogin_Result> notarialogin(string rut_busca, string contra)
+        {
+            var rut_buscaParameter = rut_busca != null ?
+                new ObjectParameter("rut_busca", rut_busca) :
+                new ObjectParameter("rut_busca", typeof(string));
+    
+            var contraParameter = contra != null ?
+                new ObjectParameter("contra", contra) :
+                new ObjectParameter("contra", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<notarialogin_Result>("notarialogin", rut_buscaParameter, contraParameter);
+        }
     }
 }

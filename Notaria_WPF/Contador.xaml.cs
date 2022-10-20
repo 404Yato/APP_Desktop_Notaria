@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Notaria_WPF;
 
 namespace NotariaWPF
 {
@@ -63,7 +64,7 @@ namespace NotariaWPF
         {
             Conexion.Conectar();
             DataTable dt = new DataTable();
-            string consulta = "select sum(amount) as 'Ventas registradas', sum(precio*amount) as 'Ganancias', MONTH(transaction_date) as 'Mes' from dbo.ventas_presencial vp join dbo.doc_emitido de on vp.doc_emitido_cod_documento=de.cod_documento where estado='Confirmado' group by MONTH(transaction_date)";
+            string consulta = "select sum(amount) as 'Ventas registradas', sum(precio*amount) as 'Ganancias', MONTH(transaction_date) as 'Mes' from dbo.ventas_presencial vp join dbo.doc_emitido de on vp.doc_emitido_cod_documento=de.cod_documento where vp.estado='Confirmado' group by MONTH(transaction_date)";
             SqlCommand cmd = new SqlCommand(consulta, Conexion.Conectar());
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -102,6 +103,19 @@ namespace NotariaWPF
 
         private void Button_Click_Perfil(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow MW = new MainWindow();
+                MW.Show();
+                this.Close();
+            }
+            else { }
 
         }
     }

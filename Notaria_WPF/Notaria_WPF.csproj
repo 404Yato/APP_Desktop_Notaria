@@ -167,6 +167,9 @@
     <Compile Include="Formularios\FormPrestacionServicio.xaml.cs">
       <DependentUpon>FormPrestacionServicio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormCartaRenuncia.xaml.cs">
+      <DependentUpon>FormCartaRenuncia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TemplatesCRUD.xaml.cs">
       <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Formularios\FormPrestacionServicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormCartaRenuncia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

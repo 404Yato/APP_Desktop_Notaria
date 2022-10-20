@@ -31,12 +31,18 @@ namespace Notaria_WPF
     
     public partial class VistaRecepcionista : Window
     {
+        //Declaración Variables para creación de documento emitido
+        public static int precio { get; set; } = 0;
+        public static int codTramite { get; set; } = 0;
         //Declaración Variables para Rutas de templates
         string path;
         string path3;
 
         //Declaración de objetos referencia a paginas de formularios
         FormCartaPoder formCartaPoder = new FormCartaPoder();
+        FormArriendoVehiculo formArrVehiculo = new FormArriendoVehiculo();
+        FormCartaRenuncia formCartaRenuncia = new FormCartaRenuncia();
+
         FormDeclaracionJurada formDeclaracion = new FormDeclaracionJurada();
         FormPrestacionServicio prestacionServicio = new FormPrestacionServicio();
         
@@ -87,6 +93,7 @@ namespace Notaria_WPF
             LimpiarCamposReservas();
             OcultarControlesTramite();
             FrameFormularios.Content = null;
+            btnInicio.Visibility = Visibility.Collapsed;
         }
 
         private void BuscarReserva()
@@ -200,6 +207,7 @@ namespace Notaria_WPF
         {
             cbTipoTramite.Visibility = Visibility.Visible;
             lbTipoTramite.Visibility = Visibility.Visible;
+            btnInicio.Visibility = Visibility.Collapsed;
             OcultarReservas();
             OcultarControlesTramite();
             LimpiarCamposTramites();
@@ -294,6 +302,10 @@ namespace Notaria_WPF
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
 
             if (tramite.cod_tramite == 2)
+            codTramite = tramite.cod_tramite;
+            precio = tramite.precio;
+
+            if (tramite.cod_tramite == 1)
             {
                 Transformar();
                 FrameFormularios.NavigationService.Navigate(formDeclaracion);
@@ -303,6 +315,14 @@ namespace Notaria_WPF
                 Transformar();
                 FrameFormularios.Height = 900;
                 this.SizeToContent = SizeToContent.Height;
+                FrameFormularios.NavigationService.Navigate(formArrVehiculo);
+                btnInicio.Visibility = Visibility.Visible;
+            }
+            else if (tramite.cod_tramite == 4) 
+            {
+                Transformar();
+                FrameFormularios.NavigationService.Navigate(formCartaRenuncia);
+                btnInicio.Visibility = Visibility.Visible;
                 FrameFormularios.NavigationService.Navigate(prestacionServicio);
                 //btnSiguientePrestacion.Visibility = Visibility.Visible;
             }
@@ -314,5 +334,27 @@ namespace Notaria_WPF
         }
 
         #endregion
+
+        private void btnInicio_Click(object sender, RoutedEventArgs e)
+        {
+            FrameFormularios.Content = null;
+            lbTipoTramite.Visibility = Visibility.Visible;
+            cbTipoTramite.Visibility = Visibility.Visible;
+            btnInicio.Visibility = Visibility.Collapsed;
+            cbTipoTramite.SelectedIndex = -1;
+        }
+
+        private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow MW = new MainWindow();
+                MW.Show();
+                this.Close();
+            }
+            else { }
+
+        }
     }
 }
