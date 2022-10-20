@@ -301,10 +301,6 @@ namespace Notaria_WPF
             OcultarDocumentos();
             Tipo_tramite tramite = (Tipo_tramite)cbTipoTramite.SelectedItem;
 
-            if (tramite.cod_tramite == 2)
-            codTramite = tramite.cod_tramite;
-            precio = tramite.precio;
-
             if (tramite.cod_tramite == 1)
             {
                 Transformar();
