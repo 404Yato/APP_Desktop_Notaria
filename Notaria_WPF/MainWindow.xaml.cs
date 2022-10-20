@@ -91,14 +91,32 @@ namespace Notaria_WPF
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Conexion.Conectar();
-            string eliminar = "DELETE FROM dbo.tipo_tramite WHERE cod_tramite=@cod_tramite";
-            SqlCommand cmd3 = new SqlCommand(eliminar, Conexion.Conectar());
 
-            cmd3.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
+            MessageBoxResult selecion = MessageBox.Show("¿Estás seguro que deseas eliminar este tipo de trámite?",
+                "Advertencia", MessageBoxButton.YesNoCancel);
 
-            cmd3.ExecuteNonQuery();
+            switch (selecion)
+            {
+                case MessageBoxResult.Yes:
+                    string eliminar = "DELETE FROM dbo.tipo_tramite WHERE cod_tramite=@cod_tramite";
+                    SqlCommand cmd3 = new SqlCommand(eliminar, Conexion.Conectar());
 
-            MessageBox.Show("Los datos fueron eliminados con exito");
+                    cmd3.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
+
+                    cmd3.ExecuteNonQuery();
+
+                    MessageBox.Show("Los datos fueron eliminados con exito");
+
+                    break;
+
+                case MessageBoxResult.No:
+                    MessageBox.Show("Los datos quedarán intactos.");
+                    break;
+
+                case MessageBoxResult.Cancel:
+                    MessageBox.Show("Operación cancelada.");
+                    break;
+            }
 
             DataGrid1.DataContext = llenar_grid();
         }
