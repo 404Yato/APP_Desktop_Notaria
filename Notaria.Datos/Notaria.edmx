@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PortafolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PortafolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="comuna">
           <Key>
             <PropertyRef Name="cod_comuna" />
@@ -323,6 +323,7 @@
           <Parameter Name="contra" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_LlenarDGVistasOF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_LlenarGridNotario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PortafolioModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_emitido" EntityType="Self.doc_emitido" Schema="dbo" store:Type="Tables" />
@@ -387,8 +388,7 @@
             <End Role="ventas_presencial" EntitySet="ventas_presencial" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PortafolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -775,28 +775,29 @@
             <End Role="tipo_tramite" EntitySet="tipo_tramite" />
           </AssociationSet>
           <FunctionImport Name="buscar_documento" ReturnType="Collection(PortafolioModel.buscar_documento_Result)">
-            <Parameter Name="rut" Mode="In" Type="String" />
+          <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="buscar_reservas" ReturnType="Collection(PortafolioModel.buscar_reservas_Result)">
-            <Parameter Name="rut" Mode="In" Type="String" />
+          <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="buscar_ventas_pendientes" ReturnType="Collection(PortafolioModel.buscar_ventas_pendientes_Result)">
-            <Parameter Name="estado" Mode="In" Type="String" />
+          <Parameter Name="estado" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="buscar_ventas_pres" ReturnType="Collection(PortafolioModel.buscar_ventas_pres_Result)">
-            <Parameter Name="rut" Mode="In" Type="String" />
+          <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="filtrar_rut" ReturnType="Collection(PortafolioModel.filtrar_rut_Result)">
-            <Parameter Name="rut" Mode="In" Type="String" />
+          <Parameter Name="rut" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="llenarComboComuna" ReturnType="Collection(PortafolioModel.llenarComboComuna_Result)">
-            <Parameter Name="cod_region" Mode="In" Type="String" />
+          <Parameter Name="cod_region" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="notarialogin" ReturnType="Collection(PortafolioModel.notarialogin_Result)">
             <Parameter Name="rut_busca" Mode="In" Type="String" />
             <Parameter Name="contra" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_LlenarDGVistasOF" ReturnType="Collection(PortafolioModel.SP_LlenarDGVistasOF_Result)" />
+          <FunctionImport Name="SP_LlenarGridNotario" ReturnType="Collection(PortafolioModel.SP_LlenarGridNotario_Result)" />
         </EntityContainer>
         <ComplexType Name="buscar_documento_Result">
           <Property Type="Int32" Name="cod_documento" Nullable="false" />
@@ -855,6 +856,16 @@
           <Property Type="Int32" Name="cod_perfil" Nullable="false" />
         </ComplexType>
         <ComplexType Name="SP_LlenarDGVistasOF_Result">
+          <Property Type="Int32" Name="cod_documento" Nullable="false" />
+          <Property Type="String" Name="nombre_tramite" Nullable="false" MaxLength="100" />
+          <Property Type="Binary" Name="copia_documento" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_emision" Nullable="false" />
+          <Property Type="Int32" Name="precio" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
+        </ComplexType>
+        <ComplexType Name="SP_LlenarGridNotario_Result">
           <Property Type="Int32" Name="cod_documento" Nullable="false" />
           <Property Type="String" Name="nombre_tramite" Nullable="false" MaxLength="100" />
           <Property Type="Binary" Name="copia_documento" Nullable="false" />
@@ -1118,6 +1129,20 @@
           <FunctionImportMapping FunctionImportName="SP_LlenarDGVistasOF" FunctionName="PortafolioModel.Store.SP_LlenarDGVistasOF">
             <ResultMapping>
               <ComplexTypeMapping TypeName="PortafolioModel.SP_LlenarDGVistasOF_Result">
+                <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
+                <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
+                <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LlenarGridNotario" FunctionName="PortafolioModel.Store.SP_LlenarGridNotario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.SP_LlenarGridNotario_Result">
                 <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
                 <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
                 <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />

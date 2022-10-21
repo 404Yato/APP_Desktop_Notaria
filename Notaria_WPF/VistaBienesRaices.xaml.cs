@@ -21,19 +21,17 @@ using System.IO;
 using iText.Kernel.Geom;
 using System.Diagnostics;
 using Biblioteca_clases;
-using template_documento = Biblioteca_de_Clases.template_documento;
 
 namespace Notaria_WPF
 {
     /// <summary>
-    /// Interaction logic for VistaOficial.xaml
+    /// Interaction logic for VistaBienesRaices.xaml
     /// </summary>
-    public partial class VistaOficial : Window
+    public partial class VistaBienesRaices : Window
     {
-        string path;
+        String path;
 
-
-        public VistaOficial()
+        public VistaBienesRaices()
         {
             InitializeComponent();
             LlenarGridDocEmitido();
@@ -53,17 +51,15 @@ namespace Notaria_WPF
         {
             Doc_Emitido doc_emitido = new Doc_Emitido();
 
-            DtOficial.ItemsSource = doc_emitido.LlenarGrid();
-            DtOficial.Items.Refresh(); 
+            DtBRaices.ItemsSource = doc_emitido.LlenarGrid();
+            DtBRaices.Items.Refresh();
         }
-
         Notaria.Datos.PortafolioEntities contexto = new Notaria.Datos.PortafolioEntities();
-
         private void BtnAbrirPDF(object sender, RoutedEventArgs e)
         {
-            if (DtOficial.SelectedIndex != -1)
+            if (DtBRaices.SelectedIndex != -1)
             {
-                SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtOficial.SelectedItem;
+                SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtBRaices.SelectedItem;
                 Process AbrirPDF = new Process();
                 string path2 = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf";
                 File.WriteAllBytes(path2, seleccionado.copia_documento);
@@ -77,10 +73,10 @@ namespace Notaria_WPF
         }
         private void BtnClickDescarga(object sender, RoutedEventArgs e)
         {
-            if (DtOficial.SelectedIndex != -1)
+            if (DtBRaices.SelectedIndex != -1)
             {
-                SP_LlenarDGVistasOF_Result template = (SP_LlenarDGVistasOF_Result)DtOficial.SelectedItem;
-                SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtOficial.SelectedItem;
+                SP_LlenarDGVistasOF_Result template = (SP_LlenarDGVistasOF_Result)DtBRaices.SelectedItem;
+                SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtBRaices.SelectedItem;
 
                 string path2 = @"C:\Users\0fcru\Downloads\" + seleccionado.nombre_tramite + '-' + seleccionado.Nombre + ".pdf";
                 File.WriteAllBytes(path2, seleccionado.copia_documento);
@@ -89,7 +85,6 @@ namespace Notaria_WPF
                 MessageBox.Show("Documento almacenado en: C:\\Descargas");
             }
         }
-
         private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
         {
             if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
@@ -106,10 +101,5 @@ namespace Notaria_WPF
         {
             LlenarGridDocEmitido();
         }
-
     }
 }
-
-
-
-

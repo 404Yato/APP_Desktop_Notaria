@@ -167,8 +167,17 @@
     <Compile Include="TemplatesCRUD.xaml.cs">
       <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaBienesRaices.xaml.cs">
+      <DependentUpon>VistaBienesRaices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaNotario.xaml.cs">
+      <DependentUpon>VistaNotario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistaOficial.xaml.cs">
       <DependentUpon>VistaOficial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPoliza.xaml.cs">
+      <DependentUpon>VistaPoliza.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistaRecepcionista.xaml.cs">
       <DependentUpon>VistaRecepcionista.xaml</DependentUpon>
@@ -247,6 +256,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistaBienesRaices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VistaCajero.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -255,7 +268,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistaNotario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VistaOficial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaPoliza.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,7 +312,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Img\actualizar.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Biblioteca_de_Clases\Biblioteca_de_Clases.csproj">
       <Project>{e3387781-8667-4ad9-becf-8c5f9b331754}</Project>
@@ -325,6 +348,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\lista-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\refresh1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

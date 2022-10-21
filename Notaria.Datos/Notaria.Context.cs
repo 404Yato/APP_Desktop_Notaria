@@ -113,5 +113,10 @@ namespace Notaria.Datos
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LlenarDGVistasOF_Result>("SP_LlenarDGVistasOF");
         }
+    
+        public virtual ObjectResult<SP_LlenarGridNotario_Result> SP_LlenarGridNotario()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LlenarGridNotario_Result>("SP_LlenarGridNotario");
+        }
     }
 }

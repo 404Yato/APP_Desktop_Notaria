@@ -131,12 +131,20 @@ namespace Biblioteca_de_Clases
             }
 
         }
-        #endregion
-        public IList<Notaria.Datos.SP_LlenarDGVistasOF_Result> LlenarGridOficial()
+       
+        public IList<Notaria.Datos.SP_LlenarDGVistasOF_Result> LlenarGrid()
         {
             Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
             var resultado = bbdd.SP_LlenarDGVistasOF();
             return resultado.ToList();
         }
+        public IList<Notaria.Datos.SP_LlenarGridNotario_Result> LlenarGridNotario()
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            var resultado = bbdd.SP_LlenarGridNotario();
+            return resultado.ToList();
+        }
+        #endregion
+
     }
 }

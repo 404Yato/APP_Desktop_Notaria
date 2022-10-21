@@ -35,8 +35,8 @@ namespace Notaria_WPF
         public static int precio { get; set; } = 0;
         public static int codTramite { get; set; } = 0;
         //Declaración Variables para Rutas de templates
-        string path;
-        string path3;
+        //string path;
+        //string path3;
 
         //Declaración de objetos referencia a paginas de formularios
         FormCartaPoder formCartaPoder = new FormCartaPoder();
