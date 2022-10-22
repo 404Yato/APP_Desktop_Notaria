@@ -18,6 +18,7 @@ using NotariaL;
 using System.Data.SqlClient;
 using System.Data;
 using NotariaWPF;
+using System.ServiceModel.Security;
 
 namespace Notaria_WPF
 {
@@ -28,7 +29,7 @@ namespace Notaria_WPF
     {
         public static string rutEmpleado { get; set; } = string.Empty;
 
-        public MainWindow()
+       public MainWindow()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -70,12 +71,12 @@ namespace Notaria_WPF
                             Administracion admin = new Administracion();
                             admin.Show();
                             this.Close();
-
                         }
                         else if (Em.login(rut, contra) == 2)                                                                 // Igresar Notario
                         {
-                            MessageBox.Show("NOTARIO AQUII !!!!", "NOTARIO ",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
+                            VistaNotario NT = new VistaNotario();
+                            NT.Show();
+                            this.Close();
                         }
                         else if (Em.login(rut, contra) == 3)                                                                 // RECEPCIONISTA
                         {
@@ -91,19 +92,22 @@ namespace Notaria_WPF
                         }
                         else if (Em.login(rut, contra) == 5)                                                                 // Ingresar Oficial
                         {
-                            MessageBox.Show("Oficial AQUII !!!!", "Oficial ",
-                                 MessageBoxButton.OK, MessageBoxImage.Information);
+                            VistaOficial OF = new VistaOficial();
+                            OF.Show();
+                            this.Close();
                         }
                         else if (Em.login(rut, contra) == 6)                                                                 // Ingresar Conservador de bienes raíces
                         {
-                            MessageBox.Show("Conservador de bienes raíces AQUII !!!!", "Conservador de bienes raíces ",
-                                 MessageBoxButton.OK, MessageBoxImage.Information);
+                            VistaBienesRaices BR = new VistaBienesRaices();
+                            BR.Show();
+                            this.Close();
                         }
 
                         else if (Em.login(rut, contra) == 7)                                                                 // Ingresar Personal de póliza
                         {
-                            MessageBox.Show("Personal de póliza AQUII !!!!", "Personal de póliza ",
-                                 MessageBoxButton.OK, MessageBoxImage.Information);
+                            VistaPoliza PL = new VistaPoliza();
+                            PL.Show();
+                            this.Close();
                         }
                         else if (Em.login(rut, contra) == 8)                                                                 // CONTADOR
                         {

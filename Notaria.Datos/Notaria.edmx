@@ -332,6 +332,8 @@
           <Parameter Name="rut_busca" Type="varchar" Mode="In" />
           <Parameter Name="contra" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SP_LlenarDGVistasOF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_LlenarGridNotario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PortafolioModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_emitido" EntityType="Self.doc_emitido" Schema="dbo" store:Type="Tables" />
@@ -397,7 +399,8 @@
             <End Role="ventas_presencial" EntitySet="ventas_presencial" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PortafolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1202,7 +1205,7 @@
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

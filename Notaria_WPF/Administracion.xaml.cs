@@ -22,6 +22,9 @@ using iText.Layout.Borders;
 using System.Security.Policy;
 using Microsoft.Win32;
 using System.IO;
+using NotariaL;
+using NotariaWPF;
+using iText.Layout.Element;
 
 namespace Notaria_WPF
 {
@@ -640,7 +643,7 @@ namespace Notaria_WPF
         }
         #endregion
 
-       
+        
 
         #region Visibilidad Templates
         private void OcultarElementos()
@@ -712,7 +715,53 @@ namespace Notaria_WPF
             txtRutBuscado.Visibility = Visibility.Collapsed;
             lbRut.Visibility = Visibility.Collapsed;
         }
-        
+
+        #endregion
+
+        #region Visibilidad Trámites
+
+        private void MostrarTramites()
+        {
+            btn_crearT.Visibility = Visibility.Visible;
+            btn_actualizarT.Visibility = Visibility.Visible;
+            btn_eliminarT.Visibility = Visibility.Visible;
+            btn_limpiarT.Visibility = Visibility.Visible;
+            IDTB.Visibility = Visibility.Visible;
+            NTB.Visibility = Visibility.Visible;
+            DTB.Visibility = Visibility.Visible;
+            RTB.Visibility = Visibility.Visible;
+            PTB.Visibility = Visibility.Visible;
+            CTB.Visibility = Visibility.Visible;
+            lbIDT.Visibility = Visibility.Visible;
+            lbNombreT.Visibility = Visibility.Visible;
+            lbDescT.Visibility = Visibility.Visible;
+            lbReqT.Visibility = Visibility.Visible;
+            lbPrecioT.Visibility = Visibility.Visible;
+            lbCodT.Visibility = Visibility.Visible;
+            DataGrid1.Visibility = Visibility.Visible;
+        }
+
+        private void OcultarTramites()
+        {
+            btn_crearT.Visibility = Visibility.Collapsed;
+            btn_actualizarT.Visibility = Visibility.Collapsed;
+            btn_eliminarT.Visibility = Visibility.Collapsed;
+            btn_limpiarT.Visibility = Visibility.Collapsed;
+            IDTB.Visibility = Visibility.Collapsed;
+            NTB.Visibility = Visibility.Collapsed;
+            DTB.Visibility = Visibility.Collapsed;
+            RTB.Visibility = Visibility.Collapsed;
+            PTB.Visibility = Visibility.Collapsed;
+            CTB.Visibility = Visibility.Collapsed;
+            lbIDT.Visibility = Visibility.Collapsed;
+            lbNombreT.Visibility = Visibility.Collapsed;
+            lbDescT.Visibility = Visibility.Collapsed;
+            lbReqT.Visibility = Visibility.Collapsed;
+            lbPrecioT.Visibility = Visibility.Collapsed;
+            lbCodT.Visibility = Visibility.Collapsed;
+            DataGrid1.Visibility = Visibility.Collapsed;
+        }
+
         #endregion
 
         #region Gestión Templates
@@ -889,7 +938,102 @@ namespace Notaria_WPF
         }
         #endregion
 
-        
+        #region Gestión Tramites
+        public DataTable llenar_grid()
+        {
+            Conexion.Conectar();
+            DataTable dt = new DataTable();
+            string consulta = "SELECT * FROM dbo.tipo_tramite";
+            SqlCommand cmd = new SqlCommand(consulta, Conexion.Conectar());
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+            return dt;
+        }
+        private void btn_GestionTramites_Click(object sender, RoutedEventArgs e)
+        {
+            MostrarTramites();
+            DataGrid1.DataContext = llenar_grid();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            Conexion.Conectar();
+            string insertar = "INSERT INTO dbo.tipo_tramite VALUES (@nombre_tramite, @descripcion, @requisitos, @precio, @cod_template)";
+            SqlCommand cmd1 = new SqlCommand(insertar, Conexion.Conectar());
+            //cmd1.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
+            cmd1.Parameters.AddWithValue("@nombre_tramite", NTB.Text);
+            cmd1.Parameters.AddWithValue("@descripcion", DTB.Text);
+            cmd1.Parameters.AddWithValue("@requisitos", RTB.Text);
+            cmd1.Parameters.AddWithValue("@precio", PTB.Text);
+            cmd1.Parameters.AddWithValue("@cod_template", CTB.Text);
+
+            cmd1.ExecuteNonQuery();
+
+            MessageBox.Show("Los datos fueron agregados con exito");
+
+            DataGrid1.DataContext = llenar_grid();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Conexion.Conectar();
+
+            MessageBoxResult selecion = MessageBox.Show("¿Estás seguro que deseas eliminar este tipo de trámite?",
+                "Advertencia", MessageBoxButton.YesNoCancel);
+
+            switch (selecion)
+            {
+                case MessageBoxResult.Yes:
+                    string eliminar = "DELETE FROM dbo.tipo_tramite WHERE cod_tramite=@cod_tramite";
+                    SqlCommand cmd3 = new SqlCommand(eliminar, Conexion.Conectar());
+
+                    cmd3.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
+
+                    cmd3.ExecuteNonQuery();
+
+                    MessageBox.Show("Los datos fueron eliminados con exito");
+
+                    break;
+
+                case MessageBoxResult.No:
+                    MessageBox.Show("Los datos quedarán intactos.");
+                    break;
+
+                case MessageBoxResult.Cancel:
+                    MessageBox.Show("Operación cancelada.");
+                    break;
+            }
+
+            DataGrid1.DataContext = llenar_grid();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            IDTB.Clear();
+            NTB.Clear();
+            DTB.Clear();
+            RTB.Clear();
+            PTB.Clear();
+            CTB.Clear();
+            IDTB.Focus();
+        }
+
+        private void BContador_Click(object sender, RoutedEventArgs e)
+        {
+            Contador miContador = new Contador();
+            miContador.ShowDialog();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            Contador miContador = new Contador();
+            miContador.ShowDialog();
+        }
+        #endregion
+
         #region Metodo Usuario Buscar Rut
         private void BuscarRutUsuario()
         {
@@ -948,6 +1092,7 @@ namespace Notaria_WPF
             llenardatagridPerfil();
             OcultarElementos();
             OcultarDocumentos();
+            OcultarTramites();
         }
 
         private void Button_Click_Personal(object sender, RoutedEventArgs e)                            // BOTON MENU GESTION DE PERSONAL
@@ -963,6 +1108,7 @@ namespace Notaria_WPF
             MostrarEmpleados();
             OcultarElementos();
             OcultarDocumentos();
+            OcultarTramites();
         }
 
         private void Button_Click_Documentos(object sender, RoutedEventArgs e)                          // BOTON MENU GESTION DE DOCUMENTOS
@@ -978,6 +1124,7 @@ namespace Notaria_WPF
             SacarUsuarioAgregar();
             MostrarVisible();
             OcultarDocumentos();
+            OcultarTramites();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)                                     // BOTON MENU GESTION DE USAURIO
@@ -994,6 +1141,7 @@ namespace Notaria_WPF
             llenardatagridUsuario();
             OcultarElementos();
             OcultarDocumentos();
+            OcultarTramites();
         }
 
         private void btn_GestionDocumentos_Click(object sender, RoutedEventArgs e)
@@ -1010,6 +1158,7 @@ namespace Notaria_WPF
             OcultarElementos();
             MostrarDocumentos();
             LlenaDataGrid();
+            OcultarTramites();
         }
         private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
         {

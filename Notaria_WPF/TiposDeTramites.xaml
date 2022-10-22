@@ -23,22 +23,22 @@
         <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
         <Image Margin="0,7,158,0" Source="/Imagenes/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
 
-        <Button Content="Crear" HorizontalAlignment="Left" Height="30" Margin="139,458,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click"/>
-        <Button Content="Actualizar" HorizontalAlignment="Left" Height="30" Margin="354,458,0,0" VerticalAlignment="Top" Width="149" Click="Button_Click_1"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Height="30" Margin="573,458,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click_2"/>
-        <Button Content="Limpiar" HorizontalAlignment="Left" Height="30" Margin="799,458,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_3"/>
+        <Button x:Name="btn_crear" Content="Crear" HorizontalAlignment="Left" Height="30" Margin="139,458,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click"/>
+        <Button x:Name="btn_actualizar" Content="Actualizar" HorizontalAlignment="Left" Height="30" Margin="354,458,0,0" VerticalAlignment="Top" Width="149" Click="Button_Click_1"/>
+        <Button x:Name="btn_eliminar" Content="Eliminar" HorizontalAlignment="Left" Height="30" Margin="573,458,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click_2"/>
+        <Button x:Name="btn_limpiar" Content="Limpiar" HorizontalAlignment="Left" Height="30" Margin="799,458,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_3"/>
         <TextBox x:Name="IDTB" HorizontalAlignment="Left" Margin="139,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Height="29" Grid.Column="1"/>
         <TextBox x:Name="NTB" HorizontalAlignment="Left" Margin="139,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Height="28" Grid.Column="1"/>
         <TextBox x:Name="DTB" HorizontalAlignment="Left" Margin="140,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Height="30" Grid.Column="1"/>
         <TextBox x:Name="RTB" HorizontalAlignment="Left" Margin="636,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="29"/>
         <TextBox x:Name="PTB" HorizontalAlignment="Left" Margin="636,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="29"/>
         <TextBox x:Name="CTB" HorizontalAlignment="Left" Margin="636,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="29"/>
-        <Label Content="ID" HorizontalAlignment="Left" Margin="140,89,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="140,148,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1"/>
-        <Label Content="Descripción" HorizontalAlignment="Left" Margin="139,202,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1"/>
-        <Label Content="Requisitos" HorizontalAlignment="Left" Margin="637,89,0,0" VerticalAlignment="Top" Width="311" Height="26"/>
-        <Label Content="Precio" HorizontalAlignment="Left" Margin="637,148,0,0" VerticalAlignment="Top" Width="312" Height="26"/>
-        <Label Content="Código" HorizontalAlignment="Left" Margin="638,202,0,0" VerticalAlignment="Top" Width="311" Height="26"/>
+        <Label x:Name="lbIDT" Content="ID" HorizontalAlignment="Left" Margin="140,89,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1"/>
+        <Label x:Name="lbNombreT" Content="Nombre" HorizontalAlignment="Left" Margin="140,148,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1"/>
+        <Label x:Name="lbDescT" Content="Descripción" HorizontalAlignment="Left" Margin="139,202,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1"/>
+        <Label x:Name="lbReqT" Content="Requisitos" HorizontalAlignment="Left" Margin="637,89,0,0" VerticalAlignment="Top" Width="311" Height="26"/>
+        <Label x:Name="lbPrecioT" Content="Precio" HorizontalAlignment="Left" Margin="637,148,0,0" VerticalAlignment="Top" Width="312" Height="26"/>
+        <Label x:Name="lbCodT" Content="Código" HorizontalAlignment="Left" Margin="638,202,0,0" VerticalAlignment="Top" Width="311" Height="26"/>
         <DataGrid x:Name="DataGrid1" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="163" Margin="139,277,0,0" VerticalAlignment="Top" Width="810" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid1_SelectionChanged"/>
 
     </Grid>

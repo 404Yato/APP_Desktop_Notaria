@@ -16,9 +16,9 @@
         xmlns:local="clr-namespace:Notaria_WPF"
         xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Notaria_WPF.Administracion"
         mc:Ignorable="d"
-        Title="Administracion" Height="581" Width="940" >
+        Title="Administracion" Height="608" Width="986" >
 
-    <Grid Background="#FFA1D6E2" >
+    <Grid Background="#FFA1D6E2" Margin="0,0,0,-6" >
 
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
         <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="105"/>
@@ -32,6 +32,7 @@
         <Button x:Name="btn_gestionpersonal" Content="Gestión&#xA;de Personal" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="56" Width="106" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_Personal" Padding="10,4,10,4"/>
         <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020"/>
         <Button x:Name="btn_GestionDocumentos" Content="Gestión&#xA;de&#xA;Documentos" HorizontalAlignment="Left" Margin="0,360,0,0" VerticalAlignment="Top" Height="70" Width="106" FontSize="14" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" OpacityMask="#FFB92020" Click="btn_GestionDocumentos_Click" Cursor="Hand"/>
+        <Button x:Name="btn_GestionTramites" Content="Gestión&#xA;de&#xA;Trámites" HorizontalAlignment="Left" Margin="-2,430,0,0" VerticalAlignment="Top" Height="70" Width="106" FontSize="14" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" OpacityMask="#FFB92020" Click="btn_GestionTramites_Click" Cursor="Hand"/>
         <Button Content="Gestión&#xA;de Perfiles" HorizontalAlignment="Left" Margin="0,305,0,0" VerticalAlignment="Top" Height="55" Width="105" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" Click="Button_Click_Perfil" BorderBrush="{x:Null}" OpacityMask="#FFB92020" Cursor="Hand"/>
         <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
         <Label Content="Administrador" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
@@ -194,7 +195,7 @@
                 <DataGridTextColumn Header="id" Binding="{Binding cod_template}" Width="auto"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"  Width="auto"/>
                 <DataGridTextColumn Header="Fecha" Binding="{Binding fecha_subida}" Width="auto"/>
-                
+
             </DataGrid.Columns>
         </DataGrid>
 
@@ -233,11 +234,30 @@
                 <DataGridTextColumn Header="Validez" Binding="{Binding valido}" />
                 <DataGridTextColumn Header="Presencialidad" Binding="{Binding presencialidad}" />
                 <DataGridTextColumn Header="Codigo del Tramite" Binding="{Binding cod_tramite}" />
-                
+
             </DataGrid.Columns>
         </DataGrid>
         <TextBox Name="txtRutBuscado" Height="34" Margin="0,102,458,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" SelectionBrush="#FFB4EFFE" Foreground="White" Padding="5,4,0,4" TextChanged="txtRutBuscado_TextChanged" HorizontalAlignment="Right" Width="197" Visibility="Collapsed"/>
         <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="22" Margin="164,114,0,0" VerticalAlignment="Top" Width="84" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544" Visibility="Collapsed"/>
+
+        <!--Apartado de Gestión de trámites-->
+        <Button x:Name="btn_crearT" Content="Crear" HorizontalAlignment="Left" Height="30" Margin="139,458,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click" Visibility="Collapsed"/>
+        <Button x:Name="btn_actualizarT" Content="Actualizar" HorizontalAlignment="Left" Height="30" Margin="354,458,0,0" VerticalAlignment="Top" Width="149" Click="Button_Click_1" Visibility="Collapsed"/>
+        <Button x:Name="btn_eliminarT" Content="Eliminar" HorizontalAlignment="Left" Height="30" Margin="573,458,0,0" VerticalAlignment="Top" Width="151" Click="Button_Click_2" Visibility="Collapsed"/>
+        <Button x:Name="btn_limpiarT" Content="Limpiar" HorizontalAlignment="Left" Height="30" Margin="799,458,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_3" Visibility="Collapsed"/>
+        <TextBox x:Name="IDTB" HorizontalAlignment="Left" Margin="139,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Height="29" Grid.Column="1" Visibility="Collapsed"/>
+        <TextBox x:Name="NTB" HorizontalAlignment="Left" Margin="139,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Height="28" Grid.Column="1" Visibility="Collapsed"/>
+        <TextBox x:Name="DTB" HorizontalAlignment="Left" Margin="140,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Height="30" Grid.Column="1" Visibility="Collapsed"/>
+        <TextBox x:Name="RTB" HorizontalAlignment="Left" Margin="636,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="29" Visibility="Collapsed"/>
+        <TextBox x:Name="PTB" HorizontalAlignment="Left" Margin="636,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="29" Visibility="Collapsed"/>
+        <TextBox x:Name="CTB" HorizontalAlignment="Left" Margin="636,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="29" Visibility="Collapsed"/>
+        <Label x:Name="lbIDT" Content="ID" HorizontalAlignment="Left" Margin="140,89,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1" Visibility="Collapsed"/>
+        <Label x:Name="lbNombreT" Content="Nombre" HorizontalAlignment="Left" Margin="140,148,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1" Visibility="Collapsed"/>
+        <Label x:Name="lbDescT" Content="Descripción" HorizontalAlignment="Left" Margin="139,202,0,0" VerticalAlignment="Top" Width="321" Height="26" Grid.Column="1" Visibility="Collapsed"/>
+        <Label x:Name="lbReqT" Content="Requisitos" HorizontalAlignment="Left" Margin="637,89,0,0" VerticalAlignment="Top" Width="311" Height="26" Visibility="Collapsed"/>
+        <Label x:Name="lbPrecioT" Content="Precio" HorizontalAlignment="Left" Margin="637,148,0,0" VerticalAlignment="Top" Width="312" Height="26" Visibility="Collapsed"/>
+        <Label x:Name="lbCodT" Content="Código" HorizontalAlignment="Left" Margin="638,202,0,0" VerticalAlignment="Top" Width="311" Height="26" Visibility="Collapsed"/>
+        <DataGrid x:Name="DataGrid1" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="163" Margin="139,277,0,0" VerticalAlignment="Top" Width="810" d:ItemsSource="{d:SampleData ItemCount=5}" Visibility="Collapsed"/>
 
     </Grid>
 </Window>
