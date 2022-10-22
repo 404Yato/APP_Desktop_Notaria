@@ -11,9 +11,15 @@ namespace Notaria.Datos
 {
     using System;
     
-    public partial class notarialogin_Result
+    public partial class SP_LlenarGridNotario_Result
     {
-        public string nombre { get; set; }
-        public int cod_perfil { get; set; }
+        public int cod_documento { get; set; }
+        public string nombre_tramite { get; set; }
+        public byte[] copia_documento { get; set; }
+        public System.DateTime fecha_emision { get; set; }
+        public int precio { get; set; }
+        public string estado { get; set; }
+        public bool valido { get; set; }
+        public string Nombre { get; set; }
     }
 }
