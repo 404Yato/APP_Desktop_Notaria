@@ -317,6 +317,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Biblioteca_de_Clases.dll.config" />
+    <None Include="bin\Debug\Notaria.Datos.dll.config" />
+    <None Include="bin\Debug\Notaria_WPF.exe.config" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\17.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\18.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\20.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\22.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\24.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Carta de Poder.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Carta de Renuncia.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Contrato Arriendo Vehículo.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Contrato Prestación de Servicios.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Declaración Jurada Simple.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Carta de Poder.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Carta de Renuncia.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Contrato Arriendo Vehículo.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Contrato Prestación de Servicios.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Declaración Jurada Simple.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -377,6 +395,79 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\refresh1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Biblioteca_de_Clases.dll" />
+    <Content Include="bin\Debug\Biblioteca_de_Clases.pdb" />
+    <Content Include="bin\Debug\BouncyCastle.Crypto.dll" />
+    <Resource Include="bin\Debug\BouncyCastle.Crypto.xml" />
+    <Content Include="bin\Debug\Common.Logging.Core.dll" />
+    <Content Include="bin\Debug\Common.Logging.Core.pdb" />
+    <Resource Include="bin\Debug\Common.Logging.Core.xml" />
+    <Content Include="bin\Debug\Common.Logging.dll" />
+    <Content Include="bin\Debug\Common.Logging.pdb" />
+    <Resource Include="bin\Debug\Common.Logging.xml" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Resource Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Resource Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\itext.barcodes.dll" />
+    <Resource Include="bin\Debug\itext.barcodes.xml" />
+    <Content Include="bin\Debug\itext.commons.dll" />
+    <Resource Include="bin\Debug\itext.commons.xml" />
+    <Content Include="bin\Debug\itext.forms.dll" />
+    <Resource Include="bin\Debug\itext.forms.xml" />
+    <Content Include="bin\Debug\itext.io.dll" />
+    <Resource Include="bin\Debug\itext.io.xml" />
+    <Content Include="bin\Debug\itext.kernel.dll" />
+    <Resource Include="bin\Debug\itext.kernel.xml" />
+    <Content Include="bin\Debug\itext.layout.dll" />
+    <Resource Include="bin\Debug\itext.layout.xml" />
+    <Content Include="bin\Debug\itext.pdfa.dll" />
+    <Resource Include="bin\Debug\itext.pdfa.xml" />
+    <Content Include="bin\Debug\itext.sign.dll" />
+    <Resource Include="bin\Debug\itext.sign.xml" />
+    <Content Include="bin\Debug\itext.styledxmlparser.dll" />
+    <Resource Include="bin\Debug\itext.styledxmlparser.xml" />
+    <Content Include="bin\Debug\itext.svg.dll" />
+    <Resource Include="bin\Debug\itext.svg.xml" />
+    <Content Include="bin\Debug\MahApps.Metro.dll" />
+    <Content Include="bin\Debug\MaterialDesignColors.dll" />
+    <Content Include="bin\Debug\MaterialDesignColors.pdb" />
+    <Content Include="bin\Debug\MaterialDesignThemes.Wpf.dll" />
+    <Content Include="bin\Debug\MaterialDesignThemes.Wpf.pdb" />
+    <Resource Include="bin\Debug\MaterialDesignThemes.Wpf.xml" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Resource Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Debug\Notaria.Datos.dll" />
+    <Content Include="bin\Debug\Notaria.Datos.pdb" />
+    <Content Include="bin\Debug\Notaria_WPF.exe" />
+    <Content Include="bin\Debug\Notaria_WPF.pdb" />
+    <Content Include="bin\Debug\Polly.dll" />
+    <Content Include="bin\Debug\Polly.pdb" />
+    <Resource Include="bin\Debug\Polly.xml" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Resource Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Data.SqlClient.dll" />
+    <Resource Include="bin\Debug\System.Data.SqlClient.xml" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Resource Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Resource Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Resource Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Text.Encodings.Web.dll" />
+    <Resource Include="bin\Debug\System.Text.Encodings.Web.xml" />
+    <Content Include="bin\Debug\System.Text.Json.dll" />
+    <Resource Include="bin\Debug\System.Text.Json.xml" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Resource Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Debug\System.ValueTuple.dll" />
+    <Resource Include="bin\Debug\System.ValueTuple.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\de\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
