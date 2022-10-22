@@ -10,12 +10,12 @@ namespace Biblioteca_de_Clases
     public class Reserva
     {
         #region PROPIEDADES
-        public string cod_reserva { get; set; }
+        public int cod_reserva { get; set; }
         public System.DateTime fecha_hora { get; set; }
         public string motivo { get; set; }
         public string estado { get; set; }
         public string usuario_rut { get; set; }
-        public string cod_tramite { get; set; }
+        public int cod_tramite { get; set; }
         #endregion
 
         #region CONSTRUCTOR
@@ -26,12 +26,11 @@ namespace Biblioteca_de_Clases
 
         private void Init() //Constructor
         {
-            cod_reserva = string.Empty;
             fecha_hora = DateTime.Now;
             motivo = string.Empty;
             estado = string.Empty;
             usuario_rut = string.Empty;
-            cod_reserva = string.Empty;
+            cod_tramite = 0;
         }
         #endregion
 
@@ -46,10 +45,10 @@ namespace Biblioteca_de_Clases
                 List<Notaria.Datos.reserva> listadoDatos = bbdd.reserva.ToList<Notaria.Datos.reserva>();
 
                 /* Se convierte el listado de datos en un listado de negocio */
-                List<Reserva> listadoClientes = GenerarListado(listadoDatos);
+                List<Reserva> listadoReservas = GenerarListado(listadoDatos);
 
                 /* Se retorna la lista */
-                return listadoClientes;
+                return listadoReservas;
             }
             catch (Exception)
             {
@@ -59,7 +58,7 @@ namespace Biblioteca_de_Clases
 
         private List<Reserva> GenerarListado(List<Notaria.Datos.reserva> listadoDatos)
         {
-            List<Reserva> listaClient = new List<Reserva>();
+            List<Reserva> listaReserva = new List<Reserva>();
 
             foreach (Notaria.Datos.reserva dato in listadoDatos)
             {
@@ -67,10 +66,10 @@ namespace Biblioteca_de_Clases
                 Reserva reservas = new Reserva();
                 CommonBC.Syncronize(dato, reservas);
 
-                listaClient.Add(reservas);
+                listaReserva.Add(reservas);
             }
 
-            return listaClient;
+            return listaReserva;
         }
 
         public bool Read()
@@ -91,6 +90,35 @@ namespace Biblioteca_de_Clases
                 return false;
             }
 
+        }
+
+        public bool Update()
+        {
+            // Creo una instancia de conexión a Datos
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            try
+            {
+                //Obtener el primer registro que coincida con el Rut usando LinQ
+                Notaria.Datos.reserva cliente = bbdd.reserva.First(e => e.cod_reserva == cod_reserva);
+                //Pasar los valores de las propiedades de negocio a Datos
+                CommonBC.Syncronize(this, cliente);
+                bbdd.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+        }
+
+        public IList<Notaria.Datos.buscar_reservas_Result> BuscarReserva(string variable)
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            var resultado = bbdd.buscar_reservas(variable);
+            return resultado.ToList();
         }
         #endregion
     }

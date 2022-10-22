@@ -56,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="buscar_documento_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="buscar_reservas_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="buscar_ventas_pendientes_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="buscar_ventas_pres_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="comuna.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
@@ -65,6 +77,9 @@
     <Compile Include="empleado.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="filtrar_rut_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="info_notaria.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
@@ -72,6 +87,9 @@
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
     <Compile Include="kpi_tramites_realizados.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="llenarComboComuna_Result.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Notaria.Context.cs">
@@ -89,6 +107,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Notaria.edmx</DependentUpon>
     </Compile>
+    <Compile Include="notarialogin_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="perfil.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
@@ -97,6 +118,12 @@
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
     <Compile Include="reserva.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LlenarDGVistasOF_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LlenarGridNotario_Result.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">

@@ -21,12 +21,12 @@ namespace Notaria.Datos
             this.reserva = new HashSet<reserva>();
         }
     
-        public string cod_tramite { get; set; }
+        public int cod_tramite { get; set; }
         public string nombre_tramite { get; set; }
         public string descripcion { get; set; }
         public string requisitos { get; set; }
         public int precio { get; set; }
-        public string cod_template { get; set; }
+        public int cod_template { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doc_emitido> doc_emitido { get; set; }

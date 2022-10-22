@@ -17,14 +17,15 @@
           <Key>
             <PropertyRef Name="cod_documento" />
           </Key>
-          <Property Name="cod_documento" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="copia_documento" Type="varbinary" MaxLength="1" Nullable="false" />
+          <Property Name="cod_documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="copia_documento" Type="varbinary(max)" Nullable="false" />
           <Property Name="fecha_emision" Type="date" Nullable="false" />
           <Property Name="precio" Type="int" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="valido" Type="bit" Nullable="false" />
           <Property Name="presencialidad" Type="bit" Nullable="false" />
           <Property Name="rut_cliente_pres" Type="varchar" MaxLength="12" />
-          <Property Name="cod_tramite" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_tramite" Type="int" Nullable="false" />
           <Property Name="usuario_rut" Type="varchar" MaxLength="12" />
           <Property Name="empleado_rut" Type="varchar" MaxLength="12" />
         </EntityType>
@@ -36,17 +37,18 @@
           <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="apellido_paterno" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="apellido_materno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="fono" Type="int" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="100" />
           <Property Name="cod_comuna" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="cod_perfil" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="cod_perfil" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="info_notaria">
           <Key>
             <PropertyRef Name="cod_notaria" />
           </Key>
-          <Property Name="cod_notaria" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_notaria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="telefono" Type="int" Nullable="false" />
           <Property Name="telefono_2" Type="int" />
@@ -58,7 +60,7 @@
           <Key>
             <PropertyRef Name="cod_medicion" />
           </Key>
-          <Property Name="cod_medicion" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_medicion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fecha_medicion" Type="date" Nullable="false" />
           <Property Name="tiempo_medido" Type="date" Nullable="false" />
         </EntityType>
@@ -66,7 +68,7 @@
           <Key>
             <PropertyRef Name="cod_medicion" />
           </Key>
-          <Property Name="cod_medicion" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_medicion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cant_tramites" Type="int" Nullable="false" />
           <Property Name="fecha_inicio_medicion" Type="date" Nullable="false" />
           <Property Name="fecha_term_medicion" Type="date" Nullable="false" />
@@ -75,7 +77,7 @@
           <Key>
             <PropertyRef Name="cod_perfil" />
           </Key>
-          <Property Name="cod_perfil" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_perfil" Type="int" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="region">
@@ -89,12 +91,12 @@
           <Key>
             <PropertyRef Name="cod_reserva" />
           </Key>
-          <Property Name="cod_reserva" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fecha_hora" Type="date" Nullable="false" />
           <Property Name="motivo" Type="varchar" MaxLength="500" />
           <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="usuario_rut" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="cod_tramite" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_tramite" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -110,20 +112,21 @@
           <Key>
             <PropertyRef Name="cod_template" />
           </Key>
-          <Property Name="cod_template" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="template" Type="varbinary" MaxLength="1" Nullable="false" />
+          <Property Name="cod_template" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="template" Type="varbinary(max)" Nullable="false" />
           <Property Name="fecha_subida" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="tipo_tramite">
           <Key>
             <PropertyRef Name="cod_tramite" />
           </Key>
-          <Property Name="cod_tramite" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_tramite" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre_tramite" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="requisitos" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="precio" Type="int" Nullable="false" />
-          <Property Name="cod_template" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_template" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -142,21 +145,22 @@
           <Key>
             <PropertyRef Name="cod_venta" />
           </Key>
-          <Property Name="cod_venta" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="transaction_date" Type="date" Nullable="false" />
-          <Property Name="cod_documento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="rut_persona" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="cod_documento" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ventas_presencial">
           <Key>
             <PropertyRef Name="cod_venta" />
           </Key>
-          <Property Name="cod_venta" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cod_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="transaction_date" Type="date" Nullable="false" />
           <Property Name="rut_persona" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="estado" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="doc_emitido_cod_documento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="doc_emitido_cod_documento" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="comuna_region_fk">
           <End Role="region" Type="Self.region" Multiplicity="1" />
@@ -306,6 +310,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="buscar_documento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="buscar_reservas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="buscar_ventas_pendientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="buscar_ventas_pres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="filtrar_rut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="llenarComboComuna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cod_region" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="notarialogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut_busca" Type="varchar" Mode="In" />
+          <Parameter Name="contra" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_LlenarDGVistasOF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_LlenarGridNotario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PortafolioModelStoreContainer">
           <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="doc_emitido" EntityType="Self.doc_emitido" Schema="dbo" store:Type="Tables" />
@@ -391,14 +419,15 @@
           <Key>
             <PropertyRef Name="cod_documento" />
           </Key>
-          <Property Name="cod_documento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="copia_documento" Type="Binary" MaxLength="1" FixedLength="false" Nullable="false" />
+          <Property Name="cod_documento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="copia_documento" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="fecha_emision" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="precio" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="valido" Type="Boolean" Nullable="false" />
           <Property Name="presencialidad" Type="Boolean" Nullable="false" />
           <Property Name="rut_cliente_pres" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="cod_tramite" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_tramite" Type="Int32" Nullable="false" />
           <Property Name="usuario_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="empleado_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="empleado" Relationship="Self.doc_emitido_empleado_fk" FromRole="doc_emitido" ToRole="empleado" />
@@ -415,11 +444,12 @@
           <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="apellido_paterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="apellido_materno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fono" Type="Int32" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cod_comuna" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cod_perfil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cod_perfil" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="comuna" Relationship="Self.empleado_comuna_fk" FromRole="empleado" ToRole="comuna" />
           <NavigationProperty Name="doc_emitido" Relationship="Self.doc_emitido_empleado_fk" FromRole="empleado" ToRole="doc_emitido" />
           <NavigationProperty Name="perfil" Relationship="Self.empleado_perfil_fk" FromRole="empleado" ToRole="perfil" />
@@ -428,7 +458,7 @@
           <Key>
             <PropertyRef Name="cod_notaria" />
           </Key>
-          <Property Name="cod_notaria" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_notaria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefono" Type="Int32" Nullable="false" />
           <Property Name="telefono_2" Type="Int32" />
@@ -440,7 +470,7 @@
           <Key>
             <PropertyRef Name="cod_medicion" />
           </Key>
-          <Property Name="cod_medicion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_medicion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha_medicion" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="tiempo_medido" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
@@ -448,7 +478,7 @@
           <Key>
             <PropertyRef Name="cod_medicion" />
           </Key>
-          <Property Name="cod_medicion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_medicion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cant_tramites" Type="Int32" Nullable="false" />
           <Property Name="fecha_inicio_medicion" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="fecha_term_medicion" Type="DateTime" Nullable="false" Precision="0" />
@@ -457,7 +487,7 @@
           <Key>
             <PropertyRef Name="cod_perfil" />
           </Key>
-          <Property Name="cod_perfil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_perfil" Type="Int32" Nullable="false" />
           <Property Name="rol" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="empleado" Relationship="Self.empleado_perfil_fk" FromRole="perfil" ToRole="empleado" />
         </EntityType>
@@ -473,12 +503,12 @@
           <Key>
             <PropertyRef Name="cod_reserva" />
           </Key>
-          <Property Name="cod_reserva" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="motivo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="usuario_rut" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cod_tramite" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_tramite" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tipo_tramite" Relationship="Self.reserva_tipo_tramite_fk" FromRole="reserva" ToRole="tipo_tramite" />
           <NavigationProperty Name="usuario" Relationship="Self.reserva_usuario_fk" FromRole="reserva" ToRole="usuario" />
         </EntityType>
@@ -496,8 +526,9 @@
           <Key>
             <PropertyRef Name="cod_template" />
           </Key>
-          <Property Name="cod_template" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="template" Type="Binary" MaxLength="1" FixedLength="false" Nullable="false" />
+          <Property Name="cod_template" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="template" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="fecha_subida" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="tipo_tramite" Relationship="Self.tipo_tram_template_doc_fk" FromRole="template_documento" ToRole="tipo_tramite" />
         </EntityType>
@@ -505,12 +536,12 @@
           <Key>
             <PropertyRef Name="cod_tramite" />
           </Key>
-          <Property Name="cod_tramite" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_tramite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre_tramite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="requisitos" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="precio" Type="Int32" Nullable="false" />
-          <Property Name="cod_template" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_template" Type="Int32" Nullable="false" />
           <NavigationProperty Name="doc_emitido" Relationship="Self.doc_emitido_tipo_tramite_fk" FromRole="tipo_tramite" ToRole="doc_emitido" />
           <NavigationProperty Name="reserva" Relationship="Self.reserva_tipo_tramite_fk" FromRole="tipo_tramite" ToRole="reserva" />
           <NavigationProperty Name="template_documento" Relationship="Self.tipo_tram_template_doc_fk" FromRole="tipo_tramite" ToRole="template_documento" />
@@ -535,22 +566,23 @@
           <Key>
             <PropertyRef Name="cod_venta" />
           </Key>
-          <Property Name="cod_venta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="cod_documento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rut_persona" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_documento" Type="Int32" Nullable="false" />
           <NavigationProperty Name="doc_emitido" Relationship="Self.ventas_online_doc_emitido_fk" FromRole="ventas_online" ToRole="doc_emitido" />
         </EntityType>
         <EntityType Name="ventas_presencial">
           <Key>
             <PropertyRef Name="cod_venta" />
           </Key>
-          <Property Name="cod_venta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="rut_persona" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="doc_emitido_cod_documento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="doc_emitido_cod_documento" Type="Int32" Nullable="false" />
           <NavigationProperty Name="doc_emitido" Relationship="Self.ventas_pres_doc_emit_fk" FromRole="ventas_presencial" ToRole="doc_emitido" />
         </EntityType>
         <Association Name="comuna_region_fk">
@@ -765,7 +797,107 @@
             <End Role="template_documento" EntitySet="template_documento" />
             <End Role="tipo_tramite" EntitySet="tipo_tramite" />
           </AssociationSet>
+          <FunctionImport Name="buscar_documento" ReturnType="Collection(PortafolioModel.buscar_documento_Result)">
+            <Parameter Name="rut" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="buscar_reservas" ReturnType="Collection(PortafolioModel.buscar_reservas_Result)">
+            <Parameter Name="rut" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="buscar_ventas_pendientes" ReturnType="Collection(PortafolioModel.buscar_ventas_pendientes_Result)">
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="buscar_ventas_pres" ReturnType="Collection(PortafolioModel.buscar_ventas_pres_Result)">
+            <Parameter Name="rut" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="filtrar_rut" ReturnType="Collection(PortafolioModel.filtrar_rut_Result)">
+            <Parameter Name="rut" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="llenarComboComuna" ReturnType="Collection(PortafolioModel.llenarComboComuna_Result)">
+            <Parameter Name="cod_region" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="notarialogin" ReturnType="Collection(PortafolioModel.notarialogin_Result)">
+            <Parameter Name="rut_busca" Mode="In" Type="String" />
+            <Parameter Name="contra" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LlenarDGVistasOF" ReturnType="Collection(PortafolioModel.SP_LlenarDGVistasOF_Result)" />
+          <FunctionImport Name="SP_LlenarGridNotario" ReturnType="Collection(PortafolioModel.SP_LlenarGridNotario_Result)" />
         </EntityContainer>
+        <ComplexType Name="buscar_documento_Result">
+          <Property Type="Int32" Name="cod_documento" Nullable="false" />
+          <Property Type="Binary" Name="copia_documento" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_emision" Nullable="false" />
+          <Property Type="Int32" Name="precio" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="Boolean" Name="presencialidad" Nullable="false" />
+          <Property Type="String" Name="rut_cliente_pres" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="cod_tramite" Nullable="false" />
+          <Property Type="String" Name="usuario_rut" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="empleado_rut" Nullable="true" MaxLength="12" />
+        </ComplexType>
+        <ComplexType Name="buscar_reservas_Result">
+          <Property Type="Int32" Name="cod_reserva" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_hora" Nullable="false" />
+          <Property Type="String" Name="motivo" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="usuario_rut" Nullable="false" MaxLength="12" />
+          <Property Type="Int32" Name="cod_tramite" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="buscar_ventas_pendientes_Result">
+          <Property Type="Int32" Name="cod_venta" Nullable="false" />
+          <Property Type="Int32" Name="amount" Nullable="false" />
+          <Property Type="DateTime" Name="transaction_date" Nullable="false" />
+          <Property Type="String" Name="rut_persona" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="doc_emitido_cod_documento" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="buscar_ventas_pres_Result">
+          <Property Type="Int32" Name="cod_venta" Nullable="false" />
+          <Property Type="Int32" Name="amount" Nullable="false" />
+          <Property Type="DateTime" Name="transaction_date" Nullable="false" />
+          <Property Type="String" Name="rut_persona" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="doc_emitido_cod_documento" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="filtrar_rut_Result">
+          <Property Type="String" Name="rut" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="apellido_paterno" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="apellido_materno" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="80" />
+          <Property Type="Int32" Name="fono" Nullable="false" />
+          <Property Type="String" Name="contraseña" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="llenarComboComuna_Result">
+          <Property Type="String" Name="cod_comuna" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="notarialogin_Result">
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="cod_perfil" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_LlenarDGVistasOF_Result">
+          <Property Type="Int32" Name="cod_documento" Nullable="false" />
+          <Property Type="String" Name="nombre_tramite" Nullable="false" MaxLength="100" />
+          <Property Type="Binary" Name="copia_documento" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_emision" Nullable="false" />
+          <Property Type="Int32" Name="precio" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
+        </ComplexType>
+        <ComplexType Name="SP_LlenarGridNotario_Result">
+          <Property Type="Int32" Name="cod_documento" Nullable="false" />
+          <Property Type="String" Name="nombre_tramite" Nullable="false" MaxLength="100" />
+          <Property Type="Binary" Name="copia_documento" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_emision" Nullable="false" />
+          <Property Type="Int32" Name="precio" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -788,6 +920,7 @@
                 <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
                 <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
                 <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="valido" ColumnName="valido" />
                 <ScalarProperty Name="presencialidad" ColumnName="presencialidad" />
                 <ScalarProperty Name="rut_cliente_pres" ColumnName="rut_cliente_pres" />
@@ -804,6 +937,7 @@
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
                 <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
                 <ScalarProperty Name="fono" ColumnName="fono" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
@@ -887,6 +1021,7 @@
             <EntityTypeMapping TypeName="PortafolioModel.template_documento">
               <MappingFragment StoreEntitySet="template_documento">
                 <ScalarProperty Name="cod_template" ColumnName="cod_template" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="template" ColumnName="template" />
                 <ScalarProperty Name="fecha_subida" ColumnName="fecha_subida" />
               </MappingFragment>
@@ -924,6 +1059,7 @@
                 <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="rut_persona" ColumnName="rut_persona" />
                 <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -940,6 +1076,118 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="buscar_documento" FunctionName="PortafolioModel.Store.buscar_documento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.buscar_documento_Result">
+                <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
+                <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="presencialidad" ColumnName="presencialidad" />
+                <ScalarProperty Name="rut_cliente_pres" ColumnName="rut_cliente_pres" />
+                <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
+                <ScalarProperty Name="usuario_rut" ColumnName="usuario_rut" />
+                <ScalarProperty Name="empleado_rut" ColumnName="empleado_rut" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="buscar_reservas" FunctionName="PortafolioModel.Store.buscar_reservas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.buscar_reservas_Result">
+                <ScalarProperty Name="cod_reserva" ColumnName="cod_reserva" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="motivo" ColumnName="motivo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="usuario_rut" ColumnName="usuario_rut" />
+                <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="buscar_ventas_pendientes" FunctionName="PortafolioModel.Store.buscar_ventas_pendientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.buscar_ventas_pendientes_Result">
+                <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="rut_persona" ColumnName="rut_persona" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="doc_emitido_cod_documento" ColumnName="doc_emitido_cod_documento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="buscar_ventas_pres" FunctionName="PortafolioModel.Store.buscar_ventas_pres">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.buscar_ventas_pres_Result">
+                <ScalarProperty Name="cod_venta" ColumnName="cod_venta" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="rut_persona" ColumnName="rut_persona" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="doc_emitido_cod_documento" ColumnName="doc_emitido_cod_documento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="filtrar_rut" FunctionName="PortafolioModel.Store.filtrar_rut">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.filtrar_rut_Result">
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="fono" ColumnName="fono" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="llenarComboComuna" FunctionName="PortafolioModel.Store.llenarComboComuna">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.llenarComboComuna_Result">
+                <ScalarProperty Name="cod_comuna" ColumnName="cod_comuna" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="notarialogin" FunctionName="PortafolioModel.Store.notarialogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.notarialogin_Result">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cod_perfil" ColumnName="cod_perfil" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LlenarDGVistasOF" FunctionName="PortafolioModel.Store.SP_LlenarDGVistasOF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.SP_LlenarDGVistasOF_Result">
+                <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
+                <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
+                <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LlenarGridNotario" FunctionName="PortafolioModel.Store.SP_LlenarGridNotario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.SP_LlenarGridNotario_Result">
+                <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
+                <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
+                <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

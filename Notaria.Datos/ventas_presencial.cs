@@ -14,12 +14,12 @@ namespace Notaria.Datos
     
     public partial class ventas_presencial
     {
-        public string cod_venta { get; set; }
+        public int cod_venta { get; set; }
         public int amount { get; set; }
         public System.DateTime transaction_date { get; set; }
         public string rut_persona { get; set; }
         public string estado { get; set; }
-        public string doc_emitido_cod_documento { get; set; }
+        public int doc_emitido_cod_documento { get; set; }
     
         public virtual doc_emitido doc_emitido { get; set; }
     }

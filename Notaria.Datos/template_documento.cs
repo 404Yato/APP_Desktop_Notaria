@@ -20,7 +20,8 @@ namespace Notaria.Datos
             this.tipo_tramite = new HashSet<tipo_tramite>();
         }
     
-        public string cod_template { get; set; }
+        public int cod_template { get; set; }
+        public string nombre { get; set; }
         public byte[] template { get; set; }
         public System.DateTime fecha_subida { get; set; }
     

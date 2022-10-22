@@ -14,7 +14,7 @@ namespace Notaria.Datos
     
     public partial class info_notaria
     {
-        public string cod_notaria { get; set; }
+        public int cod_notaria { get; set; }
         public string direccion { get; set; }
         public int telefono { get; set; }
         public Nullable<int> telefono_2 { get; set; }

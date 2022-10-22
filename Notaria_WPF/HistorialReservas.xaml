@@ -1,4 +1,12 @@
 ﻿<Window x:Class="Notaria_WPF.HistorialReservas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,10 +14,35 @@
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
         Title="HistorialReservas" Height="450" Width="800">
-    <Grid>
-        <DataGrid HorizontalAlignment="Center" Height="253" Margin="0,132,0,0" VerticalAlignment="Top" Width="620"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="425,95,0,0" TextWrapping="Wrap" Text="Ingrese el RUT" VerticalAlignment="Top" Width="197"/>
-        <Button Content="Buscar" HorizontalAlignment="Left" Height="20" Margin="638,95,0,0" VerticalAlignment="Top" Width="72"/>
-
+    <Grid Background="#FFA1D6E2" >
+        <Rectangle HorizontalAlignment="Left" Margin="452,45,0,0" Width="5" Fill="#FF00CCFF" Height="27" VerticalAlignment="Top"/>
+        <Rectangle Margin="457,45,0,0" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>
+        <Rectangle HorizontalAlignment="Left" Margin="97,72,0,0" Width="360" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="100"/>
+        <Rectangle Height="27" VerticalAlignment="Top" Fill="#FF283655" Margin="100,45,0,0" HorizontalAlignment="Left" Width="352"/>
+        <Image Margin="19,10,0,0" Source="/Img/logo.png" Stretch="Fill" Height="62" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+        <Label Content="NOTARÍA" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="24"/>
+        <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="202,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="24" Height="40" Width="133"/>
+        <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
+        <Button Content="Reservas" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Cursor="Hand"/>
+        <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
+        <Label Content="Recepcionista" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
+        <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
+        <DataGrid Name="dgReservas" Margin="142,150,38,52" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="dgReservas_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Binding="{Binding cod_reserva}" />
+                <DataGridTextColumn Header="Fecha y Hora" Binding="{Binding fecha_hora}" />
+                <DataGridTextColumn Header="Motivo" Binding="{Binding motivo}" />
+                <DataGridTextColumn Header="Estado" Binding="{Binding estado}" />
+                <DataGridTextColumn Header="RUT" Binding="{Binding usuario_rut}" />
+                <DataGridTextColumn Header="Código Trámite" Binding="{Binding cod_tramite}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="txtRutBuscado" Height="33" Margin="0,99,334,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" HorizontalAlignment="Right" Width="198" SelectionBrush="#FFB4EFFE" TextChanged="txtRutBuscado_TextChanged" Foreground="White" Padding="0,0,0,0" BorderThickness="0,0,0,1" />
+        <Button Name="btnModificar" Content="Modificar" Height="33" Margin="0,102,38,0" VerticalAlignment="Top" Cursor="Hand" Background="#FF04CBFB" BorderBrush="#FF04CBFB" HorizontalAlignment="Right" Width="94" Click="btnModificar_Click" RenderTransformOrigin="0.149,0.52"/>
+        <Rectangle HorizontalAlignment="Left" Margin="96,0,0,0" Width="5" Fill="#FF00CCFF"/>
+        <ComboBox x:Name="cbEstadoReserva" HorizontalAlignment="Left" Margin="522,108,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" Foreground="Black" Background="White" BorderBrush="#89000000"/>
+        <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="22" Margin="153,114,0,0" VerticalAlignment="Top" Width="84" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544"/>
     </Grid>
 </Window>

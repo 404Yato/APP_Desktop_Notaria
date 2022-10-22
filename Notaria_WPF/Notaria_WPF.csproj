@@ -38,11 +38,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
-      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.8.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.8\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.4.4.0\lib\net462\ControlzEx.dll</HintPath>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -50,31 +53,45 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.2.4.9\lib\net47\MahApps.Metro.dll</HintPath>
+    <Reference Include="itext.barcodes, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=7.2.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.commons.7.2.3\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.13\lib\net40\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.6.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.7.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.7.1\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.7.1\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.7.2\lib\net45\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="Oracle.DataAccess, Version=2.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
       <HintPath>..\packages\Polly.7.2.0\lib\net472\Polly.dll</HintPath>
     </Reference>
@@ -82,18 +99,12 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.7.1\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -141,6 +152,88 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActualizarArchivo.xaml.cs">
+      <DependentUpon>ActualizarArchivo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormArriendoVehiculo.xaml.cs">
+      <DependentUpon>FormArriendoVehiculo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormCartaPoder.xaml.cs">
+      <DependentUpon>FormCartaPoder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormDeclaracionJurada.xaml.cs">
+      <DependentUpon>FormDeclaracionJurada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormPrestacionServicio.xaml.cs">
+      <DependentUpon>FormPrestacionServicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormCartaRenuncia.xaml.cs">
+      <DependentUpon>FormCartaRenuncia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatesCRUD.xaml.cs">
+      <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaBienesRaices.xaml.cs">
+      <DependentUpon>VistaBienesRaices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaNotario.xaml.cs">
+      <DependentUpon>VistaNotario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaOficial.xaml.cs">
+      <DependentUpon>VistaOficial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaPoliza.xaml.cs">
+      <DependentUpon>VistaPoliza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaRecepcionista.xaml.cs">
+      <DependentUpon>VistaRecepcionista.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ActualizarArchivo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormArriendoVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormCartaPoder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormDeclaracionJurada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormPrestacionServicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formularios\FormCartaRenuncia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuardarArchivo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="VistaCajero.xaml.cs">
+      <DependentUpon>VistaCajero.xaml</DependentUpon>
+    </Compile>
+    <Page Include="HistorialDocumentos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="TiposDeTramites.xaml.cs">
+      <DependentUpon>TiposDeTramites.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Contador.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="HistorialReservas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,9 +242,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Administracion.xaml.cs">
+      <DependentUpon>Administracion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GuardarArchivo.xaml.cs">
+      <DependentUpon>GuardarArchivo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialDocumentos.xaml.cs">
+      <DependentUpon>HistorialDocumentos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="Contador.xaml.cs">
+      <DependentUpon>Contador.xaml</DependentUpon>
     </Compile>
     <Compile Include="HistorialReservas.xaml.cs">
       <DependentUpon>HistorialReservas.xaml</DependentUpon>
@@ -160,6 +266,38 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TemplatesCRUD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaBienesRaices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaCajero.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TiposDeTramites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaNotario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaOficial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaPoliza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistaRecepcionista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -179,6 +317,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Biblioteca_de_Clases.dll.config" />
+    <None Include="bin\Debug\Notaria.Datos.dll.config" />
+    <None Include="bin\Debug\Notaria_WPF.exe.config" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\17.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\18.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\20.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\22.pdf" />
+    <None Include="bin\Doc_Notarial\Archivos Temporales\24.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Carta de Poder.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Carta de Renuncia.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Contrato Arriendo Vehículo.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Contrato Prestación de Servicios.pdf" />
+    <None Include="bin\Doc_Notarial\Destino\Declaración Jurada Simple.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Carta de Poder.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Carta de Renuncia.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Contrato Arriendo Vehículo.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Contrato Prestación de Servicios.pdf" />
+    <None Include="bin\Doc_Notarial\Origen\Declaración Jurada Simple.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,13 +345,129 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Imagenes\" />
+    <Resource Include="Img\actualizar.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Biblioteca_de_Clases\Biblioteca_de_Clases.csproj">
       <Project>{e3387781-8667-4ad9-becf-8c5f9b331754}</Project>
       <Name>Biblioteca_de_Clases</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Notaria.Datos\Notaria.Datos.csproj">
+      <Project>{4564da55-ae25-48f5-ac8d-812498e1d869}</Project>
+      <Name>Notaria.Datos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\AgregarEmpleadoBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\ListaEmpleadoBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\volver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\lista-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\refresh1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Biblioteca_de_Clases.dll" />
+    <Content Include="bin\Debug\Biblioteca_de_Clases.pdb" />
+    <Content Include="bin\Debug\BouncyCastle.Crypto.dll" />
+    <Resource Include="bin\Debug\BouncyCastle.Crypto.xml" />
+    <Content Include="bin\Debug\Common.Logging.Core.dll" />
+    <Content Include="bin\Debug\Common.Logging.Core.pdb" />
+    <Resource Include="bin\Debug\Common.Logging.Core.xml" />
+    <Content Include="bin\Debug\Common.Logging.dll" />
+    <Content Include="bin\Debug\Common.Logging.pdb" />
+    <Resource Include="bin\Debug\Common.Logging.xml" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Resource Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Resource Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\itext.barcodes.dll" />
+    <Resource Include="bin\Debug\itext.barcodes.xml" />
+    <Content Include="bin\Debug\itext.commons.dll" />
+    <Resource Include="bin\Debug\itext.commons.xml" />
+    <Content Include="bin\Debug\itext.forms.dll" />
+    <Resource Include="bin\Debug\itext.forms.xml" />
+    <Content Include="bin\Debug\itext.io.dll" />
+    <Resource Include="bin\Debug\itext.io.xml" />
+    <Content Include="bin\Debug\itext.kernel.dll" />
+    <Resource Include="bin\Debug\itext.kernel.xml" />
+    <Content Include="bin\Debug\itext.layout.dll" />
+    <Resource Include="bin\Debug\itext.layout.xml" />
+    <Content Include="bin\Debug\itext.pdfa.dll" />
+    <Resource Include="bin\Debug\itext.pdfa.xml" />
+    <Content Include="bin\Debug\itext.sign.dll" />
+    <Resource Include="bin\Debug\itext.sign.xml" />
+    <Content Include="bin\Debug\itext.styledxmlparser.dll" />
+    <Resource Include="bin\Debug\itext.styledxmlparser.xml" />
+    <Content Include="bin\Debug\itext.svg.dll" />
+    <Resource Include="bin\Debug\itext.svg.xml" />
+    <Content Include="bin\Debug\MahApps.Metro.dll" />
+    <Content Include="bin\Debug\MaterialDesignColors.dll" />
+    <Content Include="bin\Debug\MaterialDesignColors.pdb" />
+    <Content Include="bin\Debug\MaterialDesignThemes.Wpf.dll" />
+    <Content Include="bin\Debug\MaterialDesignThemes.Wpf.pdb" />
+    <Resource Include="bin\Debug\MaterialDesignThemes.Wpf.xml" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Resource Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Debug\Notaria.Datos.dll" />
+    <Content Include="bin\Debug\Notaria.Datos.pdb" />
+    <Content Include="bin\Debug\Notaria_WPF.exe" />
+    <Content Include="bin\Debug\Notaria_WPF.pdb" />
+    <Content Include="bin\Debug\Polly.dll" />
+    <Content Include="bin\Debug\Polly.pdb" />
+    <Resource Include="bin\Debug\Polly.xml" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Resource Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Data.SqlClient.dll" />
+    <Resource Include="bin\Debug\System.Data.SqlClient.xml" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Resource Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Resource Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Resource Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Text.Encodings.Web.dll" />
+    <Resource Include="bin\Debug\System.Text.Encodings.Web.xml" />
+    <Content Include="bin\Debug\System.Text.Json.dll" />
+    <Resource Include="bin\Debug\System.Text.Json.xml" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Resource Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Debug\System.ValueTuple.dll" />
+    <Resource Include="bin\Debug\System.ValueTuple.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\de\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
@@ -206,6 +478,8 @@
     <Error Condition="!Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" />
 </Project>
