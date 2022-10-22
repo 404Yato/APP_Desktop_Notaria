@@ -334,10 +334,6 @@
       <Project>{e3387781-8667-4ad9-becf-8c5f9b331754}</Project>
       <Name>Biblioteca_de_Clases</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Notaria.Datos\Notaria.Datos.csproj">
-      <Project>{4564DA55-AE25-48F5-AC8D-812498E1D869}</Project>
-      <Name>Notaria.Datos</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\logo.png" />
