@@ -26,6 +26,7 @@ using NotariaL;
 using NotariaWPF;
 using iText.Layout.Element;
 
+
 namespace Notaria_WPF
 {
     /// <summary>
@@ -353,10 +354,7 @@ namespace Notaria_WPF
         private bool ValidarTextbox_Empleado()
         {
             bool validar = true;
-            if (txb_rut_empleado.Text == string.Empty)
-            {
-                validar = false;
-            }
+
             if (txb_nom_empleado.Text == string.Empty)
             {
                 validar = false;
@@ -1282,7 +1280,7 @@ namespace Notaria_WPF
                     nombre = txb_nom_empleado.Text,
                     apellido_paterno = txb_apllP_empleado.Text,
                     apellido_materno = txb_apellM_empleado.Text,
-                    contrasena = txb_contra_empleado.Text,
+                    contrasena = Encrypt.GetSHA256(txb_contra_empleado.Text),
                     fono = int.Parse(txb_fono_empleado.Text),
                     direccion = txb_dirc_empleado.Text,
                     cod_comuna = (string)cbx_Comuna_empleado.SelectedValue,
@@ -1366,7 +1364,7 @@ namespace Notaria_WPF
                 txb_nom_empleado.Text = Em.nombre.ToString();
                 txb_apllP_empleado.Text = Em.apellido_paterno.ToString();
                 txb_apellM_empleado.Text = Em.apellido_materno.ToString();
-                txb_contra_empleado.Text = Em.contrasena.ToString();
+               
                 txb_fono_empleado.Text = Em.fono.ToString();
                 txb_dirc_empleado.Text = Em.direccion.ToString();             
                 cbx_selc_empleado.SelectedValue = Em.cod_perfil;
@@ -1391,7 +1389,7 @@ namespace Notaria_WPF
                 nombre = txb_nom_empleado.Text,
                 apellido_paterno = txb_apllP_empleado.Text,
                 apellido_materno = txb_apellM_empleado.Text,
-                contrasena = txb_contra_empleado.Text,
+                contrasena = Encrypt.GetSHA256(txb_contra_empleado.Text),
                 fono = int.Parse(txb_fono_empleado.Text),
                 direccion = txb_dirc_empleado.Text,
                 cod_comuna = (string)cbx_Comuna_empleado.SelectedValue,

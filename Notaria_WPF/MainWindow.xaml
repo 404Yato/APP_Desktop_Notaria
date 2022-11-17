@@ -12,13 +12,13 @@
             <Rectangle Fill="#FF4D648D" RadiusX="20" RadiusY="20" Height="262" VerticalAlignment="Center" HorizontalAlignment="Right" Width="260" Margin="0,0,28,0"/>
             <Label Content="Iniciar Sesión" HorizontalAlignment="Right" Margin="0,0,78,238" VerticalAlignment="Bottom" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="28" Height="44" Width="160"/>
             <TextBox x:Name="txb_rut" Margin="0,0,58,166" TextWrapping="Wrap" Foreground="#FF151515" Background="#FFD0E1F9" BorderBrush="#FFC7DBF7" SelectionBrush="#FF18CCFF" Height="26" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Right" Width="200" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="txb_contra" HorizontalAlignment="Right" Margin="0,0,58,105" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="200" Foreground="#FF151515" Background="#FFD0E1F9" BorderBrush="#FFC7DBF7" SelectionBrush="#FF18CCFF" Height="26" FontFamily="Calibri" FontSize="18"/>
             <Label Content="Ingrese su Rut" HorizontalAlignment="Right" Margin="0,0,58,192" VerticalAlignment="Bottom" Width="200" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32"/>
             <Label Content="Ingrese su Contraseña" HorizontalAlignment="Right" Margin="0,0,58,131" VerticalAlignment="Bottom" Width="200" Foreground="White" FontFamily="Calibri" FontSize="18" Height="32"/>
             <Button Content="Iniciar Sesión" HorizontalAlignment="Right" Margin="0,0,58,52" Width="200" Background="#FF00CCFF" FontFamily="Calibri" FontSize="16" Click="Button_Click" Height="27" VerticalAlignment="Bottom"/>
             <Image HorizontalAlignment="Right" Source="/Img/logo.png" Height="78" Margin="0,0,491,124" VerticalAlignment="Bottom" Width="79"/>
             <Label Content="NOTARÍA" Margin="0,0,352,141" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="30" Height="56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="134"/>
             <Label Content="ABUYERES" HorizontalAlignment="Right" Margin="0,0,353,130" VerticalAlignment="Bottom" Foreground="White" FontFamily="Calibri" FontSize="28" Height="40" Width="133"/>
+            <PasswordBox x:Name="txb_contra" HorizontalAlignment="Left" Margin="370,182,0,0" VerticalAlignment="Top" Width="200" FontSize="18" FontFamily="Calibri" Background="#FFD0E1F9" BorderBrush="#FFC7DBF7" SelectionBrush="#FF18CCFF" Height="26"/>
 
         </Grid>
     </Grid>

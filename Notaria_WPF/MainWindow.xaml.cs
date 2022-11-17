@@ -19,6 +19,7 @@ using System.Data.SqlClient;
 using System.Data;
 using NotariaWPF;
 using System.ServiceModel.Security;
+using iText.Layout.Element;
 
 namespace Notaria_WPF
 {
@@ -39,7 +40,7 @@ namespace Notaria_WPF
         private bool ValidarCampos()
         {
             bool validar = true;
-            if (txb_contra.Text == string.Empty)
+            if (txb_contra.Password == string.Empty)
              {
                  validar = false;
              }
@@ -54,7 +55,7 @@ namespace Notaria_WPF
         {
             rutEmpleado = txb_rut.Text;
             string rut = txb_rut.Text;
-            string contra = txb_contra.Text;
+            string contra = Encrypt.GetSHA256(txb_contra.Password.ToString());
             if (ValidarCampos())                                                                                // VALIDACION DE CAMPOS VACIOS
             {
                 Empleado Em = new Empleado();
@@ -140,5 +141,6 @@ namespace Notaria_WPF
                         MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
     }
 }
