@@ -7,17 +7,21 @@
         mc:Ignorable="d"
         Title="Vista Notario" Height="600" Width="1200" WindowStartupLocation="CenterScreen" Icon="/Img/logo.ico">
     <!--/> ********************************************************************************************** -->
-    <Grid>
+    <Grid Background="#FFA1D6E2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
-        <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="100"/>
+        <Rectangle Fill="#FF283655" HorizontalAlignment="Left" Width="100" Grid.RowSpan="2"/>
         <Rectangle Height="27" VerticalAlignment="Top" Fill="#FF283655" Margin="100,45,0,0" HorizontalAlignment="Left" Width="352"/>
-        <Label x:Name="lb_menu" Content="Revisión de documentos" HorizontalAlignment="Left" Margin="110,45,0,0" Padding="0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20" Width="202" Height="27"/>
+        <Label x:Name="lb_menu" Content="Revisión de documentos" HorizontalAlignment="Left" Margin="168,47,0,0" Padding="0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20" Width="202" Height="27"/>
         <Image Margin="19,10,0,0" Source="/Img/logo.png" Stretch="Fill" Height="62" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
         <Label Content="NOTARÍA" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="24"/>
         <Label Content="ABUYERES" HorizontalAlignment="Left" Margin="202,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="24" Height="40" Width="133"/>
         <Label Content="Vistas" HorizontalAlignment="Left" Margin="0,140,0,0" Padding="25 0 0 0" VerticalAlignment="Top" Height="21" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}"/>
         <Label Content="Documentos" HorizontalAlignment="Left" Margin="0,160,0,0" Padding="5 0 0 0" VerticalAlignment="Top" Height="18" Width="100" FontSize="16" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}"/>
-        <Rectangle Margin="123,83,20,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20" />
+        <Rectangle Margin="123,83,20,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20" Grid.RowSpan="2" />
 
         <Label Content="V. Notario" Margin="0,6,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="WhiteSmoke" HorizontalAlignment="Right" Width="73" Height="27"/>
         <Image Margin="0,6,158,0" Source="/Img/Usuario.png" Width="33" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" />
@@ -29,7 +33,7 @@
             </StackPanel>
         </Button>
         <!--/> *******************************************************************************************ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}"*** -->
-        <DataGrid x:Name="DtNotario" AutoGenerateColumns="False" IsReadOnly="True" Margin="124,140,21,10" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <DataGrid x:Name="DtNotario" AutoGenerateColumns="False" IsReadOnly="True" Margin="137,140,50,25" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Cod Doc" Binding="{Binding cod_documento}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Documento" Binding="{Binding nombre_tramite }" IsReadOnly="True"/>
@@ -57,7 +61,7 @@
         </DataGrid>
         <!--/> ********************************************************************************************** -->
         <TextBlock x:Name="TxtHora" Foreground="WhiteSmoke" FontFamily="Calibri" FontSize="16" HorizontalAlignment="Right" Margin="0,12,275,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="20"/>
-        <Button Content="Actualizar" Click="Button_Click_Actualizar" FontSize="13" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" BorderBrush="White" BorderThickness="0,1,0,1" Width="100" />
+        <Button Content="Actualizar" Click="Button_Click_Actualizar" FontSize="13" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" BorderBrush="White" BorderThickness="0,1,0,1" Width="100" Grid.Row="1" />
 
         <Button x:Name="Btn_Actualizar" VerticalAlignment="Top" Height="57" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,83,21,0"
                 HorizontalAlignment="Right" Width="76" Click="Button_Click_Actualizar">
@@ -66,5 +70,8 @@
             </StackPanel>
         </Button>
         <Button x:Name="BtnBienesRaices" Content="V. Notario" FontSize="13" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" BorderBrush="White" BorderThickness="0,1,0,1" Width="100" />
+        <StackPanel Grid.Row="1"/>
+
     </Grid>
+
 </Window>

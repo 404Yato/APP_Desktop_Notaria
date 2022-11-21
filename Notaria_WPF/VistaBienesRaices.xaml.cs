@@ -101,5 +101,10 @@ namespace Notaria_WPF
         {
             LlenarGridDocEmitido();
         }
+
+        private void DtBRaices_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
