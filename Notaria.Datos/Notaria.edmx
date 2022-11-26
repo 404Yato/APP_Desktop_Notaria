@@ -868,7 +868,11 @@
           <Property Type="Int32" Name="precio" Nullable="false" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
           <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="Boolean" Name="presencialidad" Nullable="false" />
+          <Property Type="String" Name="rut_cliente_pres" Nullable="true" MaxLength="12" />
           <Property Type="Int32" Name="cod_tramite" Nullable="false" />
+          <Property Type="String" Name="usuario_rut" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="empleado_rut" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
         </ComplexType>
         <ComplexType Name="SP_LlenarDGVistasOF_Result">
@@ -879,7 +883,11 @@
           <Property Type="Int32" Name="precio" Nullable="false" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
           <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="Boolean" Name="presencialidad" Nullable="false" />
+          <Property Type="String" Name="rut_cliente_pres" Nullable="true" MaxLength="12" />
           <Property Type="Int32" Name="cod_tramite" Nullable="false" />
+          <Property Type="String" Name="usuario_rut" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="empleado_rut" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
         </ComplexType>
         <ComplexType Name="SP_LlenarDGVistasPoliza_Result">
@@ -890,7 +898,11 @@
           <Property Type="Int32" Name="precio" Nullable="false" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
           <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="Boolean" Name="presencialidad" Nullable="false" />
+          <Property Type="String" Name="rut_cliente_pres" Nullable="true" MaxLength="12" />
           <Property Type="Int32" Name="cod_tramite" Nullable="false" />
+          <Property Type="String" Name="usuario_rut" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="empleado_rut" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
         </ComplexType>
         <ComplexType Name="SP_LlenarGridNotario_Result">
@@ -1164,7 +1176,11 @@
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="presencialidad" ColumnName="presencialidad" />
+                <ScalarProperty Name="rut_cliente_pres" ColumnName="rut_cliente_pres" />
                 <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
+                <ScalarProperty Name="usuario_rut" ColumnName="usuario_rut" />
+                <ScalarProperty Name="empleado_rut" ColumnName="empleado_rut" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -1179,7 +1195,11 @@
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="presencialidad" ColumnName="presencialidad" />
+                <ScalarProperty Name="rut_cliente_pres" ColumnName="rut_cliente_pres" />
                 <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
+                <ScalarProperty Name="usuario_rut" ColumnName="usuario_rut" />
+                <ScalarProperty Name="empleado_rut" ColumnName="empleado_rut" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -1194,7 +1214,11 @@
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="presencialidad" ColumnName="presencialidad" />
+                <ScalarProperty Name="rut_cliente_pres" ColumnName="rut_cliente_pres" />
                 <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
+                <ScalarProperty Name="usuario_rut" ColumnName="usuario_rut" />
+                <ScalarProperty Name="empleado_rut" ColumnName="empleado_rut" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </ComplexTypeMapping>
             </ResultMapping>

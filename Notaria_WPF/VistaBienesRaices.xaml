@@ -54,6 +54,14 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnAprobar" Content="Aprobar" HorizontalAlignment="Left" Click="BtnAprobarPDF" FontFamily="Calibri" FontSize="10" Width="77" Height="20" BorderBrush="#FF283655" BorderThickness="0.3"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
         <!--/> ********************************************************************************************** -->

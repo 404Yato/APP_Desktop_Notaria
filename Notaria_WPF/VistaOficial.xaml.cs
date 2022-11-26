@@ -82,7 +82,7 @@ namespace Notaria_WPF
                 SP_LlenarDGVistasOF_Result template = (SP_LlenarDGVistasOF_Result)DtOficial.SelectedItem;
                 SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtOficial.SelectedItem;
 
-                string path2 = @"C:\Users\0fcru\Downloads\" + seleccionado.nombre_tramite + '-' + seleccionado.Nombre + ".pdf";
+                string path2 = @"C:\Users\Cristian\Downloads\" + seleccionado.nombre_tramite + '-' + seleccionado.Nombre + ".pdf";
                 File.WriteAllBytes(path2, seleccionado.copia_documento);
                 path = path2;
                 //path3 = @"..\Doc_Notarial\Destino\" + seleccionado.copia_documento + ".pdf"; 
@@ -107,6 +107,33 @@ namespace Notaria_WPF
             LlenarGridDocEmitido();
         }
 
+        private void BtnAprobarPDF(object sender, RoutedEventArgs e)              //Botón para actualizar el estado del documento a "Revisado"
+        {
+            SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtOficial.SelectedItem;
+            Doc_Emitido documento = new Doc_Emitido()
+            {
+                cod_documento = seleccionado.cod_documento,
+                copia_documento = seleccionado.copia_documento,
+                cod_tramite = seleccionado.cod_tramite,
+                estado = "Revisado",
+                fecha_emision = seleccionado.fecha_emision,
+                precio = seleccionado.precio,
+                valido = seleccionado.valido,
+                presencialidad = seleccionado.presencialidad,
+                rut_cliente_pres = seleccionado.rut_cliente_pres,
+                empleado_rut = seleccionado.empleado_rut,
+                usuario_rut = seleccionado.usuario_rut,
+            };
+            if (documento.Update())
+            {
+                MessageBox.Show("Se cambio el estado del documento correctamente", "Éxito", MessageBoxButton.OK);
+                LlenarGridDocEmitido();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo actualizar el estado del documento", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
 

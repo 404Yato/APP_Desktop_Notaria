@@ -42,7 +42,6 @@ namespace Notaria_WPF
         FormCartaPoder formCartaPoder = new FormCartaPoder();
         FormArriendoVehiculo formArrVehiculo = new FormArriendoVehiculo();
         FormCartaRenuncia formCartaRenuncia = new FormCartaRenuncia();
-
         FormDeclaracionJurada formDeclaracion = new FormDeclaracionJurada();
         FormPrestacionServicio prestacionServicio = new FormPrestacionServicio();
         
