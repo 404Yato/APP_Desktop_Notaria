@@ -126,9 +126,6 @@
     <Compile Include="SP_LlenarGridNotario_Result.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Notaria.tt</DependentUpon>
-    </Compile>
     <Compile Include="template_documento.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>

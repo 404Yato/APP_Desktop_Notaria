@@ -98,16 +98,6 @@
           <Property Name="usuario_rut" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="cod_tramite" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="template_documento">
           <Key>
             <PropertyRef Name="cod_template" />
@@ -344,7 +334,6 @@
           <EntitySet Name="perfil" EntityType="Self.perfil" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="region" EntityType="Self.region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="reserva" EntityType="Self.reserva" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="template_documento" EntityType="Self.template_documento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipo_tramite" EntityType="Self.tipo_tramite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
@@ -511,16 +500,6 @@
           <Property Name="cod_tramite" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tipo_tramite" Relationship="Self.reserva_tipo_tramite_fk" FromRole="reserva" ToRole="tipo_tramite" />
           <NavigationProperty Name="usuario" Relationship="Self.reserva_usuario_fk" FromRole="reserva" ToRole="usuario" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="template_documento">
           <Key>
@@ -743,7 +722,6 @@
           <EntitySet Name="perfil" EntityType="Self.perfil" />
           <EntitySet Name="region" EntityType="Self.region" />
           <EntitySet Name="reserva" EntityType="Self.reserva" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="template_documento" EntityType="Self.template_documento" />
           <EntitySet Name="tipo_tramite" EntityType="Self.tipo_tramite" />
           <EntitySet Name="usuario" EntityType="Self.usuario" />
@@ -1003,17 +981,6 @@
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="usuario_rut" ColumnName="usuario_rut" />
                 <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PortafolioModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
