@@ -42,8 +42,16 @@
                 <DataGridTextColumn Header="Rut Empleado" Binding="{Binding empleado_rut}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Name="txtRutBuscado" Height="34" Margin="0,102,326,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" SelectionBrush="#FFB4EFFE" Foreground="White" Padding="5,4,0,4" TextChanged="txtRutBuscado_TextChanged" HorizontalAlignment="Right" Width="197"/>
-        <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="22" Margin="153,114,0,0" VerticalAlignment="Top" Width="84" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544"/>
+        <TextBox Name="txtRutBuscado" Height="34" Margin="0,102,326,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF2196F3" SelectionBrush="#FF90CAF9" Foreground="Black" Padding="5,4,0,4" TextChanged="txtRutBuscado_TextChanged" HorizontalAlignment="Right" Width="197" Background="#FFC6EEF7"/>
+        <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="34" Margin="153,102,0,0" VerticalAlignment="Top" Width="105" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544" FontSize="18" FontFamily="Calibri"/>
         <Rectangle HorizontalAlignment="Left" Margin="96,0,0,0" Width="5" Fill="#FF00CCFF"/>
+        <Label x:Name="lb_documentos" Content="Historial de Documentos" HorizontalAlignment="Left" Margin="172,42,0,0" VerticalAlignment="Top" Width="193" Foreground="#DDFFFFFF" FontSize="18" FontFamily="Calibri" Height="27"/>
+        
+        <Button x:Name="btn_cerrarSesion" Margin="0,5,10,0" VerticalAlignment="Top" Height="38" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="132" Click="CerrarSesion">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cerrar Sesión" Padding="0,7,5,0" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="16"/>
+                <Image  Source="/Img/logout.png" Width="40" Height="36" RenderTransformOrigin="0.5,0.5"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

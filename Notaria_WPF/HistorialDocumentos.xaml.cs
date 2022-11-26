@@ -60,5 +60,17 @@ namespace Notaria_WPF
                 LlenaDataGrid();
             }
         }
+
+        private void CerrarSesion(object sender, RoutedEventArgs e)                                             // Boton Cerrar Sesion
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
+            MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow MW = new MainWindow();
+                MW.Show();
+                this.Close();
+            }
+            else { }
+        }
     }
 }

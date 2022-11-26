@@ -28,11 +28,50 @@ namespace NotariaWPF
             InitializeComponent();
             Conexion.Conectar();
             /*MessageBox.Show("Conexion exitosa");*/
-            DataGrid1.DataContext = llenar_grid2();
-            DataGrid2.DataContext = llenar_grid3();
-            DataGrid3.DataContext = llenar_grid();
-            DataGrid4.DataContext = llenar_grid4();
+            dtg_ventasO.DataContext = llenar_grid2();
+            dtg_ventasP.DataContext = llenar_grid3();
+            dtg_DetalleventasO.DataContext = llenar_grid();
+            dtg_DetalleventasP.DataContext = llenar_grid4();
         }
+
+        #region Visibilidad Ventas online
+        private void MostrarVentasO() 
+        {
+            lb_tituloVentasO.Visibility = Visibility.Visible;
+            lb_ventasO.Visibility = Visibility.Visible;
+            lb_DetalleventasO.Visibility = Visibility.Visible;
+            dtg_DetalleventasO.Visibility = Visibility.Visible;
+            dtg_ventasO.Visibility = Visibility.Visible;
+        }
+        private void SacarVentasO()
+        {
+            lb_tituloVentasO.Visibility = Visibility.Collapsed;
+            lb_ventasO.Visibility = Visibility.Collapsed;
+            lb_DetalleventasO.Visibility = Visibility.Collapsed;
+            dtg_DetalleventasO.Visibility = Visibility.Collapsed;
+            dtg_ventasO.Visibility = Visibility.Collapsed;
+        }
+        #endregion
+
+        #region Visibilidad Ventas Presencial
+        private void MostrarVentasP()
+        {
+            lb_tituloVentasP.Visibility = Visibility.Visible;
+            lb_ventasP.Visibility = Visibility.Visible;
+            lb_DetalleventasP.Visibility = Visibility.Visible;
+            dtg_DetalleventasP.Visibility = Visibility.Visible;
+            dtg_ventasP.Visibility = Visibility.Visible;
+        }
+        private void SacarVentasP()
+        {
+            lb_tituloVentasP.Visibility = Visibility.Collapsed;
+            lb_ventasP.Visibility = Visibility.Collapsed;
+            lb_DetalleventasP.Visibility = Visibility.Collapsed;
+            dtg_DetalleventasP.Visibility = Visibility.Collapsed;
+            dtg_ventasP.Visibility = Visibility.Collapsed;
+        }
+        #endregion
+
 
         public DataTable llenar_grid()
         {
@@ -86,25 +125,6 @@ namespace NotariaWPF
             return dt;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_Documentos(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_Personal(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_Perfil(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
         {
@@ -117,6 +137,19 @@ namespace NotariaWPF
             }
             else { }
 
+        }
+
+        private void btn_ventasO_Click(object sender, RoutedEventArgs e)                                //BOTON VENTAS ONLINE
+        {
+            SacarVentasP();
+            MostrarVentasO();
+
+        }
+
+        private void btn_ventasP_Click(object sender, RoutedEventArgs e)                                //BOTON VENTAS PRESENCIAL
+        {
+            SacarVentasO();
+            MostrarVentasP();
         }
     }
 }

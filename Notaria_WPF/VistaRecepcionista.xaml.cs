@@ -67,6 +67,7 @@ namespace Notaria_WPF
 
         private void OcultarReservas()
         {
+            lb_reservas.Visibility = Visibility.Collapsed;
             dgReservas.Visibility = Visibility.Collapsed;
             txtRutBuscado.Visibility = Visibility.Collapsed;
             btnModificar.Visibility = Visibility.Collapsed;
@@ -84,6 +85,7 @@ namespace Notaria_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            lb_reservas.Visibility = Visibility.Visible;
             dgReservas.Visibility = Visibility.Visible;
             txtRutBuscado.Visibility = Visibility.Visible;
             btnModificar.Visibility = Visibility.Visible;

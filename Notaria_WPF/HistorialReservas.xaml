@@ -39,10 +39,18 @@
                 <DataGridTextColumn Header="Código Trámite" Binding="{Binding cod_tramite}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Name="txtRutBuscado" Height="33" Margin="0,99,334,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF04CBFB" HorizontalAlignment="Right" Width="198" SelectionBrush="#FFB4EFFE" TextChanged="txtRutBuscado_TextChanged" Foreground="White" Padding="0,0,0,0" BorderThickness="0,0,0,1" />
+        <Label x:Name="lb_reservas" Content="Historial de Reservas" HorizontalAlignment="Left" Margin="172,43,0,0" VerticalAlignment="Top" Width="193" Foreground="#DDFFFFFF" FontSize="18" FontFamily="Calibri" Height="27"/>
+        <TextBox Name="txtRutBuscado" Height="33" Margin="0,99,334,0" TextWrapping="Wrap" VerticalAlignment="Top" CaretBrush="#FF2196F3" HorizontalAlignment="Right" Width="198" SelectionBrush="#FF90CAF9" TextChanged="txtRutBuscado_TextChanged" Padding="0,0,0,0" BorderThickness="0,0,0,1" Background="#FFC6EEF7" />
+        
         <Button Name="btnModificar" Content="Modificar" Height="33" Margin="0,102,38,0" VerticalAlignment="Top" Cursor="Hand" Background="#FF04CBFB" BorderBrush="#FF04CBFB" HorizontalAlignment="Right" Width="94" Click="btnModificar_Click" RenderTransformOrigin="0.149,0.52"/>
         <Rectangle HorizontalAlignment="Left" Margin="96,0,0,0" Width="5" Fill="#FF00CCFF"/>
-        <ComboBox x:Name="cbEstadoReserva" HorizontalAlignment="Left" Margin="522,108,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri" Foreground="Black" Background="White" BorderBrush="#89000000"/>
-        <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="22" Margin="153,114,0,0" VerticalAlignment="Top" Width="84" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544"/>
+        <ComboBox x:Name="cbEstadoReserva" HorizontalAlignment="Left" Margin="504,99,0,0" VerticalAlignment="Top" Width="138" FontFamily="Calibri" Foreground="Black" Background="#FFC6EEF7" BorderBrush="#89000000" Height="33" FontSize="16"/>
+        <Label x:Name="lbRut" Content="Buscar RUT :" HorizontalAlignment="Left" Height="27" Margin="153,102,0,0" VerticalAlignment="Top" Width="110" Foreground="#DDFFFFFF" RenderTransformOrigin="0.572,-0.544" FontSize="18" FontFamily="Calibri"/>
+        <Button x:Name="btn_cerrarSesion" Margin="0,5,10,0" VerticalAlignment="Top" Height="38" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="132" Click="CerrarSesion">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cerrar Sesión" Padding="0,7,5,0" Foreground="#FF00CCFF" FontFamily="Calibri" FontSize="16"/>
+                <Image  Source="/Img/logout.png" Width="40" Height="36" RenderTransformOrigin="0.5,0.5"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>
