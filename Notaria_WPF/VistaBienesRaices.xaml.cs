@@ -51,7 +51,7 @@ namespace Notaria_WPF
         {
             Doc_Emitido doc_emitido = new Doc_Emitido();
 
-            DtBRaices.ItemsSource = doc_emitido.LlenarGrid();
+            DtBRaices.ItemsSource = doc_emitido.LlenarGridBienesRaices();
             DtBRaices.Items.Refresh();
         }
         Notaria.Datos.PortafolioEntities contexto = new Notaria.Datos.PortafolioEntities();
@@ -59,7 +59,7 @@ namespace Notaria_WPF
         {
             if (DtBRaices.SelectedIndex != -1)
             {
-                SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtBRaices.SelectedItem;
+                SP_LlenarDGVistasBienesRaices_Result seleccionado = (SP_LlenarDGVistasBienesRaices_Result)DtBRaices.SelectedItem;
                 Process AbrirPDF = new Process();
                 string path2 = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf";
                 File.WriteAllBytes(path2, seleccionado.copia_documento);
@@ -75,8 +75,8 @@ namespace Notaria_WPF
         {
             if (DtBRaices.SelectedIndex != -1)
             {
-                SP_LlenarDGVistasOF_Result template = (SP_LlenarDGVistasOF_Result)DtBRaices.SelectedItem;
-                SP_LlenarDGVistasOF_Result seleccionado = (SP_LlenarDGVistasOF_Result)DtBRaices.SelectedItem;
+                SP_LlenarDGVistasBienesRaices_Result template = (SP_LlenarDGVistasBienesRaices_Result)DtBRaices.SelectedItem;
+                SP_LlenarDGVistasBienesRaices_Result seleccionado = (SP_LlenarDGVistasBienesRaices_Result)DtBRaices.SelectedItem;
 
                 string path2 = @"C:\Users\0fcru\Downloads\" + seleccionado.nombre_tramite + '-' + seleccionado.Nombre + ".pdf";
                 File.WriteAllBytes(path2, seleccionado.copia_documento);
