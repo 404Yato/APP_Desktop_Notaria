@@ -12,7 +12,7 @@ namespace NotariaL
     {
         public static SqlConnection Conectar()
         {
-            SqlConnection cn = new SqlConnection("SERVER=DESKTOP-RPNP27O\\SQLEXPRESS;DATABASE=Notaria;integrated security=true");
+            SqlConnection cn = new SqlConnection("SERVER=DESKTOP-RPNP27O\\SQLEXPRESS;DATABASE=NotariaAct;integrated security=true");
             cn.Open();
             return cn;
         }
