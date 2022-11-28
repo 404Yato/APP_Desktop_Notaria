@@ -85,6 +85,9 @@ namespace Notaria_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            rec_documento.Visibility = Visibility.Collapsed;
+            lb_docTitulo.Visibility = Visibility.Collapsed;
+
             lb_reservas.Visibility = Visibility.Visible;
             dgReservas.Visibility = Visibility.Visible;
             txtRutBuscado.Visibility = Visibility.Visible;
@@ -207,9 +210,12 @@ namespace Notaria_WPF
         #region Documentos
         private void btn_docs_Click(object sender, RoutedEventArgs e)
         {
+            lb_docTitulo.Visibility = Visibility.Visible;
             cbTipoTramite.Visibility = Visibility.Visible;
             lbTipoTramite.Visibility = Visibility.Visible;
+            rec_documento.Visibility = Visibility.Visible;
             btnInicio.Visibility = Visibility.Collapsed;
+            
             OcultarReservas();
             OcultarControlesTramite();
             LimpiarCamposTramites();
