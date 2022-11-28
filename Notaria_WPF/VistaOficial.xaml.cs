@@ -53,7 +53,7 @@ namespace Notaria_WPF
         {
             Doc_Emitido doc_emitido = new Doc_Emitido();
 
-            DtOficial.ItemsSource = doc_emitido.LlenarGrid();
+            DtOficial.ItemsSource = doc_emitido.LlenarGridOficial();
             DtOficial.Items.Refresh(); 
         }
 

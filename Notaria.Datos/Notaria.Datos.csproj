@@ -120,7 +120,13 @@
     <Compile Include="reserva.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LlenarDGVistasBienesRaices_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LlenarDGVistasOF_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LlenarDGVistasPoliza_Result.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_LlenarGridNotario_Result.cs">

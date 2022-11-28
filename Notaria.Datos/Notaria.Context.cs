@@ -109,9 +109,19 @@ namespace Notaria.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<notarialogin_Result>("notarialogin", rut_buscaParameter, contraParameter);
         }
     
+        public virtual ObjectResult<SP_LlenarDGVistasBienesRaices_Result> SP_LlenarDGVistasBienesRaices()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LlenarDGVistasBienesRaices_Result>("SP_LlenarDGVistasBienesRaices");
+        }
+    
         public virtual ObjectResult<SP_LlenarDGVistasOF_Result> SP_LlenarDGVistasOF()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LlenarDGVistasOF_Result>("SP_LlenarDGVistasOF");
+        }
+    
+        public virtual ObjectResult<SP_LlenarDGVistasPoliza_Result> SP_LlenarDGVistasPoliza()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LlenarDGVistasPoliza_Result>("SP_LlenarDGVistasPoliza");
         }
     
         public virtual ObjectResult<SP_LlenarGridNotario_Result> SP_LlenarGridNotario()
