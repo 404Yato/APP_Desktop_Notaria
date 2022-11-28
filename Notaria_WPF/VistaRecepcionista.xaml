@@ -13,7 +13,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="Notaria Abuyeres" Height="550" Width="800">
+        Title="Notaria Abuyeres" Height="580" Width="830">
     <Grid Background="#FFA1D6E2" >
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
         <Button x:Name="btn_cerrarSesion" Margin="0,5,10,0" VerticalAlignment="Top" Height="38" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="132" Click="CerrarSesion" FlowDirection="RightToLeft" Cursor="Hand">
@@ -58,9 +58,9 @@
 
         <!--Apartado Creación de Documentos-->
         <Label x:Name="lb_docTitulo" Content="Documentos" HorizontalAlignment="Left" Margin="214,42,0,0" VerticalAlignment="Top" Width="108" Foreground="#DDFFFFFF" FontSize="18" FontFamily="Calibri" Height="27" Visibility="Collapsed"/>
+        <Rectangle x:Name="rec_documento" Margin="128,154,30,27" Fill="#FF283655" RadiusX="15" RadiusY="15" Visibility="Collapsed"/>
         <Frame x:Name="FrameFormularios" Margin="114,83,10,10" NavigationUIVisibility="Hidden"/>
         <ComboBox x:Name="cbTipoTramite" Margin="527,101,69,0" VerticalAlignment="Top" Height="32" Background="#FFC6EEF7" Foreground="Black" BorderBrush="#89000000" SelectionChanged="cbTipoTramite_SelectionChanged" FontSize="14" Visibility="Collapsed"/>
-        <Rectangle x:Name="rec_documento" Margin="128,154,30,27" Fill="#FF283655" RadiusX="15" RadiusY="15" Visibility="Collapsed"/>
         <Label x:Name="lbTipoTramite" Content="Seleccione el tipo de documento a crear:" Margin="124,97,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Calibri" Foreground="#DDFFFFFF" Height="48" HorizontalAlignment="Left" Width="377" FontWeight="Bold" Visibility="Collapsed"/>
         <Label x:Name="lbNombreTramite" Content="Carta de Poder" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="153,166,0,0" VerticalAlignment="Top" Height="33" Width="581" FontSize="22" Foreground="#DDFFFFFF" FontFamily="Calibri" FontWeight="Bold" Visibility="Collapsed"/>
         <Label x:Name="lbRequisitos" Content="Requisitos" Margin="155,320,0,0" VerticalAlignment="Top" Height="31" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Calibri" RenderTransformOrigin="0.473,1.207" HorizontalAlignment="Left" Width="123" Visibility="Collapsed"/>
