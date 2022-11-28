@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="TemplatesCRUD" Height="450" Width="800">
+        Title="TemplatesCRUD" Height="450" Width="800" Icon="/Img/logo.ico">
     <Grid>
         <!-- Diseño General (Menú y header) -->
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="GuardarArchivo" Height="291" Width="648">
+        Title="GuardarArchivo" Height="291" Width="648" Icon="/Img/logo.ico">
     <Grid Margin="0,0,0,-6">
         <Label Content="id" HorizontalAlignment="Left" Margin="218,60,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="28" Width="28"/>
         <TextBox x:Name="idTxt" HorizontalAlignment="Left" Margin="248,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149" Height="23"/>

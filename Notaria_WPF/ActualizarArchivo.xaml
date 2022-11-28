@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="ActualizarArchivo" Height="139" Width="284">
+        Title="ActualizarArchivo" Height="139" Width="284" Icon="/Img/logo.ico">
     <Grid Margin="0,0,0,-6">
         <TextBox x:Name="nombreTxt" HorizontalAlignment="Left" Margin="78,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148" Height="22"/>
         <Label  Content="Nombre" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="34" Width="80" RenderTransformOrigin="0.525,0.805"/>

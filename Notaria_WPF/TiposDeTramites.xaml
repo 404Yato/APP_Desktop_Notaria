@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="TiposDeTramites" Height="550" Width="1000">
+        Title="TiposDeTramites" Height="550" Width="1000" Icon="/Img/logo.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

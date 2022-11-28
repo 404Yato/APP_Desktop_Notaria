@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="firma" Height="450" Width="800">
+        Title="firma" Height="450" Width="800" Icon="/Img/logo.ico">
     <Grid Background="#FFEAD6D6">
         <Canvas x:Name="paintcanvas" MouseMove="Canvas_MouseMove" Margin="174,28,174,82" MouseLeftButtonDown="paintcanvas_MouseLeftButtonDown" MouseLeftButtonUp="paintcanvas_MouseLeftButtonUp" MouseLeave="paintcanvas_MouseLeave" Background="White" />
         <Button Content="Guardar" HorizontalAlignment="Center" Margin="0,379,0,0" VerticalAlignment="Top" Click="Button_Click"/>

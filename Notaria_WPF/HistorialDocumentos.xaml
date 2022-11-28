@@ -13,7 +13,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="HistorialReservas" Height="450" Width="800">
+        Title="HistorialReservas" Height="450" Width="800" Icon="/Img/logo.ico">
     <Grid Background="#FFA1D6E2" >
         <Rectangle HorizontalAlignment="Left" Margin="452,45,0,0" Width="5" Fill="#FF00CCFF" Height="27" VerticalAlignment="Top"/>
         <Rectangle Margin="457,45,0,0" Fill="#FF00CCFF" Height="5" VerticalAlignment="Top"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotariaWPF"
         mc:Ignorable="d"
-        Title="Contador" Height="650" Width="1119">
+        Title="Contador" Height="650" Width="1119" Icon="/Img/logo.ico">
     <Grid Background="#FFA1D6E2" Margin="0,0,0,-16">
         <!-- Diseño General (Menú y header) -->
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>

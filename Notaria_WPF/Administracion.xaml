@@ -16,7 +16,7 @@
         xmlns:local="clr-namespace:Notaria_WPF"
         xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Notaria_WPF.Administracion"
         mc:Ignorable="d"
-        Title="Administracion" Height="608" Width="986" >
+        Title="Administracion" Height="608" Width="986" Icon="/Img/logo.ico">
 
     <Grid Background="#FFA1D6E2" Margin="0,0,0,-6" >
 

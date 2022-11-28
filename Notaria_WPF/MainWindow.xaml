@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Icon="/Img/logo.ico">
     <Grid Background="#FFA1D6E2">
         <Grid Height="313" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Rectangle HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="628" Fill="#FF283655" RadiusX="25" RadiusY="25"/>
