@@ -11,7 +11,7 @@ namespace Notaria.Datos
 {
     using System;
     
-    public partial class SP_LlenarGridNotario_Result
+    public partial class SP_LlenarDGRecepAprobados_Result
     {
         public int cod_documento { get; set; }
         public string nombre_tramite { get; set; }

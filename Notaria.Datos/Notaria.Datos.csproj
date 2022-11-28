@@ -120,6 +120,9 @@
     <Compile Include="reserva.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LlenarDGRecepAprobados_Result.cs">
+      <DependentUpon>Notaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LlenarDGVistasBienesRaices_Result.cs">
       <DependentUpon>Notaria.tt</DependentUpon>
     </Compile>

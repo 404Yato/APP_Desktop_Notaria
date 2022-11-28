@@ -20,6 +20,15 @@ using iText.Forms;
 using iText.Kernel.Pdf;
 using Microsoft.Win32;
 using iText.Kernel.Geom;
+using System.Windows.Threading;
+using iText.Layout.Borders;
+using System.Security.Policy;
+using System.Diagnostics;
+using Biblioteca_clases;
+using NotariaL;
+using static iText.Kernel.Pdf.Colorspace.PdfDeviceCs;
+using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 
 namespace Notaria_WPF

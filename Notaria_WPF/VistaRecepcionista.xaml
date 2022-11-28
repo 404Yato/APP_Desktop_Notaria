@@ -13,7 +13,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="Notaria Abuyeres" Height="550" Width="800">
+        Title="Notaria Abuyeres" Height="562" Width="1170">
     <Grid Background="#FFA1D6E2" >
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
         <Button x:Name="btn_cerrarSesion" Margin="0,5,10,0" VerticalAlignment="Top" Height="38" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="132" Click="CerrarSesion" FlowDirection="RightToLeft" Cursor="Hand">
@@ -67,6 +67,5 @@
         <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="153,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="White" Height="23" IsReadOnly="True" FontFamily="Calibri" TextAlignment="Center" Visibility="Collapsed"/>
         <Button x:Name="btnCrearDoc" Content="Crear" HorizontalAlignment="Left" Margin="620,439,0,0" VerticalAlignment="Top" Height="61" Width="134" Cursor="Hand" FontFamily="Calibri" FontWeight="Bold" FontSize="22" Click="btnCrearDoc_Click" Visibility="Collapsed"/>
         <Button x:Name="btnInicio" Content="Volver al inicio" Margin="628,57,0,0" VerticalAlignment="Top" Height="24" Click="btnInicio_Click" HorizontalAlignment="Left" Width="126" Cursor="Hand" Visibility="Collapsed"/>
-
     </Grid>
 </Window>

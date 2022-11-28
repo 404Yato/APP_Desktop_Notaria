@@ -78,7 +78,7 @@ namespace Notaria_WPF
                 SP_LlenarGridNotario_Result template = (SP_LlenarGridNotario_Result)DtNotario.SelectedItem;
                 SP_LlenarGridNotario_Result seleccionado = (SP_LlenarGridNotario_Result)DtNotario.SelectedItem;
 
-                string path2 = @"C:\Users\0fcru\Downloads\" + seleccionado.nombre_tramite + '-' + seleccionado.Nombre + ".pdf";
+                string path2 = @"C:\Users\Cristian\Downloads\" + seleccionado.nombre_tramite + '-' + seleccionado.Nombre + ".pdf";
                 File.WriteAllBytes(path2, seleccionado.copia_documento);
                 path = path2;
                 //path3 = @"..\Doc_Notarial\Destino\" + seleccionado.copia_documento + ".pdf"; 
@@ -97,10 +97,38 @@ namespace Notaria_WPF
             else { }
 
         }
-        //Notaria.Datos.PortafolioEntities con = new Notaria.Datos.PortafolioEntities();
+
         private void Button_Click_Actualizar(object sender, RoutedEventArgs e)
         {
             LlenarGridNotario();
+        }
+
+        private void BtnAprobarPDF(object sender, RoutedEventArgs e)              //Botón para actualizar el estado del documento a "Revisado"
+        {
+            SP_LlenarGridNotario_Result seleccionado = (SP_LlenarGridNotario_Result)DtNotario.SelectedItem;
+            Doc_Emitido documento = new Doc_Emitido()
+            {
+                cod_documento = seleccionado.cod_documento,
+                copia_documento = seleccionado.copia_documento,
+                cod_tramite = seleccionado.cod_tramite,
+                estado = "Aprobado",
+                fecha_emision = seleccionado.fecha_emision,
+                precio = seleccionado.precio,
+                valido = seleccionado.valido,
+                presencialidad = seleccionado.presencialidad,
+                rut_cliente_pres = seleccionado.rut_cliente_pres,
+                empleado_rut = seleccionado.empleado_rut,
+                usuario_rut = seleccionado.usuario_rut,
+            };
+            if (documento.Update())
+            {
+                MessageBox.Show("Se aprobó el documento correctamente", "Éxito", MessageBoxButton.OK);
+                LlenarGridNotario();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo aprobar el estado del documento, intentelo nuevamente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
