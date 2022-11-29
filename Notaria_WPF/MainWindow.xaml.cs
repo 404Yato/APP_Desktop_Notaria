@@ -18,6 +18,7 @@ using NotariaL;
 using System.Data.SqlClient;
 using System.Data;
 using NotariaWPF;
+using System.Web.UI.WebControls;
 
 namespace Notaria_WPF
 {
@@ -50,6 +51,7 @@ namespace Notaria_WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Conexion.Conectar();
+
             string insertar = "INSERT INTO dbo.tipo_tramite VALUES (@cod_tramite, @nombre_tramite, @descripcion, @requisitos, @precio, @cod_template)";
             SqlCommand cmd1 = new SqlCommand(insertar, Conexion.Conectar());
             cmd1.Parameters.AddWithValue("@cod_tramite", IDTB.Text);
@@ -92,7 +94,42 @@ namespace Notaria_WPF
         {
             Conexion.Conectar();
 
-            MessageBoxResult selecion = MessageBox.Show("¿Estás seguro que deseas eliminar este tipo de trámite?",
+            if (DataGrid1.SelectedIndex != -1)
+            {
+                MessageBoxResult selecion = MessageBox.Show("¿Estás seguro que deseas eliminar este tipo de trámite?",
+               "Advertencia", MessageBoxButton.YesNoCancel);
+
+                switch (selecion)
+                {
+                    case MessageBoxResult.Yes:
+                        string eliminar = "DELETE FROM dbo.tipo_tramite WHERE cod_tramite=@cod_tramite";
+                        SqlCommand cmd3 = new SqlCommand(eliminar, Conexion.Conectar());
+
+                        cmd3.Parameters.AddWithValue("@cod_tramite", DataGrid1.SelectedIndex);
+
+                        cmd3.ExecuteNonQuery();
+
+                        MessageBox.Show("Los datos fueron eliminados con exito");
+
+                        break;
+
+                    case MessageBoxResult.No:
+                        MessageBox.Show("Los datos quedarán intactos.");
+                        break;
+
+                    case MessageBoxResult.Cancel:
+                        MessageBox.Show("Operación cancelada.");
+                        break;
+                }
+
+                DataGrid1.DataContext = llenar_grid();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar el objeto de la lista a eliminar");
+            }
+
+            /*MessageBoxResult selecion = MessageBox.Show("¿Estás seguro que deseas eliminar este tipo de trámite?",
                 "Advertencia", MessageBoxButton.YesNoCancel);
 
             switch (selecion)
@@ -118,7 +155,7 @@ namespace Notaria_WPF
                     break;
             }
 
-            DataGrid1.DataContext = llenar_grid();
+            DataGrid1.DataContext = llenar_grid();*/
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -139,6 +176,11 @@ namespace Notaria_WPF
         }
 
         private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid1_CellContentClick(object sender, SelectionChangedEventArgs e)
         {
 
         }
