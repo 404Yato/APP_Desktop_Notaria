@@ -413,7 +413,82 @@ namespace Notaria_WPF
 
         private void BtnGuardarPDF(object sender, RoutedEventArgs e)
         {
+            if (txbRut.Text != "")
+            {
+                if (DgAprobados.SelectedIndex != -1)
+                {
+                    sp_buscarDoc_aprobados_Result seleccionado = (sp_buscarDoc_aprobados_Result)DgAprobados.SelectedItem;
+                    
+                    //Transformar documento firmado en bytes
+                    string filepath = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf"; ;
+                    FileStream fStream = File.OpenRead(filepath);
+                    byte[] contents = new byte[fStream.Length];
+                    fStream.Read(contents, 0, (int)fStream.Length);
+                    fStream.Close();
 
+                    Doc_Emitido doc = new Doc_Emitido()
+                    {
+                        cod_documento = seleccionado.cod_documento,
+                        copia_documento = contents,
+                        cod_tramite = seleccionado.cod_tramite,
+                        estado = seleccionado.estado,
+                        fecha_emision = seleccionado.fecha_emision,
+                        precio = seleccionado.precio,
+                        valido = true,
+                        presencialidad = seleccionado.presencialidad,
+                        rut_cliente_pres = seleccionado.rut_cliente_pres,
+                        empleado_rut = seleccionado.empleado_rut,
+                    };
+                    if (doc.Update())
+                    {
+                        MessageBox.Show("Se guardó el documento correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LlenarGridAprobados();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un problema durante el guardado del documento", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        LlenarGridAprobados();
+                    }
+                }
+            }
+            else
+            {
+                if (DgAprobados.SelectedIndex != -1)
+                {
+                    sp_llenarDGRecep_Aprob_Result seleccionado = (sp_llenarDGRecep_Aprob_Result)DgAprobados.SelectedItem;
+                    
+                    //Transformar documento firmado en bytes
+                    string filepath = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf"; ;
+                    FileStream fStream = File.OpenRead(filepath);
+                    byte[] contents = new byte[fStream.Length];
+                    fStream.Read(contents, 0, (int)fStream.Length);
+                    fStream.Close();
+
+                    Doc_Emitido doc = new Doc_Emitido()
+                    {
+                        cod_documento = seleccionado.cod_documento,
+                        copia_documento = contents,
+                        cod_tramite = seleccionado.cod_tramite,
+                        estado = seleccionado.estado,
+                        fecha_emision = seleccionado.fecha_emision,
+                        precio = seleccionado.precio,
+                        valido = true,
+                        presencialidad = seleccionado.presencialidad,
+                        rut_cliente_pres = seleccionado.rut_cliente_pres,
+                        empleado_rut = seleccionado.empleado_rut,
+                    };
+                    if (doc.Update())
+                    {
+                        MessageBox.Show("Se guardó el documento correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LlenarGridAprobados();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un problema durante el guardado del documento", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        LlenarGridAprobados();
+                    }
+                }
+            }
         }
 
         private void BtnEnviarPDF(object sender, RoutedEventArgs e)
@@ -473,7 +548,7 @@ namespace Notaria_WPF
 
         private void CerrarSesion(object sender, RoutedEventArgs e)                                     // BOTON CERRAR SESIÓN
         {
-            if (MessageBox.Show("Esta seguro que desea cerrar sesión", "¿Está seguro?",
+            if (MessageBox.Show("¿Está seguro que desea cerrar sesión?", "¿Está seguro?",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 MainWindow MW = new MainWindow();
