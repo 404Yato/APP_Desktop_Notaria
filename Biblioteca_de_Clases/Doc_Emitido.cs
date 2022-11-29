@@ -2,6 +2,7 @@
 using Notaria.Datos;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 
 namespace Biblioteca_de_Clases
@@ -179,6 +180,20 @@ namespace Biblioteca_de_Clases
             var resultado = bbdd.SP_LlenarGridNotario();
             return resultado.ToList();
         }
+
+        public IList<Notaria.Datos.sp_llenarDGRecep_Aprob_Result> LlenarGridRecepAprob()
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            var resultado = bbdd.sp_llenarDGRecep_Aprob();
+            return resultado.ToList();
+        }
+        public IList<Notaria.Datos.sp_buscarDoc_aprobados_Result> BuscarDocsAprob(string rut)
+        {
+            Notaria.Datos.PortafolioEntities bbdd = new Notaria.Datos.PortafolioEntities();
+            var resultado = bbdd.sp_buscarDoc_aprobados(rut);
+            return resultado.ToList();
+        }
+
         #endregion
 
     }

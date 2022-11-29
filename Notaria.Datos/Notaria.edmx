@@ -322,7 +322,10 @@
           <Parameter Name="rut_busca" Type="varchar" Mode="In" />
           <Parameter Name="contra" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="SP_LlenarDGRecepAprobados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_buscarDoc_aprobados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_llenarDGRecep_Aprob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LlenarDGVistasBienesRaices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LlenarDGVistasOF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LlenarDGVistasPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -800,7 +803,10 @@
             <Parameter Name="rut_busca" Mode="In" Type="String" />
             <Parameter Name="contra" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SP_LlenarDGRecepAprobados" ReturnType="Collection(PortafolioModel.SP_LlenarDGRecepAprobados_Result)" />
+          <FunctionImport Name="sp_buscarDoc_aprobados" ReturnType="Collection(PortafolioModel.sp_buscarDoc_aprobados_Result)">
+            <Parameter Name="rut" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_llenarDGRecep_Aprob" ReturnType="Collection(PortafolioModel.sp_llenarDGRecep_Aprob_Result)" />
           <FunctionImport Name="SP_LlenarDGVistasBienesRaices" ReturnType="Collection(PortafolioModel.SP_LlenarDGVistasBienesRaices_Result)" />
           <FunctionImport Name="SP_LlenarDGVistasOF" ReturnType="Collection(PortafolioModel.SP_LlenarDGVistasOF_Result)" />
           <FunctionImport Name="SP_LlenarDGVistasPoliza" ReturnType="Collection(PortafolioModel.SP_LlenarDGVistasPoliza_Result)" />
@@ -862,7 +868,7 @@
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
           <Property Type="Int32" Name="cod_perfil" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="SP_LlenarDGRecepAprobados_Result">
+        <ComplexType Name="sp_buscarDoc_aprobados_Result">
           <Property Type="Int32" Name="cod_documento" Nullable="false" />
           <Property Type="String" Name="nombre_tramite" Nullable="false" MaxLength="100" />
           <Property Type="Binary" Name="copia_documento" Nullable="false" />
@@ -873,9 +879,20 @@
           <Property Type="Boolean" Name="presencialidad" Nullable="false" />
           <Property Type="String" Name="rut_cliente_pres" Nullable="true" MaxLength="12" />
           <Property Type="Int32" Name="cod_tramite" Nullable="false" />
-          <Property Type="String" Name="usuario_rut" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="empleado_rut" Nullable="true" MaxLength="12" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="92" />
+        </ComplexType>
+        <ComplexType Name="sp_llenarDGRecep_Aprob_Result">
+          <Property Type="Int32" Name="cod_documento" Nullable="false" />
+          <Property Type="String" Name="nombre_tramite" Nullable="false" MaxLength="100" />
+          <Property Type="Binary" Name="copia_documento" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_emision" Nullable="false" />
+          <Property Type="Int32" Name="precio" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="valido" Nullable="false" />
+          <Property Type="Boolean" Name="presencialidad" Nullable="false" />
+          <Property Type="String" Name="rut_cliente_pres" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="cod_tramite" Nullable="false" />
+          <Property Type="String" Name="empleado_rut" Nullable="true" MaxLength="12" />
         </ComplexType>
         <ComplexType Name="SP_LlenarDGVistasBienesRaices_Result">
           <Property Type="Int32" Name="cod_documento" Nullable="false" />
@@ -1188,9 +1205,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LlenarDGRecepAprobados" FunctionName="PortafolioModel.Store.SP_LlenarDGRecepAprobados">
+          <FunctionImportMapping FunctionImportName="sp_buscarDoc_aprobados" FunctionName="PortafolioModel.Store.sp_buscarDoc_aprobados">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="PortafolioModel.SP_LlenarDGRecepAprobados_Result">
+              <ComplexTypeMapping TypeName="PortafolioModel.sp_buscarDoc_aprobados_Result">
                 <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
                 <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
                 <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
@@ -1201,9 +1218,24 @@
                 <ScalarProperty Name="presencialidad" ColumnName="presencialidad" />
                 <ScalarProperty Name="rut_cliente_pres" ColumnName="rut_cliente_pres" />
                 <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
-                <ScalarProperty Name="usuario_rut" ColumnName="usuario_rut" />
                 <ScalarProperty Name="empleado_rut" ColumnName="empleado_rut" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_llenarDGRecep_Aprob" FunctionName="PortafolioModel.Store.sp_llenarDGRecep_Aprob">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PortafolioModel.sp_llenarDGRecep_Aprob_Result">
+                <ScalarProperty Name="cod_documento" ColumnName="cod_documento" />
+                <ScalarProperty Name="nombre_tramite" ColumnName="nombre_tramite" />
+                <ScalarProperty Name="copia_documento" ColumnName="copia_documento" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="valido" ColumnName="valido" />
+                <ScalarProperty Name="presencialidad" ColumnName="presencialidad" />
+                <ScalarProperty Name="rut_cliente_pres" ColumnName="rut_cliente_pres" />
+                <ScalarProperty Name="cod_tramite" ColumnName="cod_tramite" />
+                <ScalarProperty Name="empleado_rut" ColumnName="empleado_rut" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

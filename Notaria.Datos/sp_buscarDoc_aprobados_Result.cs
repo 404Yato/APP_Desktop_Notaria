@@ -11,7 +11,7 @@ namespace Notaria.Datos
 {
     using System;
     
-    public partial class SP_LlenarDGRecepAprobados_Result
+    public partial class sp_buscarDoc_aprobados_Result
     {
         public int cod_documento { get; set; }
         public string nombre_tramite { get; set; }
@@ -23,8 +23,6 @@ namespace Notaria.Datos
         public bool presencialidad { get; set; }
         public string rut_cliente_pres { get; set; }
         public int cod_tramite { get; set; }
-        public string usuario_rut { get; set; }
         public string empleado_rut { get; set; }
-        public string Nombre { get; set; }
     }
 }

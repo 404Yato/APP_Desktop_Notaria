@@ -61,6 +61,7 @@ namespace Notaria_WPF
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             OcultarReservas();
             OcultarDocumentos();
+            OcultarDocsAprob();
             LlenaDataGrid();
             CargarComboBox();
         }
@@ -105,6 +106,7 @@ namespace Notaria_WPF
             OcultarDocumentos();
             LimpiarCamposReservas();
             OcultarControlesTramite();
+            OcultarDocsAprob();
             FrameFormularios.Content = null;
             btnInicio.Visibility = Visibility.Collapsed;
         }
@@ -228,6 +230,7 @@ namespace Notaria_WPF
             OcultarControlesTramite();
             LimpiarCamposTramites();
             CargarComboTipoTramite();
+            OcultarDocsAprob();
             FrameFormularios.Content = null;
         }
         private void LimpiarCamposTramites()
@@ -241,6 +244,8 @@ namespace Notaria_WPF
         {
             cbTipoTramite.Visibility = Visibility.Collapsed;
             lbTipoTramite.Visibility = Visibility.Collapsed;
+            rec_documento.Visibility = Visibility.Collapsed;
+
         }
 
         private void CargarComboTipoTramite()
@@ -352,6 +357,111 @@ namespace Notaria_WPF
 
         #endregion
 
+        #region Documentos Aprobados
+
+        private void OcultarDocsAprob() //Oculta los controles del apartado de documentos aprobados del recepcionista
+        {
+            lb_docAprob.Visibility = Visibility.Collapsed;
+            lb_buscarRut.Visibility = Visibility.Collapsed;
+            txbRut.Visibility = Visibility.Collapsed;
+            DgAprobados.Visibility = Visibility.Collapsed;
+        }
+
+        private void MostarDocsAprob() //Muestra los controles del apartado de documentos aprobados del recepcionista
+        {
+            lb_docAprob.Visibility = Visibility.Visible;
+            lb_buscarRut.Visibility = Visibility.Visible;
+            txbRut.Visibility = Visibility.Visible;
+            DgAprobados.Visibility = Visibility.Visible;
+        }
+
+        private void btn_docAprob_Click(object sender, RoutedEventArgs e)
+        {
+            MostarDocsAprob();
+            OcultarReservas();
+            OcultarControlesTramite();
+            OcultarDocumentos();
+            LlenarGridAprobados();
+            FrameFormularios.Content = null;
+        }
+
+        private void LlenarGridAprobados()
+        {
+            Doc_Emitido docs = new Doc_Emitido();
+            DgAprobados.ItemsSource = docs.LlenarGridRecepAprob();
+            DgAprobados.Items.Refresh();
+        }
+
+        private void BuscarDocsAprob()
+        {
+            Doc_Emitido docBuscado = new Doc_Emitido();
+            DgAprobados.ItemsSource = docBuscado.BuscarDocsAprob(txbRut.Text);
+            DgAprobados.Items.Refresh();
+        }
+
+        private void txbRut_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txbRut.Text != "")
+            {
+                BuscarDocsAprob();
+            }
+            else
+            {
+                LlenarGridAprobados();
+            }
+        }
+
+        private void BtnGuardarPDF(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEnviarPDF(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAbrirPDF(object sender, RoutedEventArgs e)
+        {
+            if (txbRut.Text != "")
+            {
+                if (DgAprobados.SelectedIndex != -1)
+                {
+                    sp_buscarDoc_aprobados_Result seleccionado = (sp_buscarDoc_aprobados_Result)DgAprobados.SelectedItem;
+                    Process AbrirPDF = new Process();
+                    string path2 = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf";
+                    File.WriteAllBytes(path2, seleccionado.copia_documento);
+                    AbrirPDF.StartInfo.FileName = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf";
+                    AbrirPDF.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un archivo");
+                }
+            }
+            else
+            {
+                if (DgAprobados.SelectedIndex != -1)
+                {
+                    sp_llenarDGRecep_Aprob_Result seleccionado = (sp_llenarDGRecep_Aprob_Result)DgAprobados.SelectedItem;
+                    Process AbrirPDF = new Process();
+                    string path2 = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf";
+                    File.WriteAllBytes(path2, seleccionado.copia_documento);
+                    AbrirPDF.StartInfo.FileName = @"..\Doc_Notarial\Archivos Temporales\" + seleccionado.cod_documento + ".pdf";
+                    AbrirPDF.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un archivo");
+                }
+            }
+            
+        }
+
+        #endregion
+
+        
+
         private void btnInicio_Click(object sender, RoutedEventArgs e)
         {
             FrameFormularios.Content = null;
@@ -373,5 +483,7 @@ namespace Notaria_WPF
             else { }
 
         }
+
+        
     }
 }

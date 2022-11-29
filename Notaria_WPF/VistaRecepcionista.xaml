@@ -13,7 +13,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notaria_WPF"
         mc:Ignorable="d"
-        Title="Notaria Abuyeres" Height="580" Width="830" Icon="/Img/logo.ico">
+        Title="Notaria Abuyeres" Height="577" Width="912" Icon="/Img/logo.ico">
     <Grid Background="#FFA1D6E2" >
         <Rectangle Fill="#FF4D648D" Height="45" VerticalAlignment="Top"/>
         <Button x:Name="btn_cerrarSesion" Margin="0,5,10,0" VerticalAlignment="Top" Height="38" Padding="0,0,0,0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="132" Click="CerrarSesion" FlowDirection="RightToLeft" Cursor="Hand">
@@ -33,6 +33,7 @@
         <Label x:Name="lb_menu" Content="Menu" HorizontalAlignment="Left" Margin="21,97,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri" FontSize="20"/>
         <Button x:Name="btn_reservas" Content="Reservas" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="12" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Cursor="Hand"/>
         <Button x:Name="btn_docs" Content="Documentos" HorizontalAlignment="Left" Margin="1,198,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="12" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Cursor="Hand" Click="btn_docs_Click"/>
+        <Button x:Name="btn_docAprob" Content="Documentos&#xA;Aprobados" HorizontalAlignment="Left" Margin="0,259,0,0" VerticalAlignment="Top" Height="56" Width="100" FontSize="12" FontFamily="Calibri" Background="#FF283655" Foreground="White" BorderBrush="{x:Null}" Cursor="Hand" Click="btn_docAprob_Click"/>
         <Image Margin="0,7,158,0" Source="/Img/perfil.png" Stretch="Fill" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="32"/>
         <Label Content="Recepcionista" Margin="0,10,193,0" VerticalAlignment="Top" FontFamily="Calibri" FontSize="16" Foreground="#FF00CCFF" HorizontalAlignment="Right" Width="103"/>
         <Rectangle Margin="114,83,10,10" Fill="#FF4D648D" RadiusX="20" RadiusY="20"/>
@@ -70,6 +71,43 @@
         <Button x:Name="btnCrearDoc" Content="Crear" Margin="376,433,0,0" Cursor="Hand" FontFamily="Calibri" FontWeight="Bold" FontSize="22" Click="btnCrearDoc_Click" HorizontalAlignment="Left" Width="134" Height="40" VerticalAlignment="Top" Visibility="Collapsed"/>
         <Button x:Name="btnInicio" Content="Volver al inicio" Margin="628,57,0,0" VerticalAlignment="Top" Height="24" Click="btnInicio_Click" HorizontalAlignment="Left" Width="126" Cursor="Hand" Visibility="Collapsed"/>
 
+        <!--Apartado Documentos Aprobados-->
 
+        <TextBox x:Name="txbRut" Margin="140,136,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7" TextChanged="txbRut_TextChanged"/>
+
+        <DataGrid x:Name="DgAprobados" AutoGenerateColumns="False" IsReadOnly="True" Margin="140,198,33,97" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Calibri">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="RUT" Binding="{Binding rut_cliente_pres}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Documento" Binding="{Binding nombre_tramite }" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Estado" Binding="{Binding estado}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Valor" Binding="{Binding precio}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Fecha Emisión" Binding="{Binding fecha_emision,StringFormat={}{0:MM/dd/yyyy}}" IsReadOnly="True" />
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnAbrir" Content="Abrir" HorizontalAlignment="Left" Click="BtnAbrirPDF" FontFamily="Calibri" FontSize="10" Width="77" Height="20" BorderBrush="#FF283655" BorderThickness="0.3" Cursor="Hand"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEnviar" Content="Enviar" HorizontalAlignment="Left" Click="BtnEnviarPDF" FontFamily="Calibri" FontSize="10" Width="77" Height="20" BorderBrush="#FF283655" BorderThickness="0.3" Cursor="Hand"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Click="BtnGuardarPDF" FontFamily="Calibri" FontSize="10" Width="77" Height="20" BorderBrush="#FF283655" BorderThickness="0.3" Cursor="Hand"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lb_buscarRut"  Content="Buscar Rut:" HorizontalAlignment="Left" Margin="140,105,0,0" VerticalAlignment="Top" Width="80" Foreground="#DDFFFFFF" FontFamily="Calibri"/>
+        <Label x:Name="lb_docAprob"  Content="Documentos Aprobados" HorizontalAlignment="Left" Margin="175,47,0,0" VerticalAlignment="Top" Width="141" Foreground="#DDFFFFFF" FontFamily="Calibri"/>
     </Grid>
 </Window>
