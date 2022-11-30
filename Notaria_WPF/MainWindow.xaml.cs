@@ -19,6 +19,7 @@ using System.Data.SqlClient;
 using System.Data;
 using NotariaWPF;
 using System.Web.UI.WebControls;
+using Biblioteca_de_Clases;
 
 namespace Notaria_WPF
 {
@@ -96,6 +97,17 @@ namespace Notaria_WPF
 
             if (DataGrid1.SelectedIndex != -1)
             {
+                tipo_tramite tramite = (tipo_tramite)DataGrid1.SelectedItem;
+                tramite.Delete();
+                llenar_grid();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar el objeto de la lista a eliminar");
+            }
+
+            /*if (DataGrid1.SelectedIndex != -1)
+            {
                 MessageBoxResult selecion = MessageBox.Show("¿Estás seguro que deseas eliminar este tipo de trámite?",
                "Advertencia", MessageBoxButton.YesNoCancel);
 
@@ -127,7 +139,7 @@ namespace Notaria_WPF
             else
             {
                 MessageBox.Show("Debe seleccionar el objeto de la lista a eliminar");
-            }
+            }*/
 
             /*MessageBoxResult selecion = MessageBox.Show("¿Estás seguro que deseas eliminar este tipo de trámite?",
                 "Advertencia", MessageBoxButton.YesNoCancel);
