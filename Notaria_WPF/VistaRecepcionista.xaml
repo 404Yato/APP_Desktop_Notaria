@@ -73,9 +73,9 @@
 
         <!--Apartado Documentos Aprobados-->
 
-        <TextBox x:Name="txbRut" Margin="140,136,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7" TextChanged="txbRut_TextChanged"/>
+        <TextBox x:Name="txbRut" Margin="140,136,0,0" TextWrapping="Wrap" FontSize="16" FontFamily="Calibri" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="211" Background="#FFC6EEF7" TextChanged="txbRut_TextChanged" Visibility="Collapsed"/>
 
-        <DataGrid x:Name="DgAprobados" AutoGenerateColumns="False" IsReadOnly="True" Margin="140,198,33,97" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Calibri">
+        <DataGrid x:Name="DgAprobados" AutoGenerateColumns="False" IsReadOnly="True" Margin="140,198,33,97" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}" FontFamily="Calibri" Visibility="Collapsed">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="RUT" Binding="{Binding rut_cliente_pres}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Documento" Binding="{Binding nombre_tramite }" IsReadOnly="True"/>
@@ -107,7 +107,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="lb_buscarRut"  Content="Buscar Rut:" HorizontalAlignment="Left" Margin="140,105,0,0" VerticalAlignment="Top" Width="80" Foreground="#DDFFFFFF" FontFamily="Calibri"/>
-        <Label x:Name="lb_docAprob"  Content="Documentos Aprobados" HorizontalAlignment="Left" Margin="175,47,0,0" VerticalAlignment="Top" Width="141" Foreground="#DDFFFFFF" FontFamily="Calibri"/>
+        <Label x:Name="lb_buscarRut"  Content="Buscar Rut:" HorizontalAlignment="Left" Margin="140,105,0,0" VerticalAlignment="Top" Width="80" Foreground="#DDFFFFFF" FontFamily="Calibri" Visibility="Collapsed"/>
+        <Label x:Name="lb_docAprob"  Content="Documentos Aprobados" HorizontalAlignment="Left" Margin="175,47,0,0" VerticalAlignment="Top" Width="141" Foreground="#DDFFFFFF" FontFamily="Calibri" Visibility="Collapsed"/>
     </Grid>
 </Window>

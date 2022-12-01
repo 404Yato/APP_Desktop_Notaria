@@ -245,6 +245,7 @@ namespace Notaria_WPF
             cbTipoTramite.Visibility = Visibility.Collapsed;
             lbTipoTramite.Visibility = Visibility.Collapsed;
             rec_documento.Visibility = Visibility.Collapsed;
+            lb_docTitulo.Visibility = Visibility.Collapsed;
 
         }
 
