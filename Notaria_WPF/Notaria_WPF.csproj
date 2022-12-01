@@ -156,12 +156,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ActualizarArchivo.xaml.cs">
-      <DependentUpon>ActualizarArchivo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="firma.xaml.cs">
-      <DependentUpon>firma.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FormArriendoVehiculo.xaml.cs">
       <DependentUpon>FormArriendoVehiculo.xaml</DependentUpon>
     </Compile>
@@ -176,9 +170,6 @@
     </Compile>
     <Compile Include="Formularios\FormCartaRenuncia.xaml.cs">
       <DependentUpon>FormCartaRenuncia.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TemplatesCRUD.xaml.cs">
-      <DependentUpon>TemplatesCRUD.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistaBienesRaices.xaml.cs">
       <DependentUpon>VistaBienesRaices.xaml</DependentUpon>
@@ -195,14 +186,6 @@
     <Compile Include="VistaRecepcionista.xaml.cs">
       <DependentUpon>VistaRecepcionista.xaml</DependentUpon>
     </Compile>
-    <Page Include="ActualizarArchivo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="firma.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Formularios\FormArriendoVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,31 +206,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GuardarArchivo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="VistaCajero.xaml.cs">
       <DependentUpon>VistaCajero.xaml</DependentUpon>
     </Compile>
-    <Page Include="HistorialDocumentos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Administracion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="TiposDeTramites.xaml.cs">
-      <DependentUpon>TiposDeTramites.xaml</DependentUpon>
-    </Compile>
     <Page Include="Contador.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="HistorialReservas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -260,27 +228,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GuardarArchivo.xaml.cs">
-      <DependentUpon>GuardarArchivo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HistorialDocumentos.xaml.cs">
-      <DependentUpon>HistorialDocumentos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Contador.xaml.cs">
       <DependentUpon>Contador.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HistorialReservas.xaml.cs">
-      <DependentUpon>HistorialReservas.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TemplatesCRUD.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="VistaBienesRaices.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -288,10 +243,6 @@
     <Page Include="VistaCajero.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TiposDeTramites.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VistaNotario.xaml">
       <SubType>Designer</SubType>
